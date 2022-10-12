@@ -1,0 +1,99 @@
+// Lower Section Styles (Bottom of Posts)
+//    - comments, etc.
+// ---------------------------------------
+
+// Area Variables
+// -------------------------
+@lowerBackground: @highlightTwo;
+@lowerTextDark: darken(@textColor, 10%);
+@lowerTextLight: @highlightThree;
+@lowerLink: @lowerTextLight;
+@lowerLinkHover: @lowerTextDark;
+
+.lower {
+    background: @lowerBackground;
+    padding: 15px 25px;
+    font-family: @sansFontFamily;
+    border-top: 5px solid @highlightOne;
+}
+
+.lower-inside {
+    margin: 0 auto;
+    max-width: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lower-item {
+    // Metadata at bottom of post
+    margin: 0;
+    height: 200px;
+    vertical-align: text-top;
+    padding: 0 2%;
+    width: 33.3333vw;
+    font-weight: bold;
+    color: @highlightThree;
+    border-right: 1px dashed @grayLighter;
+    .fontSize(@fontSizeSmall);
+    .font-smoothing;
+    &:last-of-type {
+        border-right: none;
+    }
+    .footer-cats li {
+        float: left;
+        width: 50%;
+    }
+    .footer-posts li {
+        margin-bottom: 0.5em;
+    }
+    a {
+        color: @lowerTextDark;
+        font-weight: normal;
+        position: relative;
+        text-decoration: underline;
+        .transition(all 0.7s ease-in-out);
+
+        &:hover {
+            color: @lowerLink;
+            border: none;
+            .transition(all 0.7s ease-in-out);
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            font-weight: 700;
+            background-color: @lowerLink;
+            visibility: hidden;
+            .transform(scaleX(0));
+            .transition(all 0.7s ease-in-out 0s);
+        }
+        &:hover:before {
+            visibility: visible;
+            .transform(scaleX(1));
+        }
+    }
+    .normal {
+        color: @lowerTextDark;
+        font-weight: normal;
+        //text-transform : capitalize;
+        position: relative;
+    }
+}
+
+@media @smallPhones {
+    .lower {
+        padding: 15px 5px;
+    }
+    .lower-item {
+        height: 300px;
+        .footer-cats li {
+            float: none;
+            width: 100%;
+        }
+    }
+}

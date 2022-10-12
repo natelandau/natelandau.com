@@ -1,0 +1,6 @@
+# ignore everything
+*
+
+# except for
+!.gitignore
+!index.html

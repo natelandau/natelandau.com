@@ -1,0 +1,51 @@
+---
+layout: null
+sitemap:
+  exclude: true
+---
+{% for post in site.posts limit:1 %}
+  {% if post.sitemap.lastmod %}
+    {% capture lastUpdatetime %}{{ post.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}{% endcapture %}
+  {% else %}
+    {% capture lastUpdatetime %}{{ post.date | date: "%Y-%m-%dT%H:%M:%S%z" }}{% endcapture %}
+  {% endif %}
+{% endfor %}
+
+{
+  "site": {{ site.name | jsonify }},
+  "url": "{{ site.baseurl }}",
+  "tagline": {{ site.tagline | jsonify }},
+  "author": "{{ site.author.name }}",
+  "email": "{{ site.author.email }}",
+  "last_update": "{{ lastUpdatetime }}",
+  "copyright": "{{ lastUpdatetime | date: '%Y' }}",
+  "posts": [ {% for post in site.posts reversed %}{% unless post.flags.published == false %}{% unless post.sitemap.exclude == true %}
+    {
+      "id": "{{ post.id }}",
+      "url": "{{ site.baseurl }}{{ post.url }}",
+      "type": "{{ post.layout }}",{% if post.description %}
+      "description": {{ post.description | jsonify  }},{% endif %}
+      "title": {{ post.title | jsonify }},
+      "datePublished": "{{ post.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% if post.sitemap.lastmod %}
+      "dateModified": "{{ post.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% endif %}
+      "tags":  [ "{{ post.tags | join: '", "' }}" ],{% if post.layout == "link" %}
+      "linkURL": "{{ post.linkURL }}",
+      "linkTitle": "{{ post.linkTitle }}",{% endif %}
+      "comments": "{{ post.flags.comments }}"
+    }{% unless forloop.last %},{% endunless %}{% endunless %}{% endunless %}{% endfor %}
+  ],
+  "pages": [ {% for page in site.pages %}{% unless page.sitemap.exclude == true %}{% unless page.url contains "/tag" %}{% unless page.url contains "/amp" %}
+    {
+      "id": "{{ page.url }}",
+      "url": "{{ site.baseurl }}{{ page.url }}",{% if page.description %}
+      "description": {{ page.description | jsonify }},{% endif %}{% if page.tags %}
+      "tags":  [ "{{ page.tags | join: '", "' }}" ],{% endif %}
+      "title": {{ page.title | jsonify }},{% if page.date %}
+      "datePublished": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% else %}
+      "datePublished": "{{ lastUpdatetime }}",{% endif %}{% if page.sitemap.lastmod %}
+      "dateModified": "{{ page.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}"{% else %}
+      "dateModified": "{{ lastUpdatetime }}"
+      {% endif %}
+    }{% unless forloop.last %},{% endunless %}{% endunless %}{% endunless %}{% endunless %}{% endfor %}
+  ]
+}

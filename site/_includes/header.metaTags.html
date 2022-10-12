@@ -1,0 +1,8 @@
+{% if page.description != null %}
+<meta name="description" content="{{ page.description }}" />
+{% elsif page.layout == "post" or page.layout == 'link' %}
+<meta
+    name="description"
+    content="{{ page.excerpt | strip_html | strip_newlines | xml_escape | truncate: 225 }}"
+/>
+{% endif %}

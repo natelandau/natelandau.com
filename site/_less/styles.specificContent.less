@@ -1,0 +1,191 @@
+// ---    Static Pages Styles
+// ------------------------------------
+
+.social-header {
+    text-align: center;
+    margin: 0 0 30px 0;
+    padding: 20px 0;
+    border-top: 1px solid #a6a6a6;
+    border-bottom: 1px solid #a6a6a6;
+    font-size: 21px;
+}
+
+.social-circle {
+    //.border-radius(50px);
+    width: 50px;
+    margin: 0 5px 0 0;
+    height: 50px;
+    display: inline-block;
+    text-align: left;
+    .border-radius(5px);
+    .fontSize(3.4);
+    &:hover {
+        color: @white;
+        .background-image(linear-gradient(to bottom, lighten(@grayDark, 20%) 0%, @gray 100%));
+    }
+}
+
+.twitter {
+    .twitterMixin;
+    padding: 0 0 0 10px;
+}
+.facebook {
+    .facebookMixin;
+    padding: 0 0 0 14px;
+}
+.linkedin {
+    .linkedinMixin;
+    padding: 0 0 0 10px;
+}
+.github {
+    .githubMixin;
+    padding: 0 0 0 12px;
+    i {
+        .fontSize(3.2);
+    }
+}
+.envelope {
+    .tumblrMixin;
+    padding: 0 0 0 11px;
+    i {
+        .fontSize(3);
+    }
+}
+
+#pageResume {
+    p {
+        margin: 0 0 20px 0;
+        //border-top: 1px dotted @gray;
+    }
+    //h1 {margin-bottom:40px;}
+    h2 {
+        text-shadow: 0px 1px 1px #ccc;
+        margin-bottom: 0;
+        text-transform: capitalize;
+        .fontSizeOnly(3.8);
+        .lineHeight(2.8);
+
+        a {
+            color: @textColor;
+            position: relative;
+            .transition(all 0.7s ease-in-out);
+
+            &:hover {
+                color: @linkColor;
+                //text-decoration : underline;
+                .transition(all 0.7s ease-in-out);
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: @linkColor;
+                visibility: hidden;
+                .transform(scaleX(0));
+                .transition(all 0.7s ease-in-out 0s);
+            }
+            &:hover:before {
+                visibility: visible;
+                .transform(scaleX(1));
+            }
+        }
+    }
+    h3 {
+        margin: 0;
+        font-weight: normal;
+        .fontSize(2.4);
+        a {
+            color: @textColor;
+            font-style: italic;
+            position: relative;
+            .transition(all 0.7s ease-in-out);
+
+            &:hover {
+                color: @linkColor;
+                .transition(all 0.7s ease-in-out);
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: @linkColor;
+                visibility: hidden;
+                .transform(scaleX(0));
+                .transition(all 0.7s ease-in-out 0s);
+            }
+            &:hover:before {
+                visibility: visible;
+                .transform(scaleX(1));
+            }
+        }
+    }
+    h4 {
+        margin: 0;
+        font-weight: normal;
+        font-family: @sansFontFamily;
+        .fontSize(1.8);
+        a {
+            color: @textColor;
+            font-style: italic;
+            position: relative;
+            .transition(all 0.7s ease-in-out);
+
+            &:hover {
+                color: @linkColor;
+                .transition(all 0.7s ease-in-out);
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: @linkColor;
+                visibility: hidden;
+                .transform(scaleX(0));
+                .transition(all 0.7s ease-in-out 0s);
+            }
+            &:hover:before {
+                visibility: visible;
+                .transform(scaleX(1));
+            }
+        }
+    }
+}
+
+@media @smallPhones {
+    #pageResume h2 {
+        .fontSizeOnly(2.8);
+        .lineHeight(1.8);
+    }
+
+    #pageResume h3 {
+        .fontSizeOnly(2);
+        .lineHeight(1.5);
+    }
+    #pageResume h4 {
+        .fontSize(1.4);
+    }
+    #pageResume a.btn,
+    #pageResume a.btnGreen {
+        display: none;
+    }
+}
+
+@media @largePhones {
+    #pageResume h2 {
+        .fontSizeOnly(2.8);
+        .lineHeight(1.8);
+    }
+    #pageResume a.btn,
+    #pageResume a.btnGreen {
+        display: none;
+    }
+}

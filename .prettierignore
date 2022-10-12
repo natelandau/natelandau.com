@@ -1,0 +1,13 @@
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+*.lock
+package-lock.json
+**/.jekyll-metadata
+**/.sass-cache/
+**/.jekyll-cache/
+**/*.min*
+_site/**/*.html
+_siteProd/**/*.html
+_siteStage/**/*.html

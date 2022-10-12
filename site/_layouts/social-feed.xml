@@ -1,0 +1,64 @@
+---
+layout: social-feed
+---
+<?xml version="1.0" encoding="utf-8"?>
+{% for post in site.posts limit:1 %}
+  {% if post.sitemap.lastmod %}
+    {% capture lastUpdatetime %}{{ post.sitemap.lastmod | date_to_xmlschema }}{% endcapture %}
+  {% else %}
+    {% capture lastUpdatetime %}{{ post.date | date_to_xmlschema }}{% endcapture %}
+  {% endif %}
+{% endfor %}
+
+<feed xmlns="https://www.w3.org/2005/Atom">
+{% comment %}<link rel="hub" href="https://pubsubhubbub.appspot.com"/>{% endcomment %}
+  <title type="text" xml:lang="en">{{ site.name }}</title>
+    <link type="application/atom+xml" href="{{ site.baseurl }}/feed.xml" rel="self"/>
+    <link href="{{ site.baseurl }}/"/>
+  <updated>{{ lastUpdatetime }}</updated>
+  <id>{{ site.baseurl }}/</id>
+  <author>
+    <name>{{ site.author.name }}</name>
+    <email>{{ site.author.email }}</email>
+  </author>
+  <rights type="text">Copyright © {{ lastUpdatetime | date: "%Y" }} {{ site.author.name }}. All rights reserved.</rights>
+    {% assign platform = page.title | downcase %}
+    {% for post in site.posts limit:10 %}
+      {% assign share_on = post.social.share | downcase %}
+
+      {% if share_on contains platform %}
+        {% if platform == 'twitter' %}
+          {% assign format_parsed = site.twitter_format | replace: '@title', post.title | replace: '@url', '' | replace: '@tags', '' | size %}
+          {% assign post_tags = '' %}
+          {% assign space_left = site.twitter_max_length | minus: format_parsed.size %}
+
+          {% if site.twitter_format contains '@url' %}
+            {% assign space_left = space_left | minus: site.twitter_url_length %}
+          {% endif %}
+
+          {% for tag in post.social.hashtags %}
+            {% capture new_tag %} #{{ tag }}{% endcapture %}
+            {% assign new_space_left = space_left | minus: new_tag.size %}
+
+            {% if new_space_left > 0 %}
+              {% assign post_tags = post_tags | append: new_tag %}
+              {% assign space_left = space_left | minus: new_tag.size %}
+            {% endif %}
+          {% endfor %}
+
+          {% assign post_title = site.twitter_format | replace: '@title', post.title | replace: '@tags', post_tags | replace: '@url', post.url %}
+        {% else %}
+          {% assign post_title = post.title %}
+        {% endif %}
+
+      <entry>
+        <title>{{ post_title | xml_escape }}</title>
+        <link>{{ site.baseurl }}{{ post.url }}</link>
+        <published>{{ post.date | date_to_xmlschema }}</published>
+        <updated>{{ post.date | date_to_xmlschema }}</updated>
+        <id>{{ site.baseurl }}{{ post.id }}</id>
+        <content type="html"><![CDATA[ {% if post.description %}{{ post.description | markdownify}}{% endif %}{{ post.content | markdownify}} ]]></content>
+      </entry>
+      {% endif %}
+    {% endfor %}
+</feed>

@@ -1,0 +1,92 @@
+
+<div id="lower-jump" class="lower clearfix">
+  <div class="lower-inside clearfix">
+
+    <div class="lower-item">
+      Author<br />
+      <a href="{{ site.baseurl }}/about-nathaniel-landau/">{{ site.author.name }}</a>
+      <br /><br />
+      Feeds<br />
+      <a href="https://feeds.natelandau.com/rss"><i class="fa fa-rss"></i>&nbsp;&nbsp;RSS Feed</a><br />
+      <a href="{{ site.baseurl }}/feed.json"><i class="fa fa-link"></i>&nbsp;&nbsp;JSON Feed</a>
+      <br /><br />
+      <span class="normal">&copy; Copyright {{ site.time | date: '%Y' }}. All Rights Reserved.</span>
+    </div>
+
+    <div class="lower-item">
+      Categories<br />
+      <ul class="footer-cats">
+      {% assign catlist = site.data.categories | sort: 'name' %}
+      {% for cat in catlist %}
+        {% if cat.includeFooter == true %}
+          <li><a href="{{ site.baseurl }}/{{ cat.url }}">{{ cat.name }}</a></li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </div>
+
+    <div class="lower-item">
+      Recent Posts<br />
+      <ul class="footer-posts">
+        {% assign count = 0 %}
+        {% for post in site.posts %}
+          {% if count == '5' %}
+            {% break %}
+          {% elsif post.layout == 'link' %}
+            {% continue %}
+          {% else %}
+            {% capture count %}{{ count | plus: '1' }}{% endcapture %}
+            <li>
+              <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+
+  </div><!-- /lower-inside -->
+</div><!-- /lower -->
+
+
+
+</div><!-- /Main -->
+</div><!-- /Wrapper -->
+
+{% comment %}
+The following code defers loading of Javascript until after the page is fully loaded
+As taken from: https://varvy.com/pagespeed/defer-loading-javascript.html
+{% endcomment %}
+{% if site.include-js != false %}
+<script type="text/javascript">
+function downloadJSAtOnload() {
+var element = document.createElement("script");
+element.src = "/assets/customScripts.js";
+document.body.appendChild(element);
+}
+if (window.addEventListener)
+window.addEventListener("load", downloadJSAtOnload, false);
+else if (window.attachEvent)
+window.attachEvent("onload", downloadJSAtOnload);
+else window.onload = downloadJSAtOnload;
+</script>
+{% endif %}
+
+{% if post.youtubeEmbed == "true" %}
+<script type="text/javascript">
+    // Initialize FitVids
+    $(".post-content").fitVids();
+</script>
+{% endif %}
+{% comment %}
+<script type="text/javascript">
+// Initialize Fancybox
+$(document).ready(function() {
+	$(".fancybox").fancybox({
+
+	});
+});
+</script>
+{% endcomment %}
+</body>
+</html>

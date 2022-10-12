@@ -1,0 +1,89 @@
+---
+layout: default
+title: Nathanel Landau | Nate Landau's home on the web
+---
+
+<div id="content">
+    <div class="posts">
+        <div class="index">
+            <!-- Grab Posts -->
+            {% for post in paginator.posts %}
+            <article class="post {{ post.layout }} cat-{{ post.category }}">
+                <div class="box-wrap">
+                    <div class="box">
+                        <header>
+                            <div class="date-title">
+                                <time
+                                    itemprop="dateCreated"
+                                    datetime='{{ post.date | date: "%Y-%m-%d" }}'
+                                >
+                                    {{ post.date | date: "%h %d, %Y" }}
+                                </time>
+                            </div>
+                            <div class="top-meta clearfix">
+                                <div class="rubric">
+                                    <h4>
+                                        <a
+                                            href="/{{ post.category | uri_escape }}"
+                                            >{{ post.category }}</a
+                                        >
+                                    </h4>
+                                </div>
+                                {% for tag in post.tags %}
+                                <div class="tag">
+                                    <h4>
+                                        <a href="/tag/{{ tag | uri_escape }}"
+                                            >{{ tag }}</a
+                                        >
+                                    </h4>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <!-- /clearfix -->
+                            <h2 class="entry-title">
+                                <a
+                                    href="{{ post.url }}"
+                                    title="{{ post.title }}"
+                                    >{{ post.title }}</a
+                                >
+                            </h2>
+                        </header>
+                        <div class="post-content">
+                            <div class="excerpt-more">
+                                {{ post.excerpt }}
+                                <a
+                                    class="excerpt-link"
+                                    href="{{ post.url }}"
+                                    title="{{ post.title }}"
+                                    >Read More &raquo;</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+            <!-- /Grab Posts -->
+        </div>
+        <!-- /index -->
+    </div>
+    <!-- /posts -->
+</div>
+<!-- /content -->
+
+<div class="post-nav">
+    <div class="post-nav-inside">
+        {% if paginator.previous_page %} {% if paginator.previous_page == 1 %}
+        <div class="post-nav-right"><a href="/">Newer Posts</a></div>
+        {% else %}
+        <div class="post-nav-right">
+            <a href="{{ paginator.previous_page_path }}">Newer Posts</a>
+        </div>
+        {% endif %} {% endif %} {% if paginator.next_page %}
+        <div class="post-nav-left">
+            <a href="{{ paginator.next_page_path }}">Older Posts</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<!-- /post-nav -->

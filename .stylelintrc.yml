@@ -1,0 +1,21 @@
+---
+extends:
+    - "stylelint-config-recommended"
+    - "stylelint-config-prettier"
+overrides:
+    - files: ["**/*.less"]
+      customSyntax: "postcss-less"
+ignoreFiles:
+    - "**/font-awesome-4.5.0/**/*.less"
+    - "**/_less/cssFiles/**/*.less"
+    - "**/lesshat.less"
+rules:
+    indentation: 4
+    function-no-unknown:
+        - true
+        - ignoreFunctions:
+              - "unit"
+              - "lighten"
+              - "darken"
+    no-descending-specificity: null
+    font-family-no-missing-generic-family-keyword: null

@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "*.html": "jekyll"
+    },
+    "prettier.configPath": ".prettierrc.yaml",
+    "prettier.endOfLine": "auto",
+    "prettier.tabWidth": 4,
+    "[yaml]": {
+        "editor.tabSize": 4
+    },
+    "prettier.requireConfig": true
+}

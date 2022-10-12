@@ -1,0 +1,26 @@
+# Jekyll Specific
+# #####################
+.jekyll-metadata
+.sass-cache/
+.jekyll-cache/
+
+# Project Specific #
+# #####################
+_site/
+_siteProd/
+_siteStage/
+node_modules/
+site/assets/*.css
+site/assets/*.css.map
+site/assets/*.js
+tmp/
+
+# OS generated files #
+# ####################
+._*
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+*[Tt]humbs.db
+ehthumbs.db

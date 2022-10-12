@@ -1,0 +1,27 @@
+{% capture srcset %}{% for i in resized %}/{{ i.path }} {{ i.width }}w,{% endfor
+%}{% endcapture %} {% if link != null %} {% if alt != null %}
+<a href="{{ link }}"
+    ><img
+        src="/{{ path }}"
+        alt="{{ alt }}"
+        title="{{ alt }}"
+        srcset="{{ srcset | strip_newlines }} /{{ original.path }} {{ original.width }}w"
+/></a>
+{% else %}
+<a href="{{ link }}"
+    ><img
+        src="/{{ path }}"
+        srcset="{{ srcset | strip_newlines }} /{{ original.path }} {{ original.width }}w"
+/></a>
+{% endif %} {% else %} {% if alt != null %}
+<img
+    src="/{{ path }}"
+    alt="{{ alt }}"
+    srcset="{{ srcset | strip_newlines }} /{{ original.path }} {{ original.width }}w"
+/>
+{% else %}
+<img
+    src="/{{ path }}"
+    srcset="{{ srcset | strip_newlines }} /{{ original.path }} {{ original.width }}w"
+/>
+{% endif %} {% endif %}

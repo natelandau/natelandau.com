@@ -1,0 +1,65 @@
+---
+layout: null
+sitemap:
+  exclude: true
+---
+{% for post in site.posts limit:1 %}
+  {% if post.sitemap.lastmod %}
+    {% capture lastUpdatetime %}{{ post.sitemap.lastmod | date_to_xmlschema }}{% endcapture %}
+  {% else %}
+    {% capture lastUpdatetime %}{{ post.date | date_to_xmlschema }}{% endcapture %}
+  {% endif %}
+{% endfor %}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for post in site.posts %}
+    {% unless post.flags.published == false %}
+    {% unless post.sitemap.exclude == true %}
+      <url>
+        <loc>{{ site.baseurl }}{{ post.url }}</loc>
+          {% if post.sitemap.lastmod == null %}
+            <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+          {% else %}
+            <lastmod>{{ post.sitemap.lastmod | date_to_xmlschema }}</lastmod>
+          {% endif %}
+           {% if post.sitemap.changefreq %}
+            <changefreq>{{ post.sitemap.changefreq }}</changefreq>
+          {% else %}
+            <changefreq>monthly</changefreq>
+          {% endif %}
+          {% if post.sitemap.priority %}
+            <priority>{{ post.sitemap.priority }}</priority>
+          {% else %}
+            <priority>0.5</priority>
+          {% endif %}
+      </url>
+    {% endunless %}
+    {% endunless %}
+  {% endfor %}
+  {% for page in site.pages %}
+    {% unless page.sitemap.exclude == true %}
+    {% unless page.url contains '/amp/' %}
+    <url>
+      <loc>{{ site.baseurl }}{{ page.url }}</loc>
+      {% if page.sitemap.lastmod %}
+        <lastmod>{{ page.sitemap.lastmod | date_to_xmlschema }}</lastmod>
+      {% elsif page.date %}
+        <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ lastUpdatetime }}</lastmod>
+      {% endif %}
+      {% if page.sitemap.changefreq %}
+        <changefreq>{{ page.sitemap.changefreq }}</changefreq>
+      {% else %}
+        <changefreq>monthly</changefreq>
+      {% endif %}
+      {% if page.sitemap.priority %}
+        <priority>{{ page.sitemap.priority }}</priority>
+      {% else %}
+        <priority>0.3</priority>
+      {% endif %}
+    </url>
+    {% endunless %}
+    {% endunless %}
+  {% endfor %}
+</urlset>

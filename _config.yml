@@ -1,0 +1,85 @@
+---
+# Environment Specific
+environment: dev
+production_url: "https://natelandau.com"
+baseurl: ""
+host: localhost
+port: 8080
+analyticsID: UA-80560-6
+disqusShortName: natelandaudev
+destination: ./_site
+include-js: true
+
+# Shared options
+# ------------------------------------------------------
+plugins:
+    - jekyll-gist
+    - jekyll-paginate-v2
+    - jekyll-responsive-image
+    - jekyll-redirect-from
+
+name: natelandau.com
+tagline: Nathaniel Landau's home on the web
+timezone: America/New_York
+author:
+    name: Nathaniel Landau
+    email: mail+website@natelandau.com
+    alternate_name: Nate Landau
+
+source: ./site
+permalink: :title/
+markdown_ext: markdown,mkd,mkdn,md
+include:
+    - _pages
+    - .htaccess
+    - robots.txt
+exclude:
+    - "*_less"
+
+highlighter: rouge
+excerpt_separator: <!--more-->
+
+markdown: kramdown
+kramdown:
+    auto_ids: true
+    entity_output: symbolic
+    toc_levels: 1..6
+    smart_quotes: lsquo,rsquo,ldquo,rdquo
+    input: GFM
+    hard_wrap: false
+    footnote_nr: 1
+    show_warnings: false
+
+pagination:
+    enabled: true
+    debug: false
+    collection: "posts"
+    per_page: 10
+    permalink: "/page/:num/"
+    title: ":title - page :num"
+    limit: 0
+    sort_field: "date"
+    sort_reverse: true
+    category: "posts"
+    trail:
+        before: 0
+        after: 0
+    extension: html
+    indexpage: "index"
+
+responsive_image:
+    template: _includes/images.responsive.html
+    default_quality: 90
+    sizes:
+        - width: 480
+          quality: 90
+        - width: 800
+          quality: 90
+        - width: 1400
+          quality: 90
+    auto_rotate: false
+    strip: true
+    base_path: img
+    output_path_format: img/resized/%{width}/%{basename}
+    save_to_source: false
+    cache: false

@@ -1,0 +1,199 @@
+// ------------------------------------
+//      DOCUMENT MANIFEST
+//
+//  Description: Variables for use in other style sheets
+//
+//  1. Theme Colors
+//  2. Typography
+//  3. Borders and Rules
+//  4. Social Network Colors
+//  5.
+//  6.
+//  7.
+//  8.
+//  9.
+//  10.
+//
+// ------------------------------------
+
+// ------------------------------------
+// ---    THEME COLORS
+// ------------------------------------
+
+// Grays
+// -------------------------
+@black: #000;
+@grayDarker: #222;
+@grayDark: #333;
+@gray: #555;
+@grayLight: #999;
+@grayLighter: #eee;
+@grayLightest: #f8f8f8;
+@white: #fff;
+
+// Primary colors
+// -------------------------
+@blue: #049cdb;
+@blueDark: #0064cd;
+@green: #46a546;
+@red: #9d261d;
+@yellow: #ffc40d;
+@orange: #f89406;
+@pink: #c3325f;
+@purple: #7a43b6;
+
+// Theme Specific Colors
+// -------------------------
+@themeDark: #282d30; // Used for background of quotes, footer, pagination
+@themeRed: #c63d0f; // Used for buttons, accents
+@themeGreen: #46594b;
+@themeBlueLight: #4c6173;
+@themeBlue: #1c2f40;
+
+// INSTA-THEME COLORS
+// -------------------------
+
+// Best Theme
+// -------------------------
+@primaryDark: #3b3738; // Primary Dark - Header Area
+@primaryLight: #fdf3e7; // Primary Light - Page Background
+@highlightOne: #c63d0f; // Highlight 1 - Links & Contrast
+@highlightTwo: #7e8f7c; // Highlight 2 - Comment Area
+@highlightThree: #ececea; // Highlight 3 - lightest
+
+//  Lazy Daze
+// -------------------------
+// @primaryDark    : #223740; // Primary Dark - Header Area
+// @primaryLight   : #D9B779; // Primary Light - Page Background
+// @highlightOne   : #537367; // Highlight 1 - Links & Contrast
+// @highlightTwo   : #A1A681; // Highlight 2 - Comment Area
+// @highlightThree : #8C6D46; // Highlight 3 - lightest
+
+//  Blues & Orange
+// -------------------------
+// @primaryDark    : #7195A3; // Primary Dark - Header Area
+// @primaryLight   : #D4E7ED; // Primary Light - Page Background
+// @highlightOne   : #EB8540; // Highlight 1 - Links & Contrast
+// @highlightTwo   : #74A6BD; // Highlight 2 - Comment Area
+// @highlightThree : #D4E7ED; // Highlight 3 - lightest
+
+//  Blues & Sand
+// -------------------------
+// @primaryDark    : #294052; // Primary Dark - Header Area
+// @primaryLight   : #F8E4CC; // Primary Light - Page Background
+// @highlightOne   : #447294; // Highlight 1 - Links & Contrast
+// @highlightTwo   : #8FBCDB; // Highlight 2 - Comment Area
+// @highlightThree : #F8E4CC; // Highlight 3 - lightest
+
+// Div backgrounds
+// -------------------------
+@pageBackground: @grayLightest; // overall page background
+@postBackground: @grayLightest; // backgorund for all Posts/Pages unless specified below
+@quoteBackground: @themeDark; // background for 'Quote' post template
+@linkBackground: @themeDark; // background for 'Link' post template
+
+// Typography Colors
+// -------------------------
+@textColor: @grayDark; // base text color, on light background
+@textColorLight: @white; // Used for light text on a dark background
+
+// Links
+// -------------------------
+
+@linkColor: @highlightOne;
+@linkHover: @textColor;
+@linkActive: darken(@linkColor, 35%);
+@linkColorHover: darken(@linkColor, 15%);
+
+// ------------------------------------
+// ---    TYPOGRAPHY
+// ------------------------------------
+
+@textShadow: 0px 1px 1px @gray;
+@textShadowDark: 0px 1px 1px @grayDark;
+@textShadowLight: 0px 1px 1px @grayLight;
+
+@baseBorderRadius: 4px;
+@borderRadiusLarge: 6px;
+@borderRadiusSmall: 3px;
+
+// ------------------------------------
+// ---    BORDERS AND RULES
+// ------------------------------------
+
+@borderHR: solid 1px @textColor;
+@hrBorder: @grayLighter;
+
+// ------------------------------------
+// ---    SOCIAL NETWORK COLORS
+// ------------------------------------
+
+// Social Network Colors
+// -----------------------------
+@facebookColor: #5d83ba;
+@twitterColor: #37afd7;
+@googlePlusColor: #404040;
+@linkedinColor: #4b9dca;
+@tumblrColor: #466684;
+@pinterestColor: #d3230a;
+@wordpressColor: #337ea1;
+@youTubeColor: #d3230a;
+@vimeoColor: #95b93e;
+@RSSFeedColor: #febb2f;
+@githubColor: #333;
+
+// Social Network Mixins (gradients etc.)
+// ------------------------------------------
+
+.facebookMixin() {
+    background: @facebookColor;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.35);
+    color: @white;
+    -webkit-font-smoothing: antialiased;
+    .background-image(linear-gradient(-90deg, #7192c2 0%,#4873b1 100%));
+}
+
+.githubMixin() {
+    background: @githubColor;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.35);
+    color: @white;
+    -webkit-font-smoothing: antialiased;
+    .background-image(linear-gradient(-90deg, @githubColor 0%,(@githubColor + 20) 100%));
+}
+
+.twitterMixin() {
+    background: @twitterColor;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.35);
+    color: @white;
+    -webkit-font-smoothing: antialiased;
+    .background-image(linear-gradient(-90deg, #6dc5e2 0%,#079cce 100%));
+}
+
+.googlePlusMixin() {
+    background: @googlePlusColor;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.35);
+    color: @white;
+    -webkit-font-smoothing: antialiased;
+    .background-image(linear-gradient(-90deg, #515151 0%,#353535 100%));
+}
+.linkedinMixin() {
+    background: @linkedinColor;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.35);
+    color: @white;
+    -webkit-font-smoothing: antialiased;
+    .background-image(linear-gradient(-90deg, #63aad1 0%,#3691c4 100%));
+}
+.tumblrMixin() {
+    background: @tumblrColor;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.35);
+    color: @white;
+    -webkit-font-smoothing: antialiased;
+    .background-image(linear-gradient(-90deg, rgb(106,131,156) 0%,rgb(61,94,126) 100%));
+}
+.feedMixin() {
+    background: @RSSFeedColor;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.35);
+    color: @white;
+    -webkit-font-smoothing: antialiased;
+    .background-image(linear-gradient(-90deg, rgb(254,198,81) 0%,rgb(254,175,12) 100%));
+}

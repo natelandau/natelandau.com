@@ -1,0 +1,57 @@
+---
+- name: jekyll
+  url: tag/jekyll/
+  includeFooter: true
+  description:
+- name: external links ⇗
+  url: tag/externalLink⇗/
+  includeFooter: true
+  description:
+- name: podcasts
+  url: tag/podcasts/
+  includeFooter: true
+  description:
+- name: business
+  url: tag/business/
+  includeFooter: true
+  description:
+- name: webDev
+  url: tag/webDev/
+  includeFooter: true
+  description:
+- name: macOS
+  url: tag/macOS/
+  includeFooter: true
+  description:
+- name: unix
+  url: tag/unix/
+  includeFooter: true
+  description:
+- name: apps
+  url: tag/apps/
+  includeFooter: true
+  description:
+- name: productivity
+  url: tag/productivity/
+  includeFooter: true
+  description:
+- name: management
+  url: tag/management/
+  includeFooter: true
+  description:
+- name: productManagement
+  url: tag/productManagement/
+  includeFooter: true
+  description:
+- name: selfPromotion
+  url: tag/selfPromotion/
+  includeFooter: false
+  description:
+- name: videos
+  url: tag/videos/
+  includeFooter: false
+  description:
+- name: music
+  url: tag/music/
+  includeFooter: false
+  description:

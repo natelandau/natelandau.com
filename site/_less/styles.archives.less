@@ -1,0 +1,53 @@
+// Category Archive Pages
+// -------------------------
+
+.archive-title {
+    background: @primaryDark;
+    width: 100%;
+    color: @primaryLight;
+    font-weight: bold;
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    float: left;
+    .border-radius(5px);
+    .fontSize(@fontSizeMedium + 0.5);
+}
+
+#category-archive ul li {
+    a {
+        .fontSize(@fontSizeMedium);
+        font-family: @sansFontFamily;
+    }
+    time {
+        // background : @grayDark;
+        // color    : @highlightThree;
+        padding: 0 4px;
+        font-weight: normal;
+        font-family: @sansFontFamily;
+        // position : absolute;
+        // left     : 10px;
+        // top      : 12px;
+        // height   : 18px;
+        .fontSize(@baseFontSize);
+        .transition(all 0.7s ease-in);
+        .border-radius(2px);
+
+        &:after {
+            font-family: "FontAwesome";
+            content: "\f105";
+            padding-left: 5px;
+        }
+    }
+}
+
+@media @smallPhones {
+    #category-archive ul li a {
+        .fontSize(@fontSizeBase);
+    }
+}
+
+@media @largePhones {
+    #category-archive ul li a {
+        .fontSize(@fontSizeBase);
+    }
+}
