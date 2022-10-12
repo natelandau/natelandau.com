@@ -37,7 +37,8 @@ repos:
           - id: yamllint
             exclude: |
                 (?x)^(
-                \./node_modules/
+                \./node_modules/|
+                \.cz\.yaml
                 )
             files: \.(yaml|yml)$
             types: [file, yaml]
@@ -53,7 +54,9 @@ repos:
                 site/_includes/.*\.html|
                 site/.*\.html|
                 site/_layouts/.*\.html|
-                site/_less/lesshat\.less
+                site/_less/lesshat\.less|
+                \.cz\.yaml|
+                CHANGELOG\.md
                 )
     - repo: "https://github.com/Yelp/detect-secrets"
       rev: v1.4.0
