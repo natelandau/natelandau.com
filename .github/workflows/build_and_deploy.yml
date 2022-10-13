@@ -26,13 +26,11 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v3
 
-            - name: Set up Ruby
-              uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
-              with:
-                  ruby-version: "3.1"
-                  bundler-cache: true
-            - name: Install gems
-              run: bundle install
+            - name: pwd
+              run: pwd
+
+            - name: ls -al
+              run: ls -al
 
             - name: Use Node.js 16.x
               uses: actions/setup-node@v3
@@ -40,6 +38,14 @@ jobs:
                   node-version: "16.x"
                   cache: "npm"
             - run: npm install
+
+            - name: Set up Ruby
+              uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+              with:
+                  ruby-version: "3.1"
+                  bundler-cache: true
+            - name: Install gems
+              run: bundle install
 
             - name: Install apt packages
               run: sudo apt-get install -y libxml2-utils yamllint libmagickwand-dev
