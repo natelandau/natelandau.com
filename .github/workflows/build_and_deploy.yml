@@ -48,3 +48,9 @@ jobs:
             # -----------------------------------
             - name: Build Production Site
               run: npx grunt build_prod
+
+            - name: do we have aws
+              run: which aws
+
+            - name: aws help
+              run: aws --help
