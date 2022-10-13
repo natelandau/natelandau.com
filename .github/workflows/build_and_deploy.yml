@@ -47,10 +47,7 @@ jobs:
             # Build Production Site
             # -----------------------------------
             - name: Build Production Site
-              run: npx grunt build_prod
-
-            - name: list _siteProd
-              run: ls -al ./_siteProd/
+              run: npx grunt deploy_prod
 
             # Deploy Site to AWS
             # -----------------------------------
