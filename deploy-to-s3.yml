@@ -4,6 +4,7 @@
 
 BUILD_DIR: _siteProd/
 MAX_AGE: 864000
+USE_GZIP: true
 
 # - [SOURCE (relative to BUILD_DIR)] [DESTINATION] separated by a space
 REDIRECTS:

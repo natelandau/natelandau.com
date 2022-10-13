@@ -27,14 +27,18 @@ _mainScript_() {
 
     # Normalize variables
     CONF_BUILD_DIR=$(printf "%s" "${CONF_BUILD_DIR}" | sed "s/\/$//g")
+    CONF_USE_GZIP=${CONF_USE_GZIP,,}
 
     SYNC_COMMAND=(
         "aws s3 sync ./${CONF_BUILD_DIR}/ s3://${BUCKET_NAME}"
         "--acl public-read"
         "--delete"
         "--cache-control max-age=${CONF_MAX_AGE}"
-        "--content-encoding gzip"
     )
+
+    if ${CONF_USE_GZIP}; then
+        SYNC_COMMAND+=("--content-encoding gzip")
+    fi
 
     for exclude in "${CONF_EXCLUDED_FILES_[@]}"; do
         SYNC_COMMAND+=("--exclude \"${exclude}\"")

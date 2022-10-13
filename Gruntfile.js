@@ -209,22 +209,27 @@ module.exports = function (grunt) {
         cacheBust: {
             run: {
                 options: {
-                    assets: ["assets/**/*.{css,js}"],
+                    // assets: ["assets/**/*.{css,js}"],
+                    assets: ["assets/site.min.css"],
                     baseDir: "<%= DIR %>",
+                    urlPrefixes: ["<%= URL %>"],
                 },
-                src: ["<%= DIR %>/**/*.html"],
+                src: ["<%= DIR %>/index.html"],
+
+                // src: ["<%= DIR %>/**/*.html"],
             },
         },
 
         compress: {
-            run: {
+            prod: {
                 options: {
                     mode: "gzip",
+                    pretty: true,
                 },
                 expand: true,
-                cwd: "<%= DIR %>/",
+                cwd: "<%= env.prod.DIR %>/",
                 src: ["**/*"],
-                dest: "<%= DIR %>/",
+                dest: "<%= env.prod.DIR %>/",
             },
         }, // end compress
 
@@ -354,8 +359,8 @@ module.exports = function (grunt) {
         "jekyll:stage",
         "purgecss:run",
         "cssmin:run",
-        "cacheBust:run",
         "htmlmin:run",
+        "cacheBust:run",
         "tasks_post_linters",
     ]);
 
@@ -370,13 +375,13 @@ module.exports = function (grunt) {
         "jekyll:prod",
         "purgecss:run",
         "cssmin:run",
-        "cacheBust:run",
         "htmlmin:run",
+        "cacheBust:run",
         "tasks_post_linters",
-        "compress:run",
     ]);
 
     grunt.registerTask("build_all", ["build_dev", "build_stage", "build_prod"]);
     grunt.registerTask("serve", ["build_dev", "concurrent:dev"]);
     grunt.registerTask("serve_stage)", ["build_stage", "connect:stage"]);
+    grunt.registerTask("deploy_prod", ["build_prod", "compress:prod"]);
 };
