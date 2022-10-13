@@ -1,0 +1,47 @@
+---
+name: "Build & Deploy"
+
+on:
+    # push:
+    #     branches:
+    #         # - main
+    #         # - master
+    #         - deployment
+    #     paths:
+    #         - "site/**/*.{js,less,css,html,md,xml,json,yml,yaml}"
+    # Allow workflow to be triggered manually
+    workflow_dispatch:
+
+env:
+    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    AWS_DEFAULT_REGION: us-east-1
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            # DEPENDENCIES
+            # -----------------------------------
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Set up Ruby
+              uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+              with:
+                  ruby-version: "3.1"
+                  bundler-cache: true
+
+            - name: Use Node.js 16.x
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  cache: "npm"
+
+            - name: Install apt packages
+              run: sudo apt-get install -y libxml2-utils yamllint libmagickwand-dev
+
+            # Build Production Site
+            # -----------------------------------
+            - name: Build Production Site
+              run: npx grunt build_prod

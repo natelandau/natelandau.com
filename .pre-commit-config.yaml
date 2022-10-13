@@ -38,7 +38,8 @@ repos:
             exclude: |
                 (?x)^(
                 \./node_modules/|
-                \.cz\.yaml
+                \.cz\.yaml|
+                \.github/workflows/.*\.yml
                 )
             files: \.(yaml|yml)$
             types: [file, yaml]
