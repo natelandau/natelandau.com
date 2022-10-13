@@ -37,6 +37,8 @@ jobs:
               with:
                   node-version: 16
                   cache: "npm"
+            - name: install grunt
+              run: npm install -g grunt-cli
 
             - name: Install apt packages
               run: sudo apt-get install -y libxml2-utils yamllint libmagickwand-dev
@@ -44,4 +46,4 @@ jobs:
             # Build Production Site
             # -----------------------------------
             - name: Build Production Site
-              run: npx grunt build_prod
+              run: grunt build_prod
