@@ -2,11 +2,11 @@
 name: "Build & Deploy"
 
 on:
-    # push:
-    #     branches:
-    #         # - main
-    #         # - master
-    #         - deployment
+    push:
+        branches:
+            # - main
+            # - master
+            - deployment
     #     paths:
     #         - "site/**/*.{js,less,css,html,md,xml,json,yml,yaml}"
     # Allow workflow to be triggered manually
