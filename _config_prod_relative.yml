@@ -1,7 +1,7 @@
 ---
 environment: prod
-production_url: "https://natelandau.com"
-baseurl: "https://natelandau.com"
+production_url: ""
+baseurl: ""
 analyticsID: UA-80560-5
 disqusShortName: natelandau
 destination: ./_siteProd

@@ -20,14 +20,17 @@ Everything required to post, edit, deploy, and manage [natelandau.com](https://n
 
 Build the site using pipelines from [Gruntjs](https://gruntjs.com/).
 
-| Command             | Action                                                                |
-| ------------------- | --------------------------------------------------------------------- |
-| `grunt build_dev`   | Build the dev site, open a browser window, watch for changes          |
-| `grunt build_stage` | Build the staging site, open a browser window                         |
-| `grunt build_prod`  | Build the production site                                             |
-| `grunt build_all`   | Build all versions of the site                                        |
-| `grunt serve`       | Build the dev site, open it in a browser window and watch for changes |
-| `grunt serve_stage` | Build the staging site and open it in a browser window                |
+| Command                      | Action                                                                                                    |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `grunt build_dev`            | Build the dev site, open a browser window, watch for changes                                              |
+| `grunt build_stage`          | Build the staging site, open a browser window                                                             |
+| `grunt build_prod`           | Build the production site                                                                                 |
+| `grunt build_all`            | Build all versions of the site                                                                            |
+| `grunt serve`                | Build the dev site, open it in a browser window and watch for changes                                     |
+| `grunt serve_stage`          | Build the staging site and open it in a browser window                                                    |
+| `grunt deploy_prod`          | Builds the production site and compresses files with gzip. Use this if uploading to S3 with gzip flag set |
+| `grunt build_prod_relative`  | Builds the production site with relative URLS. (Useful when not deploying to domain)                      |
+| `grunt deploy_prod_relative` | Builds the production site with relative URLS and compresses files with gzip                              |
 
 # Managing the Jekyll site
 
@@ -67,17 +70,13 @@ redirect_from:
 
 The categories used for posts are collected in a data file `_data/categories.yml`. This file is used to drive the categories that appear in the footer of the site.
 
-# TODO
+# Deployment
 
--   Test some new jekyll plugins
-    -   https://github.com/jeffreytse/jekyll-spaceship
-    -   https://github.com/digitalsparky/jekyll-minifier
-    -   https://github.com/planetjekyll/awesome-jekyll-plugins
-    -   https://github.com/envygeeks/jekyll-assets
-    -   https://github.com/jekyll/jekyll-redirect-from
-    -   https://github.com/jekyll/jekyll-seo-tag
-    -   https://github.com/rbuchberger/jekyll_picture_tag
-    -   https://github.com/janosrusiczki/japr
+Deploy to S3 using Github workflows. The workflow performs builds the production site and then uns `scripts/deploy-to-s3.sh` to deploy the assets to Amazon S3 and invalidate the Cloudfront cache.
+
+`deploy-to-s3.yml` contains settings, excludes, and lists of custom redirects.
+
+To test a deployment using, update the Github workflow to use `--bucket-name=${{ secrets.AWS_S3_TEST_BUCKET_NAME }}`
 
 # Developing
 

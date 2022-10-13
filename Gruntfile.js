@@ -204,6 +204,12 @@ module.exports = function (grunt) {
                     incremental: false,
                 },
             },
+            prod_relative: {
+                options: {
+                    config: "_config.yml,_config_prod_relative.yml",
+                    incremental: false,
+                },
+            },
         }, // end jekyll
 
         cacheBust: {
@@ -380,8 +386,25 @@ module.exports = function (grunt) {
         "tasks_post_linters",
     ]);
 
+    grunt.registerTask("build_prod_relative", [
+        "env:prod",
+        "loadVars",
+        "shell:traceVars",
+        "tasks_pre_linters",
+        "clean:build_dir",
+        "less:no_map",
+        "uglify:compress",
+        "jekyll:prod_relative",
+        "purgecss:run",
+        "cssmin:run",
+        "htmlmin:run",
+        "cacheBust:run",
+        "tasks_post_linters",
+    ]);
+
     grunt.registerTask("build_all", ["build_dev", "build_stage", "build_prod"]);
     grunt.registerTask("serve", ["build_dev", "concurrent:dev"]);
     grunt.registerTask("serve_stage)", ["build_stage", "connect:stage"]);
     grunt.registerTask("deploy_prod", ["build_prod", "compress:prod"]);
+    grunt.registerTask("deploy_prod_relative", ["build_prod_relative", "compress:prod"]);
 };
