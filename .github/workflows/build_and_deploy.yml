@@ -31,14 +31,23 @@ jobs:
               with:
                   ruby-version: "3.1"
                   bundler-cache: true
+            - name: Install gems
+              run: bundle install
 
             - name: Use Node.js 16.x
               uses: actions/setup-node@v3
               with:
                   node-version: 16
-                  cache: "npm"
-            - name: install grunt
-              run: npm install -g grunt-cli
+
+            - name: Cache dependencies
+              uses: actions/cache@v2
+              with:
+                  path: ~/.npm
+                  key: npm-${{ hashFiles('package-lock.json') }}
+                  restore-keys: npm-
+
+            - name: Install npm dependencies
+              run: npm ci --ignore-scripts
 
             - name: Install apt packages
               run: sudo apt-get install -y libxml2-utils yamllint libmagickwand-dev
@@ -46,4 +55,4 @@ jobs:
             # Build Production Site
             # -----------------------------------
             - name: Build Production Site
-              run: grunt build_prod
+              run: npx grunt build_prod
