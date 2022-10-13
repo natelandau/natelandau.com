@@ -1,0 +1,15 @@
+---
+# File is used by scripts/deploy-to-s3.sh
+# Do not quote strings
+
+BUILD_DIR: _siteProd/
+MAX_AGE: 864000
+
+# - [SOURCE (relative to BUILD_DIR)] [DESTINATION] separated by a space
+REDIRECTS:
+    - test.php /
+    - posts/somepost.html /fix-the-podcast-discovery-problem/
+
+# Files which will be excluded (neither uploaded or deleted from server)
+EXCLUDED_FILES:
+    - audiobooks/*
