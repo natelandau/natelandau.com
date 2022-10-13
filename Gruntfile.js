@@ -216,6 +216,18 @@ module.exports = function (grunt) {
             },
         },
 
+        compress: {
+            run: {
+                options: {
+                    mode: "gzip",
+                },
+                expand: true,
+                cwd: "<%= DIR %>/",
+                src: ["**/*"],
+                dest: "<%= DIR %>/",
+            },
+        }, // end compress
+
         watch: {
             less: {
                 options: {
@@ -285,6 +297,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-cache-bust");
     grunt.loadNpmTasks("grunt-concurrent");
     grunt.loadNpmTasks("grunt-contrib-clean");
+    grunt.loadNpmTasks("grunt-contrib-compress");
     grunt.loadNpmTasks("grunt-contrib-connect");
     grunt.loadNpmTasks("grunt-contrib-cssmin");
     grunt.loadNpmTasks("grunt-contrib-htmlmin");
@@ -360,6 +373,7 @@ module.exports = function (grunt) {
         "cacheBust:run",
         "htmlmin:run",
         "tasks_post_linters",
+        "compress:run",
     ]);
 
     grunt.registerTask("build_all", ["build_dev", "build_stage", "build_prod"]);
