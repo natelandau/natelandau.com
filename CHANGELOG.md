@@ -1,3 +1,13 @@
+## v0.2.0 (2022-10-14)
+
+### Feat
+
+- **deployment**: use staging site for testing builds (#8)
+
+### Fix
+
+- **grunt**: all files parsed by linters (#7)
+
 ## v0.1.0 (2022-10-12)
 
 ### Feat
