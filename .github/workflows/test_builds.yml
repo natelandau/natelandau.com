@@ -17,7 +17,7 @@ jobs:
         steps:
             # DEPENDENCIES
             # -----------------------------------
-            - name: Checkout
+            - name: "Checkout"
               uses: actions/checkout@v3
 
             - name: "Set up Ruby"
@@ -36,7 +36,7 @@ jobs:
                   cache: "npm"
 
             - name: "Install nodejs packages"
-            - run: npm install
+              run: npm install
 
             - name: "Install apt packages"
               run: sudo apt-get install -y libxml2-utils yamllint libmagickwand-dev
