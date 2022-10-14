@@ -19,11 +19,7 @@ on:
     workflow_dispatch:
 
 jobs:
-    build_matrix:
-        strategy:
-            fail-fast: true
-            matrix:
-                task: ["build_dev", "build_stage", "build_prod", "deploy_prod", "build_stage_deploy"]
+    test_builds:
         runs-on: ubuntu-latest
         steps:
             # DEPENDENCIES
@@ -54,5 +50,14 @@ jobs:
 
             # Test Builds
             # -----------------------------------
-            - name: "Build task: ${{ matrix.task }}"
-              run: npx grunt ${{ matrix.task }}
+            - name: "Run build_dev"
+              run: npx grunt build_dev
+
+            - name: "Run build_stage"
+              run: npx grunt build_stage
+
+            - name: "Run build_prod"
+              run: npx grunt deploy_prod
+
+            - name: "Run build_prod"
+              run: npx grunt build_stage_deploy
