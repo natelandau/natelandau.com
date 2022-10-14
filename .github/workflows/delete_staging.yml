@@ -44,4 +44,4 @@ jobs:
             # Delete all files on staging
             # -----------------------------------
             - name: "Delete staging files"
-            - run: scripts/deploy-to-s3.sh --force --bucket-name=${{ secrets.AWS_S3_TEST_BUCKET_NAME }} --delete-all
+              run: scripts/deploy-to-s3.sh --force --bucket-name=${{ secrets.AWS_S3_TEST_BUCKET_NAME }} --delete-all
