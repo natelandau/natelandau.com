@@ -42,14 +42,10 @@ jobs:
             - name: "Install apt packages"
               run: sudo apt-get install -y libxml2-utils yamllint libmagickwand-dev
 
-            # Build Test Site
-            # -----------------------------------
-            - name: "Build Production Site with Relative URLS"
+            - name: "Build Staging Site"
               run: npx grunt deploy_stage
 
-            # Deploy Site to AWS
-            # -----------------------------------
-            - name: "Deploy staging server"
+            - name: "Deploy to Staging Server"
               run: scripts/deploy-to-s3.sh --force --bucket-name=${{ secrets.AWS_S3_TEST_BUCKET_NAME }} --source-dir _siteStage
 
             - name: "Create AWS Cloudfront Invalidation"
