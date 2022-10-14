@@ -2,7 +2,6 @@
 # File is used by scripts/deploy-to-s3.sh
 # Do not quote strings
 
-BUILD_DIR: _siteProd/
 MAX_AGE: 864000
 USE_GZIP: true
 

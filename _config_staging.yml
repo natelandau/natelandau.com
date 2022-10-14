@@ -1,9 +1,7 @@
 ---
-environment: stage
+environment: prod
 production_url: "https://staging.natelandau.com"
-baseurl: "https://localhost:8888"
-host: localhost
-port: 8888
+baseurl: "https://staging.natelandau.com"
 analyticsID: UA-80560-6
 disqusShortName: natelandaudev
 destination: ./_siteStage

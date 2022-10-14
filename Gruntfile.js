@@ -12,9 +12,8 @@ module.exports = function (grunt) {
                 DIR: "_site",
             },
             stage: {
-                HOST: "localhost",
-                PORT: 8888,
-                URL: "http://<%= env.stage.HOST %>:<%= env.stage.PORT %>",
+                HOST: "staging.natelandau.com",
+                URL: "https://<%= env.stage.HOST %>",
                 DIR: "_siteStage",
             },
             prod: {
@@ -198,15 +197,9 @@ module.exports = function (grunt) {
                     future: true,
                 },
             },
-            stage_local: {
+            stage: {
                 options: {
-                    config: "_config.yml,_config_staging_local.yml",
-                    incremental: false,
-                },
-            },
-            stage_deploy: {
-                options: {
-                    config: "_config.yml,_config_staging_deploy.yml",
+                    config: "_config.yml,_config_staging.yml",
                     incremental: false,
                 },
             },
@@ -233,6 +226,16 @@ module.exports = function (grunt) {
         },
 
         compress: {
+            stage: {
+                options: {
+                    mode: "gzip",
+                    pretty: true,
+                },
+                expand: true,
+                cwd: "<%= env.stage.DIR %>/",
+                src: ["**/*"],
+                dest: "<%= env.stage.DIR %>/",
+            },
             prod: {
                 options: {
                     mode: "gzip",
@@ -278,17 +281,6 @@ module.exports = function (grunt) {
                 options: {
                     port: "<%= env.dev.PORT %>",
                     base: "<%= env.dev.DIR %>",
-                    livereload: true,
-                    open: true,
-                    hostname: "*",
-                    keepalive: true,
-                    protocol: "https",
-                },
-            },
-            stage: {
-                options: {
-                    port: "<%= env.stage.PORT %>",
-                    base: "<%= env.stage.DIR %>",
                     livereload: true,
                     open: true,
                     hostname: "*",
@@ -373,29 +365,12 @@ module.exports = function (grunt) {
         "clean:build_dir",
         "less:no_map",
         "uglify:compress",
-        "jekyll:stage_local",
+        "jekyll:stage",
         "purgecss:run",
         "cssmin:run",
         "htmlmin:run",
         "cacheBust:run",
         "common_post_build",
-    ]);
-
-    grunt.registerTask("build_stage_deploy", [
-        "env:prod",
-        "loadVars",
-        "shell:traceVars",
-        "common_pre_build",
-        "clean:build_dir",
-        "less:no_map",
-        "uglify:compress",
-        "jekyll:stage_deploy",
-        "purgecss:run",
-        "cssmin:run",
-        "htmlmin:run",
-        "cacheBust:run",
-        "common_post_build",
-        "compress:prod",
     ]);
 
     grunt.registerTask("build_prod", [
@@ -416,6 +391,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask("build_all", ["build_dev", "build_stage", "build_prod"]);
     grunt.registerTask("serve", ["build_dev", "concurrent:dev"]);
-    grunt.registerTask("serve_stage)", ["build_stage", "connect:stage"]);
+    grunt.registerTask("deploy_stage", ["build_stage", "compress:stage"]);
     grunt.registerTask("deploy_prod", ["build_prod", "compress:prod"]);
 };

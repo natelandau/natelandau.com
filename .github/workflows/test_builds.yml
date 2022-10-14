@@ -54,10 +54,7 @@ jobs:
               run: npx grunt build_dev
 
             - name: "Run build_stage"
-              run: npx grunt build_stage
+              run: npx grunt deploy_stage
 
             - name: "Run build_prod"
               run: npx grunt deploy_prod
-
-            - name: "Run build_prod"
-              run: npx grunt build_stage_deploy
