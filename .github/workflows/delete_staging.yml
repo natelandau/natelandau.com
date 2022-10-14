@@ -18,5 +18,8 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v3
 
-            - name: "Delete staging files"
+            - name: "Delete Files from Staging S3"
               run: scripts/deploy-to-s3.sh --force --bucket-name=${{ secrets.AWS_S3_TEST_BUCKET_NAME }} --delete-all
+
+            - name: "Create AWS Cloudfront Invalidation"
+              run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_STAGING_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
