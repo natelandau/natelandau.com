@@ -1,27 +1,23 @@
 ---
-name: "Deploy Staging"
+name: "Test Builds"
 
 on:
-    push:
-        branches:
-            - staging
-        paths:
-            - "site/**"
+    pull_request:
+        types: [opened, reopened]
     # Allow workflow to be triggered manually
     workflow_dispatch:
 
-env:
-    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-
 jobs:
-    build:
+    build_matrix:
+        strategy:
+            fail-fast: true
+            matrix:
+                task: ["build_dev", "build_stage", "build_prod", "deploy_prod", "build_stage_deploy"]
         runs-on: ubuntu-latest
         steps:
             # DEPENDENCIES
             # -----------------------------------
-            - name: Checkout
+            - name: "Checkout"
               uses: actions/checkout@v3
 
             - name: "Set up Ruby"
@@ -29,7 +25,8 @@ jobs:
               with:
                   ruby-version: "3.1"
                   bundler-cache: true
-            - name: Install gems
+
+            - name: "Install gems"
               run: bundle install
 
             - name: "Use Node.js 16.x"
@@ -37,17 +34,14 @@ jobs:
               with:
                   node-version: "16.x"
                   cache: "npm"
-            - run: npm install
+
+            - name: "Install nodejs packages"
+              run: npm install
 
             - name: "Install apt packages"
               run: sudo apt-get install -y libxml2-utils yamllint libmagickwand-dev
 
-            # Build Test Site
+            # Test Builds
             # -----------------------------------
-            - name: "Build Production Site with Relative URLS"
-              run: npx grunt build_stage_deploy
-
-            # Deploy Site to AWS
-            # -----------------------------------
-            - name: "Deploy to AWS S3 Test Bucket"
-              run: scripts/deploy-to-s3.sh --force --bucket-name=${{ secrets.AWS_S3_TEST_BUCKET_NAME }}
+            - name: "Build task: ${{ matrix.task }}"
+              run: npx grunt ${{ matrix.task }}
