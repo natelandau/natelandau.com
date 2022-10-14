@@ -13,5 +13,35 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
+            # DEPENDENCIES
+            # -----------------------------------
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: "Set up Ruby"
+              uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+              with:
+                  ruby-version: "3.1"
+                  bundler-cache: true
+            - name: Install gems
+              run: bundle install
+
+            - name: "Use Node.js 16.x"
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "16.x"
+                  cache: "npm"
+            - run: npm install
+
+            - name: "Install apt packages"
+              run: sudo apt-get install -y libxml2-utils yamllint libmagickwand-dev
+
+            # Build site
+            # -----------------------------------
+            - name: "Build Production Site with Fixed URLS"
+              run: npx grunt build_stage_deploy
+
+            # Delete all files on staging
+            # -----------------------------------
             - name: "Delete staging files"
             - run: scripts/deploy-to-s3.sh --force --bucket-name=${{ secrets.AWS_S3_TEST_BUCKET_NAME }} --delete-all
