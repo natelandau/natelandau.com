@@ -35,23 +35,29 @@ module.exports = function (grunt) {
                 command:
                     "bundle exec htmlproofer <%= DIR %> --disable-external --check-favicon --allow-hash-href --extension .html",
             },
-            lint_htmlhint: {
+            lint_html: {
                 command: "npx htmlhint <%= DIR %>",
             },
-            lint_jsonlint: {
-                command: "npx jsonlint -q <%= DIR %>/**/*.json",
+            lint_json: {
+                command: ["npx jsonlint -q <%= DIR %>/**/*.json", "npx jsonlint -q <%= DIR %>/*.json"].join("&&"),
             },
-            lint_xmllint: {
-                command: "xmllint --noout <%= DIR %>/**/*.xml",
+            lint_xml: {
+                command: ["xmllint --noout <%= DIR %>/**/*.xml", "xmllint --noout <%= DIR %>/*.xml"].join("&&"),
             },
             lint_less: {
                 command: "npx stylelint --config=.stylelintrc.yml site/**/*.less",
             },
             prettier: {
-                command: 'prettier --write --ignore-unknown "<%= DIR %>/**/*.{js,css,json,md}"',
+                command: [
+                    'npx prettier --write --ignore-unknown "<%= DIR %>/**/*.{js,css,json,md}"',
+                    'npx prettier --write --ignore-unknown "<%= DIR %>/*.{js,css,json,md}"',
+                ].join("&&"),
             },
             minifyXML: {
-                command: "npx minify-xml --in-place <%= DIR %>/*.xml",
+                command: [
+                    "for file in <%= DIR %>/**/*.xml; do npx minify-xml --in-place $file; done",
+                    "for file in <%= DIR %>/*.xml; do npx minify-xml --in-place $file; done",
+                ].join("&&"),
             },
         }, // end shell
 
@@ -322,7 +328,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-shell");
 
     // -------------------------------
-    // Register Grunt tasks
+    // Shared tasks
     // -------------------------------
 
     grunt.registerTask("loadVars", "Load Environment Variables", function () {
@@ -332,25 +338,30 @@ module.exports = function (grunt) {
         grunt.config("URL", process.env.URL);
     });
 
-    grunt.registerTask("tasks_pre_linters", ["jshint:beforeconcat", "shell:lint_less"]);
+    grunt.registerTask("common_pre_build", ["jshint:beforeconcat", "shell:lint_less"]);
 
-    grunt.registerTask("tasks_post_linters", [
+    grunt.registerTask("common_post_build", [
         "shell:lint_htmlproofer",
-        "shell:lint_htmlhint",
-        "shell:lint_jsonlint",
-        "shell:lint_xmllint",
+        "shell:lint_html",
+        "shell:lint_json",
+        "shell:lint_xml",
+        "shell:minifyXML",
     ]);
+
+    // -------------------------------
+    // Callable tasks
+    // -------------------------------
 
     grunt.registerTask("build_dev", [
         "env:dev",
         "loadVars",
         "shell:traceVars",
-        "tasks_pre_linters",
+        "common_pre_build",
         "clean:build_dir",
         "less:map",
         "uglify:beautify",
         "jekyll:dev",
-        "tasks_post_linters",
+        "common_post_build",
         "shell:prettier",
     ]);
 
@@ -358,7 +369,7 @@ module.exports = function (grunt) {
         "env:stage",
         "loadVars",
         "shell:traceVars",
-        "tasks_pre_linters",
+        "common_pre_build",
         "clean:build_dir",
         "less:no_map",
         "uglify:compress",
@@ -367,14 +378,14 @@ module.exports = function (grunt) {
         "cssmin:run",
         "htmlmin:run",
         "cacheBust:run",
-        "tasks_post_linters",
+        "common_post_build",
     ]);
 
     grunt.registerTask("build_stage_deploy", [
         "env:prod",
         "loadVars",
         "shell:traceVars",
-        "tasks_pre_linters",
+        "common_pre_build",
         "clean:build_dir",
         "less:no_map",
         "uglify:compress",
@@ -383,7 +394,7 @@ module.exports = function (grunt) {
         "cssmin:run",
         "htmlmin:run",
         "cacheBust:run",
-        "tasks_post_linters",
+        "common_post_build",
         "compress:prod",
     ]);
 
@@ -391,7 +402,7 @@ module.exports = function (grunt) {
         "env:prod",
         "loadVars",
         "shell:traceVars",
-        "tasks_pre_linters",
+        "common_pre_build",
         "clean:build_dir",
         "less:no_map",
         "uglify:compress",
@@ -400,7 +411,7 @@ module.exports = function (grunt) {
         "cssmin:run",
         "htmlmin:run",
         "cacheBust:run",
-        "tasks_post_linters",
+        "common_post_build",
     ]);
 
     grunt.registerTask("build_all", ["build_dev", "build_stage", "build_prod"]);
