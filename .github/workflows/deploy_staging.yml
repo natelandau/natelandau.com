@@ -46,7 +46,7 @@ jobs:
             # Build Test Site
             # -----------------------------------
             - name: "Build Production Site with Relative URLS"
-              run: npx grunt build_stage_s3
+              run: npx grunt build_stage_deploy
 
             # Deploy Site to AWS
             # -----------------------------------
