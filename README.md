@@ -1,6 +1,6 @@
 Everything required to post, edit, deploy, and manage [natelandau.com](https://natelandau.com).
 
-# Provision Development Container
+# Getting Started
 
 1. **Open the repository in a Visual Studio Code development Container**.
     - The script `.devcontainer/postCreateCommand.sh` should run automatically to install required packages
@@ -11,29 +11,17 @@ Everything required to post, edit, deploy, and manage [natelandau.com](https://n
 4. Optionally, run `gh issue list` to make the site better by closing an open issue from Github.
 5. That's it. Happy blogging.
 
-# Asset Pipelines and Build Routines
-
-Build the site using pipelines from [Gruntjs](https://gruntjs.com/).
-
-| Command                    | Action                                                                                                    |
-| -------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `grunt build_dev`          | Build the dev site, open a browser window, watch for changes                                              |
-| `grunt build_stage`        | Build the staging site, open a browser window                                                             |
-| `grunt build_prod`         | Build the production site                                                                                 |
-| `grunt build_all`          | Build all versions of the site                                                                            |
-| `grunt serve`              | Build the dev site, open it in a browser window and watch for changes                                     |
-| `grunt serve_stage`        | Build the staging site and open it in a browser window                                                    |
-| `grunt deploy_prod`        | Builds the production site and compresses files with gzip. Use this if uploading to S3 with gzip flag set |
-| `grunt build_stage_deploy` | Builds the production site with relative URLS to be deployed to the staging S3 bucket                     |
-
-# Managing the Jekyll site
+# Adding and Deploying Content
 
 -   All site assets live in the `site/` directory.
 -   Any markdown files within `site/` are automatically converted to html
 -   **Edit LESS files for CSS changes**. All CSS files are generated automatically from Grunt routines
 -   **Liquid tags can be used in any file** and will be parsed when the site is built
+-   Preview changes locally using `grunt serve`
 
-## Responsive Images
+## Posts and Templates
+
+### Responsive Images
 
 The [`jekyll-responsive_image`](https://github.com/wildlyinaccurate/jekyll-responsive-image) plugin automatically creates optimized renditions of images for different sizes. Use this functionality in a post or a page copy and paste the following snippet and edit as needed.
 
@@ -51,7 +39,7 @@ Here are the configurable options
 -   **alt** - the alt text for the image
 -   **link** - When populated by a URL, will wrap the image tag in a link.
 
-## 301 Redirects
+### 301 Redirects for Posts
 
 [Jekyll Redirect-From](https://github.com/jekyll/jekyll-redirect-from) plugin creates 301 redirects for posts. Useful if a slug/permalink is changed. To use add the following to a post's YAML front-matter.
 
@@ -60,22 +48,78 @@ redirect_from:
     - /old/relative/url/
 ```
 
-## Categories
+**Note:** Redirects for pages not managed by Jekyll are contained in `deploy_to_s3.yml`
+
+### Categories
 
 The categories used for posts are collected in a data file `_data/categories.yml`. This file is used to drive the categories that appear in the footer of the site.
 
-# Deployment
+## Build Pipelines
 
-`scripts/deploy-to-s3.sh` syncs changes to S3 to deploy the website. Configure of settings, excludes, and lists of redirects in `deploy-to-s3.yml`
+Build the site using pipelines from [Gruntjs](https://gruntjs.com/).
 
-### Run a Github Workflow
+These pipelines:
 
-Deploy from files in an existing branch on Github by manually running a workflow.
+-   Compile LESS into CSS
+-   Lint files
+-   Build with Jekyll
+-   Minify & Compress files
+-   Serve locally and watch for changes
 
--   Select a workflow from the Github UI
--   Run a workflow locally with `gh workflow run`
+| Command                    | Action                                                                                                    |
+| -------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `grunt build_dev`          | Build the dev site, open a browser window, watch for changes                                              |
+| `grunt build_stage`        | Build the staging site, open a browser window                                                             |
+| `grunt build_prod`         | Build the production site                                                                                 |
+| `grunt build_all`          | Build all versions of the site                                                                            |
+| `grunt serve`              | Build the dev site, open it in a browser window and watch for changes                                     |
+| `grunt serve_stage`        | Build the staging site and open it in a browser window                                                    |
+| `grunt deploy_prod`        | Builds the production site and compresses files with gzip. Use this if uploading to S3 with gzip flag set |
+| `grunt build_stage_deploy` | Builds the production site with relative URLS to be deployed to the staging S3 bucket                     |
 
-## Deploying from local builds
+## Deploying Changes
+
+Always follow these steps to deploy the site
+
+1. Make changes in `main`
+2. Run `grunt serve` and QA the site locally
+3. Sync merge `main` into `staging` to kick off a deployment to the staging S3 bucket
+
+    ```bash
+    # Enter the staging branch
+    git checkout staging
+
+    # Merge all commits to `main` into `staging`
+    git merge main
+
+    # Push changes to Github
+    git push
+    ```
+
+4. QA the staging site on S3
+5. Deploy to production to delete all files from the staging bucket and deploy to production
+
+    ```bash
+    # Enter the staging branch
+    git checkout production
+
+    # Merge all commits to `main` into `staging`
+    git merge main
+
+    # Push changes to Github
+    git push
+    ```
+
+#### Manually run a Github workflow
+
+To force the running of a Github workflow via the Github CLI follow these steps:
+
+1. Authenticate with Github: `gh auth login`
+2. Select a workflow to run: `gh workflow run`
+
+### Deploy from Local
+
+It is possible to deploy the site without using Github workflows.
 
 Set the necessary ENV variables.
 
@@ -96,13 +140,6 @@ grunt build_stage
 ```
 
 Run `scripts/deploy-to-s3.sh` with the appropriate options.
-
-## Automatic deployment
-
-Github actions trigger when changes are committed to certain branches.
-
--   Commit to `staging` to deploy to the staging S3 bucket
--   Commit to `production` to delete all files from staging, and deploy to the production S3 bucket
 
 # Git Conventions
 
