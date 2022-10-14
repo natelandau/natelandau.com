@@ -19,7 +19,7 @@ _mainScript_() {
     elif ! aws sts get-caller-identity &>/dev/null; then
         error "AWS CLI is not configured"
         _safeExit_ "1"
-    elif [ ! -f "${CONF_BUILD_DIR}/index.html" ]; then
+    elif [ ! -f "${CONF_BUILD_DIR}/index.html" ] && ! ${DELETE_ALL}; then
         error "Source file does not exist"
         _safeExit_ "1"
     elif [ -z "${BUCKET_NAME}" ]; then
