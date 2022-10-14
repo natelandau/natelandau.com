@@ -11,13 +11,13 @@
       ga('require', 'pageVisibilityTracker');
       ga('require', 'socialWidgetTracker');
 
-    {% if page.title == "404: Page not found | Nathaniel Landau" %}
+    {% if page.title == "404: Page not found | Nathaniel Landau" -%}
       ga('send', 'pageview', {
         'page': '{{ page.url }}',
         'title': '404: Page not found'
       });
-    {% else %}
+    {% else -%}
       ga('require', 'linkid');
       ga('send', 'pageview');
-    {% endif %}
+    {% endif -%}
 </script>

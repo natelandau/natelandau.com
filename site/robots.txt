@@ -3,29 +3,30 @@ layout: null
 sitemap:
   exclude: true
 ---
-{%- if site.environment != 'production' -%}
+{% if site.environment != 'dev' -%}
 User-agent: *
 Disallow: /
-{%- else -%}
+{% else -%}
 
 Sitemap: {{ site.baseurl }}/sitemap.xml
-{%- assign count = '0' -%}
-{%- for post in site.posts -%}
-{%- if post.flags.noindex == true -%}
+
+{% assign count = '0' -%}
+{% for post in site.posts -%}
+{% if post.flags.noindex == true -%}
 User-agent: *
 Disallow: {{ post.url }}{% capture count %}{{ count | plus: '1' }}{% endcapture %}
-{%- endif -%}
-{%- endfor -%}
+{% endif -%}
+{% endfor -%}
 
-{%- for page in site.pages -%}
-{%- if page.flags.noindex == true -%}
+{% for page in site.pages -%}
+{% if page.flags.noindex == true -%}
 User-agent: *
 Disallow: {{ page.url }}{% capture count %}{{ count | plus: '1' }}{% endcapture %}
-{% endif %}{% endfor %}
-{%- if count == '0' -%}
+{% endif %}{% endfor -%}
+{% if count == '0' -%}
 User-agent: *
 Allow: /
-{% endif %}
+{% endif -%}
 
 # Google Image
 User-agent: Googlebot-Image
@@ -45,4 +46,4 @@ Crawl-delay: 10
 
 User-agent: Slurp
 Crawl-delay: 10
-{% endif %}
+{% endif -%}

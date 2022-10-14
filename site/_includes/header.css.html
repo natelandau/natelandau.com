@@ -1,14 +1,14 @@
-{%- comment -%}
+{% comment -%}
 <link
     href="//fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic|Vollkorn:400italic,700italic,400,700"
     rel="stylesheet"
     type="text/css" />
-{%- endcomment -%}
+{% endcomment -%}
 <!-- Site CSS -->
-{%- if site.environment == 'dev' -%}
+{% if site.environment == 'dev' -%}
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/compiled_less.css" type="text/css" media="all" />
-{%- else -%}
+{% else -%}
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/site.min.css" type="text/css" media="all" />
-{% endif %} {%- comment -%}
+{% endif %} {% comment -%}
 <!--[if lte IE 9]><link rel="stylesheet href="{{ site.baseurl }}/assets/ie.css" media="screen"/><![endif]-->
-{%- endcomment -%}
+{% endcomment -%}

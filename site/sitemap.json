@@ -3,13 +3,13 @@ layout: null
 sitemap:
   exclude: true
 ---
-{% for post in site.posts limit:1 %}
-  {% if post.sitemap.lastmod %}
+{% for post in site.posts limit:1 -%}
+  {% if post.sitemap.lastmod -%}
     {% capture lastUpdatetime %}{{ post.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}{% endcapture %}
-  {% else %}
+  {% else -%}
     {% capture lastUpdatetime %}{{ post.date | date: "%Y-%m-%dT%H:%M:%S%z" }}{% endcapture %}
-  {% endif %}
-{% endfor %}
+  {% endif -%}
+{% endfor -%}
 
 {
   "site": {{ site.name | jsonify }},
@@ -34,18 +34,30 @@ sitemap:
       "comments": "{{ post.flags.comments }}"
     }{% unless forloop.last %},{% endunless %}{% endunless %}{% endunless %}{% endfor %}
   ],
-  "pages": [ {% for page in site.pages %}{% unless page.sitemap.exclude == true %}{% unless page.url contains "/tag" %}{% unless page.url contains "/amp" %}
+  "pages": [
+    {% for page in site.pages -%}
+    {% unless page.sitemap.exclude == true -%}
+    {% unless page.url contains "/tag" -%}
+    {% unless page.url contains "/amp" -%}
     {
       "id": "{{ page.url }}",
-      "url": "{{ site.baseurl }}{{ page.url }}",{% if page.description %}
-      "description": {{ page.description | jsonify }},{% endif %}{% if page.tags %}
-      "tags":  [ "{{ page.tags | join: '", "' }}" ],{% endif %}
-      "title": {{ page.title | jsonify }},{% if page.date %}
-      "datePublished": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% else %}
-      "datePublished": "{{ lastUpdatetime }}",{% endif %}{% if page.sitemap.lastmod %}
-      "dateModified": "{{ page.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}"{% else %}
+      "url": "{{ site.baseurl }}{{ page.url }}",
+      {% if page.description -%}
+      "description": {{ page.description | jsonify }},
+      {% endif -%}
+      {% if page.tags -%}
+      "tags":  [ "{{ page.tags | join: '", "' }}" ],
+      {% endif -%}
+      "title": {{ page.title | jsonify }},
+      {% if page.date -%}
+      "datePublished": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",
+      {% else -%}
+      "datePublished": "{{ lastUpdatetime }}",
+      {% endif -%}
+      {% if page.sitemap.lastmod -%}
+      "dateModified": "{{ page.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}"{% else -%}
       "dateModified": "{{ lastUpdatetime }}"
-      {% endif %}
+      {% endif -%}
     }{% unless forloop.last %},{% endunless %}{% endunless %}{% endunless %}{% endunless %}{% endfor %}
   ]
 }

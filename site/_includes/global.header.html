@@ -18,11 +18,11 @@
     <title>{{ page.title }} | Nathaniel Landau</title>
 
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    {% if page.layout == 'post' or page.layout == 'page' %}
+    {% if page.layout == 'post' or page.layout == 'page' -%}
     <link rel="canonical" href="{{ site.baseurl }}{{ page.url }}">
-    {% else %}
+    {% else -%}
     <link rel="canonical" href="{{ site.baseurl }}{{ page.url }}">
-    {% endif %}
+    {% endif -%}
     <link rel="author" href="https://plus.google.com/116034461768262417565">
     {% include header.schemaJSON.html %} {% include header.metaTags.html %} {% include header.facebookOG.html %} {%
     include header.twittercard.html %} {% include header.favicons.html %} {% include header.css.html %} {% if
@@ -61,7 +61,7 @@
               <span><time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%h %d, %Y" }}</time></span
               ><a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a>
             </li>
-            {% endif %} {% endfor %}
+            {% endif %} {% endfor -%}
           </ul>
         </div>
         <!-- /archive-list -->

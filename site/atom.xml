@@ -5,15 +5,13 @@ sitemap:
   exclude: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-{% for post in site.posts limit:1 %}
-  {% if post.sitemap.lastmod %}
-    {% capture lastUpdatetime %}{{ post.sitemap.lastmod | date_to_xmlschema }}{% endcapture %}
-  {% else %}
-    {% capture lastUpdatetime %}{{ post.date | date_to_xmlschema }}{% endcapture %}
-  {% endif %}
-{% endfor %}
-
-
+{% for post in site.posts limit:1 -%}
+  {% if post.sitemap.lastmod -%}
+    {% capture lastUpdatetime %}{{ post.sitemap.lastmod | date_to_xmlschema }}{% endcapture -%}
+  {% else -%}
+    {% capture lastUpdatetime %}{{ post.date | date_to_xmlschema }}{% endcapture -%}
+  {% endif -%}
+{% endfor -%}
 <feed
   xmlns="https://www.w3.org/2005/Atom">
   <link rel="hub" href="https://pubsubhubbub.appspot.com"/>
@@ -27,22 +25,22 @@ sitemap:
     <email>{{ site.author.email }}</email>
   </author>
   <rights type="text">Copyright © {{ lastUpdatetime | date: "%Y" }} {{ site.author.name }}. All rights reserved.</rights>
-  {% for post in site.posts limit:15 %}
+  {% for post in site.posts limit:15 -%}
   <entry>
     <title>{{ post.title | xml_escape }}</title>
     <link rel="alternate" type="text/html" href="{{ site.baseurl }}{{ post.url }}?utm_source=RSS&amp;utm_medium=RSS&amp;utm_campaign={{ post.title | replace: ',','' | replace: ' ', '' | handleize | xml_escape }}" />
     <published>{{ post.date | date_to_xmlschema }}</published>
-    {% if post.sitemap.lastmod == null %}
+    {% if post.sitemap.lastmod == null -%}
       <updated>{{ post.date | date_to_xmlschema }}</updated>
-      {% else %}
+      {% else -%}
       <updated>{{ post.sitemap.lastmod | date_to_xmlschema }}</updated>
-    {% endif %}
+    {% endif -%}
     <id>{{ site.baseurl }}{{ post.id }}</id>
-    {% if post.linkURL %}
+    {% if post.linkURL -%}
     <content type="html"><![CDATA[ {% if post.description %}<blockquote>{{ post.description | markdownify}}</blockquote>{% endif %}{{ post.content | markdownify}} ]]></content>
-    {% else %}
+    {% else -%}
     <content type="html"><![CDATA[ {% if post.description %}{{ post.description | markdownify}}{% endif %}{{ post.content | markdownify}} ]]></content>
-    {% endif %}
+    {% endif -%}
   </entry>
-  {% endfor %}
+  {% endfor -%}
 </feed>
