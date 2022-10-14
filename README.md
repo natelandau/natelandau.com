@@ -2,19 +2,14 @@ Everything required to post, edit, deploy, and manage [natelandau.com](https://n
 
 # Provision Development Container
 
-1. Open the repository in a VSCode Development Container providing Ruby and NPM
-2. The script `.devcontainer/postCreateCommand.sh` should run automatically and will do the following
-    - Install packages with apt
-    - Download github/natelandau/dotfiles and initialize the terminal
-    - Run `bundle install`
-    - Run `npm install`
-    - Install pip and install conventional commits and pre-commit
-3. Ensure pre-commit is installed by running `pre-commit install --install-hook`
-4. Authorize Github using the `gh` cli
+1. **Open the repository in a Visual Studio Code development Container**.
+    - The script `.devcontainer/postCreateCommand.sh` should run automatically to install required packages
+2. **Ensure pre-commit is installed** by running `pre-commit install --install-hook`
+3. **Authorize Github** using the `gh` cli
     - `gh auth login`
     - Use `SSH` and default values
-5. Run `gh issue list` to make the site better by closing an open issue from Github.
-6. That's it. Happy blogging.
+4. Optionally, run `gh issue list` to make the site better by closing an open issue from Github.
+5. That's it. Happy blogging.
 
 # Asset Pipelines and Build Routines
 
@@ -71,15 +66,47 @@ The categories used for posts are collected in a data file `_data/categories.yml
 
 # Deployment
 
-Deploy to S3 using Github workflows. The workflow performs builds the production site and then uns `scripts/deploy-to-s3.sh` to deploy the assets to Amazon S3 and invalidate the Cloudfront cache.
+`scripts/deploy-to-s3.sh` syncs changes to S3 to deploy the website. Configure of settings, excludes, and lists of redirects in `deploy-to-s3.yml`
 
-`deploy-to-s3.yml` contains settings, excludes, and lists of custom redirects.
+### Run a Github Workflow
 
-To test a deployment using, update the Github workflow to use `--bucket-name=${{ secrets.AWS_S3_TEST_BUCKET_NAME }}`
+Deploy from files in an existing branch on Github by manually running a workflow.
 
-# Developing
+-   Select a workflow from the Github UI
+-   Run a workflow locally with `gh workflow run`
 
-## Conventional commits
+## Deploying from local builds
+
+Set the necessary ENV variables.
+
+```bash
+export AWS_ACCESS_KEY_ID=[secret]
+export AWS_SECRET_ACCESS_K[secret]
+export AWS_DEFAULT_REGION=[secret]
+```
+
+Build the appropriate version of the site into `_siteProd`
+
+```bash
+# Staging site (contains relative URLS, and dummy 3rd party accounts)
+grunt build_stage_deploy
+
+# Product site
+grunt build_stage
+```
+
+Run `scripts/deploy-to-s3.sh` with the appropriate options.
+
+## Automatic deployment
+
+Github actions trigger when changes are committed to certain branches.
+
+-   Commit to `staging` to deploy to the staging S3 bucket
+-   Commit to `production` to delete all files from staging, and deploy to the production S3 bucket
+
+# Git Conventions
+
+## Conventional Commits
 
 This project uses [conventional commits](https://github.com/commitizen/cz-cli).
 
