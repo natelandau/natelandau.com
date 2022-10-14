@@ -192,9 +192,15 @@ module.exports = function (grunt) {
                     future: true,
                 },
             },
-            stage: {
+            stage_local: {
                 options: {
-                    config: "_config.yml,_config_staging.yml",
+                    config: "_config.yml,_config_staging_local.yml",
+                    incremental: false,
+                },
+            },
+            stage_deploy: {
+                options: {
+                    config: "_config.yml,_config_staging_deploy.yml",
                     incremental: false,
                 },
             },
@@ -209,12 +215,29 @@ module.exports = function (grunt) {
         cacheBust: {
             run: {
                 options: {
-                    assets: ["assets/**/*.{css,js}"],
+                    // assets: ["assets/**/*.{css,js}"],
+                    assets: ["assets/site.min.css"],
                     baseDir: "<%= DIR %>",
+                    urlPrefixes: ["<%= URL %>"],
                 },
-                src: ["<%= DIR %>/**/*.html"],
+                src: ["<%= DIR %>/index.html"],
+
+                // src: ["<%= DIR %>/**/*.html"],
             },
         },
+
+        compress: {
+            prod: {
+                options: {
+                    mode: "gzip",
+                    pretty: true,
+                },
+                expand: true,
+                cwd: "<%= env.prod.DIR %>/",
+                src: ["**/*"],
+                dest: "<%= env.prod.DIR %>/",
+            },
+        }, // end compress
 
         watch: {
             less: {
@@ -285,6 +308,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-cache-bust");
     grunt.loadNpmTasks("grunt-concurrent");
     grunt.loadNpmTasks("grunt-contrib-clean");
+    grunt.loadNpmTasks("grunt-contrib-compress");
     grunt.loadNpmTasks("grunt-contrib-connect");
     grunt.loadNpmTasks("grunt-contrib-cssmin");
     grunt.loadNpmTasks("grunt-contrib-htmlmin");
@@ -338,12 +362,29 @@ module.exports = function (grunt) {
         "clean:build_dir",
         "less:no_map",
         "uglify:compress",
-        "jekyll:stage",
+        "jekyll:stage_local",
         "purgecss:run",
         "cssmin:run",
-        "cacheBust:run",
         "htmlmin:run",
+        "cacheBust:run",
         "tasks_post_linters",
+    ]);
+
+    grunt.registerTask("build_stage_deploy", [
+        "env:prod",
+        "loadVars",
+        "shell:traceVars",
+        "tasks_pre_linters",
+        "clean:build_dir",
+        "less:no_map",
+        "uglify:compress",
+        "jekyll:stage_deploy",
+        "purgecss:run",
+        "cssmin:run",
+        "htmlmin:run",
+        "cacheBust:run",
+        "tasks_post_linters",
+        "compress:prod",
     ]);
 
     grunt.registerTask("build_prod", [
@@ -357,12 +398,13 @@ module.exports = function (grunt) {
         "jekyll:prod",
         "purgecss:run",
         "cssmin:run",
-        "cacheBust:run",
         "htmlmin:run",
+        "cacheBust:run",
         "tasks_post_linters",
     ]);
 
     grunt.registerTask("build_all", ["build_dev", "build_stage", "build_prod"]);
     grunt.registerTask("serve", ["build_dev", "concurrent:dev"]);
     grunt.registerTask("serve_stage)", ["build_stage", "connect:stage"]);
+    grunt.registerTask("deploy_prod", ["build_prod", "compress:prod"]);
 };

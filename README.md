@@ -2,32 +2,29 @@ Everything required to post, edit, deploy, and manage [natelandau.com](https://n
 
 # Provision Development Container
 
-1. Open the repository in a VSCode Development Container providing Ruby and NPM
-2. The script `.devcontainer/postCreateCommand.sh` should run automatically and will do the following
-    - Install packages with apt
-    - Download github/natelandau/dotfiles and initialize the terminal
-    - Run `bundle install`
-    - Run `npm install`
-    - Install pip and install conventional commits and pre-commit
-3. Ensure pre-commit is installed by running `pre-commit install --install-hook`
-4. Authorize Github using the `gh` cli
+1. **Open the repository in a Visual Studio Code development Container**.
+    - The script `.devcontainer/postCreateCommand.sh` should run automatically to install required packages
+2. **Ensure pre-commit is installed** by running `pre-commit install --install-hook`
+3. **Authorize Github** using the `gh` cli
     - `gh auth login`
     - Use `SSH` and default values
-5. Run `gh issue list` to make the site better by closing an open issue from Github.
-6. That's it. Happy blogging.
+4. Optionally, run `gh issue list` to make the site better by closing an open issue from Github.
+5. That's it. Happy blogging.
 
 # Asset Pipelines and Build Routines
 
 Build the site using pipelines from [Gruntjs](https://gruntjs.com/).
 
-| Command             | Action                                                                |
-| ------------------- | --------------------------------------------------------------------- |
-| `grunt build_dev`   | Build the dev site, open a browser window, watch for changes          |
-| `grunt build_stage` | Build the staging site, open a browser window                         |
-| `grunt build_prod`  | Build the production site                                             |
-| `grunt build_all`   | Build all versions of the site                                        |
-| `grunt serve`       | Build the dev site, open it in a browser window and watch for changes |
-| `grunt serve_stage` | Build the staging site and open it in a browser window                |
+| Command                    | Action                                                                                                    |
+| -------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `grunt build_dev`          | Build the dev site, open a browser window, watch for changes                                              |
+| `grunt build_stage`        | Build the staging site, open a browser window                                                             |
+| `grunt build_prod`         | Build the production site                                                                                 |
+| `grunt build_all`          | Build all versions of the site                                                                            |
+| `grunt serve`              | Build the dev site, open it in a browser window and watch for changes                                     |
+| `grunt serve_stage`        | Build the staging site and open it in a browser window                                                    |
+| `grunt deploy_prod`        | Builds the production site and compresses files with gzip. Use this if uploading to S3 with gzip flag set |
+| `grunt build_stage_deploy` | Builds the production site with relative URLS to be deployed to the staging S3 bucket                     |
 
 # Managing the Jekyll site
 
@@ -67,21 +64,49 @@ redirect_from:
 
 The categories used for posts are collected in a data file `_data/categories.yml`. This file is used to drive the categories that appear in the footer of the site.
 
-# TODO
+# Deployment
 
--   Test some new jekyll plugins
-    -   https://github.com/jeffreytse/jekyll-spaceship
-    -   https://github.com/digitalsparky/jekyll-minifier
-    -   https://github.com/planetjekyll/awesome-jekyll-plugins
-    -   https://github.com/envygeeks/jekyll-assets
-    -   https://github.com/jekyll/jekyll-redirect-from
-    -   https://github.com/jekyll/jekyll-seo-tag
-    -   https://github.com/rbuchberger/jekyll_picture_tag
-    -   https://github.com/janosrusiczki/japr
+`scripts/deploy-to-s3.sh` syncs changes to S3 to deploy the website. Configure of settings, excludes, and lists of redirects in `deploy-to-s3.yml`
 
-# Developing
+### Run a Github Workflow
 
-## Conventional commits
+Deploy from files in an existing branch on Github by manually running a workflow.
+
+-   Select a workflow from the Github UI
+-   Run a workflow locally with `gh workflow run`
+
+## Deploying from local builds
+
+Set the necessary ENV variables.
+
+```bash
+export AWS_ACCESS_KEY_ID=[secret]
+export AWS_SECRET_ACCESS_K[secret]
+export AWS_DEFAULT_REGION=[secret]
+```
+
+Build the appropriate version of the site into `_siteProd`
+
+```bash
+# Staging site (contains relative URLS, and dummy 3rd party accounts)
+grunt build_stage_deploy
+
+# Product site
+grunt build_stage
+```
+
+Run `scripts/deploy-to-s3.sh` with the appropriate options.
+
+## Automatic deployment
+
+Github actions trigger when changes are committed to certain branches.
+
+-   Commit to `staging` to deploy to the staging S3 bucket
+-   Commit to `production` to delete all files from staging, and deploy to the production S3 bucket
+
+# Git Conventions
+
+## Conventional Commits
 
 This project uses [conventional commits](https://github.com/commitizen/cz-cli).
 

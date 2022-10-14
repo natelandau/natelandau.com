@@ -2,7 +2,7 @@
 # Environment Specific
 environment: dev
 production_url: "https://natelandau.com"
-baseurl: ""
+baseurl: "https://localhost:8080"
 host: localhost
 port: 8080
 analyticsID: UA-80560-6

@@ -1,5 +1,5 @@
 ---
-environment: prod
+environment: production
 production_url: "https://natelandau.com"
 baseurl: "https://natelandau.com"
 analyticsID: UA-80560-5

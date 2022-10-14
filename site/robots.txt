@@ -3,6 +3,11 @@ layout: null
 sitemap:
   exclude: true
 ---
+{%- if site.environment != 'production' -%}
+User-agent: *
+Disallow: /
+{%- else -%}
+
 Sitemap: {{ site.baseurl }}/sitemap.xml
 {%- assign count = '0' -%}
 {%- for post in site.posts -%}
@@ -20,7 +25,7 @@ Disallow: {{ page.url }}{% capture count %}{{ count | plus: '1' }}{% endcapture 
 {%- if count == '0' -%}
 User-agent: *
 Allow: /
-{%- endif -%}
+{% endif %}
 
 # Google Image
 User-agent: Googlebot-Image
@@ -40,3 +45,4 @@ Crawl-delay: 10
 
 User-agent: Slurp
 Crawl-delay: 10
+{% endif %}
