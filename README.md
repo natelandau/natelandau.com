@@ -20,17 +20,16 @@ Everything required to post, edit, deploy, and manage [natelandau.com](https://n
 
 Build the site using pipelines from [Gruntjs](https://gruntjs.com/).
 
-| Command                      | Action                                                                                                    |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `grunt build_dev`            | Build the dev site, open a browser window, watch for changes                                              |
-| `grunt build_stage`          | Build the staging site, open a browser window                                                             |
-| `grunt build_prod`           | Build the production site                                                                                 |
-| `grunt build_all`            | Build all versions of the site                                                                            |
-| `grunt serve`                | Build the dev site, open it in a browser window and watch for changes                                     |
-| `grunt serve_stage`          | Build the staging site and open it in a browser window                                                    |
-| `grunt deploy_prod`          | Builds the production site and compresses files with gzip. Use this if uploading to S3 with gzip flag set |
-| `grunt build_prod_relative`  | Builds the production site with relative URLS. (Useful when not deploying to domain)                      |
-| `grunt deploy_prod_relative` | Builds the production site with relative URLS and compresses files with gzip                              |
+| Command                | Action                                                                                                    |
+| ---------------------- | --------------------------------------------------------------------------------------------------------- |
+| `grunt build_dev`      | Build the dev site, open a browser window, watch for changes                                              |
+| `grunt build_stage`    | Build the staging site, open a browser window                                                             |
+| `grunt build_prod`     | Build the production site                                                                                 |
+| `grunt build_all`      | Build all versions of the site                                                                            |
+| `grunt serve`          | Build the dev site, open it in a browser window and watch for changes                                     |
+| `grunt serve_stage`    | Build the staging site and open it in a browser window                                                    |
+| `grunt deploy_prod`    | Builds the production site and compresses files with gzip. Use this if uploading to S3 with gzip flag set |
+| `grunt build_stage_s3` | Builds the production site with relative URLS to be deployed to the staging S3 bucket                     |
 
 # Managing the Jekyll site
 

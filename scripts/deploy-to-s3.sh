@@ -14,20 +14,36 @@ _mainScript_() {
     fi
 
     if ! command -v aws &>/dev/null; then
-        fatal "AWS CLI is not installed"
+        error "AWS CLI is not installed"
+        _safeExit_ "1"
     elif ! aws sts get-caller-identity &>/dev/null; then
-        fatal "AWS CLI is not configured"
+        error "AWS CLI is not configured"
+        _safeExit_ "1"
     elif [ ! -f "${CONF_BUILD_DIR}/index.html" ]; then
-        fatal "Source file does not exist"
+        error "Source file does not exist"
+        _safeExit_ "1"
     elif [ -z "${BUCKET_NAME}" ]; then
-        fatal "Bucket name is not set. Set with --bucket-name"
+        error "Bucket name is not set. Set with --bucket-name"
+        _safeExit_ "1"
     elif [[ "${BUCKET_NAME}" =~ ^(s3|/|.*/$) ]]; then
-        fatal "Bucket name is specified correctly. It should be the name of the bucket, not the full path"
+        error "Bucket name is specified correctly. It should be the name of the bucket, not the full path"
+        _safeExit_ "1"
     fi
 
     # Normalize variables
     CONF_BUILD_DIR=$(printf "%s" "${CONF_BUILD_DIR}" | sed "s/\/$//g")
     CONF_USE_GZIP=${CONF_USE_GZIP,,}
+
+    if ${DELETE_ALL}; then
+        notice "Deleting all files in bucket"
+        if _execute_ -vs "aws s3 rm \"s3://${BUCKET_NAME}\" --recursive" "Delete all files in S3 bucket"; then
+            _safeExit_
+        else
+            error "Failed to delete files in bucket"
+            _safeExit_ 1
+        fi
+    fi
+
 
     SYNC_COMMAND=(
         "aws s3 sync ./${CONF_BUILD_DIR}/ s3://${BUCKET_NAME}"
@@ -45,7 +61,8 @@ _mainScript_() {
     done
 
     if ! _execute_ -vs "${SYNC_COMMAND[*]}" "Sync site to S3"; then
-        fatal "Failed to sync site to S3"
+        error "Failed to sync site to S3"
+        _safeExit_ 1
     fi
 
     _createRedirect_() {
@@ -117,7 +134,8 @@ _mainScript_() {
 
     for redirect in "${CONF_REDIRECTS_[@]}"; do
         if ! _createRedirect_ "${redirect}"; then
-            fatal "Failed to create redirect for ${redirect}"
+            error "Failed to create redirect for ${redirect}"
+            _safeExit_ 1
         fi
     done
 
@@ -134,10 +152,11 @@ LOGLEVEL=ERROR
 VERBOSE=false
 FORCE=false
 DRYRUN=false
-BUCKET_NAME=""
 declare -a ARGS=()
 
 # Script specific
+DELETE_ALL=false
+BUCKET_NAME=""
 
 # ################################## Custom utility functions (Pasted from repository)
 
@@ -523,7 +542,7 @@ _alert_() {
         _message="${_message} ${gray}(line: ${_line}) $(_printFuncStack_)"
     elif [[ -n ${_line} && ${FUNCNAME[2]} != "_trapCleanup_" ]]; then
         _message="${_message} ${gray}(line: ${_line})"
-    elif [[ -z ${_line} && ${_alertType} =~ ^(fatal|error) && ${FUNCNAME[2]} != "_trapCleanup_" ]]; then
+    elif [[ -z ${_line} && ${_alertType} =~ ^fatal && ${FUNCNAME[2]} != "_trapCleanup_" ]]; then
         _message="${_message} ${gray}$(_printFuncStack_)"
     fi
 
@@ -627,7 +646,10 @@ _alert_() {
 
 } # /_alert_
 
-error() { _alert_ error "${1}" "${2:-}"; }
+error() {
+    _alert_ error "${1}" "${2:-}"
+    _safeExit_ "1"
+}
 warning() { _alert_ warning "${1}" "${2:-}"; }
 notice() { _alert_ notice "${1}" "${2:-}"; }
 info() { _alert_ info "${1}" "${2:-}"; }
@@ -791,8 +813,9 @@ _acquireScriptLock_() {
         debug "Acquired script lock: ${yellow}${SCRIPT_LOCK}${purple}"
     else
         if declare -f "_safeExit_" &>/dev/null; then
-            error "Unable to acquire script lock: ${yellow}${_lockDir}${red}"
-            fatal "If you trust the script isn't running, delete the lock dir"
+            warning "Unable to acquire script lock: ${yellow}${_lockDir}${red}"
+            error "If you trust the script isn't running, delete the lock dir"
+            _safeExit_ 1
         else
             printf "%s\n" "ERROR: Could not acquire script lock. If you trust the script isn't running, delete: ${_lockDir}"
             exit 1
@@ -990,6 +1013,7 @@ _parseOptions_() {
                 shift
                 BUCKET_NAME="${1}"
                 ;;
+            --delete-all) DELETE_ALL=true ;;
             -n | --dryrun) DRYRUN=true ;;
             -v | --verbose) VERBOSE=true ;;
             -q | --quiet) QUIET=true ;;
@@ -1114,10 +1138,11 @@ _usage_() {
 
   Configuration values are passed in 'deploy-to-s3.yaml'
 
-  ${bold}${underline}Required:${reset}
-$(_columns_ -b -- '--bucket-name' "Name of the S3 bucket (not the arn)" 2)
+  ${bold}${underline}AWS Options:${reset}
+$(_columns_ -b -- '--bucket-name' "Name of the S3 bucket (not the arn) [Required]" 2)
+$(_columns_ -b -- '--delete-all' "Delete's all files within the specified bucket" 2)
 
-  ${bold}${underline}Options:${reset}
+  ${bold}${underline}Script Options:${reset}
 $(_columns_ -b -- '-h, --help' "Display this help and exit" 2)
 $(_columns_ -b -- "--loglevel [LEVEL]" "One of: FATAL, ERROR (default), WARN, INFO, NOTICE, DEBUG, ALL, OFF" 2)
 $(_columns_ -b -- "--logfile [FILE]" "Full PATH to logfile.  (Default is '\${HOME}/logs/$(basename "$0").log')" 2)

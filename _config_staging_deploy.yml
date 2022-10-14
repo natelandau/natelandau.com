@@ -2,7 +2,7 @@
 environment: prod
 production_url: ""
 baseurl: ""
-analyticsID: UA-80560-5
-disqusShortName: natelandau
+analyticsID: UA-80560-6
+disqusShortName: natelandaudev
 destination: ./_siteProd
 include-js: true

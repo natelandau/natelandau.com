@@ -192,21 +192,21 @@ module.exports = function (grunt) {
                     future: true,
                 },
             },
-            stage: {
+            stage_local: {
                 options: {
-                    config: "_config.yml,_config_staging.yml",
+                    config: "_config.yml,_config_staging_local.yml",
+                    incremental: false,
+                },
+            },
+            stage_deploy: {
+                options: {
+                    config: "_config.yml,_config_staging_deploy.yml",
                     incremental: false,
                 },
             },
             prod: {
                 options: {
                     config: "_config.yml,_config_production.yml",
-                    incremental: false,
-                },
-            },
-            prod_relative: {
-                options: {
-                    config: "_config.yml,_config_prod_relative.yml",
                     incremental: false,
                 },
             },
@@ -362,12 +362,29 @@ module.exports = function (grunt) {
         "clean:build_dir",
         "less:no_map",
         "uglify:compress",
-        "jekyll:stage",
+        "jekyll:stage_local",
         "purgecss:run",
         "cssmin:run",
         "htmlmin:run",
         "cacheBust:run",
         "tasks_post_linters",
+    ]);
+
+    grunt.registerTask("build_stage_deploy", [
+        "env:prod",
+        "loadVars",
+        "shell:traceVars",
+        "tasks_pre_linters",
+        "clean:build_dir",
+        "less:no_map",
+        "uglify:compress",
+        "jekyll:stage_deploy",
+        "purgecss:run",
+        "cssmin:run",
+        "htmlmin:run",
+        "cacheBust:run",
+        "tasks_post_linters",
+        "compress:prod",
     ]);
 
     grunt.registerTask("build_prod", [
@@ -386,25 +403,8 @@ module.exports = function (grunt) {
         "tasks_post_linters",
     ]);
 
-    grunt.registerTask("build_prod_relative", [
-        "env:prod",
-        "loadVars",
-        "shell:traceVars",
-        "tasks_pre_linters",
-        "clean:build_dir",
-        "less:no_map",
-        "uglify:compress",
-        "jekyll:prod_relative",
-        "purgecss:run",
-        "cssmin:run",
-        "htmlmin:run",
-        "cacheBust:run",
-        "tasks_post_linters",
-    ]);
-
     grunt.registerTask("build_all", ["build_dev", "build_stage", "build_prod"]);
     grunt.registerTask("serve", ["build_dev", "concurrent:dev"]);
     grunt.registerTask("serve_stage)", ["build_stage", "connect:stage"]);
     grunt.registerTask("deploy_prod", ["build_prod", "compress:prod"]);
-    grunt.registerTask("deploy_prod_relative", ["build_prod_relative", "compress:prod"]);
 };
