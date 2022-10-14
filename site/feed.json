@@ -19,23 +19,28 @@ sitemap:
   },
   "expired": "false",
   "items": [
-{% for post in site.posts limit:15 %}
+{%- for post in site.posts limit:15 %}
     {
       "id": "{{ post.id }}",
       "url": "{{ site.baseurl }}{{ post.url }}?utm_source=jsonFeed&amp;utm_medium=jsonFeed&amp;utm_campaign={{ post.title | replace: ',','' | replace: ' ', '' | handleize | xml_escape }}",
       "title": {{ post.title | jsonify }},
-      {% if post.description %}"summary": {{ post.description  | jsonify }},{% endif %}
+      {% if post.description -%}
+      "summary": {{ post.description  | jsonify }},
+      {% endif -%}
       "content_html": "{% if post.description %}{% if post.linkURL %}<blockquote>{% endif %}{{ post.description  | replace: '\', '\\\' | replace: '"', '\"' | strip_newlines }}{% if post.linkURL %}</blockquote>{% endif %}{% endif %}{{ post.content | replace: '\', '\\\' | replace: '"', '\"' | strip_newlines }}",
-      {% if post.tags %}"tags":  [ "{{post.tags | join: '","'}}" ],{% endif %}
-      {% if post.linkURL %}"external_url": "{{ post.linkURL }}",{% endif %}
+      {% if post.tags -%}
+      "tags":  [ "{{post.tags | join: '","'}}" ],
+      {% endif -%}
+      {% if post.linkURL -%}
+      "external_url": "{{ post.linkURL }}",
+      {% endif -%}
       "date_published": "{{ post.date | date_to_xmlschema }}",
       "date_modified": "{% if post.sitemap.lastmod == null %}{{ post.date | date_to_xmlschema }}{% else %}{{ post.sitemap.lastmod | date_to_xmlschema }}{% endif %}"
     }{% unless forloop.last == true %},{% endunless %}
-{% endfor %}
+{%- endfor %}
   ]
 }
 
-{% comment %}
+{% comment -%}
 
-
-{% endcomment %}
+{% endcomment -%}

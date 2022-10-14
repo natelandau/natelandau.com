@@ -1,4 +1,4 @@
-{% if page.layout == 'post' or page.layout == 'link' %}
+{% if page.layout == 'post' or page.layout == 'link' -%}
 <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -6,14 +6,21 @@
           "headline": "{{ page.title }}",
           "name": "{{ page.title }}",
           "url": "{{ site.baseurl }}{{ page.url }}",
-          "datePublished": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% if page.sitemap.lastmod %}
-          "dateModified": "{{ page.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% else %}
-          "dateModified": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% endif %}
-          {% if page.description %}"description": "{{ page.description }}",{% endif %}{% if page.image %}
+          "datePublished": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",
+          {% if page.sitemap.lastmod -%}
+          "dateModified": "{{ page.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}",
+          {% else -%}
+          "dateModified": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",
+          {% endif -%}
+          {% if page.description %}"description": "{{ page.description }}",
+          {% endif -%}
+          {% if page.image -%}
           "image": {
             "@type": "ImageObject",
             "url": "{{ site.baseurl }}/img/postImg/{{ page.image }}"
-          },{% endif %}{% if page.tags %}
+          },
+          {% endif -%}
+          {% if page.tags -%}
           "keywords":  [ "{{page.tags | join: '","'}}" ],{% endif %}
           "author": {
             "@type": "Person",
@@ -53,8 +60,8 @@
           }
     }
 </script>
-{% elsif page.layout == 'page' or page.layout == 'pageResume' %}{% unless
-page.title contains '404' %}
+{% elsif page.layout == 'page' or page.layout == 'pageResume' -%}
+{% unless page.title contains '404' -%}
 <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -62,15 +69,20 @@ page.title contains '404' %}
           "headline": "{{ page.title }}",
           "name": "{{ page.title }}",
           "url": "{{ site.baseurl }}{{ page.url }}",
-          "datePublished": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% if page.sitemap.lastmod %}
-          "dateModified": "{{ page.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% else %}
+          "datePublished": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",
+          {% if page.sitemap.lastmod -%}
+          "dateModified": "{{ page.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}",
+          {% else -%}
           "dateModified": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% endif %}
-          {% if page.description %}"description": "{{ page.description }}",{% endif %}{% if page.image %}
+          {% if page.description %}"description": "{{ page.description }}",
+          {% endif -%}
+          {% if page.image -%}
           "image": {
             "@type": "ImageObject",
             "url": "{{ site.baseurl }}/img/postImg/{{ page.image }}"
           },{% endif %}{% if page.tags %}
-          "keywords":  [ "{{page.tags | join: '","'}}" ],{% endif %}
+          "keywords":  [ "{{page.tags | join: '","'}}" ],
+          {% endif -%}
           "author": {
             "@type": "Person",
             "name": "{{ site.author.name }}",
@@ -110,11 +122,14 @@ page.title contains '404' %}
     }
     }
 </script>
-{% endunless %}{% elsif page.homepage %} {% for post in site.posts limit:1 %} {%
-if post.sitemap.lastmod %} {% capture lastUpdatetime %}{{ post.sitemap.lastmod |
-date: "%Y-%m-%dT%H:%M:%S%z" }}{% endcapture %} {% else %} {% capture
+{% endunless -%}
+{% elsif page.homepage -%}
+{% for post in site.posts limit:1 -%}
+{%if post.sitemap.lastmod -%}
+{% capture lastUpdatetime -%}{{ post.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}{% endcapture %} {% else %} {% capture
 lastUpdatetime %}{{ post.date | date: "%Y-%m-%dT%H:%M:%S%z" }}{% endcapture %}
-{% endif %} {% endfor %}
+{% endif- %}
+{% endfor -%}
 <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -160,4 +175,4 @@ lastUpdatetime %}{{ post.date | date: "%Y-%m-%dT%H:%M:%S%z" }}{% endcapture %}
         }
     }
 </script>
-{% endif %}
+{% endif -%}
