@@ -45,9 +45,12 @@ jobs:
             # Build Test Site
             # -----------------------------------
             - name: "Build Production Site with Relative URLS"
-              run: npx grunt build_stage_deploy
+              run: npx grunt deploy_stage
 
             # Deploy Site to AWS
             # -----------------------------------
-            - name: "Deploy to AWS S3 Test Bucket"
-              run: scripts/deploy-to-s3.sh --force --bucket-name=${{ secrets.AWS_S3_TEST_BUCKET_NAME }}
+            - name: "Deploy staging server"
+              run: scripts/deploy-to-s3.sh --force --bucket-name=${{ secrets.AWS_S3_TEST_BUCKET_NAME }} --source-dir _siteStage
+
+            - name: "Create AWS Cloudfront Invalidation"
+              run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_STAGING_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"

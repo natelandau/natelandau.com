@@ -17,10 +17,7 @@ _mainScript_() {
         error "AWS CLI is not installed"
         _safeExit_ "1"
     elif ! aws sts get-caller-identity &>/dev/null; then
-        error "AWS CLI is not configured"
-        _safeExit_ "1"
-    elif [ ! -f "${CONF_BUILD_DIR}/index.html" ] && ! ${DELETE_ALL}; then
-        error "Source file does not exist"
+        error "AWS CLI is not configured correctly"
         _safeExit_ "1"
     elif [ -z "${BUCKET_NAME}" ]; then
         error "Bucket name is not set. Set with --bucket-name"
@@ -28,13 +25,18 @@ _mainScript_() {
     elif [[ "${BUCKET_NAME}" =~ ^(s3|/|.*/$) ]]; then
         error "Bucket name is specified correctly. It should be the name of the bucket, not the full path"
         _safeExit_ "1"
+    elif [ -z "${SOURCE_DIR}" ] && _varIsFalse_ "${DELETE_ALL}"; then
+        error "Source directory is not set. Set with --source-dir"
+        _safeExit_ "1"
+    elif [ ! -d "${SOURCE_DIR}" ] && _varIsFalse_ "${DELETE_ALL}"; then
+        error "Source directory does not exist"
+        _safeExit_ "1"
+    elif [ ! -f "${SOURCE_DIR}/index.html" ] && _varIsFalse_ "${DELETE_ALL}"; then
+        error "Source files does not seem to exist in the source directory"
+        _safeExit_ "1"
     fi
 
-    # Normalize variables
-    CONF_BUILD_DIR=$(printf "%s" "${CONF_BUILD_DIR}" | sed "s/\/$//g")
-    CONF_USE_GZIP=${CONF_USE_GZIP,,}
-
-    if ${DELETE_ALL}; then
+    if _varIsTrue_ "${DELETE_ALL}"; then
         notice "Deleting all files in bucket"
         if _execute_ -vs "aws s3 rm \"s3://${BUCKET_NAME}\" --recursive" "Delete all files in S3 bucket"; then
             _safeExit_
@@ -44,15 +46,14 @@ _mainScript_() {
         fi
     fi
 
-
     SYNC_COMMAND=(
-        "aws s3 sync ./${CONF_BUILD_DIR}/ s3://${BUCKET_NAME}"
+        "aws s3 sync ${SOURCE_DIR}/ s3://${BUCKET_NAME}"
         "--acl public-read"
         "--delete"
         "--cache-control max-age=${CONF_MAX_AGE}"
     )
 
-    if ${CONF_USE_GZIP}; then
+    if _varIsTrue_ "${CONF_USE_GZIP}"; then
         SYNC_COMMAND+=("--content-encoding gzip")
     fi
 
@@ -91,10 +92,10 @@ _mainScript_() {
         if [[ "${_source}" == "${_target}" ]]; then
             notice "Skipping redirect for ${_source}, target = source"
             return 0
-        elif [[ "${_source}" == "" ]]; then
+        elif _varIsEmpty_ "${_source}"; then
             notice "Skipping redirect for ${_target}, source is empty"
             return 0
-        elif [[ "${_target}" == "" ]]; then
+        elif _varIsEmpty_ "${_target}"; then
             notice "Skipping redirect for ${_source}, target is empty"
             return 0
         elif [[ "${_source}" == "/" ]]; then
@@ -105,8 +106,8 @@ _mainScript_() {
             return 0
         fi
 
-        _source_local="${CONF_BUILD_DIR}/${_source}"
-        _sourcePath=$(_filePath_ "${CONF_BUILD_DIR}/${_source}")
+        _source_local="${SOURCE_DIR}/${_source}"
+        _sourcePath=$(_filePath_ "${SOURCE_DIR}/${_source}")
 
 
         if [ -f "${_source_local}" ]; then
@@ -157,8 +158,54 @@ declare -a ARGS=()
 # Script specific
 DELETE_ALL=false
 BUCKET_NAME=""
+SOURCE_DIR=""
 
 # ################################## Custom utility functions (Pasted from repository)
+_varIsTrue_() {
+    # DESC:
+    #					Check if a given variable is true
+    # ARGS:
+    #					$1 (required): Variable to check
+    # OUTS:
+    #					0 - Variable is true
+    #					1 - Variable is false
+    # USAGE
+    #					_varIsTrue_ "${var}"
+
+    [[ $# == 0 ]] && fatal "Missing required argument to ${FUNCNAME[0]}"
+
+    [[ ${1,,} == "true" || ${1} == 0 ]] && return 0 || return 1
+}
+
+_varIsFalse_() {
+    # DESC:
+    #					Check if a given variable is false
+    # ARGS:
+    #					$1 (required): Variable to check
+    # OUTS:
+    #					0 - Variable is false
+    #					1 - Variable is true
+    # USAGE
+    #					_varIsFalse_ "${var}"
+
+    [[ $# == 0 ]] && fatal "Missing required argument to ${FUNCNAME[0]}"
+
+    [[ ${1,,} == "false" || ${1} == 1 ]] && return 0 || return 1
+}
+
+_varIsEmpty_() {
+    # DESC:
+    #					Check if given variable is empty or null.
+    # ARGS:
+    #					$1 (required): Variable to check
+    # OUTS:
+    #					0 - Variable is empty or null
+    #					1 - Variable is not empty or null
+    # USAGE
+    #					_varIsEmpty_ "${var}"
+
+    [[ -z ${1:-} || ${1:-} == "null"|| ${1:-} == "" ]] && return 0 || return 1
+}
 
 _parseYAML_() {
     # DESC:
@@ -995,7 +1042,15 @@ _parseOptions_() {
     while [[ ${1:-} == -?* ]]; do
         case $1 in
             # Custom options
-
+            --bucket-name)
+                shift
+                BUCKET_NAME="${1}"
+                ;;
+            --source-dir)
+                shift
+                SOURCE_DIR="${1}"
+                ;;
+            --delete-all) DELETE_ALL=true ;;
             # Common options
             -h | --help)
                 _usage_
@@ -1009,11 +1064,6 @@ _parseOptions_() {
                 shift
                 LOGFILE="${1}"
                 ;;
-            --bucket-name)
-                shift
-                BUCKET_NAME="${1}"
-                ;;
-            --delete-all) DELETE_ALL=true ;;
             -n | --dryrun) DRYRUN=true ;;
             -v | --verbose) VERBOSE=true ;;
             -q | --quiet) QUIET=true ;;
@@ -1140,6 +1190,7 @@ _usage_() {
 
   ${bold}${underline}AWS Options:${reset}
 $(_columns_ -b -- '--bucket-name' "Name of the S3 bucket (not the arn) [Required]" 2)
+$(_columns_ -b -- '--source-dir' "Path to the directory containing site files [Required]" 2)
 $(_columns_ -b -- '--delete-all' "Delete's all files within the specified bucket" 2)
 
   ${bold}${underline}Script Options:${reset}

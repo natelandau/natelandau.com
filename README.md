@@ -29,7 +29,7 @@ The [`jekyll-responsive_image`](https://github.com/wildlyinaccurate/jekyll-respo
 {% responsive_image
   path: img/path/to/image.jpg
   alt: "alt..."
-  link: "http://somelink.com"
+  link: "https://somelink.com"
 %}
 ```
 
@@ -66,16 +66,15 @@ These pipelines:
 -   Minify & Compress files
 -   Serve locally and watch for changes
 
-| Command                    | Action                                                                                                    |
-| -------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `grunt build_dev`          | Build the dev site, open a browser window, watch for changes                                              |
-| `grunt build_stage`        | Build the staging site, open a browser window                                                             |
-| `grunt build_prod`         | Build the production site                                                                                 |
-| `grunt build_all`          | Build all versions of the site                                                                            |
-| `grunt serve`              | Build the dev site, open it in a browser window and watch for changes                                     |
-| `grunt serve_stage`        | Build the staging site and open it in a browser window                                                    |
-| `grunt deploy_prod`        | Builds the production site and compresses files with gzip. Use this if uploading to S3 with gzip flag set |
-| `grunt build_stage_deploy` | Builds the production site with relative URLS to be deployed to the staging S3 bucket                     |
+| Command              | Action                                                                                                    |
+| -------------------- | --------------------------------------------------------------------------------------------------------- |
+| `grunt build_dev`    | Build the dev site, open a browser window, watch for changes                                              |
+| `grunt build_stage`  | Build the staging site                                                                                    |
+| `grunt build_prod`   | Build the production site                                                                                 |
+| `grunt build_all`    | Build all versions of the site                                                                            |
+| `grunt serve`        | Build the dev site, open it in a browser window and watch for changes                                     |
+| `grunt deploy_stage` | Builds the staging site and compresses files with gzip. Use this if uploading to S3 with gzip flag set    |
+| `grunt deploy_prod`  | Builds the production site and compresses files with gzip. Use this if uploading to S3 with gzip flag set |
 
 ## Deploying Changes
 
@@ -115,7 +114,7 @@ Always follow these steps to deploy the site
 To force the running of a Github workflow via the Github CLI follow these steps:
 
 1. Authenticate with Github: `gh auth login`
-2. Select a workflow to run: `gh workflow run`
+2. Select a workflow to run: `gh workflow run`. To run from a branch add `--ref="branch_name"`
 
 ### Deploy from Local
 
@@ -129,14 +128,14 @@ export AWS_SECRET_ACCESS_K[secret]
 export AWS_DEFAULT_REGION=[secret]
 ```
 
-Build the appropriate version of the site into `_siteProd`
+Build the appropriate version of the site
 
 ```bash
-# Staging site (contains relative URLS, and dummy 3rd party accounts)
-grunt build_stage_deploy
+# Staging site
+grunt deploy_stage
 
-# Product site
-grunt build_stage
+# Production site
+grunt deploy_prod
 ```
 
 Run `scripts/deploy-to-s3.sh` with the appropriate options.
@@ -161,38 +160,3 @@ detect-secrets scan --baseline .secrets.baseline
 # Audit the baseline
 detect-secrets audit .secrets.baseline
 ```
-
-## Testing builds with external URLs
-
-Opening a tunnel to a local development environment allows external services such as [Google's Page Speed Insights](https://developers.google.com/speed/pagespeed/insights/) or [Web Page Test](https://www.webpagetest.org) to access a site built and served on localhost.
-
-To spin up these sites use one of:
-
--   `grunt serve` - development site available at `http://localhost:8080`
--   `grunt serveStage` - staging site available at `http://localhost:8888`
-
-Cloudflared and ngrok are two options for opening a local development port up to the internet.
-
-### Cloudflared
-
-Cloudflare has a robust CLI which can perform many tasks including opening a secure tunnel to localhost. They call this an [Argo Tunnel](https://www.cloudflare.com/products/argo-tunnel/). You can **[install it here](https://developers.cloudflare.com/argo-tunnel/downloads/)**.
-
-Then create a tunnel
-
-```
-cloudflared tunnel --url localhost:[port]
-```
-
-### ngrok
-
-1. First install [ngrok](https://ngrok.com). Use Homebrew Cask on a Mac by entering `brew cask install ngrok`.
-1. Login to ngrok using Github Credentials and add the authToken following instructions on the site.
-
-### Steps to use
-
-1. Build the site using `grunt serveStage`
-1. Create the tunnel with `ngrok http [port]` or `ngrok http -subdomain=natenate [port]`
-
-Ngrok will give you a externally facing domain (e.g. \[https://natenate.ngrok.io\]).
-
-Further information available with `ngrok help`
