@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "*.html": "jekyll"
+        "*.html": "liquid",
+        "*.xml": "liquid"
     },
     "prettier.configPath": ".prettierrc.yaml",
     "prettier.endOfLine": "auto",
@@ -8,5 +9,11 @@
     "[yaml]": {
         "editor.tabSize": 4
     },
-    "prettier.requireConfig": true
+    "prettier.requireConfig": true,
+    "[xml]": {
+        "editor.defaultFormatter": "sissel.shopify-liquid"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "sissel.shopify-liquid"
+    }
 }

@@ -39,7 +39,8 @@
                 "shardulm94.trailing-spaces",
                 "bierner.markdown-preview-github-styles",
                 "GitHub.vscode-pull-request-github",
-                "redhat.vscode-yaml"
+                "redhat.vscode-yaml",
+                "sissel.shopify-liquid"
             ]
         }
     },
@@ -57,5 +58,9 @@
         "github-cli": "latest",
         "aws-cli": "latest",
         "sshd": "latest"
-    }
+    },
+
+    "mounts": [
+        "source=${localEnv:HOME}/.aws/credentials,target=/home/vscode/.aws/credentials,type=bind,consistency=cached"
+    ]
 }
