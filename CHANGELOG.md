@@ -1,3 +1,9 @@
+## v0.3.0 (2022-10-16)
+
+### Feat
+
+- migrate comments to Giscus (#13)
+
 ## v0.2.0 (2022-10-14)
 
 ### Feat
