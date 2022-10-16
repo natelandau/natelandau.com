@@ -6,12 +6,25 @@
             "headline": "{{ page.title }}",
             "name": "{{ page.title }}",
             "url": "{{ site.url }}{{ page.url }}",
-            "datePublished": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% if page.sitemap.lastmod -%}"dateModified" : "{{ page.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}",
+            "datePublished": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",
+            {% if page.sitemap.lastmod -%}
+            "dateModified" : "{{ page.sitemap.lastmod | date: '%Y-%m-%dT%H:%M:%S%z' }}",
             {% else -%}
-                "dateModified" : "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% endif -%}{% if page.description %}"description" : "{{ page.description }}",{% endif -%}{% if page.image -%}"image" : {
+                "dateModified" : "{{ page.date | date: '%Y-%m-%dT%H:%M:%S%z' }}"
+            {% endif -%}
+            {% if page.description %}
+            "description" : "{{ page.description }}",
+            {% endif -%}
+            {% if page.image -%}
+                "image" : {
                     "@type": "ImageObject",
-                    "url": "{{ site.url }}/img/postImg/   {{ page.image }}"
-                },{% endif -%}{% if page.tags -%}"keywords" : ["{{page.tags | join: '","'}}"],{% endif %}"author": {
+                    "url": "{{ site.url }}/img/postImg/{{ page.image }}"
+                },
+            {% endif -%}
+            {% if page.tags -%}
+            "keywords" : ["{{page.tags | join: '","'}}"],
+            {% endif -%}
+            "author": {
                 "@type": "Person",
                 "name": "{{ site.author.name }}",
                 "alternateName": "{{ site.author.alternate_name }}",
@@ -48,12 +61,25 @@
                 "headline": "{{ page.title }}",
                 "name": "{{ page.title }}",
                 "url": "{{ site.url }}{{ page.url }}",
-                "datePublished": "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% if page.sitemap.lastmod -%}"dateModified" : "{{ page.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}",
+                "datePublished": "{{ page.date | date: '%Y-%m-%dT%H:%M:%S%z' }}"
+                {% if page.sitemap.lastmod -%}
+                "dateModified" : "{{ page.sitemap.lastmod | date: '%Y-%m-%dT%H:%M:%S%z' }}",
                 {% else -%}
-                    "dateModified" : "{{ page.date | date: "%Y-%m-%dT%H:%M:%S%z" }}",{% endif %}{% if page.description %}"description" : "{{ page.description }}",{% endif -%}{% if page.image -%}"image" : {
+                    "dateModified" : "{{ page.date | date: '%Y-%m-%dT%H:%M:%S%z' }}",
+                {% endif -%}
+                {% if page.description -%}
+                "description" : "{{ page.description }}",
+                {% endif -%}
+                {% if page.image -%}
+                    "image" : {
                         "@type": "ImageObject",
-                        "url": "{{ site.url }}/img/postImg/   {{ page.image }}"
-                    },{% endif %}{% if page.tags %}"keywords" : ["{{page.tags | join: '","'}}"],{% endif -%}"author": {
+                        "url": "{{ site.url }}/img/postImg/{{ page.image }}"
+                    },
+                {% endif -%}
+                {% if page.tags -%}
+                "keywords" : ["{{page.tags | join: '","'}}"],
+                {% endif -%}
+                "author": {
                     "@type": "Person",
                     "name": "{{ site.author.name }}",
                     "alternateName": "{{ site.author.alternate_name }}",
@@ -90,8 +116,7 @@
                 {{ post.sitemap.lastmod | date: "%Y-%m-%dT%H:%M:%S%z" }}
             {% endcapture %}
         {% else %}
-            {% capture
-lastUpdatetime %}
+            {% capture lastUpdatetime %}
                 {{ post.date | date: "%Y-%m-%dT%H:%M:%S%z" }}
             {% endcapture %}
         {% endif- %}
@@ -131,6 +156,5 @@ lastUpdatetime %}
                     "@id": "{{ site.url }}{{ page.url }}"
                 }
             }
-            </script>
-        {% endif -%}
-    {% endif -%}
+    </script>
+{% endif -%}

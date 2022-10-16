@@ -24,9 +24,13 @@
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     {% endif -%}
     <link rel="author" href="{{ site.url }}/about-nathaniel-landau/">
-    {% include header.schemaJSON.html %} {% include header.metaTags.html %} {% include header.facebookOG.html %} {%
-    include header.twittercard.html %} {% include header.favicons.html %} {% include header.css.html %} {% if
-    site.include-js != false %}{% include header.analytics.html %}{% endif %}
+    {% include header.schemaJSON.html %}
+    {% include header.metaTags.html %}
+    {% include header.facebookOG.html %}
+    {% include header.twittercard.html %}
+    {% include header.favicons.html %}
+    {% include header.css.html %}
+    {% if site.include-js != false %}{% include header.analytics.html %}{% endif %}
   </head>
   <body id="{{ page.layout }}">
     <div class="page-top"></div>
