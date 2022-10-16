@@ -15,7 +15,7 @@ sitemap:
 flags:
     published: true
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 I keep a complex set of files in sync between my various computers. These range from '~/Documents/' to application preferences from '~/Library/Application Support/' to sundry other files in use around my computer. The syncing script in this post _automagically_ takes any number of files in Dropbox and creates symlinks from them to the appropriate places on my computer.

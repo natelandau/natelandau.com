@@ -15,7 +15,7 @@ sitemap:
 flags:
     published: true
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 Despite its flaws, Google Chrome has been my primary web browser for some time. It's not because I think Chrome is great. Quite the contrary, it is slow and bloated. And worse, it probably sends all the sites I visit to Google to help them target me with advertising. But I keep coming back over and over again due to some of the great extensions that don't exist for Safari. (And don't get me started on why I don't use Firefox&hellip;)

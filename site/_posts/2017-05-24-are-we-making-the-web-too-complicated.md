@@ -16,5 +16,5 @@ sitemap:
 flags:
     published: true
     noindex: false
-    comments: false
+    include_comments: false
 ---

@@ -31,7 +31,7 @@ sitemap:
       "tags":  [ "{{ post.tags | join: '", "' }}" ],{% if post.layout == "link" %}
       "linkURL": "{{ post.linkURL }}",
       "linkTitle": "{{ post.linkTitle }}",{% endif %}
-      "comments": "{{ post.flags.comments }}"
+      "comments": "{{ post.flags.include_comments }}"
     }{% unless forloop.last %},{% endunless %}{% endunless %}{% endunless %}{% endfor %}
   ],
   "pages": [

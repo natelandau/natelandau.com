@@ -16,7 +16,7 @@ sitemap:
 flags:
     published: true
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 <iframe src="//www.youtube.com/embed/_bDcIKc6edM" frameborder="0" allowfullscreen></iframe>

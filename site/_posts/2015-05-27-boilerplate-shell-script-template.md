@@ -15,7 +15,7 @@ sitemap:
 flags:
     published: true
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 I often write simple BASH scripts to perform a multitude of tasks. I have scripts to sync directories, convert media files, bootstrap a new mac, deploy my Jekyll site, and perform sundry other computer automation tasks.

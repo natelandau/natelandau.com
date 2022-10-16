@@ -15,7 +15,7 @@ sitemap:
 flags:
     published: true
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 I do a lot of bash shell scripting. Okay, not a lot, but from time to time I find it handy to automate tasks I perform often on my mac. I am no programmer so it took me a while to realize that there was a better method than writing the same code multiple times in many different scripts. I took the common functions and compiled them into a file called `utils.sh`. Now all I have to do is source (include) this file from any script I write and I have easy access to a number of handy utilities including:

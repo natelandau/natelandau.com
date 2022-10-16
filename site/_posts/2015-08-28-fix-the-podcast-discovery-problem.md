@@ -15,7 +15,7 @@ sitemap:
 flags:
     published: true
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 It has been just over a decade since Apple added a podcast directory to iTunes and podcasting as we know it began in earnest. The recent popularity of a few break out podcasts has led to significant audience growth for this new medium[^1]. Indeed, Podcasting is poised to disrupt terrestrial radio in much the same way Netflix or Hulu disrupted the television industry.

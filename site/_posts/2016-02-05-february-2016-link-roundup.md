@@ -14,7 +14,7 @@ sitemap:
 flags:
     published: true
     noindex: false
-    comments: false
+    include_comments: false
 ---
 
 [Here's Google's Secret to Hiring the Best People](https://www.wired.com/2015/04/hire-like-google/) <br />Typical, unstructured job interviews are pretty bad at predicting how someone performs once hired. <br /><span class='linkPost-tags'>Tagged:&nbsp; <a href='https://pinboard.in/u:natelandau/t:business'>business</a> <a href='https://pinboard.in/u:natelandau/t:management'>management</a> </span><br />

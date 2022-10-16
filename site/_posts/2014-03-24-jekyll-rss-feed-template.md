@@ -15,7 +15,7 @@ sitemap:
 flags:
     published: true
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 I recently moved my personal blog from Wordpress to [Jekyll][1]. I made this move primarily as a way to keep my webdev chops current and experiment with Ruby, Amazon S3, Cloudfront, and Markdown. The act of porting my site into Jekyll was fraught with learning opportunities some of which I will begin to document here to help others (as [so many][2] [have][3] [helped me][4].)

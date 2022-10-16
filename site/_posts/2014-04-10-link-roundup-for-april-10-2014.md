@@ -14,7 +14,7 @@ sitemap:
 flags:
     published: true
     noindex: false
-    comments: false
+    include_comments: false
 ---
 
 [The Ultimate Guide to Solving iOS Battery Drain](https://www.overthought.org/blog/2014/the-ultimate-guide-to-solving-ios-battery-drain) A step by step walkthrough on how to fix iOS battery drain problems. An incredibly useful read.

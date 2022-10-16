@@ -71,7 +71,7 @@ layout: post
         </div>
         <!-- /next-prev -->
 
-        {% if page.flags.comments -%}
+        {% if page.flags.include_comments -%}
             <!-- Comments -->
             <div id="comment-box" class="comments">
                 <script src="https://giscus.app/client.js" data-repo="natelandau/natelandau.com" data-repo-id="{{ site.giscus_repo_id }}" data-category="{{ site.giscus_data_category}}" data-category-id="{{ site.giscus_data_category_id }}" data-mapping="pathname" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script>

@@ -15,7 +15,7 @@ sitemap:
 flags:
     published: true
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 Some fine folks named [Manton Reece][1] and [Brent Simmons][2] have created a JSON feed specification meant to compliment and hopefully replace XML based content feeds like RSS and Atom. Now this might not seem important to any of you but I'm an old stick-in-the-mud and love content feeds. I still get the vast majority of my information from a carefully curated list of RSS feeds that I've been building since the late '90s and that I read through [FeedBin][4].

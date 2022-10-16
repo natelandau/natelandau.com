@@ -15,7 +15,7 @@ sitemap:
 flags:
     published: true
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 Here are my learnings from the hundreds of reference checks I've performed over the years and information gleaned from recruiters and colleagues. I've gelled them into **a process with eight questions** that _usually_ succeed in getting a reference to tell me useful and actionable information during a phone call.
