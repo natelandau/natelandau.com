@@ -1,5 +1,5 @@
 ---
-environment: prod
+environment: staging
 url: "https://staging.natelandau.com"
 analyticsID: UA-80560-6
 disqusShortName: natelandaudev
