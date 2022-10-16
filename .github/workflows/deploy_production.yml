@@ -54,8 +54,8 @@ jobs:
             - name: "Build Production Site"
               run: npx grunt deploy_prod
 
-            # - name: "Deploy to AWS S3 Production"
-            #   run: scripts/deploy-to-s3.sh --force --bucket-name=${{ secrets.AWS_S3_PRODUCTION_BUCKET_NAME }} --source-dir _siteProd
+            - name: "Deploy to AWS S3 Production"
+              run: scripts/deploy-to-s3.sh --force --bucket-name=${{ secrets.AWS_S3_PRODUCTION_BUCKET_NAME }} --source-dir _siteProd
 
             - name: "Create AWS Cloudfront Invalidation for Production"
               run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
