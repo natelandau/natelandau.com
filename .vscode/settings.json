@@ -16,5 +16,6 @@
     "[html]": {
         "editor.defaultFormatter": "sissel.shopify-liquid"
     },
-    "githubPullRequests.ignoredPullRequestBranches": ["main"]
+    "githubPullRequests.ignoredPullRequestBranches": ["main"],
+    "liquid.format.enable": false
 }
