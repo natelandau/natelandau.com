@@ -44,10 +44,10 @@ title : Atom Feed
 <link rel="hub" href="https://pubsubhubbub.appspot.com" />
 
   <title type="text" xml:lang="en">{{ site.name }}</title>
-    <link type="application/atom+xml" href="{{ site.baseurl }}/atom.xml" rel="self"/>
-    <link href="{{ site.baseurl }}/"/>
+    <link type="application/atom+xml" href="{{ site.url }}/atom.xml" rel="self"/>
+    <link href="{{ site.url }}/"/>
   <updated>{{ site.time | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
-  <id>{{ site.baseurl }}/</id>
+  <id>{{ site.url }}/</id>
   <author>
     <name>{{ site.author.name }}</name>
     <email>{{ site.author.email }}</email>
@@ -56,10 +56,10 @@ title : Atom Feed
   {% for post in site.posts limit:10 %}
   <entry>
     <title>{{ post.title | xml_escape }}</title>
-    <link rel="alternate" type="text/html" href="{{ site.baseurl }}{{ post.url }}/?utm_source=RSS&amp;utm_medium=RSS&amp;utm_campaign={{ post.title | replace: ',','' | replace: ' ', '' | xml_escape }}" />
+    <link rel="alternate" type="text/html" href="{{ site.url }}{{ post.url }}/?utm_source=RSS&amp;utm_medium=RSS&amp;utm_campaign={{ post.title | replace: ',','' | replace: ' ', '' | xml_escape }}" />
     <published>{{ post.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</published>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <id>{{ site.baseurl }}{{ post.id }}</id>
+    <id>{{ site.url }}{{ post.id }}</id>
     <content type="html"><![CDATA[ {{ post.content | markdownify }} ]]></content>
   </entry>
   {% endfor %}
@@ -79,7 +79,7 @@ To make the existence of my RSS feed known to browsers, I added this code to my 
 
 ```html
 {% raw %}
-<link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ site.baseurl }}/atom.xml" />
+<link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ site.url }}/atom.xml" />
 {% endraw %}
 ```
 

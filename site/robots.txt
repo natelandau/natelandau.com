@@ -8,7 +8,7 @@ User-agent: *
 Disallow: /
 {% else -%}
 
-Sitemap: {{ site.baseurl }}/sitemap.xml
+Sitemap: {{ site.url }}/sitemap.xml
 
 {% assign count = '0' -%}
 {% for post in site.posts -%}

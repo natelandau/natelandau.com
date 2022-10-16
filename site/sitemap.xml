@@ -16,7 +16,7 @@ sitemap:
     {% unless post.flags.published == false -%}
     {% unless post.sitemap.exclude == true -%}
       <url>
-        <loc>{{ site.baseurl }}{{ post.url }}</loc>
+        <loc>{{ site.url }}{{ post.url }}</loc>
           {% if post.sitemap.lastmod == null -%}
             <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
           {% else -%}
@@ -40,7 +40,7 @@ sitemap:
     {% unless page.sitemap.exclude == true -%}
     {% unless page.url contains '/amp/' -%}
     <url>
-      <loc>{{ site.baseurl }}{{ page.url }}</loc>
+      <loc>{{ site.url }}{{ page.url }}</loc>
       {% if page.sitemap.lastmod -%}
         <lastmod>{{ page.sitemap.lastmod | date_to_xmlschema }}</lastmod>
       {% elsif page.date -%}
