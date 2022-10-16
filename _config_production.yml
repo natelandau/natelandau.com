@@ -1,8 +1,8 @@
 ---
 environment: production
-production_url: "https://natelandau.com"
 baseurl: "https://natelandau.com"
 analyticsID: UA-80560-5
-disqusShortName: natelandau
 destination: ./_siteProd
 include-js: true
+giscus_data_category_id: DIC_kwDOIM6z9s4CSACn
+giscus_data_category: Comments
