@@ -50,6 +50,12 @@ redirect_from:
 
 **Note:** Redirects for pages not managed by Jekyll are contained in `deploy_to_s3.yml`
 
+### Comments
+
+Comments are provided by [Giscus](https://giscus.app/) ([Github repo](https://github.com/giscus/giscus))
+
+To moderate, use the Github Discussions web interface.
+
 ### Categories
 
 The categories used for posts are collected in a data file `_data/categories.yml`. This file is used to drive the categories that appear in the footer of the site.

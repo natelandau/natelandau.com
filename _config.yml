@@ -1,17 +1,17 @@
 ---
 # Environment Specific
 environment: dev
-production_url: "https://natelandau.com"
-baseurl: "https://localhost:8080"
-host: localhost
-port: 8080
+baseurl: "http://localhost:8000"
 analyticsID: UA-80560-6
-disqusShortName: natelandaudev
 destination: ./_site
 include-js: true
+giscus_data_category_id: DIC_kwDOIM6z9s4CSAJf
+giscus_data_category: staging-comments
 
 # Shared options
 # ------------------------------------------------------
+giscus_repo_id: R_kgDOIM6z9g
+
 plugins:
     - jekyll-gist
     - jekyll-paginate-v2

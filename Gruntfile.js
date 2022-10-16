@@ -10,16 +10,19 @@ module.exports = function (grunt) {
                 PORT: 8000,
                 URL: "http://<%= env.dev.HOST %>:<%= env.dev.PORT %>",
                 DIR: "_site",
+                ENFORCE_HTTPS: false,
             },
             stage: {
                 HOST: "staging.natelandau.com",
                 URL: "https://<%= env.stage.HOST %>",
                 DIR: "_siteStage",
+                ENFORCE_HTTPS: true,
             },
             prod: {
                 HOST: "natelandau.com",
                 URL: "https://<%= env.prod.HOST %>",
                 DIR: "_siteProd",
+                ENFORCE_HTTPS: true,
             },
         },
 
@@ -28,11 +31,12 @@ module.exports = function (grunt) {
         // -------------------------------
         shell: {
             traceVars: {
-                command: 'echo " DIR: <%= DIR %>\n HOST: <%= HOST %>\n PORT: <%= PORT %>\n URL: <%= URL %>"',
+                command:
+                    'echo " DIR: <%= DIR %>\n HOST: <%= HOST %>\n PORT: <%= PORT %>\n URL: <%= URL %>\n ENFORCE_HTTPS: <%= ENFORCE_HTTPS %>"',
             },
             lint_htmlproofer: {
                 command:
-                    "bundle exec htmlproofer <%= DIR %> --disable-external --check-favicon --allow-hash-href --extension .html",
+                    "bundle exec htmlproofer <%= DIR %> --disable-external --check-favicon --allow-hash-href --extension .html --enforce-https=<%= ENFORCE_HTTPS %>",
             },
             lint_html: {
                 command: "npx htmlhint <%= DIR %>",
@@ -285,7 +289,7 @@ module.exports = function (grunt) {
                     open: true,
                     hostname: "*",
                     keepalive: true,
-                    protocol: "https",
+                    protocol: "http",
                 },
             },
         }, // end connect
@@ -328,6 +332,7 @@ module.exports = function (grunt) {
         grunt.config("PORT", process.env.PORT);
         grunt.config("HOST", process.env.HOST);
         grunt.config("URL", process.env.URL);
+        grunt.config("ENFORCE_HTTPS", process.env.ENFORCE_HTTPS);
     });
 
     grunt.registerTask("common_pre_build", ["jshint:beforeconcat", "shell:lint_less"]);
