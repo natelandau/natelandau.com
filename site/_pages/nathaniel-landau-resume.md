@@ -11,16 +11,22 @@ comments: false
 sitemap:
     priority: 0.7
     changefreq: monthly
-    lastmod: 2016-03-25 11:32
+    lastmod: 2022-10-16 11:32
     exclude: false
 ---
 
 # Nathaniel Landau Resume
 
 <br />
+## [theSkimm](https://www.theskimm.com/)
+### Chief Product and Technology Officer
+#### November, 2021 - Present
+Senior executive with wide-ranging responsibilities and input into overall corporate strategy and vision.  Direct oversight of theSkimm's product, engineering, IT, and data teams.
+
+<br />
 ## [New York Public Radio](https://www.nypr.org/)
 ### SVP & Chief Digital Officer
-#### April, 2016 - Present
+#### April, 2016 - November, 2021
 Oversee strategy and growth across all properties within [NYPR](https://www.nypr.org/) – the world’s second largest producer of podcasts and 2nd largest public radio organization with ~400 employees reaching over 20M people a month.  Core brands include [Gothamist](https://gothamist.com/), [WNYC](https://www.wnyc.org), [WQXR](https://www.wqxr.org), and [WNYC Studios](https://www.wnycstudios.org). Wide ranging responsibilities and input into overall corporate vision, strategy, budgeting, revenue, and execution.  Direct management of large cross-functional teams responsible for all digital systems, products, and business lines. Report to CEO and board.
 
 ## [Univision](https://www.univision.com/)

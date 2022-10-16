@@ -11,7 +11,7 @@ date: 2014-08-27 20:41
 sitemap:
     priority: 0.7
     changefreq: monthly
-    lastmod: 2016-03-25 11:31
+    lastmod: 2022-10-16 11:31
     exclude: false
 ---
 
@@ -26,8 +26,9 @@ sitemap:
 </div>
 
 -   Fiddle player in the [Strung Out String Band](https://strungoutstringband.com/)
--   Chief Digital Officer at [New York Public Radio](https://www.nypr.org/)
--   Co-founder and ex-CEO at [Food Republic](https://foodrepublic.com/)
+-   Chief Product and Technology Officer at [theSkimm](https://theskimm.com)
+-   Board Chair at [The Brooklyn Waldorf School](https://www.brooklynwaldorf.org)
+-   Co-founder and previous CEO of [Food Republic](https://foodrepublic.com/)
 -   Cold weather beard grower
 -   Happiest when reading
 -   Mac productivity enthusiast
