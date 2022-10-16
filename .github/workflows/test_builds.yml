@@ -13,6 +13,8 @@ on:
             - "README.md"
             - "CHANGELOG.md"
             - ".cz.yaml"
+            - ".gitignore"
+            - ".prettier*"
             - ".pre-commit-config.yaml"
             - ".vscode/**"
             - ".devcontainer/**"
@@ -58,3 +60,10 @@ jobs:
 
             - name: "Run build_prod"
               run: npx grunt deploy_prod
+
+            - name: "Run ShellCheck"
+              uses: ludeeus/action-shellcheck@master
+              env:
+                  SHELLCHECK_OPTS: -e SC2001 -e SC2148
+              with:
+                  scandir: "./scripts"

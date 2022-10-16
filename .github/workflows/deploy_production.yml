@@ -7,7 +7,10 @@ on:
             - production
         paths:
             - "site/**"
-    # Allow workflow to be triggered manually
+            - "!site/_drafts/**"
+            - "!site/_plugins-disabled/**"
+            - "!site/_drafts/**"
+            - "!site/_js/unused/**"
     workflow_dispatch:
 
 env:

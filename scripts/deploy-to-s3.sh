@@ -320,7 +320,6 @@ _fileExtension_() {
     [[ $# == 0 ]] && fatal "Missing required argument to ${FUNCNAME[0]}"
 
     local _file
-    local _extension
     local _levels
     local _ext
     local _exts
