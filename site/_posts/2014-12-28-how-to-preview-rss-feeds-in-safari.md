@@ -14,9 +14,8 @@ sitemap:
     exclude: false
 flags:
     published: true
-    expires: never
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 Safari in Mac OSX 10.10 Yosemite is a great browser. I've switched from Google Chrome and now use Safari as my browser of choice for every day web usage. That said, Safari is terrible when it comes to handling RSS feeds. There simply is no way to change Safari's RSS preferences without adding a 3rd party extension.

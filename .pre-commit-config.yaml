@@ -94,8 +94,8 @@ repos:
             files: \.less$
             entry: npx stylelint --config=.stylelintrc.yml
 
-            # - id: lint-shellscripts
-            #   name: lint shellscripts
-            #   language: system
-            #   files: \.sh$
-            #   entry: shellcheck -x --exclude=2001,2148
+          - id: lint-shellscripts
+            name: lint shellscripts
+            language: system
+            files: \.sh$
+            entry: shellcheck -x --exclude=2001,2148

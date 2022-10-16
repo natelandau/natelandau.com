@@ -8,9 +8,9 @@
 {% endif -%}
 {% if page.layout == 'post' or page.layout == 'page' or page.layout
 == 'link' -%}
-<meta name="twitter:url" content="{{ site.baseurl }}{{ page.url }}" />
+<meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
 {% else -%}
-<meta name="twitter:url" content="{{ site.baseurl }}{{ page.url }}" />
+<meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
 {% endif -%}
 {% if page.description -%}
 <meta name="twitter:description" content="{{ page.description }}" />
@@ -25,6 +25,6 @@
 {% if page.image -%}
 <meta
     name="twitter:image:src"
-    content="{{ site.baseurl }}/img/postImg/{{ page.image }}"
+    content="{{ site.url }}/img/postImg/{{ page.image }}"
 />
 {% endif -%}

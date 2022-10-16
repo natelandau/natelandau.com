@@ -5,7 +5,7 @@
 {% else -%}
 <meta content="{{ site.name }}" property="og:title" />
 {% endif -%}
-<meta content="{{ site.baseurl }}/about-nathaniel-landau/" property="article:author" />
+<meta content="{{ site.url }}/about-nathaniel-landau/" property="article:author" />
 {% if page.layout == 'post' or page.layout == 'page' or page.layout == 'link' -%}
 <meta property="og:type" content="article" />
 {% else -%}
@@ -20,16 +20,16 @@
 {% else -%}
 <meta property="og:description" content="{{ site.tagline }}" />
 {% endif %} {% if page.layout == 'post' or page.layout == 'page' or page.layout == 'link' -%}
-<meta property="og:url" content="{{ site.baseurl }}{{ page.url }}" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
 {% else -%}
-<meta property="og:url" content="{{ site.baseurl }}{{ page.url }}" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
 {% endif %} {% if page.date -%}
 <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
 {% endif %} {% if page.sitemap.lastmod -%}
 <meta property="article:modified_time" content="{{ page.sitemap.lastmod | date_to_xmlschema }}" />
 <meta property="og:updated_time" content="{{ page.sitemap.lastmod | date_to_xmlschema }}" />
 {% endif %} {% if page.image -%}
-<meta content="{{ site.baseurl }}/img/postImg/{{ page.image }}" property="og:image" />
+<meta content="{{ site.url }}/img/postImg/{{ page.image }}" property="og:image" />
 {% else %} {% endif %} {% if page.tags %} {% for tag in page.tags limit:1 -%}
 <meta content="{{ tag }}" property="article:section" />
 {% endfor -%}

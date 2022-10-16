@@ -14,9 +14,8 @@ sitemap:
     exclude: false
 flags:
     published: true
-    expires: never
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 One of the most critical skills for any product manager is the ability to quickly make sense of tons of feature requests, bug reports, and business requirements and gel them down to a sane list for the engineers to take action on. In a world where resources are never constrained it might be possible to do everything at once, but we don't live in such a magical realm. All too often I've seen product teams get bogged down by the sense that everything is a top priority. The solution to creating order out of this madness is **forced ranking**.

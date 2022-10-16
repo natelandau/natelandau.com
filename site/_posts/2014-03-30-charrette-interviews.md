@@ -14,9 +14,8 @@ sitemap:
     exclude: false
 flags:
     published: true
-    expires: never
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 I have recently adopted an interview process loosely based on the _charrettes_ favored by architects and urban planners. A charrette in their context is a design meeting that includes users from different perspectives covering diverse topics and brainstorming for new ideas.

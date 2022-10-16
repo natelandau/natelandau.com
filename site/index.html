@@ -6,13 +6,12 @@ pagination:
     enabled: true
 flags:
     published: true
-    expires: never
     noindex: false
-    comments: true
+    include_comments: false
 sitemap:
     priority: 1
     changefreq: daily
-    lastmod: 2016-02-03 15:03
+    lastmod: 2022-10-16 15:03
     exclude: false
 ---
 
@@ -49,7 +48,7 @@ sitemap:
                                 {% for tag in post.tags -%}
                                 <div class="tag">
                                     <h4 class="{{ tag }}">
-                                        <a href="{{ site.baseurl }}/tag/{{ tag | uri_escape }}/">{{ tag }}</a>
+                                        <a href="{{ site.url }}/tag/{{ tag | uri_escape }}/">{{ tag }}</a>
                                     </h4>
                                 </div>
                                 {% endfor -%}
@@ -99,7 +98,7 @@ sitemap:
                                 {% for tag in post.tags -%}
                                 <div class="tag">
                                     <h4 class="{{ tag }}">
-                                        <a href="{{ site.baseurl }}/tag/{{ tag | uri_escape }}/">{{ tag }}</a>
+                                        <a href="{{ site.url }}/tag/{{ tag | uri_escape }}/">{{ tag }}</a>
                                     </h4>
                                 </div>
                                 {% endfor -%}
@@ -111,7 +110,7 @@ sitemap:
                                 <meta itemprop="alternateName" content="Nate Landau" />
                             </span>
                             <h2 class="entry-title">
-                                <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" itemprop="url">
+                                <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}" itemprop="url">
                                     <span itemprop="headline">{{ post.title }}</span>
                                 </a>
                             </h2>
@@ -122,9 +121,9 @@ sitemap:
                                 <!--more-->
                                 ' %} {% if post.image -%}
                                 <p>
-                                    <a href="{{ site.baseurl }}{{ post.url }}">
+                                    <a href="{{ site.url }}{{ post.url }}">
                                         <img
-                                            src="{{ site.baseurl }}/img/postImg/{{ post.image }}"
+                                            src="{{ site.url }}/img/postImg/{{ post.image }}"
                                             alt="{{ post.title }}" />
                                     </a>
                                 </p>
@@ -132,15 +131,15 @@ sitemap:
                                 <span itemprop="description">{{ post.excerpt | markdownify }}</span>
                                 <a
                                     class="excerpt-link"
-                                    href="{{ site.baseurl }}{{ post.url }}"
+                                    href="{{ site.url }}{{ post.url }}"
                                     title="{{ post.title }}">
                                     Read More &raquo;
                                 </a>
                                 {% elsif post.description %} {% if post.image -%}
                                 <p>
-                                    <a href="{{ site.baseurl }}{{ post.url }}">
+                                    <a href="{{ site.url }}{{ post.url }}">
                                         <img
-                                            src="{{ site.baseurl }}/img/postImg/{{ post.image }}"
+                                            src="{{ site.url }}/img/postImg/{{ post.image }}"
                                             alt="{{ post.title }}" />
                                     </a>
                                 </p>
@@ -148,15 +147,15 @@ sitemap:
                                 <p itemprop="description">{{ post.description }}</p>
                                 <a
                                     class="excerpt-link"
-                                    href="{{ site.baseurl }}{{ post.url }}"
+                                    href="{{ site.url }}{{ post.url }}"
                                     title="{{ post.title }}">
                                     Read More &raquo;
                                 </a>
                                 {% else %} {% if post.image -%}
                                 <p>
-                                    <a href="{{ site.baseurl }}{{ post.url }}">
+                                    <a href="{{ site.url }}{{ post.url }}">
                                         <img
-                                            src="{{ site.baseurl }}/img/postImg/{{ post.image }}"
+                                            src="{{ site.url }}/img/postImg/{{ post.image }}"
                                             alt="{{ post.title }}" />
                                     </a>
                                 </p>
@@ -188,16 +187,16 @@ sitemap:
                 </div>
                 <div class="prev-post">
                     {% if paginator.previous_page %} {% if paginator.previous_page == 1 -%}
-                    <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="previous">Previous Posts</a>
+                    <a href="{{ site.url }}{{ paginator.previous_page_path }}" class="previous">Previous Posts</a>
                     {% else -%}
-                    <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="previous">Previous Posts</a>
+                    <a href="{{ site.url }}{{ paginator.previous_page_path }}" class="previous">Previous Posts</a>
                     {% endif %} {% else -%}
                     <!-- <span class="previous">Previous</span> -->
                     {% endif %}
                 </div>
                 <div class="next-post">
                     {% if paginator.next_page -%}
-                    <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="next">Next Posts</a>
+                    <a href="{{ site.url }}{{ paginator.next_page_path }}" class="next">Next Posts</a>
                     {% else -%}
                     <!-- <span class="next ">Next</span> -->
                     {% endif -%}

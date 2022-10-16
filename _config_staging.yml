@@ -1,6 +1,6 @@
 ---
-environment: prod
-baseurl: "https://staging.natelandau.com"
+environment: staging
+url: "https://staging.natelandau.com"
 analyticsID: UA-80560-6
 disqusShortName: natelandaudev
 destination: ./_siteStage

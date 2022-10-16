@@ -14,9 +14,8 @@ sitemap:
     exclude: false
 flags:
     published: true
-    expires: never
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 As with most things in life, staff management can seem easy but the devil is in the details. It took me years of trial and error to learn the best method for gathering status reports from my staff. When done right, status reporting is quick, painless, and informative. When done wrong, it leaves more questions than answers.

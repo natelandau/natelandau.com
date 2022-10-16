@@ -14,9 +14,8 @@ sitemap:
     exclude: false
 flags:
     published: true
-    expires: never
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 I am not an aspiring writer. I typically don't write on this site to share deep thoughts, business analysis, or to promote myself. I might only post three times a year. If you looked at my Google Analytics, you would laugh at my paltry traffic figures. No, I don't have this blog for the reasons most people do. I have a blog to teach me how to keep current in technology - and you should too.

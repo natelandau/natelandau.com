@@ -15,9 +15,8 @@ sitemap:
     exclude: false
 flags:
     published: true
-    expires: never
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 I spend an inordinate amount of time downloading email attachments from Mac Mail and sorting them into folders. My challenge was to find a simple process of automatically filing attachments into a folder structure based on the sender of the email. Solving this problem would allow me to increase my productivity by keeping my Downloads folder clean and allowing me to quickly find the files when I needed them.

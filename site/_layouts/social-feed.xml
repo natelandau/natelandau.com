@@ -15,10 +15,10 @@ layout: social-feed
   <link rel="hub" href="https://pubsubhubbub.appspot.com"/>
 {% endcomment -%}
   <title type="text" xml:lang="en">{{ site.name }}</title>
-    <link type="application/atom+xml" href="{{ site.baseurl }}/feed.xml" rel="self"/>
-    <link href="{{ site.baseurl }}/"/>
+    <link type="application/atom+xml" href="{{ site.url }}/feed.xml" rel="self"/>
+    <link href="{{ site.url }}/"/>
   <updated>{{ lastUpdatetime }}</updated>
-  <id>{{ site.baseurl }}/</id>
+  <id>{{ site.url }}/</id>
   <author>
     <name>{{ site.author.name }}</name>
     <email>{{ site.author.email }}</email>
@@ -49,10 +49,10 @@ layout: social-feed
         {% endif -%}
       <entry>
         <title>{{ post_title | xml_escape }}</title>
-        <link>{{ site.baseurl }}{{ post.url }}</link>
+        <link>{{ site.url }}{{ post.url }}</link>
         <published>{{ post.date | date_to_xmlschema }}</published>
         <updated>{{ post.date | date_to_xmlschema }}</updated>
-        <id>{{ site.baseurl }}{{ post.id }}</id>
+        <id>{{ site.url }}{{ post.id }}</id>
         <content type="html"><![CDATA[ {% if post.description %}{{ post.description | markdownify}}{% endif %}{{ post.content | markdownify}} ]]></content>
       </entry>
       {% endif -%}

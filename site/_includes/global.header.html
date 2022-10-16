@@ -13,35 +13,39 @@
       rel="alternate"
       title="natelandau.com JSON feed"
       type="application/json"
-      href="{{ site.baseurl }}/feed.json">
+      href="{{ site.url }}/feed.json">
 
     <title>{{ page.title }} | Nathaniel Landau</title>
 
     <link rel="profile" href="https://gmpg.org/xfn/11">
     {% if page.layout == 'post' or page.layout == 'page' -%}
-    <link rel="canonical" href="{{ site.baseurl }}{{ page.url }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     {% else -%}
-    <link rel="canonical" href="{{ site.baseurl }}{{ page.url }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     {% endif -%}
-    <link rel="author" href="https://plus.google.com/116034461768262417565">
-    {% include header.schemaJSON.html %} {% include header.metaTags.html %} {% include header.facebookOG.html %} {%
-    include header.twittercard.html %} {% include header.favicons.html %} {% include header.css.html %} {% if
-    site.include-js != false %}{% include header.analytics.html %}{% endif %}
+    <link rel="author" href="{{ site.url }}/about-nathaniel-landau/">
+    {% include header.schemaJSON.html %}
+    {% include header.metaTags.html %}
+    {% include header.facebookOG.html %}
+    {% include header.twittercard.html %}
+    {% include header.favicons.html %}
+    {% include header.css.html %}
+    {% if site.include-js != false %}{% include header.analytics.html %}{% endif %}
   </head>
   <body id="{{ page.layout }}">
     <div class="page-top"></div>
     <header class="header">
       <div class="header-inside clearfix">
         <hgroup class="animated flipInX">
-          <h1 class="logo-text"><a href="{{ site.baseurl }}/" title="Nathanel Landau">Nathaniel Landau</a></h1>
+          <h1 class="logo-text"><a href="{{ site.url }}/" title="Nathanel Landau">Nathaniel Landau</a></h1>
           <h2 class="logo-subtitle">Nate Landau&#039;s home on the web</h2>
         </hgroup>
         <ul class="site-nav animated flipInX">
           <li class="site-nav-text">
-            <a href="{{ site.baseurl }}/about-nathaniel-landau/" title="About Nathaniel Landau">About</a>
+            <a href="{{ site.url }}/about-nathaniel-landau/" title="About Nathaniel Landau">About</a>
           </li>
           <li class="site-nav-text">
-            <a href="{{ site.baseurl }}/nathaniel-landau-resume/" title="Nathaniel Landau's Resume">Resume</a>
+            <a href="{{ site.url }}/nathaniel-landau-resume/" title="Nathaniel Landau's Resume">Resume</a>
           </li>
           <li class="site-nav-icon">
             <a class="archive-toggle" href="#" title="Recent Articles"><i class="fa fa-folder"></i>&nbsp;&nbsp;Posts</a>
@@ -59,7 +63,7 @@
             == 'link' %} {% continue %} {% else %} {% capture count %}{{ count | plus: '1' }}{% endcapture %}
             <li>
               <span><time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%h %d, %Y" }}</time></span
-              ><a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a>
+              ><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a>
             </li>
             {% endif %} {% endfor -%}
           </ul>
@@ -70,7 +74,7 @@
             <a href="https://feeds.natelandau.com/rss"><i class="fa fa-rss"></i>&nbsp;&nbsp;RSS Feed</a>
           </li>
           <li>
-            <a href="{{ site.baseurl }}/feed.json"><i class="fa fa-link"></i>&nbsp;&nbsp;JSON Feed</a>
+            <a href="{{ site.url }}/feed.json"><i class="fa fa-link"></i>&nbsp;&nbsp;JSON Feed</a>
           </li>
         </ul>
       </div>

@@ -16,7 +16,7 @@ layout: link
                                 {% for tag in page.tags %}
                                     <div class="tag">
                                         <h4>
-                                            <a href="{{ site.baseurl }}/tag/{{ tag | uri_escape }}/">{{ tag }}
+                                            <a href="{{ site.url }}/tag/{{ tag | uri_escape }}/">{{ tag }}
                                             </a>
                                         </h4>
                                     </div>
@@ -32,7 +32,7 @@ layout: link
                         {% comment -%}
                             {% if page.image -%}
                             <img
-                            src="{{ site.baseurl }}/img/postImg/{{ page.image }}"
+                            src="{{ site.url }}/img/postImg/{{ page.image }}"
                             alt="{{ page.title }}"
                             class="pageImage" />
                             {% endif -%}
@@ -61,21 +61,21 @@ layout: link
             <div class="next-prev-more">More Posts</div>
             <div class="prev-post">
                 {% if page.previous.url -%}
-                    <a href="{{ site.baseurl }}{{ page.previous.url }}" title="Previous Post: {{ page.previous.title }}" rel="prev">
+                    <a href="{{ site.url }}{{ page.previous.url }}" title="Previous Post: {{ page.previous.title }}" rel="prev">
                         {{ page.previous.title }}
                     </a>
                 {% endif -%}
             </div>
             <div class="next-post">
                 {% if page.next.url -%}
-                    <a href="{{ site.baseurl }}{{ page.next.url }}" title="Next Post: {{ page.next.title }}" rel="next">
+                    <a href="{{ site.url }}{{ page.next.url }}" title="Next Post: {{ page.next.title }}" rel="next">
                         {{ page.next.title }}
                     </a>
                 {% endif -%}
             </div>
         </div>
         <!-- /next-prev -->
-        {% if page.flags.comments -%}
+        {% if page.flags.include_comments -%}
             <!-- Comments -->
             <div id="comment-box" class="comments">
                 <script src="https://giscus.app/client.js" data-repo="natelandau/natelandau.com" data-repo-id="{{ site.giscus_repo_id }}" data-category="{{ site.giscus_data_category}}" data-category-id="{{ site.giscus_data_category_id }}" data-mapping="pathname" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script>

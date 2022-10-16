@@ -1,6 +1,6 @@
 ---
 environment: production
-baseurl: "https://natelandau.com"
+url: "https://natelandau.com"
 analyticsID: UA-80560-5
 destination: ./_siteProd
 include-js: true

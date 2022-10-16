@@ -1,7 +1,7 @@
 ---
 # Environment Specific
 environment: dev
-baseurl: "http://localhost:8000"
+url: "http://localhost:8000"
 analyticsID: UA-80560-6
 destination: ./_site
 include-js: true

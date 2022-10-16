@@ -13,9 +13,8 @@ sitemap:
     exclude: false
 flags:
     published: true
-    expires: never
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 1. [Hardcore History][1] - While technically a podcast, subscribing to this feed is actually like having an unabridged history audiobook delivered for free. Individual episodes can run to three or four hours and a complete topic could be nine or more hours of listening. If you're a history buff like me, this is a great feed.

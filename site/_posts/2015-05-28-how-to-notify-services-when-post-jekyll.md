@@ -14,9 +14,8 @@ sitemap:
     exclude: false
 flags:
     published: true
-    expires: never
     noindex: false
-    comments: true
+    include_comments: true
 ---
 
 One of the more challenging parts of building my site on Jekyll has been recreating some of the small features that more popular blogging platforms have supported for years. One of the features that I found missing was an easy way to notify a number of services when I posted new content.

@@ -16,9 +16,8 @@ sitemap:
     exclude: false
 flags:
     published: true
-    expires: never
     noindex: false
-    comments: false
+    include_comments: false
 ---
 
 This is a fascinating in-depth comparison of the two most widely used mapping applications.

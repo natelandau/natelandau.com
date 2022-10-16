@@ -4,11 +4,11 @@
 
     <div class="lower-item">
       Author<br />
-      <a href="{{ site.baseurl }}/about-nathaniel-landau/">{{ site.author.name }}</a>
+      <a href="{{ site.url }}/about-nathaniel-landau/">{{ site.author.name }}</a>
       <br /><br />
       Feeds<br />
       <a href="https://feeds.natelandau.com/rss"><i class="fa fa-rss"></i>&nbsp;&nbsp;RSS Feed</a><br />
-      <a href="{{ site.baseurl }}/feed.json"><i class="fa fa-link"></i>&nbsp;&nbsp;JSON Feed</a>
+      <a href="{{ site.url }}/feed.json"><i class="fa fa-link"></i>&nbsp;&nbsp;JSON Feed</a>
       <br /><br />
       <span class="normal">&copy; Copyright {{ site.time | date: '%Y' }}. All Rights Reserved.</span>
     </div><!-- /lower-item -->
@@ -19,7 +19,7 @@
       {% assign catlist = site.data.categories | sort: 'name' -%}
       {% for cat in catlist -%}
         {% if cat.includeFooter == true -%}
-          <li><a href="{{ site.baseurl }}/{{ cat.url }}">{{ cat.name }}</a></li>
+          <li><a href="{{ site.url }}/{{ cat.url }}">{{ cat.name }}</a></li>
         {% endif -%}
       {% endfor -%}
       </ul>
@@ -37,7 +37,7 @@
           {% else -%}
             {% capture count %}{{ count | plus: '1' }}{% endcapture -%}
             <li>
-              <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a>
+              <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a>
             </li>
           {% endif -%}
         {% endfor -%}

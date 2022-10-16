@@ -13,7 +13,7 @@ sitemap:
 
 {
   "site": {{ site.name | jsonify }},
-  "url": "{{ site.baseurl }}",
+  "url": "{{ site.url }}",
   "tagline": {{ site.tagline | jsonify }},
   "author": "{{ site.author.name }}",
   "email": "{{ site.author.email }}",
@@ -22,7 +22,7 @@ sitemap:
   "posts": [ {% for post in site.posts reversed %}{% unless post.flags.published == false %}{% unless post.sitemap.exclude == true %}
     {
       "id": "{{ post.id }}",
-      "url": "{{ site.baseurl }}{{ post.url }}",
+      "url": "{{ site.url }}{{ post.url }}",
       "type": "{{ post.layout }}",{% if post.description %}
       "description": {{ post.description | jsonify  }},{% endif %}
       "title": {{ post.title | jsonify }},
@@ -31,7 +31,7 @@ sitemap:
       "tags":  [ "{{ post.tags | join: '", "' }}" ],{% if post.layout == "link" %}
       "linkURL": "{{ post.linkURL }}",
       "linkTitle": "{{ post.linkTitle }}",{% endif %}
-      "comments": "{{ post.flags.comments }}"
+      "comments": "{{ post.flags.include_comments }}"
     }{% unless forloop.last %},{% endunless %}{% endunless %}{% endunless %}{% endfor %}
   ],
   "pages": [
@@ -41,7 +41,7 @@ sitemap:
     {% unless page.url contains "/amp" -%}
     {
       "id": "{{ page.url }}",
-      "url": "{{ site.baseurl }}{{ page.url }}",
+      "url": "{{ site.url }}{{ page.url }}",
       {% if page.description -%}
       "description": {{ page.description | jsonify }},
       {% endif -%}

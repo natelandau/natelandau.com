@@ -66,73 +66,6 @@ _mainScript_() {
         _safeExit_ 1
     fi
 
-    _createRedirect_() {
-        # DESC: Creates a redirect file in the S3 bucket
-        # ARGS:
-        #       $1: String of a redirect in the form of "SOURCE PATH"
-        # OUTS:
-        #       0 - Sucess
-        #       1 - Failure
-        # USAGE:
-        #   _createRedirect_ "old/path/index.html new/path/index.html"
-
-        [[ $# == 0 ]] && fatal "Missing required argument to ${FUNCNAME[0]}"
-
-        local _array
-        local _source
-        local _target
-        local _sourcePath
-        local _source_local
-
-        mapfile -t _array < <(_splitString_ "${1}" " ")
-
-        _source="${_array[0]}"
-        _target="${_array[1]}"
-
-        if [[ "${_source}" == "${_target}" ]]; then
-            notice "Skipping redirect for ${_source}, target = source"
-            return 0
-        elif _varIsEmpty_ "${_source}"; then
-            notice "Skipping redirect for ${_target}, source is empty"
-            return 0
-        elif _varIsEmpty_ "${_target}"; then
-            notice "Skipping redirect for ${_source}, target is empty"
-            return 0
-        elif [[ "${_source}" == "/" ]]; then
-            notice "Skipping redirect for ${_source}, source is root"
-            return 0
-        elif [[ ! "${_target}" =~ ^(/|https://) ]]; then
-            notice "Skipping redirect for ${_source}, target must start with '/' or 'https://'"
-            return 0
-        fi
-
-        _source_local="${SOURCE_DIR}/${_source}"
-        _sourcePath=$(_filePath_ "${SOURCE_DIR}/${_source}")
-
-
-        if [ -f "${_source_local}" ]; then
-            notice "${_source_local} already exists"
-            if _seekConfirmation_ "Delete '${_source_local}' and create redirect?"; then
-                _execute_ "rm \"${_source_local}\""
-            else
-                debug "Skipping redirect for ${_source_local}, file already exists"
-                return 0
-            fi
-        fi
-
-
-        if [ ! -d "${_sourcePath}" ]; then
-            _execute_ "mkdir -p \"${_sourcePath}\" && touch \"${_source_local}\""
-        else
-            _execute_ "touch \"${_source_local}\""
-        fi
-
-
-        if ! _execute_ -s "aws s3 cp ${_source_local} s3://${BUCKET_NAME}/${_source} --website-redirect \"${_target}\" --cache-control max-age=0,no-cache --acl public-read" "Redirected ${_source} to ${_target}"; then
-            return 1
-        fi
-    }
-
     for redirect in "${CONF_REDIRECTS_[@]}"; do
         if ! _createRedirect_ "${redirect}"; then
             error "Failed to create redirect for ${redirect}"
@@ -144,6 +77,75 @@ _mainScript_() {
 
 }
 # end _mainScript_
+
+# ################################## Custom Script Functions
+_createRedirect_() {
+    # DESC: Creates a redirect file in the S3 bucket
+    # ARGS:
+    #       $1: String of a redirect in the form of "SOURCE PATH"
+    # OUTS:
+    #       0 - Sucess
+    #       1 - Failure
+    # USAGE:
+    #   _createRedirect_ "old/path/index.html new/path/index.html"
+
+    [[ $# == 0 ]] && fatal "Missing required argument to ${FUNCNAME[0]}"
+
+    local _array
+    local _source
+    local _target
+    local _sourcePath
+    local _source_local
+
+    mapfile -t _array < <(_splitString_ "${1}" " ")
+
+    _source="${_array[0]}"
+    _target="${_array[1]}"
+
+    if [[ "${_source}" == "${_target}" ]]; then
+        notice "Skipping redirect for ${_source}, target = source"
+        return 0
+    elif _varIsEmpty_ "${_source}"; then
+        notice "Skipping redirect for ${_target}, source is empty"
+        return 0
+    elif _varIsEmpty_ "${_target}"; then
+        notice "Skipping redirect for ${_source}, target is empty"
+        return 0
+    elif [[ "${_source}" == "/" ]]; then
+        notice "Skipping redirect for ${_source}, source is root"
+        return 0
+    elif [[ ! "${_target}" =~ ^(/|https://) ]]; then
+        notice "Skipping redirect for ${_source}, target must start with '/' or 'https://'"
+        return 0
+    fi
+
+    _source_local="${SOURCE_DIR}/${_source}"
+    _sourcePath=$(_filePath_ "${SOURCE_DIR}/${_source}")
+
+
+    if [ -f "${_source_local}" ]; then
+        notice "${_source_local} already exists"
+        if _seekConfirmation_ "Delete '${_source_local}' and create redirect?"; then
+            _execute_ "rm \"${_source_local}\""
+        else
+            debug "Skipping redirect for ${_source_local}, file already exists"
+            return 0
+        fi
+    fi
+
+
+    if [ ! -d "${_sourcePath}" ]; then
+        _execute_ "mkdir -p \"${_sourcePath}\" && touch \"${_source_local}\""
+    else
+        _execute_ "touch \"${_source_local}\""
+    fi
+
+
+    if ! _execute_ -s "aws s3 cp ${_source_local} s3://${BUCKET_NAME}/${_source} --website-redirect \"${_target}\" --cache-control max-age=0,no-cache --acl public-read" "Redirected ${_source} to ${_target}"; then
+        return 1
+    fi
+}
+
 
 # ################################## Flags and defaults
 # Required variables
