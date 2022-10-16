@@ -14,7 +14,6 @@ sitemap:
     exclude: false
 flags:
     published: true
-    expires: never
     noindex: false
     comments: true
 ---
