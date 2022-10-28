@@ -2,11 +2,10 @@
 # Environment Specific
 environment: dev
 url: "http://localhost:8000"
-analyticsID: UA-80560-6
 destination: ./_site
-include-js: true
 giscus_data_category_id: DIC_kwDOIM6z9s4CSAJf
 giscus_data_category: staging-comments
+plausible_domain: "staging.natelandau.com"
 
 # Shared options
 # ------------------------------------------------------

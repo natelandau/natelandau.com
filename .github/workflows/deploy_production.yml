@@ -19,7 +19,7 @@ env:
     AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
 
 jobs:
-    build:
+    deploy-production:
         runs-on: ubuntu-latest
         steps:
             # DEPENDENCIES

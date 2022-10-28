@@ -125,7 +125,7 @@ module.exports = function (grunt) {
                 jshintrc: true,
                 reporter: require("jshint-stylish"),
             },
-            beforeconcat: ["site/_js/{,*/}*.js", "!site/_js/autotrack.js", "!site/_js/jquery.min.js"],
+            beforeconcat: ["site/_js/{,*/}*.js", "!site/_js/jquery.min.js"],
         },
 
         uglify: {
@@ -138,7 +138,6 @@ module.exports = function (grunt) {
                 files: {
                     "site/assets/customScripts.js": [
                         "site/_js/jquery.min.js",
-                        "site/_js/autotrack.js",
                         "site/_js/custom.js",
                         "site/_js/jquery.fitvids.js",
                         "site/_js/webfont.js",
@@ -153,7 +152,6 @@ module.exports = function (grunt) {
                 files: {
                     "site/assets/customScripts.js": [
                         "site/_js/jquery.min.js",
-                        "site/_js/autotrack.js",
                         "site/_js/custom.js",
                         "site/_js/jquery.fitvids.js",
                         "site/_js/webfont.js",
