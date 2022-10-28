@@ -10,7 +10,10 @@
       <a href="https://feeds.natelandau.com/rss"><i class="fa fa-rss"></i>&nbsp;&nbsp;RSS Feed</a><br />
       <a href="{{ site.url }}/feed.json"><i class="fa fa-link"></i>&nbsp;&nbsp;JSON Feed</a>
       <br /><br />
+      This site does NOT use Google Analytics.
+      <br /><br />
       <span class="normal">&copy; Copyright {{ site.time | date: '%Y' }}. All Rights Reserved.</span>
+      <br /><br />
     </div><!-- /lower-item -->
 
     <div class="lower-item">
@@ -52,7 +55,7 @@
 The following code defers loading of Javascript until after the page is fully loaded
 As taken from: https://varvy.com/pagespeed/defer-loading-javascript.html
 {% endcomment %}
-{% if site.include-js != false -%}
+
 <script type="text/javascript">
 function downloadJSAtOnload() {
 var element = document.createElement("script");
@@ -65,7 +68,7 @@ else if (window.attachEvent)
 window.attachEvent("onload", downloadJSAtOnload);
 else window.onload = downloadJSAtOnload;
 </script>
-{% endif -%}
+
 
 {% if post.youtubeEmbed == "true" -%}
 <script type="text/javascript">

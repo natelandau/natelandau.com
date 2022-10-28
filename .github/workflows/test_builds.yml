@@ -21,7 +21,7 @@ on:
     workflow_dispatch:
 
 jobs:
-    test_builds:
+    test-builds:
         runs-on: ubuntu-latest
         steps:
             # DEPENDENCIES
