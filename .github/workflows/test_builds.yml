@@ -7,8 +7,6 @@ on:
     push:
         branches:
             - "main"
-            - "staging"
-            - "production"
         paths-ignore:
             - "README.md"
             - "CHANGELOG.md"
