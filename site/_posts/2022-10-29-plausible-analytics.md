@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Self host web analytics with Plausible
-date: 2022-10-29
+date: 2022-10-29 09:51
 image:
 description: Plausible has made it easy to move away from Google Analytics
 tags:
@@ -10,13 +10,12 @@ tags:
 sitemap:
     priority: 0.3
     changefreq: monthly
-    lastmod: 2022-10-29
+    lastmod: 2022-10-29 09:51
     exclude: false
 flags:
     published: true
-    expires: never
     noindex: false
-    comments: true
+    include_comments: false
 ---
 
 I am increasingly concerned about the growing big-tech surveillance state. As a worker in tech I know all too well how much personally identifiable information is shared by simply visiting a web site. Google is not the worst company in this regard, but they are certainly one of the most pervasive. **Over the past few years, I have engaged in a never ending game of whack-a-mole to [De-Google](https://en.wikipedia.org/wiki/DeGoogle) my life.**
