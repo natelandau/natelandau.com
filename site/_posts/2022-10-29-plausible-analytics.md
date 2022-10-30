@@ -15,7 +15,7 @@ sitemap:
 flags:
     published: true
     noindex: false
-    include_comments: false
+    include_comments: true
 ---
 
 I am increasingly concerned about the growing big-tech surveillance state. As a worker in tech I know all too well how much personally identifiable information is shared by simply visiting a web site. Google is not the worst company in this regard, but they are certainly one of the most pervasive. **Over the past few years, I have engaged in a never ending game of whack-a-mole to [De-Google](https://en.wikipedia.org/wiki/DeGoogle) my life.**
