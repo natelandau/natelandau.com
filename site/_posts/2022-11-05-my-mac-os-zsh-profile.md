@@ -392,8 +392,6 @@ mcd() {
 
 md5Check() {
     # DESC:  Compares an md5 hash to the md5 hash of a file
-    # ARGS:  None
-    # OUTS:  None
     # USAGE: md5Check <md5> <filename>
 
     local opt
@@ -457,8 +455,6 @@ buf() {
 
 extract() {
     # DESC:  Extracts a compressed file from multiple formats
-    # ARGS:  None
-    # OUTS:  None
     # USAGE: extract -v <file>
 
     local opt
@@ -576,9 +572,6 @@ alias gl='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\
 
 applyignore() {
     # DESC: Applies changes to the git .ignorefile after the files mentioned were already committed to the repo
-    # ARGS: None
-    # OUTS: None
-
 
     git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
 }
@@ -586,7 +579,6 @@ applyignore() {
 rollback() (
     # DESC: Resets the current HEAD to specified commit
     # ARGS: $1 (Required): Commit to revert to
-    # OUTS: None
     # USAGE: gitRollback <commit>
 
     _is_clean_() {
@@ -658,8 +650,6 @@ rollback() (
 
 gurl() (
     # DESC:  Prints URL of current git repository
-    # ARGS:  None
-    # OUTS:  None
 
     local remote remotename host user_repo
 
@@ -733,8 +723,6 @@ if [[ ${OSTYPE} == "darwin"* ]]; then # Only load these on a MacOS computer
     ql() {
         # DESC:  Opens files in MacOS Quicklook
         # ARGS:  $1 (optional): File to open in Quicklook
-        # OUTS:	 None
-        # REQS:  macOS
         # USAGE: ql [file1] [file2]
         qlmanage -p "${*}" &>/dev/null
     }
@@ -744,7 +732,6 @@ if [[ ${OSTYPE} == "darwin"* ]]; then # Only load these on a MacOS computer
     unquarantine() {
         # DESC:  Manually remove a downloaded app or file from the MacOS quarantine
         # ARGS:  $1 (required): Path to file or app
-        # OUTS:  None
         # USAGE: unquarantine [file]
 
         local attribute
@@ -755,8 +742,6 @@ if [[ ${OSTYPE} == "darwin"* ]]; then # Only load these on a MacOS computer
 
     browser() {
         # DESC:  Pipe HTML to a Safari browser window
-        # ARGS:  None
-        # OUTS:  None
         # USAGE: echo "<h1>hi mom!</h1>" | browser'
 
         local FILE
