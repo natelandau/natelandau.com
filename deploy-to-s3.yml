@@ -6,8 +6,10 @@ MAX_AGE: 864000
 USE_GZIP: true
 REDIRECTS:
     # [SOURCE] [DESTINATION]
-    # - test.php /
-    # - posts/somepost.html /fix-the-podcast-discovery-problem/
+    - amp/forced-ranking-product-features-in-a-spreadsheet/index.html /forced-ranking-product-features-in-a-spreadsheet/
+    - amp/bash-scripting-utilities/index.html /bash-scripting-utilities/
+    - amp/my-mac-osx-bash_profile/index.html /my-mac-osx-bash_profile/
+    - amp/boilerplate-shell-script-template/index.html /boilerplate-shell-script-template/
 
 # Files which will be excluded (neither uploaded or deleted from server)
 EXCLUDED_FILES:

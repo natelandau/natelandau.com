@@ -6,6 +6,7 @@ on:
         branches:
             - production
         paths:
+            - "deploy-to-s3.yml"
             - "site/**"
             - "!site/_drafts/**"
             - "!site/_plugins-disabled/**"
