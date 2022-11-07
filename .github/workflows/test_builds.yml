@@ -8,14 +8,20 @@ on:
         branches:
             - "main"
         paths-ignore:
-            - "README.md"
-            - "CHANGELOG.md"
             - ".cz.yaml"
-            - ".gitignore"
-            - ".prettier*"
-            - ".pre-commit-config.yaml"
-            - ".vscode/**"
             - ".devcontainer/**"
+            - ".gitignore"
+            - ".pre-commit-config.yaml"
+            - ".prettier*"
+            - ".prettierignore"
+            - ".prettierrc.yaml"
+            - ".secrets.baseline"
+            - ".vscode/**"
+            - ".yamlint.yml"
+            - "CHANGELOG.md"
+            - "giscus.json"
+            - "README.md"
+            - "scripts/**"
     workflow_dispatch:
 
 jobs:
