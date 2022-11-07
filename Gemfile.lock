@@ -68,7 +68,7 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
     mini_portile2 (2.8.0)
-    nokogiri (1.13.8)
+    nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     octokit (4.25.1)
@@ -113,6 +113,7 @@ DEPENDENCIES
   jekyll-paginate-v2
   jekyll-redirect-from
   jekyll-responsive-image (~> 1.5)
+  nokogiri (>= 1.13.9)
   rmagick (~> 4)
   webrick (~> 1.7)
 

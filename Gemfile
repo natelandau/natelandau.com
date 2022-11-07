@@ -9,6 +9,7 @@ gem 'jekyll-responsive-image', '~>1.5'
 gem 'jekyll', '~> 4.2'
 gem 'rmagick', '~>4'
 gem "webrick", "~> 1.7"
+gem "nokogiri", ">= 1.13.9"
 # gem 'rdiscount' # Discount Markdown Processor for Ruby
 # gem 'redcarpet', '~> 3' # a markdown processor
 
