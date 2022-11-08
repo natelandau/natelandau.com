@@ -10,6 +10,7 @@ REDIRECTS:
     - amp/bash-scripting-utilities/index.html /bash-scripting-utilities/
     - amp/my-mac-osx-bash_profile/index.html /my-mac-osx-bash_profile/
     - amp/boilerplate-shell-script-template/index.html /boilerplate-shell-script-template/
+    - my-mac-osx-bash_profile/null /my-mac-osx-bash_profile/
 
 # Files which will be excluded (neither uploaded or deleted from server)
 EXCLUDED_FILES:
