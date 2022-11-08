@@ -1,3 +1,19 @@
+## v0.4.0 (2022-11-08)
+
+### Feat
+
+- **analytics**: replace GA with Plausible (#17)
+
+### Fix
+
+- add `referrer` meta tag
+- **analytics**: add 404 page tracking
+- add redirects to amp pages driving traffic
+
+### Refactor
+
+- remove arbitrary line breaks
+
 ## v0.3.0 (2022-10-16)
 
 ### Feat
