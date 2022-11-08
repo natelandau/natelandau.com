@@ -2,29 +2,23 @@
 <meta name="twitter:site" content="@natelandau" />
 <meta name="twitter:creator" content="@natelandau" />
 {% if page.title -%}
-<meta name="twitter:title" content="{{ page.title }}" />
+    <meta name="twitter:title" content="{{ page.title }}" />
 {% else %}
-<meta name="twitter:title" content="{{ site.name }}" />
+    <meta name="twitter:title" content="{{ site.name }}" />
 {% endif -%}
 {% if page.layout == 'post' or page.layout == 'page' or page.layout
 == 'link' -%}
-<meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
+    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
 {% else -%}
-<meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
+    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
 {% endif -%}
 {% if page.description -%}
-<meta name="twitter:description" content="{{ page.description }}" />
+    <meta name="twitter:description" content="{{ page.description }}" />
 {% elsif page.layout == "post" or page.layout == 'link' -%}
-<meta
-    name="twitter:description"
-    content="{{ page.excerpt | strip_newlines | strip_html | escape_once | truncate: 200 }}"
-/>
+<meta name="twitter:description" content="{{ page.excerpt | strip_newlines | strip_html | escape_once | truncate: 200 }}" />
 {% else %}
-<meta name="twitter:description" content="{{ site.tagline }}" />
+    <meta name="twitter:description" content="{{ site.tagline }}" />
 {% endif -%}
 {% if page.image -%}
-<meta
-    name="twitter:image:src"
-    content="{{ site.url }}/img/postImg/{{ page.image }}"
-/>
+    <meta name="twitter:image:src" content="{{ site.url }}/img/postImg/{{ page.image }}" />
 {% endif -%}
