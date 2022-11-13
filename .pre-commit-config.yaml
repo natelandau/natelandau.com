@@ -99,3 +99,10 @@ repos:
             language: system
             files: \.sh$
             entry: shellcheck -x --exclude=2001,2148
+
+          - id: build-site
+            name: build site
+            language: system
+            entry: npx grunt build_dev
+            files: ^site/.*
+            pass_filenames: false
