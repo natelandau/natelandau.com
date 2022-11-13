@@ -3,33 +3,59 @@ name: "Test Builds"
 
 on:
     pull_request:
-        types: [opened, reopened]
+        types:
+            - opened
+            - synchronize
+            - reopened
+        paths:
+            - "_config*"
+            - ".csslintrc"
+            - ".github/workflows/test_builds.yml"
+            - ".htmlhintrc"
+            - ".jshintrc"
+            - ".stylelintrc.yml"
+            - ".yamllint.yml"
+            - "Gemfile.lock"
+            - "Gemfile"
+            - "Gruntfile.js"
+            - "package-lock.json"
+            - "package.json"
+            - "site/**"
     push:
         branches:
             - "main"
-        paths-ignore:
-            - ".cz.yaml"
-            - ".devcontainer/**"
-            - ".gitignore"
-            - ".pre-commit-config.yaml"
-            - ".prettier*"
-            - ".prettierignore"
-            - ".prettierrc.yaml"
-            - ".secrets.baseline"
-            - ".vscode/**"
-            - ".yamlint.yml"
-            - "CHANGELOG.md"
-            - "giscus.json"
-            - "README.md"
-            - "scripts/**"
+        paths:
+            - "_config*"
+            - ".csslintrc"
+            - ".github/workflows/test_builds.yml"
+            - ".htmlhintrc"
+            - ".jshintrc"
+            - ".stylelintrc.yml"
+            - ".yamllint.yml"
+            - "Gemfile.lock"
+            - "Gemfile"
+            - "Gruntfile.js"
+            - "package-lock.json"
+            - "package.json"
+            - "site/**"
     workflow_dispatch:
 
 jobs:
     test-builds:
         runs-on: ubuntu-latest
         steps:
-            # DEPENDENCIES
-            # -----------------------------------
+            - uses: step-security/harden-runner@ebacdc22ef6c2cfb85ee5ded8f2e640f4c776dd5
+              with:
+                  egress-policy: block
+                  allowed-endpoints: >
+                      azure.archive.ubuntu.com:80
+                      gist.githubusercontent.com:443
+                      github.com:443
+                      index.rubygems.org:443
+                      objects.githubusercontent.com:443
+                      registry.npmjs.org:443
+                      rubygems.org:443
+
             - name: "Checkout"
               uses: actions/checkout@v3
 

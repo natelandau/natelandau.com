@@ -1,0 +1,20 @@
+name: Check Markdown links
+
+on:
+    schedule:
+        - cron: "15 1 1 * *"
+    workflow_dispatch:
+
+jobs:
+    markdown-link-check:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - uses: gaurav-nelson/github-action-markdown-link-check@v1
+              with:
+                  use-quiet-mode: "yes"
+                  use-verbose-mode: "yes"
+                  config-file: ".mlc_config.json"
+                  base-branch: "main"
+                  folder-path: "site/_posts"
+                  file-path: "./README.md"
