@@ -3,6 +3,10 @@ name: "Test Builds"
 
 on:
     pull_request:
+        types:
+            - opened
+            - synchronize
+            - reopened
         paths:
             - "_config*"
             - ".csslintrc"

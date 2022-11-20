@@ -1,5 +1,14 @@
 ---
-on: [pull_request]
+on:
+    pull_request:
+        types:
+            - opened
+            - synchronize
+            - reopened
+    push:
+        branches:
+            - "main"
+
 name: Check links in modified files
 
 jobs:
