@@ -83,8 +83,7 @@ These pipelines:
 | `grunt serve`        | Build the dev site, open it in a browser window and watch for changes                                     |
 | `grunt deploy_stage` | Builds the staging site and compresses files with gzip. Use this if uploading to S3 with gzip flag set    |
 | `grunt deploy_prod`  | Builds the production site and compresses files with gzip. Use this if uploading to S3 with gzip flag set |
-
-| `grunt links` | Checks all posts for broken links |
+| `grunt links`        | Checks all posts for broken links                                                                         |
 
 ## Deploying Changes
 
