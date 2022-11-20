@@ -14,7 +14,7 @@ jobs:
               with:
                   use-quiet-mode: "yes"
                   use-verbose-mode: "yes"
-                  config-file: ".mlc_config.json"
+                  config-file: ".md_link_check_config.json"
                   base-branch: "main"
                   folder-path: "site/_posts"
                   file-path: "./README.md"

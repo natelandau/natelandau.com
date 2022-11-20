@@ -123,7 +123,7 @@ I look forward to starting over in a few years when it's time to learn a whole n
 [5]: https://jekyllrb.com/
 [6]: https://www.squarespace.com/
 [7]: https://www.weebly.com/
-[8]: https://www.theglobe.com/
+[8]: https://en.wikipedia.org/wiki/TheGlobe.com
 [9]: https://about.com/
 [10]: https://github.com/ahadb/flat-file-cms
 [11]: https://sass-lang.com/
@@ -141,6 +141,6 @@ I look forward to starting over in a few years when it's time to learn a whole n
 [23]: https://brew.sh/
 [24]: https://bower.io/
 [25]: https://www.sublimetext.com/3
-[26]: https://incident57.com/codekit/
+[26]: https://codekitapp.com/
 [27]: https://natelandau.com/how-to-notify-services-when-post-jekyll/
 [28]: https://natelandau.com/bash-scripting-utilities/
