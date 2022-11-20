@@ -1,3 +1,5 @@
+[![Test Builds](https://github.com/natelandau/natelandau.com/actions/workflows/test_builds.yml/badge.svg)](https://github.com/natelandau/natelandau.com/actions/workflows/test_builds.yml)
+
 Everything required to post, edit, deploy, and manage [natelandau.com](https://natelandau.com).
 
 # Getting Started

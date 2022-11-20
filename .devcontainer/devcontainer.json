@@ -61,6 +61,9 @@
     },
 
     "mounts": [
-        "source=${localEnv:HOME}/.aws/credentials,target=/home/vscode/.aws/credentials,type=bind,consistency=cached"
+        // use local AWS credentials
+        //"source=${localEnv:HOME}/.aws/credentials,target=/home/vscode/.aws/credentials,type=bind,consistency=cached",
+        // Re-use local Git configuration. Don't commit this line
+        //"source=${localEnv:HOME}/.gitconfig.local,target=/home/vscode/.gitconfig.local,type=bind,consistency=cached"
     ]
 }

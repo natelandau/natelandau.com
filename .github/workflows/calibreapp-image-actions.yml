@@ -8,6 +8,10 @@
 name: Compress images
 on:
     pull_request:
+        types:
+            - opened
+            - synchronize
+            - reopened
         paths:
             - "**.jpg"
             - "**.jpeg"
