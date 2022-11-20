@@ -4,7 +4,6 @@
             "pattern": "^https://staging.natelandau.com/.*"
         }
     ],
-
     "timeout": "20s",
     "retryOn429": true,
     "retryCount": 5,
