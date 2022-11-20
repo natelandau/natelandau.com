@@ -66,6 +66,7 @@ I use [Pre-Commit](https://pre-commit.com/) to run checks on my code before I pu
 My entire `pre-commit.yaml` is
 
 ```yaml
+---
 default_install_hook_types: [commit-msg, pre-commit]
 default_stages: [commit, manual]
 fail_fast: true
@@ -167,11 +168,11 @@ repos:
             files: \.sh$
             entry: shellcheck -x --exclude=2001,2148
 
-          - id: Build the site
-            name: Running grunt build_dev
+          - id: build-site
+            name: build site
             language: system
             entry: npx grunt build_dev
-            files: ^Gemfile$
+            files: ^site/.*
             pass_filenames: false
 ```
 
