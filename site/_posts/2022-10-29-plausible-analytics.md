@@ -40,7 +40,7 @@ I chose [Plausible.io](https://plausible.io) to replace Google Analytics for the
 -   Self hosting Plausible allows me to ensure that **data is not sent to any third parties**
 -   Plausible offers a paid service, but is FOSS when self-hosted. **Outside of paying for a VPS, this is free**
 
-The first step was figuring out where to host my analytics server. I could host this at home for free but I avoid opening any ports on my home network to the internet. So I set up a small vps at my [my favorite cloud platform](https://linode.com). I don't need anything beefy here, I selected the smallest possible VPS with a total cost $5/month.
+The first step was figuring out where to host my analytics server. I could host this at home for free but I avoid opening any ports on my home network to the internet. So I set up a small vps at my [my favorite cloud platform](https://www.linode.com/). I don't need anything beefy here, I selected the smallest possible VPS with a total cost $5/month.
 
 Next, I needed a publicly available domain name for this server. I purchased one and moved the DNS to [Cloudflare](https://www.cloudflare.com/)
 

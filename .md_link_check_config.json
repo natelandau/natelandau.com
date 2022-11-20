@@ -16,7 +16,7 @@
             "pattern": "^#"
         },
         {
-            "pattern": "\"$"
+            "pattern": "\"$|&quot;$"
         },
         {
             "pattern": "^https://chrome.google.com"
