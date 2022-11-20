@@ -10,7 +10,7 @@ tags:
 sitemap:
     priority: 0.7
     changefreq: monthly
-    lastmod: 2016-07-15 16:42
+    lastmod: 2022-11-16 16:42
     exclude: false
 flags:
     published: true
@@ -18,13 +18,13 @@ flags:
     include_comments: true
 ---
 
-I recently moved my personal blog from Wordpress to [Jekyll][1]. I made this move primarily as a way to keep my webdev chops current and experiment with Ruby, Amazon S3, Cloudfront, and Markdown. The act of porting my site into Jekyll was fraught with learning opportunities some of which I will begin to document here to help others (as [so many][2] [have][3] [helped me][4].)
+I recently moved my personal blog from Wordpress to [Jekyll][1]. I made this move primarily as a way to keep my webdev chops current and experiment with Ruby, Amazon S3, Cloudfront, and Markdown. The act of porting my site into Jekyll was fraught with learning opportunities some of which I will begin to document here to help others (as [so many][2] have [helped me][4].)
 
 RSS remains my most used form of content discovery. (Sorry Twitter, Facebook, and others.) It is important to me that my site cater to throwbacks like myself and contain an easily findable RSS feed.
 
 Out-of-the-box Jekyll does not create an RSS feed for you. Like so much else that makes me love Jekyll, you need to think about and craft by hand all the functionality you want on your site. No bloat. No unnecessary features. After much searching I found some great starting points but none of them accomplished all of what I needed. My requirements were as follows:
 
--   **Atom as opposed to RSS**. ([This old debate][5] probably doesn't mean much to folks who weren't building Web sites in the early naughts.)
+-   **Atom as opposed to RSS**. (This old debate probably doesn't mean much to folks who weren't building Web sites in the early naughts.)
 -   **Support for the [pubsubhubbub][6] protocol.**
 -   **Usage tracking via Google Analytics [campaign variables][7].**
 
@@ -98,7 +98,6 @@ Extra bonus points. If any of you know Ruby and can tell me how to replace the f
 
 [1]: https://jekyllrb.com/
 [2]: https://metaskills.net/2013/09/02/jekyll-tips-and-tricks/
-[3]: https://yeswejekyll.com/
 [4]: https://paulstamatiou.com/hosting-on-amazon-s3-with-cloudfront/
 [5]: https://blog.webreakstuff.com/2005/07/rss-vs-atom-you-know-for-dummies/
 [6]: https://code.google.com/p/pubsubhubbub/

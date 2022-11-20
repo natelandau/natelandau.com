@@ -47,7 +47,7 @@ Senior executive responsible for Univision’s complete portfolio of digital pro
 
 Co-founded [Food Republic](https://www.foodrepublic.com/), a digital consumer media company in the male lifestyle, food/drink, and travel space. Responsible for all aspects of founding, creating, managing, and growing the business including strategy, design, product, technology, staff management, budgeting, accounting, business development, marketing, sales, and fund-raising. Launched June 2011, Food Republic reached over 2mm monthly unique readers in two years with sustained monthly user gains of 10-15%, significant followings on all social networks, and superb revenue growth. Reported to investors and board. Led efforts leading to a successful acquisition to [Zero Point Zero](https://zeropointzero.com/) in August 2013.
 
-## [Zerve, Inc.](https://zerve.com/)
+## Zerve, Inc.
 
 ### VP, Product Development
 
@@ -65,7 +65,7 @@ Executive responsible for all digital products, design, and technology for onlin
 
 #### February, 2007 – October, 2008
 
-#### Acquired by [Purch](https://purch.com)
+#### Acquired by Purch
 
 Senior executive responsible for overall management and strategy for a network of consumer facing, content based websites with ~3MM monthly unique visitors. ([LiveScience.com](https://livescience.com), [Space.com](https://space.com/), [Newsarama.com](https://Newsarama.com/), Aviation.com). Assembled and managed a staff of nearly 30, including product managers, designers, business analysts, marketers, software engineers and editors. Managed total product life-cycle and business strategy for all sites. Key member of executive team with reporting duties to CEO and Board. Company was acquired by [Tech Media Network](https://www.techmedianetwork.com).
 

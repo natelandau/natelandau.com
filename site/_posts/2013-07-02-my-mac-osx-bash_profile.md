@@ -10,7 +10,7 @@ tags:
 sitemap:
     priority: 0.7
     changefreq: monthly
-    lastmod: 2016-02-02 15:03
+    lastmod: 2022-11-14
     exclude: false
 flags:
     published: true
@@ -45,9 +45,9 @@ export PS2="| => "
 
 ### My .bash_profile
 
-I have been compiling my own set of aliases and configurations for years in which time I have borrowed copiously from others who have made their aliases available online. I can claim credit for very little of what follows. I recently became aware of [alias.sh][1], a site making sharing BASH aliases easy. Check it out.
+I have been compiling my own set of aliases and configurations for years in which time I have borrowed copiously from others who have made their aliases available online. I can claim credit for very little of what follows. I recently became aware of alias.sh, a site making sharing BASH aliases easy. Check it out.
 
-**Update:** Due to popular demand, my bash profile is now [available as a Gist][3] for your forking pleasure.
+**Update:** Due to popular demand, my bash profile is now [available as a Gist](https://gist.github.com/natelandau/10654137) for your forking pleasure.
 
 Without further ado, here is my .bash_profile:
 
@@ -353,11 +353,5 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 
 **Update:** If you enjoyed this post, you might also like:
 
--   [A shell script boilerplate template][5]
--   [A collection of Bash scripting utilities][4] I compiled to make custom Bash programming easier.
-
-    [1]: https://alias.sh/
-    [2]: /bash-script-sync-macs-dropbox/
-    [3]: https://gist.github.com/natelandau/10654137
-    [4]: /bash-scripting-utilities/
-    [5]: /boilerplate-shell-script-template/
+-   [A shell script boilerplate template](/boilerplate-shell-script-template/)
+-   [A collection of Bash scripting utilities](/bash-scripting-utilities/) I compiled to make custom Bash programming easier.

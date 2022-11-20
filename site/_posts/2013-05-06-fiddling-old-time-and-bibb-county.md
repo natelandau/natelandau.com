@@ -11,7 +11,7 @@ tags:
 sitemap:
     priority: 0.7
     changefreq: monthly
-    lastmod: 2016-02-02 15:03
+    lastmod: 2022-11-02
     exclude: false
 flags:
     published: true
@@ -21,4 +21,4 @@ flags:
 
 <iframe src="//www.youtube.com/embed/_bDcIKc6edM" frameborder="0" allowfullscreen></iframe>
 
-In 2009, an [old colleague of mine](https://jackknifedjuggernaut.net) interviewed me about old-time music for a video project he was working on.
+In 2009, an old colleague of mine interviewed me about old-time music for a video project he was working on.

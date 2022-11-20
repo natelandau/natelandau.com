@@ -5,9 +5,13 @@ on:
             - opened
             - synchronize
             - reopened
+        paths:
+            - "**.md"
     push:
         branches:
             - "main"
+        paths:
+            - "**.md"
 
 name: Check links in modified files
 
@@ -23,5 +27,5 @@ jobs:
                   use-quiet-mode: "yes"
                   use-verbose-mode: "yes"
                   check-modified-files-only: "yes"
-                  config-file: ".mlc_config.json"
+                  config-file: ".md_link_check_config.json"
                   base-branch: "main"

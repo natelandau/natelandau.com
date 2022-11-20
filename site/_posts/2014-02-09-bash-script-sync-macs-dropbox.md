@@ -10,7 +10,7 @@ tags:
 sitemap:
     priority: 0.7
     changefreq: monthly
-    lastmod: 2016-02-02 15:03
+    lastmod: 2022-11-18 15:03
     exclude: false
 flags:
     published: true
@@ -22,9 +22,9 @@ I keep a complex set of files in sync between my various computers. These range 
 
 _Update May 27, 2014_ - Updated script with better error handling and fixed two bugs.
 
-Back in the day I used an FTP client called [Interarchy][1] to sync folders, then I moved to [Transmit][2]. Later I created a series of custom rsync scripts which I ran via Cron. All of these solutions were sub-par and required a lot of manual effort to either start the sync or to update my rsync bash scripts.
+Back in the day I used an FTP client called [Interarchy](https://en.wikipedia.org/wiki/Interarchy) to sync folders, then I moved to [Transmit](https://panic.com/transmit/). Later I created a series of custom rsync scripts which I ran via Cron. All of these solutions were sub-par and required a lot of manual effort to either start the sync or to update my rsync bash scripts.
 
-Sometime in mid 2013 I finally decided to get on board with using [Dropbox][3] for more than saving application specific data and embarked on a path to use it as my canonical source for all synced files.
+Sometime in mid 2013 I finally decided to get on board with using [Dropbox](https://www.dropbox.com/) for more than saving application specific data and embarked on a path to use it as my canonical source for all synced files.
 
 The script in this post accomplishes three critical tasks:
 
@@ -56,7 +56,7 @@ The structure is as follows:
 
 As we move through the script in detail there is a more in-depth description of each folder and how to work with it. In brief:
 
--   **sharedConfiguration:** I have the entirety of this folder backed up hourly to S3 via my favorite backup application [Arq][5] to ensure nothing is ever lost even if Dropbox disappears <i class="fa fa-smile-o"></i>.
+-   **sharedConfiguration:** I have the entirety of this folder backed up hourly to S3 via my favorite backup application [Arq](https://www.arqbackup.com/) to ensure nothing is ever lost even if Dropbox disappears <i class="fa fa-smile-o"></i>.
 -   **setupScripts:** contains all my bash scripts - including the one in this post.
 -   **assets:** Contains the folders to be synced.
 -   **ApplicationSupportBase:** Contains application settings from '~/Library/Application Support/' where the _whole folder_ should be synced
@@ -71,7 +71,7 @@ I will be explaining each part of the syncing script in detail. If you want to s
 
 ## Dropbox syncing with symlinks
 
-The process of syncing a folder with multiple computers using Dropbox is simple if you don't mind firing up Terminal.app and creating a simple [symlink][4].
+The process of syncing a folder with multiple computers using Dropbox is simple if you don't mind firing up Terminal.app and creating a simple [symlink](https://gigaom.com/2011/04/27/how-to-create-and-use-symlinks-on-a-mac/).
 
 For example, if you wanted to sync your '~/Documents/' folder between multiple computers using Dropbox you would follow these steps.
 
@@ -555,9 +555,3 @@ else
   e_header "---------- YAY! ALL DONE  ----------"
 fi
 ```
-
-[1]: https://nolobe.com/interarchy/
-[2]: https://panic.com/transmit/
-[3]: https://www.dropbox.com/
-[4]: https://gigaom.com/2011/04/27/how-to-create-and-use-symlinks-on-a-mac/
-[5]: https://www.haystacksoftware.com/arq/

@@ -11,7 +11,7 @@ tags:
 sitemap:
     priority: 0.7
     changefreq: monthly
-    lastmod: 2016-02-02 15:03
+    lastmod: 2022-11-19 11:03
     exclude: false
 flags:
     published: true
@@ -21,7 +21,7 @@ flags:
 
 I spend an inordinate amount of time downloading email attachments from Mac Mail and sorting them into folders. My challenge was to find a simple process of automatically filing attachments into a folder structure based on the sender of the email. Solving this problem would allow me to increase my productivity by keeping my Downloads folder clean and allowing me to quickly find the files when I needed them.
 
-Google searching for a solution turned up a number of AppleScript based solutions (like [this][2], [this][3], and [this][4]) but I wanted something simpler. Enter my favorite productivity application, [Hazel][1].
+Google searching for a solution turned up a number of AppleScript based solutions (like [this][3], and [this][4]) but I wanted something simpler. Enter my favorite productivity application, [Hazel][1].
 
 I created a relatively simple Hazel rule which doesn't require any AppleScript or external applications.
 
@@ -41,6 +41,5 @@ All told, this simple rule does three things to any attachments I save out of Ma
 <a class="btn btnGreen" href="/assets/downloads/2014-05-18-MailAttachments.hazelrules"><i class="fa fa-download fa-2x pull-left"></i>Download Hazel Rule</a>
 
 [1]: https://www.noodlesoft.com/hazel
-[2]: https://www.scrubbs.me/my-notes-blog/2013/4/9/filing-system-automatically-saving-mail-attachment-to-folder-named-for-sender
 [3]: https://www.markosx.com/thecocoaquest/automatically-save-attachments-in-mail-app/
 [4]: https://computers.tutsplus.com/tutorials/effortless-paperless-nirvana-with-mail-hazel-and-evernote--mac-55367

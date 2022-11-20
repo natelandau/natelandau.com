@@ -22,7 +22,7 @@ flags:
 3. [Song Exploder][2] - This amazing show takes a look at a single song in each episode and breaks it down into its component parts. Drums, guitar, vocals, etc. Each of these elements is then explored in-depth by the composer in a fantastic interview.
 4. [Startup][3] - Startup is a podcast that takes a narrative approach to telling the founding story of different companies. Each season they pick a different company to profile and tell the ups & downs, ins & outs of how the company got started.
 5. [The History of Rome][4] - I found this podcast after it had been completed but I went back to the beginning and added all 180 episodes to my feed. Starting at the founding of the city of Rome around 470 B. C and following it's history through nearly a thousand years to 476 A.D when the last emperor was exiled from the city, listening to this podcast was akin to taking a great history course in college.
-6. [Roderick on the Line][5] - This weekly podcast is simply a conversation between two fantastic storytellers and close friends. Their frank conversations move fluidly from music to popular culture, to personal reminiscences, to the minutiae of every day life.
+6. Roderick on the Line - This weekly podcast is simply a conversation between two fantastic storytellers and close friends. Their frank conversations move fluidly from music to popular culture, to personal reminiscences, to the minutiae of every day life.
 7. [The Memory Palace][10] - Host Nate DiMeo curates amazing stories from collective past and tells them in engaging and well-produced five to ten minute episodes.
 8. [Robot or Not][16] - This very funny and very short podcast (think about 3 min per episode) answers one question: is the object in question a robot. Daleks and Cybermen? Swimming Pool Cleaners? Pinocchio?
 9. [Reply All][11] - This is a show about the curiosities of the Internet &mdash; stories about how the Internet shapes people; and how people shape the Internet.
@@ -32,7 +32,6 @@ flags:
 [2]: https://songexploder.net
 [3]: https://gimletmedia.com/show/startup/
 [4]: https://thehistoryofrome.typepad.com
-[5]: https://www.merlinmann.com/roderick/
 [9]: https://99percentinvisible.org
 [10]: https://thememorypalace.us
 [11]: https://gimletmedia.com/show/reply-all/

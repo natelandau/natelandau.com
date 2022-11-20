@@ -74,7 +74,7 @@ repos:
             entry: bash -n
             files: \.sh$
 
-          - id: check Gemfile
+          - id: check-Gemfile
             name: Running bundle check
             language: system
             entry: bundle check
@@ -99,6 +99,12 @@ repos:
             language: system
             files: \.sh$
             entry: shellcheck -x --exclude=2001,2148
+
+          - id: check-external-links
+            name: check links in markdown files
+            language: system
+            entry: npx markdown-link-check --config .md_link_check_config.json --quiet
+            files: \.md$
 
           - id: build-site
             name: build site
