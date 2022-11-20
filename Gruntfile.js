@@ -38,6 +38,10 @@ module.exports = function (grunt) {
                 command:
                     "bundle exec htmlproofer <%= DIR %> --disable-external --check-favicon --allow-hash-href --extension .html --enforce-https=<%= ENFORCE_HTTPS %>",
             },
+            lint_links: {
+                command:
+                    "find site/ -name '*.md' -print0 | xargs -0 -n1 npx markdown-link-check --config .md_link_check_config.json --quiet",
+            },
             lint_html: {
                 command: "npx htmlhint <%= DIR %>",
             },
@@ -392,6 +396,8 @@ module.exports = function (grunt) {
         "common_post_build",
     ]);
 
+    grunt.registerTask("lint", ["shell:lint_links", "common_pre_build"]);
+    grunt.registerTask("links", ["shell:lint_links"]);
     grunt.registerTask("build_all", ["build_dev", "build_stage", "build_prod"]);
     grunt.registerTask("serve", ["build_dev", "concurrent:dev"]);
     grunt.registerTask("deploy_stage", ["build_stage", "compress:stage"]);

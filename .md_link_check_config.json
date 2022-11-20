@@ -1,0 +1,30 @@
+{
+    "ignorePatterns": [
+        {
+            "pattern": "^https://staging.natelandau.com/.*"
+        },
+        {
+            "pattern": "^/"
+        },
+        {
+            "pattern": "^mailto:"
+        },
+        {
+            "pattern": "^https://(www\\.)?strungoutstringband.com"
+        },
+        {
+            "pattern": "^#"
+        },
+        {
+            "pattern": "\"$"
+        },
+        {
+            "pattern": "^https://chrome.google.com"
+        }
+    ],
+    "timeout": "20s",
+    "retryOn429": true,
+    "retryCount": 5,
+    "fallbackRetryDelay": "30s",
+    "aliveStatusCodes": [200, 206, 999]
+}

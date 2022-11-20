@@ -42,7 +42,7 @@ I chose [Plausible.io](https://plausible.io) to replace Google Analytics for the
 
 The first step was figuring out where to host my analytics server. I could host this at home for free but I avoid opening any ports on my home network to the internet. So I set up a small vps at my [my favorite cloud platform](https://linode.com). I don't need anything beefy here, I selected the smallest possible VPS with a total cost $5/month.
 
-Next, I needed a publicly available domain name for this server. I purchased one and moved the DNS to [Cloudflare](https://cloudflare.com)
+Next, I needed a publicly available domain name for this server. I purchased one and moved the DNS to [Cloudflare](https://www.cloudflare.com/)
 
 I created an [Ansible](https://www.ansible.com/) playbook to install all the necessary services on my VPS. If you're not familiar with Ansible, it is a simple but powerful tool to manage remote computers with a series of yaml files.
 

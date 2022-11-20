@@ -32,7 +32,7 @@ flags:
 [2]: https://songexploder.net
 [3]: https://gimletmedia.com/show/startup/
 [4]: https://thehistoryofrome.typepad.com
-[5]: https://www.merlinmann.com/roderick/
+[5]: http://www.merlinmann.com/roderick/
 [9]: https://99percentinvisible.org
 [10]: https://thememorypalace.us
 [11]: https://gimletmedia.com/show/reply-all/

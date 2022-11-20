@@ -84,6 +84,8 @@ These pipelines:
 | `grunt deploy_stage` | Builds the staging site and compresses files with gzip. Use this if uploading to S3 with gzip flag set    |
 | `grunt deploy_prod`  | Builds the production site and compresses files with gzip. Use this if uploading to S3 with gzip flag set |
 
+| `grunt links` | Checks all posts for broken links |
+
 ## Deploying Changes
 
 Always follow these steps to deploy the site

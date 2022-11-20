@@ -9,15 +9,13 @@ tags:
 sitemap:
     priority: 0.7
     changefreq: monthly
-    lastmod: 2016-02-02 15:03
+    lastmod: 2022-02-02 15:03
     exclude: false
 flags:
     published: true
     noindex: false
     include_comments: false
 ---
-
-[The Ultimate Guide to Solving iOS Battery Drain](https://www.overthought.org/blog/2014/the-ultimate-guide-to-solving-ios-battery-drain) A step by step walkthrough on how to fix iOS battery drain problems. An incredibly useful read.
 
 [Protecting Your Mac With Firmware Password](https://www.theinstructional.com/guides/protecting-your-mac-with-firmware-password) For the hyper security focused among you.
 

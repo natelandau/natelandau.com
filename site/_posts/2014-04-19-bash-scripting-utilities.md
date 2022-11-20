@@ -10,7 +10,7 @@ tags:
 sitemap:
     priority: 0.7
     changefreq: monthly
-    lastmod: 2016-02-02 15:03
+    lastmod: 2012-10-02 15:03
     exclude: false
 flags:
     published: true
@@ -23,14 +23,12 @@ I do a lot of bash shell scripting. Okay, not a lot, but from time to time I fin
 1. Setting colored and styled text output
 2. Performing simple Yes/No confirmations
 3. Testing if packages, apps, gems, etc. are installed
-4. Sending [Pushover][1] notifications
+4. Sending [Pushover](https://pushover.net/) notifications
 5. Comparing lists to each other
 
 **Credit where credit is due** Before I walk through each of the utilities in detail, I need to give clear credit to those who originally wrote the code I have either taken whole-cloth or adapted. I taught myself to program by reading source code of others and adapting what I needed. I have done that liberally here. All code is commented with the originating source. In the interest of providing even more clear credit, here are links to the three sources.
 
--   [Pushover Integration][2]
--   [Cowboy Dotfiles][3]
--   [Kevva Dotfiles][4]
+-   [Cowboy Dotfiles](https://github.com/cowboy/dotfiles)
 
 ### How to use these utilities
 
@@ -287,7 +285,7 @@ function to_install() {
 
 #### A Sample Script
 
-In this sample script we are checking a list of [Homebrew][5] packages to find out which ones are not already installed.
+In this sample script we are checking a list of [Homebrew](https://brew.sh/) packages to find out which ones are not already installed.
 
 -   the **recipes** list below is the packages we are looking for
 -   the line that starts with **list=** is comparing our list of recipes to the list of packages listed when `brew list` is entered in your terminal. `brew list` could just as easily be `$(gem list | awk '{print $1}')")` to check for installed gems.
@@ -432,7 +430,6 @@ return 1
 #
 # Pushover Notifications
 # Usage: pushover "Title Goes Here" "Message Goes Here"
-# Credit: https://ryonsherman.blogspot.com/2012/10/shell-script-to-send-pushover.html
 #
 
 pushover () {
@@ -482,9 +479,3 @@ function to_install() {
   echo "${remain[@]}"
 }
 ```
-
-[1]: https://pushover.net/
-[2]: https://ryonsherman.blogspot.com/2012/10/shell-script-to-send-pushover.html
-[3]: https://github.com/cowboy/dotfiles
-[4]: https://github.com/kevva/dotfiles
-[5]: https://brew.sh/

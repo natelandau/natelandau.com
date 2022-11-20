@@ -10,7 +10,7 @@ tags:
 sitemap:
     priority: 0.7
     changefreq: monthly
-    lastmod: 2016-02-02 15:03
+    lastmod: 2012-11-02 03:03
     exclude: false
 flags:
     published: true
@@ -23,8 +23,8 @@ One of the more challenging parts of building my site on Jekyll has been recreat
 My needs were simple. Whenever I deployed new content to this site I wanted to:
 
 1. **Send an updated sitemap.xml to Google and Bing** so they would rapidly index my new content.
-2. **Notify [PingOMatic][1]** who in turn notifies a slew of search engines and services.
-3. **Ping my RSS feed to [pubsubhubbub][2]** so subscribers don't wait for a refresh.
+2. **Notify PingOMatic** who in turn notifies a slew of search engines and services.
+3. **Ping my RSS feed to [pubsubhubbub](https://pubsubhubbub.appspot.com/)** so subscribers don't wait for a refresh.
 
 I began my journey in solving those problems by repurposing a PHP script I had used for years. I wrote about this some time ago in my [post about creating a Jekyll RSS feed template][3]. This was a far from perfect solution. It required spinning up a web server that could serve PHP and hitting a page to ping the services.
 
@@ -117,8 +117,6 @@ To use the code above for your own site, follow these steps:
 
 Don't hesitate to let me know if you have questions. I probably can't answer most of them but I'll do my best to pretend that I'm competent technical support.
 
-[1]: https://pingomatic.com/
-[2]: https://pubsubhubbub.appspot.com/
 [3]: /jekyll-rss-feed-template/
 [4]: https://github.com/avillafiorita/jekyll-rakefile
 [5]: https://www.google.com/webhp?hl=en#hl=en&q=rake+ping+pingomatic
