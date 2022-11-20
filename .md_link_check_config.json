@@ -20,6 +20,9 @@
         },
         {
             "pattern": "^https://chrome.google.com"
+        },
+        {
+            "pattern": "linode.com"
         }
     ],
     "timeout": "20s",
