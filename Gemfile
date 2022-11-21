@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem 'fastimage', '~>2'
-gem 'html-proofer', '~>4'
+gem 'html-proofer', '~>5'
 gem 'jekyll-gist'
 gem 'jekyll-paginate-v2'
 gem 'jekyll-redirect-from'

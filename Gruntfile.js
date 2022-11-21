@@ -10,19 +10,19 @@ module.exports = function (grunt) {
                 PORT: 8000,
                 URL: "http://<%= env.dev.HOST %>:<%= env.dev.PORT %>",
                 DIR: "_site",
-                ENFORCE_HTTPS: false,
+                ENFORCE_HTTPS: "--no-enforce-https",
             },
             stage: {
                 HOST: "staging.natelandau.com",
                 URL: "https://<%= env.stage.HOST %>",
                 DIR: "_siteStage",
-                ENFORCE_HTTPS: true,
+                ENFORCE_HTTPS: "--enforce-https",
             },
             prod: {
                 HOST: "natelandau.com",
                 URL: "https://<%= env.prod.HOST %>",
                 DIR: "_siteProd",
-                ENFORCE_HTTPS: true,
+                ENFORCE_HTTPS: "--enforce-https",
             },
         },
 
@@ -36,7 +36,7 @@ module.exports = function (grunt) {
             },
             lint_htmlproofer: {
                 command:
-                    "bundle exec htmlproofer <%= DIR %> --disable-external --check-favicon --allow-hash-href --extension .html --enforce-https=<%= ENFORCE_HTTPS %>",
+                    "bundle exec htmlproofer <%= DIR %> --disable-external --allow-hash-href --extension .html <%= ENFORCE_HTTPS %>",
             },
             lint_links: {
                 command:
