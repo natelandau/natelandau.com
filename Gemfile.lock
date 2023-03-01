@@ -86,7 +86,7 @@ GEM
       ffi (~> 1.0)
     rexml (3.2.5)
     rmagick (4.3.0)
-    rouge (4.0.0)
+    rouge (4.1.0)
     ruby2_keywords (0.0.5)
     safe_yaml (1.0.5)
     sassc (2.4.0)
