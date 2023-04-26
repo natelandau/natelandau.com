@@ -169,3 +169,31 @@ detect-secrets scan --baseline .secrets.baseline
 # Audit the baseline
 detect-secrets audit .secrets.baseline
 ```
+
+# Updating development environment
+
+If `grunt` can not be found run this command:
+
+```bash
+PATH=${PWD}/node_modules/.bin:${PATH}
+```
+
+## NPM Packages
+
+```bash
+# List outdated packages
+npm outdated
+
+# Update outdated packages
+npm update
+```
+
+## Ruby Packages
+
+```bash
+# List outdated packages
+bundle outdated --only-explicit
+
+# Update outdated packages
+bundle update
+```
