@@ -16,7 +16,7 @@ jobs:
             # DEPENDENCIES
             # -----------------------------------
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
 
             - name: "Delete Files from Staging S3"
               run: scripts/deploy-to-s3.sh --force --bucket-name=${{ secrets.AWS_S3_TEST_BUCKET_NAME }} --delete-all
