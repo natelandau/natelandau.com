@@ -1,3 +1,0 @@
---quiet
---format=compact
---ignore=zero-units,unqualified-attributes,qualified-headings,box-model,display-property-grouping,adjoining-classes,vendor-prefix,font-sizes,floats,compatible-vendor-prefixes,order-alphabetical,unique-headings,ids,star-property-hack,known-properties,box-sizing,gradients,shorthand,outline-none

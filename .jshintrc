@@ -2,10 +2,10 @@
     "globals": {
         "angular": true
     },
-    "-W097": true, // Ignores "use strict" warning
+    "-W097": true,
     "browser": true,
     "devel": true,
     "laxbreak": true,
     "node": true,
-    "validthis": true // Avoids a warning using `this`
+    "validthis": true
 }
