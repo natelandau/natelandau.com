@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} | Nathaniel Landau{% endblock %}
+
+{% block seo %}
+<meta name="description" content="{% if article.summary %}{{ article.summary | striptags }}{% endif %}" />
+<link rel="canonical" href="{{ SITEURL }}/{{ article.url }}" />
+<link rel="author" href="{{ SITEURL }}/about-nathaniel-landau/" />
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<script type="application/ld+json">
+{
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ article.title }}",
+        "name": "{{ article.title }}",
+        "url": "{{ SITEURL }}/{{ article.url }}",
+        "datePublished": "{{ article.date | strftime("%Y-%m-%dT%H:%M:%S%z") }}",
+        {% if article.modified -%}
+        "dateModified": "{{ article.modified | strftime("%Y-%m-%dT%H:%M:%S%z") }}",
+        {% else -%}
+        "dateModified": "{{ article.date | strftime("%Y-%m-%dT%H:%M:%S%z") }}",
+        {% endif -%}
+        {% if article.summary -%}
+        "description": "{{ article.summary | striptags }}",
+        {% endif -%}
+        {% if article.tags -%}
+        "keywords": ["{{ article.tags | join(',') }}"],
+        {% endif -%}
+        "author": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau",
+            "url": "{{ SITEURL }}",
+            "image": "{{ SITEURL }}/static/images/nate-landau.jpg",
+            "sameAs": ["https://facebook.com/natelandau", "https://twitter.com/natelandau", "https://www.linkedin.com/in/natelandau/"]
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau",
+            "url": "{{ SITEURL }}",
+            "image": "{{ SITEURL }}/static/images/nate-landau.jpg",
+            "sameAs": ["https://facebook.com/natelandau", "https://twitter.com/natelandau", "https://www.linkedin.com/in/natelandau/"]
+        },
+        "copyrightYear": "{{ YEAR }}",
+        "copyrightHolder": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ SITEURL }}{{ article.url }}"
+        }
+    }
+</script>
+<meta content="{{ article.title }}" property="og:title" />
+<meta content="{{ SITEURL }}/about-nathaniel-landau/" property="article:author" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="{% if article.summary %}{{ article.summary | striptags }}{% endif %}" />
+<meta property="og:url" content="{{ SITEURL }}/{{ article.url }}" />
+<meta property="article:published_time" content="{{ article.date | strftime("%Y-%m-%dT%H:%M:%S%z") }}" />
+{% if article.modified -%}
+<meta property="article:modified_time" content="{{ article.modified | strftime("%Y-%m-%dT%H:%M:%S%z") }}" />
+<meta property="og:updated_time" content="{{ article.modified | strftime("%Y-%m-%dT%H:%M:%S%z") }}" />
+{% endif -%}
+{% if article.tags -%}
+<meta content="{{ article.tags[0] }}" property="article:section" />
+<meta property="article:tag" content="{{ article.tags | join(',') }}" />
+{% endif -%}
+{% endblock seo -%}
+
+{% block content -%}
+<article>
+    {% include "_includes/article_date_tags.html" %}
+    <h1 class="headline">{{ article.title | upper}}</h1>
+    <hr>
+    {% if article.callout -%}
+    <h2 class="callout">{{ article.callout }}</h2>
+    {% endif -%}
+    {{ article.content }}
+</article>
+{% if not article.has_comments is defined or article.has_comments -%}
+<section>
+    <div id="comment-box" class="comments">
+        <script src="https://giscus.app/client.js" data-repo="{{ GITHUB_REPO }}" data-repo-id="{{ GISCUS_REPO_ID }}"
+            data-category="{{ GISCUS_DATA_CATEGORY }}" data-category-id="{{ GISCUS_DATA_CATEGORY_ID }}"
+            data-mapping="pathname" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0"
+            data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy"
+            crossorigin="anonymous" async></script>
+    </div>
+</section>
+{% endif -%}
+<div class="grid">
+    <div>
+        {% if article.next_article %}
+        <a href="{{ SITEURL }}/{{ article.next_article.url}}" class="secondary"
+            role="button">←&nbsp;{{ article.next_article.title }}</a>
+        {% endif %}
+    </div>
+    <div dir="rtl">
+        {% if article.prev_article %}
+        <a href="{{ SITEURL }}/{{ article.prev_article.url}}" class="secondary"
+            role="button">&nbsp;→&nbsp;{{ article.prev_article.title }}</a>
+        {% endif -%}
+    </div>
+</div>
+{% endblock -%}

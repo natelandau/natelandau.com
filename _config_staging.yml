@@ -1,8 +1,0 @@
----
-environment: staging
-url: "https://staging.natelandau.com"
-disqusShortName: natelandaudev
-destination: ./_siteStage
-giscus_data_category_id: DIC_kwDOIM6z9s4CSAJf
-giscus_data_category: staging-comments
-plausible_domain: "staging.natelandau.com"

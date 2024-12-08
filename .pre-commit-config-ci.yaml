@@ -1,11 +1,14 @@
 ---
+# This is the pre-commit config for CI workflows. It bypasses the local
+# pre-commit hooks.
+
 # https://pre-commit.com
 default_install_hook_types: [commit-msg, pre-commit]
 default_stages: [pre-commit, manual]
 fail_fast: true
 repos:
   - repo: "https://github.com/commitizen-tools/commitizen"
-    rev: v4.1.0
+    rev: v4.0.0
     hooks:
       - id: commitizen
       - id: commitizen-branch
@@ -40,32 +43,20 @@ repos:
       - id: no-commit-to-branch
         args: [--branch, staging, --branch, production]
 
-  - repo: "https://github.com/adrienverge/yamllint.git"
-    rev: v1.35.1
-    hooks:
-      - id: yamllint
-        files: ^.*\.(yaml|yml)$
-        entry: yamllint --strict --config-file .yamllint.yml
-
   - repo: "https://github.com/crate-ci/typos"
     rev: typos-dict-v0.11.37
     hooks:
       - id: typos
 
   - repo: "https://github.com/djlint/djLint"
-    rev: v1.36.3
+    rev: v1.36.1
     hooks:
       - id: djlint
         args: ["--configuration", "pyproject.toml"]
 
-  - repo: local
+  - repo: "https://github.com/adrienverge/yamllint.git"
+    rev: v1.35.1
     hooks:
-      # This calls a custom pre-commit script.
-      # Disable if you don't have it.
-      - id: stopwords
-        name: stopwords
-        entry: git-stopwords
-        # args: ["-v"]
-        language: system
-        pass_filenames: true
-        types: [text]
+      - id: yamllint
+        files: ^.*\.(yaml|yml)$
+        entry: yamllint --strict --config-file .yamllint.yml

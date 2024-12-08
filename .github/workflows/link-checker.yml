@@ -1,20 +1,28 @@
 name: Check Markdown links
 
 on:
-    schedule:
-        - cron: "15 1 1 * *"
     workflow_dispatch:
+    pull_request:
+        types:
+            - opened
+            - reopened
+            - synchronize
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
 
 jobs:
     markdown-link-check:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@master
+            - name: Checkout Repo
+              uses: actions/checkout@v4
+
             - uses: gaurav-nelson/github-action-markdown-link-check@v1
               with:
                   use-quiet-mode: "yes"
                   use-verbose-mode: "yes"
                   config-file: ".md_link_check_config.json"
-                  base-branch: "main"
-                  folder-path: "site/_posts"
+                  folder-path: "content/posts, content/pages"
                   file-path: "./README.md"
