@@ -16,7 +16,7 @@ I am increasingly concerned about the growing big-tech surveillance state. As a 
 -   I stopped using Google Maps in favor of Apple maps
 -   I have [requested my data be deleted](https://www.spikenow.com/blog/tips-tricks/how-to-de-google-yourself/) from numerous Google services
 -   I use a self-hosted [Whoogle](https://github.com/benbusby/whoogle-search) as my search engine allowing me to access Google's search results without any ads, javascript, AMP links, cookies, or IP address tracking
--   I run a [pi-hole](https://pi-hole.net/) which blocks Google telemetry and ads from all my devices
+-   I run a [pi-hole](https://github.com/pi-hole/pi-hole) which blocks Google telemetry and ads from all my devices
 -   My home [router](https://opnsense.org/) redirects any calls to Google's DNS or NTP servers to other providers
 
 One of the last areas I still relied on Google was for web analytics for this blog and [my band's website](https://strungoutstringband.com).
@@ -102,7 +102,7 @@ The team at Plausible has done an amazing job. [Their documentation](https://pla
 
 The last step was to edit my Jekyll blog templates to remove Google analytics and replace it with Plausible. [Here's the commit](https://github.com/natelandau/natelandau.com/commit/d5072460a1cb57dd4c70d371e0e2b4741fe4e733) showing the changes.
 
-Now, Google is no longer spying on visitors to this site. I've made the full dashboard available publicly. You can [view it here](https://stats.natenate.org/natelandau.com/).
+Now, Google is no longer spying on visitors to this site.
 
 There are a few remaining steps that I plan on tackling next.
 

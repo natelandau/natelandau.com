@@ -184,7 +184,7 @@ My current prompt uses two lines and splits information between the left and rig
 
 ![My current zsh prompt]({static}/images/zsh-profile-prompt.png){: .image-process-responsive}
 
-You can view [my Powerlevel10k settings](https://github.com/natelandau/dotfiles/blob/master/shell/p10k.zsh) on Github. I recommend reading [their documentation](https://github.com/romkatv/powerlevel10k#getting-started) to customize the prompt to your purposes
+I use Powerlevel10k for my prompt. I recommend reading [their documentation](https://github.com/romkatv/powerlevel10k) to customize the prompt to your purposes
 
 ### ZSH Shell Options
 
@@ -261,9 +261,7 @@ done
 
 ### My Collection of Custom Functions and Aliases
 
-I update my collection of aliases and functions at a regular cadence. You can view a current version of them by [browsing these files on Github](https://github.com/natelandau/dotfiles/tree/master/shell).
-
-Here are some of the more common ones I use, combined into a single code block.
+Here are some of the more common aliases I use, combined into a single code block.
 
 ```bash
 # Common Aliases

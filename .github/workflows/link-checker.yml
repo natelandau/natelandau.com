@@ -8,6 +8,9 @@ on:
             - opened
             - reopened
             - synchronize
+    push:
+        branches:
+            - main
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -20,10 +23,10 @@ jobs:
             - name: Checkout Repo
               uses: actions/checkout@v4
 
-            - uses: gaurav-nelson/github-action-markdown-link-check@v1
+            - name: Run linkspector
+              uses: umbrelladocs/action-linkspector@v1
               with:
-                  use-quiet-mode: "yes"
-                  use-verbose-mode: "yes"
-                  config-file: ".md_link_check_config.json"
-                  folder-path: "content/posts, content/pages"
-                  file-path: "./README.md"
+                  github_token: ${{ secrets.github_token }}
+                  reporter: github-pr-review
+                  fail_on_error: true
+                  config_file: .linkspector.yml

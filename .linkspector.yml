@@ -1,0 +1,14 @@
+---
+dirs:
+  - content
+files:
+  - README.md
+aliveStatusCodes:
+  - 200
+  - 201
+  - 204
+  - 429
+ignorePatterns:
+  - pattern: "\\{static\\}"
+  - pattern: "^mailto:"
+  - pattern: "^/"

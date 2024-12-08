@@ -62,7 +62,7 @@ I will be explaining each part of the syncing script in detail. If you want to s
 
 ## Dropbox syncing with symlinks
 
-The process of syncing a folder with multiple computers using Dropbox is simple if you don't mind firing up Terminal.app and creating a simple [symlink](https://gigaom.com/2011/04/27/how-to-create-and-use-symlinks-on-a-mac/).
+The process of syncing a folder with multiple computers using Dropbox is simple if you don't mind firing up Terminal.app and creating a simple [symlink](https://apple.stackexchange.com/questions/115646/how-can-i-create-a-symbolic-link-in-terminal).
 
 For example, if you wanted to sync your `~/Documents/` folder between multiple computers using Dropbox you would follow these steps.
 
