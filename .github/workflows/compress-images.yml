@@ -1,3 +1,4 @@
+---
 name: Compress Images
 on:
     workflow_dispatch:
