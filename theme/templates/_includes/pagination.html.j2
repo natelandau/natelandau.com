@@ -1,0 +1,23 @@
+{% if DEFAULT_PAGINATION and (articles_page.has_previous() or articles_page.has_next()) -%}
+
+    <div class="grid">
+        <div>
+            {% if articles_page.has_previous() -%}
+                <a href="{{ SITEURL }}/{{ articles_previous_page.url }}"
+                   class="secondary"
+                   role="button">←&nbsp;Previous</a>
+            {% endif -%}
+        </div>
+        <div style="text-align: center;" class="sans-serif">
+            <p>Page {{ articles_page.number }} of {{ articles_paginator.num_pages }}</p>
+        </div>
+        <div dir="rtl">
+            {% if articles_page.has_next() -%}
+                <a href="{{ SITEURL }}/{{ articles_next_page.url }}"
+                   class="secondary"
+                   role="button">Next&nbsp;→</a>
+            {% endif -%}
+        </div>
+    </div>
+
+{%- endif -%}

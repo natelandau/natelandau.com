@@ -1,0 +1,58 @@
+[project]
+    dependencies = [
+        "invoke>=2.2.0",
+        "livereload>=2.7.0",
+        "markdown>=3.7",
+        "minify-html>=0.15.0",
+        "pelican-image-process>=3.0.4",
+        "pelican-neighbors>=1.2.0",
+        "pelican-sitemap>=1.2.0",
+        "pelican-yaml-metadata>=2.1.2",
+        "pelican>=4.10.2",
+        "pymdown-extensions>=10.12",
+        "rcssmin>=1.2.0",
+    ]
+    description = "Add your description here"
+    name = "natelandau-new"
+    readme = "README.md"
+    requires-python = ">=3.11"
+    version = "0.4.0"
+
+[dependency-groups]
+    dev = [
+        "commitizen>=4.0.0",
+        "djlint>=1.36.3",
+        "poethepoet>=0.31.1",
+        "pre-commit>=4.0.1",
+        "typos>=1.28.2",
+        "yamllint>=1.35.1",
+    ]
+
+[tool.commitizen]
+    bump_message               = "bump(release): v$current_version → v$new_version"
+    changelog_merge_prerelease = true
+    tag_format                 = "v$version"
+    update_changelog_on_bump   = true
+    version_provider           = "pep621"
+
+[tool.djlint]
+    extend_exclude = "_site, .venv, cache"
+    ignore         = "H030,H031,H021,H006,H013"
+    # ignore_case    = true
+    # format_attribute_template_tags = true
+    blank_line_after_tag  = "load,extends,include,set"
+    blank_line_before_tag = "load,extends,include,set"
+    custom_html           = "PageLayout"
+    indent                = 4
+    max_blank_lines       = 1
+    max_line_length       = 100
+    use_gitignore         = true
+
+[tool.poe.tasks]
+    [tool.poe.tasks.upgrade]
+        shell = """
+        echo "-- Upgrading packages --" &&
+        uv lock --upgrade &&
+        echo "-- Autoupdating pre-commit --" &&
+        pre-commit autoupdate
+        """

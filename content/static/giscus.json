@@ -1,0 +1,4 @@
+{
+    "origins": ["https://natelandau.com", "https://www.natelandau.com"],
+    "originsRegex": ["http://localhost:[0-9]+"]
+}

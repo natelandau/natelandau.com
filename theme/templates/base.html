@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#" data-theme="light">
+
+<head>
+    <title>{% block title %}{% endblock %} | Nathaniel Landau</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta http-equiv="Content-Security-Policy"
+        content="child-src https://github.com; frame-ancestors https://giscus.app;"> -->
+    <meta property="og:locale" content="en_US" />
+    <meta content="{{ SITENAME }}" property="og:site_name" />
+    {% include "_includes/header_favicons.html.j2" %}
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic|Vollkorn:400italic,700italic,400,700"
+        rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/static/css/pico.min.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/static/css/pygment.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/static/css/overrides.css">
+    {% block seo %}
+    {% endblock %}
+</head>
+
+<body>
+    <header>
+        {% include "_includes/header_topnav.html" %}
+    </header>
+    <main class="container">
+
+        {% block content %}
+        {% endblock %}
+    </main>
+    {% include "_includes/global_footer.html" %}
+</body>
+
+</html>
