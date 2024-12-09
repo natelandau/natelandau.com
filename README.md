@@ -104,8 +104,9 @@ To moderate, use the Github Discussions web interface.
 
 ## Deployment
 
-The site is deployed automatically using a Github Actions workflow. When changes matching the paths specified below are pushed to the `main` branch, the workflow will build the site and push the generated files to the `deploy` branch. Cloudflare Pages will then pick up the changes and deploy them to the live site.
+The site is deployed automatically using a Github Actions workflow which builds the site and pushes the generated files to the `deploy` branch. Cloudflare Pages will then pick up the changes and deploy them to the live site.
 
+Changes to the following files will trigger a deployment:
 ```yaml
 paths:
     - "content/**"

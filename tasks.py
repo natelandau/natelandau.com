@@ -1,7 +1,9 @@
 import os
+import re
 import shlex
 import shutil
 import sys
+import uuid
 from pathlib import Path
 
 import minify_html
@@ -64,6 +66,29 @@ def minify(c):
 
 
 @task
+def cache_bust(c):
+    """Cache bust all HTML files in _site/"""
+    site_dir = Path(CONFIG["deploy_path"]).resolve()
+    unique_id = str(uuid.uuid4())[:8]
+
+    for file in site_dir.glob("**/*.html"):
+        with open(file, "r") as f:
+            content = f.read()
+
+        content = re.sub(
+            r"(/static/css/[a-zA-Z0-9\.-_]+\.css) rel=",
+            rf"\1?v={unique_id} rel=",
+            content,
+        )
+
+        with open(file, "w") as f:
+            f.write(content)
+
+    print("Cache busted all css files in _site/")
+
+
+@task
+@task
 def clean(c):
     """Remove generated files"""
     if os.path.isdir(CONFIG["deploy_path"]):
@@ -75,6 +100,7 @@ def clean(c):
 def build(c):
     """Build local version of site"""
     pelican_run("-s {settings_base}".format(**CONFIG))
+    cache_bust(c)
     minify(c)
 
 
@@ -82,6 +108,7 @@ def build(c):
 def rebuild(c):
     """`build` with the delete switch"""
     pelican_run("-d -s {settings_base}".format(**CONFIG))
+    cache_bust(c)
     minify(c)
 
 
@@ -125,6 +152,7 @@ def reserve(c):
 def production(c):
     """Build production version of site"""
     pelican_run("-s {settings_publish}".format(**CONFIG))
+    cache_bust(c)
     minify(c)
 
 
