@@ -33,7 +33,10 @@ invoke serve
 invoke livereload
 
 # Publish the site with production settings
-invoke preview
+invoke publish
+
+# Create a new post
+invoke new "My New Post"
 ```
 
 ## Authoring Posts and Pages
@@ -45,7 +48,7 @@ Posts are written in markdown and placed in the `content` directory.
 -   `callout`: (optional) Short description of the post displayed in large text
 -   `date`: Original post date.
 -   `has_comments`: (optional) If set to `false`, disables comments for the post. Defaults to `true`.
--   `link_text`: (optional) Used for nav links. Defaults to the title.
+-   `link_text`: (optional) Used for nav links pointing to pages. Defaults to the title.
 -   `modified`: (optional) Date of last modification
 -   `summary`: (optional) Longer description of the post displayed in the post list. Defaults to the first 50 words of the post.
 -   `tags`: (optional) List of tags for the post.
@@ -104,8 +107,9 @@ To moderate, use the Github Discussions web interface.
 
 ## Deployment
 
-The site is deployed automatically using a Github Actions workflow. When changes matching the paths specified below are pushed to the `main` branch, the workflow will build the site and push the generated files to the `deploy` branch. Cloudflare Pages will then pick up the changes and deploy them to the live site.
+The site is deployed automatically using a Github Actions workflow which builds the site and pushes the generated files to the `deploy` branch. Cloudflare Pages will then pick up the changes and deploy them to the live site.
 
+Changes to the following files will trigger a deployment:
 ```yaml
 paths:
     - "content/**"

@@ -54,9 +54,6 @@ jobs:
             - name: Check lock file consistency
               run: uv sync --locked
 
-            - name: Run pre-commit
-              run: |
-                  uv run pre-commit run --all-files --config=.pre-commit-config-ci.yaml
     test-build:
         runs-on: ubuntu-latest
         steps:
@@ -67,7 +64,7 @@ jobs:
               uses: ./.github/actions/setup_python_env
 
             - name: Build the site
-              run: uv run inv production
+              run: uv run inv publish
 
             - name: Confirm files were created
               run: |

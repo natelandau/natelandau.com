@@ -29,7 +29,7 @@ jobs:
             # Build the production site
             # ############################################################
             - name: Build the productionsite
-              run: uv run inv production
+              run: uv run inv publish
 
             - name: Confirm files were created
               run: |
