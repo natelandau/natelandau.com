@@ -1,0 +1,29 @@
+{% extends "base.html" -%}
+
+{% block title -%}Home{% if articles_page.number != 1 -%} | Page
+{{ articles_page.number }}{% endif -%}{% endblock -%}
+
+{% block seo -%}
+{% endblock seo -%}
+<meta property="og:type" content="website" />
+<meta property="og:description" content="{{ SITEDESCRIPTION }}" />
+<meta property="og:url" content="{{ SITEURL }}" />
+
+{% block content -%}
+<article class="index-page">
+    {% for article in articles_page.object_list -%}
+    {% include "_includes/article_date_tags.html" %}
+
+    <h1 class="index-headline"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title
+            | upper}}</a></h1>
+    <p>{{ article.summary }}</p>
+
+    {% if not loop.last -%}
+    <hr>{% endif %}
+
+    {% endfor -%}
+</article>
+<hr>
+{% include "_includes/pagination.html.j2" -%}
+
+{% endblock content -%}

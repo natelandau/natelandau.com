@@ -1,7 +1,0 @@
----
-environment: production
-url: "https://natelandau.com"
-destination: ./_siteProd
-giscus_data_category_id: DIC_kwDOIM6z9s4CSACn
-giscus_data_category: Comments
-plausible_domain: "natelandau.com"

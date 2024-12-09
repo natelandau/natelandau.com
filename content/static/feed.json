@@ -1,0 +1,33 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "{{ SITENAME }}",
+  "home_page_url": "{{ SITEURL }}/",
+  "feed_url": "{{ SITEURL }}/feed.json",
+  "description": "{{ SITEDESCRIPTION }}",
+  "favicon": "{{ SITEURL }}/static/icons/favicon-96x96.png",
+  "icon": "{{ SITEURL }}/static/icons/apple-touch-icon.png",
+  "author": {
+      "name": "Nathaniel Landau",
+      "url": "{{ SITEURL }}/",
+      "avatar": "{{ SITEURL }}/static/images/nate-landau.jpg"
+  },
+  "expired": "false",
+  "items": [
+{%- for article in articles[:15] %}
+    {
+      "id": "/{{ article.slug | striptags | escape }}",
+      "url": "{{ SITEURL }}/{{ article.url }}?utm_source=jsonFeed&amp;utm_medium=jsonFeed&amp;utm_campaign={{ article.slug | escape }}",
+      "title": "{{ article.title | escape }}",
+      {% if article.summary -%}
+      "summary": "{{ article.summary | striptags | escape }}",
+      {% endif -%}
+      "content_html": "{{ article.content | replace("\n", "") | replace('"', '\\"') }}",
+      {% if article.tags -%}
+      "tags": ["{{article.tags | join('","') }}"],
+      {% endif -%}
+      "date_published": "{{ article.date | strftime("%Y-%m-%dT%H:%M:%S%z") }}",
+      "date_modified": "{% if article.modified %}{{ article.modified | strftime("%Y-%m-%dT%H:%M:%S%z") }}{% else %}{{ article.date | strftime("%Y-%m-%dT%H:%M:%S%z") }}{% endif %}"
+    }{% if not loop.last -%}, {% endif %}
+{%- endfor %}
+  ]
+}

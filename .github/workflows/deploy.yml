@@ -1,0 +1,58 @@
+---
+name: Deploy Site
+
+on:
+    workflow_dispatch:
+    push:
+        paths:
+            - "content/**"
+            - "theme/**"
+            - "pelicanconf.py"
+            - "publishconf.py"
+        branches:
+            - main
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Setup Python, uv, and the package
+              uses: ./.github/actions/setup_python_env
+
+            # Build the production site
+            # ############################################################
+            - name: Build the productionsite
+              run: uv run inv production
+
+            - name: Confirm files were created
+              run: |
+                  ls -al _site
+                  if [ ! -e "_site/index.html" ]; then
+                      echo "_site/index.html not found"
+                      exit 1
+                  fi
+
+            # Deploy the site to the deploy branch
+            - name: Init new repo in dist folder and commit generated files
+              run: |
+                  cd _site
+                  git init
+                  git add -A
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action"
+                  git commit -m 'deploy'
+
+            - name: Force push to destination branch
+              uses: ad-m/github-push-action@master
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  branch: deploy
+                  force: true
+                  directory: ./_site
