@@ -67,7 +67,7 @@ jobs:
               uses: ./.github/actions/setup_python_env
 
             - name: Build the site
-              run: uv run inv preview
+              run: uv run inv production
 
             - name: Confirm files were created
               run: |
