@@ -4,9 +4,11 @@ import shlex
 import shutil
 import sys
 import uuid
+from datetime import datetime
 from pathlib import Path
 
 import minify_html
+import pytz
 from invoke import task
 from invoke.main import program
 from pelican import main as pelican_main
@@ -29,65 +31,10 @@ CONFIG = {
     # Host and port for `serve`
     "host": "localhost",
     "port": 8000,
+    "post_path": f"{SETTINGS['PATH']}/{SETTINGS['ARTICLE_PATHS'][0]}",
 }
 
 
-@task
-def minify(c):
-    """Minify all HTML files in _site/"""
-    site_dir = Path(CONFIG["deploy_path"]).resolve()
-
-    for file in site_dir.glob("**/*.html"):
-        with open(file, "r") as f:
-            content = f.read()
-        minified = minify_html.minify(
-            content,
-            do_not_minify_doctype=True,
-            keep_closing_tags=True,
-            keep_html_and_head_opening_tags=True,
-            minify_css=True,
-            minify_js=True,
-            preserve_brace_template_syntax=True,
-            remove_processing_instructions=True,
-        )
-        with open(file, "w") as f:
-            f.write(minified)
-
-    print("Minified all HTML files in _site/")
-
-    for file in site_dir.glob("**/*.css"):
-        with open(file, "r") as f:
-            content = f.read()
-        minified = cssmin(content)
-        with open(file, "w") as f:
-            f.write(minified)
-
-    print("Minified all CSS files in _site/")
-
-
-@task
-def cache_bust(c):
-    """Cache bust all HTML files in _site/"""
-    site_dir = Path(CONFIG["deploy_path"]).resolve()
-    unique_id = str(uuid.uuid4())[:8]
-
-    for file in site_dir.glob("**/*.html"):
-        with open(file, "r") as f:
-            content = f.read()
-
-        content = re.sub(
-            r"(/static/css/[a-zA-Z0-9\.-_]+\.css) rel=",
-            rf"\1?v={unique_id} rel=",
-            content,
-        )
-
-        with open(file, "w") as f:
-            f.write(content)
-
-    print("Cache busted all css files in _site/")
-
-
-@task
 @task
 def clean(c):
     """Remove generated files"""
@@ -100,16 +47,16 @@ def clean(c):
 def build(c):
     """Build local version of site"""
     pelican_run("-s {settings_base}".format(**CONFIG))
-    cache_bust(c)
-    minify(c)
+    cache_bust()
+    minify()
 
 
 @task
 def rebuild(c):
     """`build` with the delete switch"""
     pelican_run("-d -s {settings_base}".format(**CONFIG))
-    cache_bust(c)
-    minify(c)
+    cache_bust()
+    minify()
 
 
 @task
@@ -152,8 +99,8 @@ def reserve(c):
 def production(c):
     """Build production version of site"""
     pelican_run("-s {settings_publish}".format(**CONFIG))
-    cache_bust(c)
-    minify(c)
+    cache_bust()
+    minify()
 
 
 @task
@@ -195,20 +142,103 @@ def livereload(c):
     server.serve(host=CONFIG["host"], port=CONFIG["port"], root=CONFIG["deploy_path"])
 
 
-# @task
-# def publish(c):
-#     """Publish to production via rsync"""
-#     pelican_run("-s {settings_publish}".format(**CONFIG))
-#     minify(c)
-#     c.run(
-#         'rsync --delete --exclude ".DS_Store" -pthrvz -c '
-#         '-e "ssh -p {ssh_port}" '
-#         "{} {ssh_user}@{ssh_host}:{ssh_path}".format(
-#             CONFIG["deploy_path"].rstrip("/") + "/", **CONFIG
-#         )
-#     )
+@task
+def new(c, title):
+    """Create a new post"""
+    post_dir = Path(CONFIG["post_path"]).resolve()
+
+    new_post_path = post_dir.joinpath(f"{now.strftime('%Y-%m-%d')}-{slugify(title)}.md")
+    new_post_path.touch()
+    with open(new_post_path, "w") as f:
+        f.write(
+            POST_TEMPLATE.format(
+                title=title,
+                slug=slugify(title),
+                timestamp=now.strftime("%Y-%m-%d %H:%M"),
+            )
+        )
+
+    print(f"Created new post at {new_post_path}")
+
+
+def minify():
+    """Minify all HTML files in _site/"""
+    site_dir = Path(CONFIG["deploy_path"]).resolve()
+
+    for file in site_dir.glob("**/*.html"):
+        with open(file, "r") as f:
+            content = f.read()
+        minified = minify_html.minify(
+            content,
+            do_not_minify_doctype=True,
+            keep_closing_tags=True,
+            keep_html_and_head_opening_tags=True,
+            minify_css=True,
+            minify_js=True,
+            preserve_brace_template_syntax=True,
+            remove_processing_instructions=True,
+        )
+        with open(file, "w") as f:
+            f.write(minified)
+
+    print("Minified all HTML files in _site/")
+
+    for file in site_dir.glob("**/*.css"):
+        with open(file, "r") as f:
+            content = f.read()
+        minified = cssmin(content)
+        with open(file, "w") as f:
+            f.write(minified)
+
+    print("Minified all CSS files in _site/")
+
+
+def cache_bust():
+    """Cache bust all HTML files in _site/"""
+    site_dir = Path(CONFIG["deploy_path"]).resolve()
+    unique_id = str(uuid.uuid4())[:8]
+
+    for file in site_dir.glob("**/*.html"):
+        with open(file, "r") as f:
+            content = f.read()
+
+        content = re.sub(
+            r"(/static/css/[a-zA-Z0-9\.-_]+\.css) rel=",
+            rf"\1?v={unique_id} rel=",
+            content,
+        )
+
+        with open(file, "w") as f:
+            f.write(content)
+
+    print("Cache busted all css files in _site/")
 
 
 def pelican_run(cmd):
     cmd += " " + program.core.remainder  # allows to pass-through args to pelican
     pelican_main(shlex.split(cmd))
+
+
+POST_TEMPLATE = """\
+---
+title: {title}
+slug: {slug}
+date: {timestamp}
+modified: {timestamp}
+summary:
+tags:
+    -
+---
+
+"""
+
+newYorkTz = pytz.timezone("America/New_York")
+now = datetime.now(newYorkTz)
+
+
+def slugify(s):
+    s = s.lower().strip()
+    s = re.sub(r"[^\w\s-]", "", s)
+    s = re.sub(r"[\s_-]+", "-", s)
+    s = re.sub(r"^-+|-+$", "", s)
+    return s
