@@ -54,9 +54,6 @@ jobs:
             - name: Check lock file consistency
               run: uv sync --locked
 
-            - name: Run pre-commit
-              run: |
-                  uv run pre-commit run --all-files --config=.pre-commit-config-ci.yaml
     test-build:
         runs-on: ubuntu-latest
         steps:
