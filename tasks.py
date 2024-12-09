@@ -96,7 +96,7 @@ def reserve(c):
 
 
 @task
-def production(c):
+def publish(c):
     """Build production version of site"""
     pelican_run("-s {settings_publish}".format(**CONFIG))
     cache_bust()
