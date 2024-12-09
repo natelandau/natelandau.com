@@ -76,7 +76,7 @@ ci:
 
     for more information, see https://pre-commit.ci
   autofix_prs: true
-  autoupdate_commit_msg: "fix: pre-commit autoupdate"
-  autoupdate_schedule: weekly
+  autoupdate_commit_msg: "build: pre-commit autoupdate"
+  autoupdate_schedule: quarterly
   skip: [stopwords]
   submodules: false
