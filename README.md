@@ -87,6 +87,18 @@ Two settings files are available:
 -   `pelicanconf.py`: Development settings
 -   `publishconf.py`: Production settings containing overrides of the development settings
 
+#### Redirects with Cloudflare Pages
+
+Cloudflare Pages supports redirects in a `_redirects` file at the root of the site (see [Cloudflare Pages documentation](https://developers.cloudflare.com/pages/configuration/redirects/)).
+
+Manage redirects in the `pelicanconf.py` file with the `REDIRECTS` dictionary.
+
+```python
+REDIRECTS = {
+    "source_url": "destination_url"
+}
+```
+
 ### HTML and CSS
 The theme is built using simple semantic HTML and [PicoCSS](https://picocss.com/) a minimal CSS framework.  Custom CSS overrieds are in the `theme/css` directory.
 

@@ -43,6 +43,7 @@ TEMPLATE_PAGES = {
     "static/robots.txt": "robots.txt",
     "static/feed.json": "feed.json",
     "static/404.html": "404.html",
+    "static/_redirects": "_redirects",
     # "static/giscus.json": "giscus.json",
 }
 
@@ -107,4 +108,10 @@ SITEMAP = {
         "\.json$",  # ends with ".json"
         "\.txt$",  # ends with ".txt"
     ],
+}
+
+# Creates a `_redirects` file in the root of the site.
+# See [Cloudflare Pages documentation](https://developers.cloudflare.com/pages/configuration/redirects/) for more information.
+REDIRECTS = {
+    # "/source_url": "/destination_url"
 }
