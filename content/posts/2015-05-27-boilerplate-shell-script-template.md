@@ -5,7 +5,7 @@ date: 2015-05-27 08:39
 modified: 2016-02-02 15:03
 summary: A shell script template containing my collection of shorthand functions and pre-written code.
 tags:
-    - macOS
+    - macos
     - unix
 ---
 

@@ -4,7 +4,7 @@ slug: how-to-stay-current-in-web-technology
 date: 2016-02-17 14:39
 summary: I am not a writer. I don't have this blog to write. I have it to teach me how to code and keep current in technology. You should too.
 tags:
-    - webDev
+    - webdev
     - jekyll
 ---
 

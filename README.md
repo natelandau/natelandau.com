@@ -51,7 +51,7 @@ Posts are written in markdown and placed in the `content` directory.
 -   `link_text`: (optional) Used for nav links pointing to pages. Defaults to the title.
 -   `modified`: (optional) Date of last modification
 -   `summary`: (optional) Longer description of the post displayed in the post list. Defaults to the first 50 words of the post.
--   `tags`: (optional) List of tags for the post.
+-   `tags`: (optional) List of tags for the post. Tags should be lowercase.
 -   `title`: Title of the post, also creates the slug used for the url.
 
 
@@ -110,6 +110,7 @@ The following Pelican extensions are used:
 -   [Yaml Metadata](https://github.com/pelican-plugins/yaml-metadata)
 -   [Pelican Sitemap](https://github.com/pelican-plugins/sitemap)
 -   [Pelican Neighbors](https://github.com/pelican-plugins/neighbors)
+-   [Pelican Tag Cloud](https://github.com/pelican-plugins/tag-cloud)
 
 ### Comments
 

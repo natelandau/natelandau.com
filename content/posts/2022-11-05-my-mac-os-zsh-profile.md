@@ -6,7 +6,7 @@ modified: 2022-11-05
 callout: I've spent years curating a collection of Mac aliases and shortcuts to make my life easier. My full .zshrc is below, feel free to take whatever you find useful and put it to good use.
 summary: I've spent years curating a collection of Mac aliases and shortcuts to make my life easier. My full .zshrc is below, feel free to take whatever you find useful and put it to good use.
 tags:
-    - macOS
+    - macos
     - unix
 ---
 

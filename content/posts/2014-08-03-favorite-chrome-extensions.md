@@ -5,7 +5,7 @@ date: 2014-08-03 14:32
 modified: 2016-02-02 15:03
 summary: I've spent years collecting a number of great extensions which have turned Google Chrome into my indispensable browser.
 tags:
-    - macOS
+    - macos
     - apps
 ---
 

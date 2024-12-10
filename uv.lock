@@ -485,6 +485,7 @@ dependencies = [
     { name = "pelican-image-process" },
     { name = "pelican-neighbors" },
     { name = "pelican-sitemap" },
+    { name = "pelican-tag-cloud" },
     { name = "pelican-yaml-metadata" },
     { name = "pymdown-extensions" },
     { name = "rcssmin" },
@@ -510,6 +511,7 @@ requires-dist = [
     { name = "pelican-image-process", specifier = ">=3.0.4" },
     { name = "pelican-neighbors", specifier = ">=1.2.0" },
     { name = "pelican-sitemap", specifier = ">=1.2.0" },
+    { name = "pelican-tag-cloud", specifier = ">=1.0.1" },
     { name = "pelican-yaml-metadata", specifier = ">=2.1.2" },
     { name = "pymdown-extensions", specifier = ">=10.12" },
     { name = "rcssmin", specifier = ">=1.2.0" },
@@ -630,6 +632,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/4d/e5/51aef5c206c3e5000360f71bb04f7fe2d867afad94a993c9a60c1c6116b7/pelican_sitemap-1.2.0.tar.gz", hash = "sha256:d4016c9ebdf4bd87776f48fd5a36f9c3af1c3bca01cda22a83c840c9669df7e1", size = 7220 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/18/e4/97f6e1d900194d713c59752d5facc0f8b815ef6fc34faa064d6a856ffc74/pelican_sitemap-1.2.0-py3-none-any.whl", hash = "sha256:9e5bba7c98bae8e0e94c8fa72bbc49673ceaed5c5bb934e23d675572572a9fb2", size = 7232 },
+]
+
+[[package]]
+name = "pelican-tag-cloud"
+version = "1.0.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pelican" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/40/48/4777ee6c0cdd919fd607f15b9782f6cb91c1356ebf6dc1e547f71cf64950/pelican-tag-cloud-1.0.1.tar.gz", hash = "sha256:bf29107e7f2cd01f7710ed992dee7e5e67becb63c7de8a24719635d439f51f25", size = 7093 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/36/2d/aaa2a8bb3473774be0dd14616712a9397903b4e652b32d94710d820be1bb/pelican_tag_cloud-1.0.1-py3-none-any.whl", hash = "sha256:0dee042f01821b6142f43907d27e3041b19677483f94cc9bf3162c209dbdd834", size = 6613 },
 ]
 
 [[package]]

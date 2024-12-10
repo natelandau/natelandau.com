@@ -5,7 +5,7 @@ date: 2014-05-18 13:11
 modified: 2016-02-02 15:03
 summary: A Hazel rule to automatically sort attachments from Mac Mail to folders organized by sender.
 tags:
-    - macOS
+    - macos
     - apps
     - productivity
 ---

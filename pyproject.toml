@@ -11,7 +11,8 @@
         "pelican>=4.10.2",
         "pymdown-extensions>=10.12",
         "rcssmin>=1.2.0",
-    ]
+        "pelican-tag-cloud>=1.0.1",
+]
     description = "Add your description here"
     name = "natelandau-new"
     readme = "README.md"

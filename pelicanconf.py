@@ -49,6 +49,8 @@ TEMPLATE_PAGES = {
 
 DIRECT_TEMPLATES = ["index", "tags"]
 
+TAG_CLOUD_SORTING = "alphabetically"
+
 MARKDOWN = {
     "extensions": [
         "pymdownx.mark",
@@ -107,6 +109,10 @@ SITEMAP = {
         "^tag/",  # contains "/tag/"
         "\.json$",  # ends with ".json"
         "\.txt$",  # ends with ".txt"
+        "_redirects",
+        "404.html",
+        "^category/",  # we use tags, not categories
+        "^author/",  # we don't use author pages
     ],
 }
 

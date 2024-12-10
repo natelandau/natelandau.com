@@ -5,7 +5,7 @@ date: 2014-03-24 21:09
 modified: 2022-11-16 16:42
 summary: My customized Jekyll RSS feed template including Google Analytics campaign tracking and pubsubhubbub support.
 tags:
-    - webDev
+    - webdev
     - jekyll
 ---
 
