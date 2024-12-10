@@ -5,7 +5,7 @@ date: 2014-12-28 20:39
 modified: 2016-04-25 16:47
 summary: Take control of Safari's RSS subscription behavior with this extension.
 tags:
-    - macOS
+    - macos
     - apps
 ---
 

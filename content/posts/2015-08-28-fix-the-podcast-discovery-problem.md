@@ -5,7 +5,7 @@ date: 2015-08-27 20:41
 modified: 2016-02-02 15:03
 summary: These are my humble proposals to fix the podcast subscription problem. Making a few additions to the podcast feed spec would allow podcasting to thrive.
 tags:
-    - webDev
+    - webdev
     - podcasts
 ---
 

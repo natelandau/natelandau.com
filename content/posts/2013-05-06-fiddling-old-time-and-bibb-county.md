@@ -4,7 +4,7 @@ slug: fiddling-old-time-and-bibb-county
 date: 2013-05-06 21:53
 summary: A fiddling video I made with some friends.
 tags:
-    - selfPromotion
+    - self-promotion
     - music
     - videos
 ---

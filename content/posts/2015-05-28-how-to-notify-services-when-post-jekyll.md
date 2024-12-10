@@ -4,7 +4,7 @@ slug: how-to-notify-services-when-post-jekyll
 date: 2015-05-28 15:28
 summary: Use a rakefile to ping PingOMatic, Pubsubhubbub, Google, and Bing when you post new content to your Jekyll site.
 tags:
-    - webDev
+    - webdev
     - jekyll
 ---
 

@@ -5,7 +5,7 @@ date: 2014-04-19 08:25
 summary: A collection of handy utilities and functions to make bash scripting easier and more fun.
 slug: bash-scripting-utilities
 tags:
-    - macOS
+    - macos
     - unix
 ---
 

@@ -5,7 +5,7 @@ date: 2017-05-20 14:09
 summary: Creating a JSON feed for a Jekyll site is an important and trivial task. I hope this new spec will lead to a resurgence of interest in supporting content feeds.
 tags:
     - jekyll
-    - webDev
+    - webdev
 ---
 
 Some fine folks named [Manton Reece][1] and [Brent Simmons][2] have created a JSON feed specification meant to compliment and hopefully replace XML based content feeds like RSS and Atom. Now this might not seem important to any of you but I'm an old stick-in-the-mud and love content feeds. I still get the vast majority of my information from a carefully curated list of RSS feeds that I've been building since the late '90s and that I read through [FeedBin][4].

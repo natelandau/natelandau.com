@@ -3,7 +3,7 @@ title: The Strung Out String Band
 slug: the-strung-out-string-band
 date: 2013-05-19 21:47
 tags:
-    - selfPromotion
+    - self-promotion
     - music
 ---
 

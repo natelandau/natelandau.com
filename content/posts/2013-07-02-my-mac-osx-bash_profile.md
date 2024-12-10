@@ -5,7 +5,7 @@ date: 2013-07-02 18:57
 modified: 2022-11-14 18:57
 summary: I've spent years curating a collection of Mac bash aliases and shortcuts to make my life easier. My full .bash_profile is below, feel free to take whatever you find useful and put it to good use.
 tags:
-    - macOS
+    - macos
     - unix
 status: published
 ---
