@@ -1,0 +1,401 @@
+<!doctype html><html prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#"data-theme=light lang=en-US><head><title>Dropbox - Script to Sync Multiple Macs | Nathaniel Landau | Nathaniel Landau</title><meta charset=utf-8><meta content=width=device-width,initial-scale=1 name=viewport><meta content=en_US property=og:locale><meta content=natelandau.com property=og:site_name><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-57x57.png rel=apple-touch-icon sizes=57x57><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-60x60.png rel=apple-touch-icon sizes=60x60><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-72x72.png rel=apple-touch-icon sizes=72x72><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-76x76.png rel=apple-touch-icon sizes=76x76><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-114x114.png rel=apple-touch-icon sizes=114x114><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-120x120.png rel=apple-touch-icon sizes=120x120><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-144x144.png rel=apple-touch-icon sizes=144x144><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-152x152.png rel=apple-touch-icon sizes=152x152><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-180x180.png rel=apple-touch-icon sizes=180x180><link href=https://natelandau-com.pages.dev/static/icons/favicon-32x32.png rel=icon sizes=32x32 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/android-chrome-192x192.png rel=icon sizes=192x192 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/favicon-96x96.png rel=icon sizes=96x96 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/favicon-16x16.png rel=icon sizes=16x16 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/manifest.json rel=manifest><link color=#c63d0f href=https://natelandau-com.pages.dev/static/icons/safari-pinned-tab.svg rel=mask-icon><link rel="shortcut icon"href=https://natelandau-com.pages.dev/static/icons/favicon.ico><meta content=#00aba9 name=msapplication-TileColor><meta content=https://natelandau-com.pages.dev/static/icons/mstile-144x144.png name=msapplication-TileImage><meta content=https://natelandau-com.pages.dev/static/icons/browserconfig.xml name=msapplication-config><meta content=#ffffff name=theme-color><link href=https://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic|Vollkorn:400italic,700italic,400,700 rel=stylesheet><link href=https://natelandau-com.pages.dev/static/css/pico.min.css rel=stylesheet><link href=https://natelandau-com.pages.dev/static/css/pygment.css rel=stylesheet><link href=https://natelandau-com.pages.dev/static/css/overrides.css rel=stylesheet><meta content="For years I used a combination of tactics to keep directories in sync between my many computers. Now I just use this simple bash script which syncs multiple macs with Dropbox using symbolic links."name=description><link href=https://natelandau-com.pages.dev/bash-script-sync-macs-dropbox/ rel=canonical><link href=https://natelandau-com.pages.dev/about-nathaniel-landau/ rel=author><link href=https://gmpg.org/xfn/11 rel=profile><script type=application/ld+json>
+{
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Dropbox - Script to Sync Multiple Macs",
+        "name": "Dropbox - Script to Sync Multiple Macs",
+        "url": "https://natelandau-com.pages.dev/bash-script-sync-macs-dropbox/",
+        "datePublished": "2014-02-09T21:15:04-0500",
+"dateModified": "2022-11-18T15:03:00-0500",
+"description": "For years I used a combination of tactics to keep directories in sync between my many computers. Now I just use this simple bash script which syncs multiple macs with Dropbox using symbolic links.",
+"keywords": ["macOS,unix"],
+"author": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau",
+            "url": "https://natelandau-com.pages.dev",
+            "image": "https://natelandau-com.pages.dev/static/images/nate-landau.jpg",
+            "sameAs": ["https://facebook.com/natelandau", "https://twitter.com/natelandau", "https://www.linkedin.com/in/natelandau/"]
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau",
+            "url": "https://natelandau-com.pages.dev",
+            "image": "https://natelandau-com.pages.dev/static/images/nate-landau.jpg",
+            "sameAs": ["https://facebook.com/natelandau", "https://twitter.com/natelandau", "https://www.linkedin.com/in/natelandau/"]
+        },
+        "copyrightYear": "2024",
+        "copyrightHolder": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://natelandau-com.pages.devbash-script-sync-macs-dropbox/"
+        }
+    }
+</script><meta content="Dropbox - Script to Sync Multiple Macs"property=og:title><meta content=https://natelandau-com.pages.dev/about-nathaniel-landau/ property=article:author><meta content=article property=og:type><meta content="For years I used a combination of tactics to keep directories in sync between my many computers. Now I just use this simple bash script which syncs multiple macs with Dropbox using symbolic links."property=og:description><meta content=https://natelandau-com.pages.dev/bash-script-sync-macs-dropbox/ property=og:url><meta content=2014-02-09T21:15:04-0500 property=article:published_time><meta content=2022-11-18T15:03:00-0500 property=article:modified_time><meta content=2022-11-18T15:03:00-0500 property=og:updated_time><meta content=macOS property=article:section><meta content=macOS,unix property=article:tag></head><body><header><nav class=container><ul><li><h2><a class=logo href=https://natelandau-com.pages.dev/>natelandau.com</a></h2></li></ul><ul><li><a href=https://natelandau-com.pages.dev/about-nathaniel-landau/ role=button>About</a></li><li><a href=https://natelandau-com.pages.dev/nathaniel-landaus-resume/ role=button>Resume</a></li><li><a href=https://natelandau-com.pages.dev/atom.xml role=button><svg viewbox="0 0 448 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M0 64C0 46.3 14.3 32 32 32c229.8 0 416 186.2 416 416c0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96C14.3 96 0 81.7 0 64zM0 416a64 64 0 1 1 128 0A64 64 0 1 1 0 416zM32 160c159.1 0 288 128.9 288 288c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg> Feed</a></li></ul></nav></header><main class=container><article><div class=grid><div><small><time>Feb 09, 2014</time></small></div><div dir=rtl><a class=tag href=https://natelandau-com.pages.dev/tag/macos.html>macos</a> <a class=tag href=https://natelandau-com.pages.dev/tag/unix.html>unix</a></div></div><h1 class=headline>DROPBOX - SCRIPT TO SYNC MULTIPLE MACS</h1><hr><p>I keep a complex set of files in sync between my various computers. These range from <code>~/Documents/</code> to application preferences from <code>~/Library/Application Support/</code> to sundry other files in use around my computer. The syncing script in this post <em>automagically</em> takes any number of files in Dropbox and creates symlinks from them to the appropriate places on my computer.</p><p><em>Update May 27, 2014</em> - Updated script with better error handling and fixed two bugs.</p><p>Back in the day I used an FTP client called <a href=https://en.wikipedia.org/wiki/Interarchy>Interarchy</a> to sync folders, then I moved to <a href=https://panic.com/transmit/>Transmit</a>. Later I created a series of custom rsync scripts which I ran via Cron. All of these solutions were sub-par and required a lot of manual effort to either start the sync or to update my rsync bash scripts.</p><p>Sometime in mid 2013 I finally decided to get on board with using <a href=https://www.dropbox.com/>Dropbox</a> for more than saving application specific data and embarked on a path to use it as my canonical source for all synced files.</p><p>The script in this post accomplishes three critical tasks:</p><ol><li><strong>Instant Setup.</strong> Whenever I get a new computer all I need to do is install Dropbox and run this script and all my files are where I want them.</li><li><strong>Low Maintenance.</strong> Adding a new file to be synced is as easy as dragging it into the appropriate folder in Dropbox and running the script.</li><li><strong>Automated Syncing.</strong> Unlike my previous systems which relied on remembering to initiate a sync or toying with Cron, Dropbox just works. Symlinks just work. Period.</li></ol><h4>IMPORTANT DISCLAIMER</h4><p><strong>Backup all your files to a secure location.</strong> I don't want to be responsible for you losing anything critical.</p><h2>The Syncing Folder Structure</h2><p>I desired a system where all that was needed was moving a folder into a specific directory for the script to know where to create the symlink. To allow for this, I created a folder structure in Dropbox that allows me to keep all my synced folders in a single location.</p><p>The structure is as follows:</p><div class=highlight><pre><span></span><code>|-- ~/Dropbox/
+    |-- sharedConfiguration/
+       |-- setupScripts/
+       |-- assets/
+           |-- ApplicationSupportBase/
+           |-- ApplicationSupportComplex/
+           |-- dotFiles/
+           |-- Library/
+           |-- Home/
+</code></pre></div><p>As we move through the script in detail there is a more in-depth description of each folder and how to work with it. In brief:</p><ul><li><strong>sharedConfiguration:</strong> I have the entirety of this folder backed up hourly to S3 via my favorite backup application <a href=https://www.arqbackup.com/>Arq</a> to ensure nothing is ever lost even if Dropbox disappears.</li><li><strong>setupScripts:</strong> contains all my bash scripts - including the one in this post.</li><li><strong>assets:</strong> Contains the folders to be synced.</li><li><strong>ApplicationSupportBase:</strong> Contains application settings from <code>~/Library/Application Support/</code> where the <em>whole folder</em> should be synced</li><li><strong>ApplicationSupportComplex:</strong> Contains application settings from <code>~/Library/Application Support/</code> where the only <em>parts of the folder</em> should be synced.</li><li><strong>dotFiles:</strong> Contains my <code>.bash_profile</code>, <code>.gitconfig</code>, <code>.bash_history</code>, etc.</li><li><strong>Library:</strong> Any files placed here will be synced from the root of <code>~/Library/</code>.</li><li><strong>Home:</strong> Anything dropped here is synced to my user home folder.</li></ul><h1>The Script</h1><p>I will be explaining each part of the syncing script in detail. If you want to skip the elaborations and jump directly to the full version, it is available for your copy-paste pleasure at the bottom of this post.</p><h2>Dropbox syncing with symlinks</h2><p>The process of syncing a folder with multiple computers using Dropbox is simple if you don't mind firing up Terminal.app and creating a simple <a href=https://apple.stackexchange.com/questions/115646/how-can-i-create-a-symbolic-link-in-terminal>symlink</a>.</p><p>For example, if you wanted to sync your <code>~/Documents/</code> folder between multiple computers using Dropbox you would follow these steps.</p><ol><li>Copy your <code>~/Documents/</code> folder to Dropbox</li><li>Delete the <code>~/Documents/</code> folder on your computer</li><li>Create a symlink from the folder on Dropbox to your User folder like so: <code>ln -s ~/Dropbox/Documents/ ~/Documents</code></li></ol><p><em>Easy right?</em> Now we just need to automate that with our script.</p><h2>Script basics</h2><p>Here's a brief primer on how to get this script to function.</p><ol><li>Open a plain text editor of your choice</li><li>Create a file named <code>createSymlinks.sh</code> and save it to your desired location. I keep mine in Dropbox like so <code>~/Dropbox/sharedConfiguration/setupScripts/createSymlinks.sh</code></li><li>Copy and paste the full script at the bottom of this post.</li><li>Make the script executable by running this command in <em>Terminal</em> <code>chmod a+x ~/YOUR-PATH-HERE/createSymlinks.sh</code></li><li>Go through each section and configure it to match you needs and directory structure.</li></ol><h2>Section 1: Setting Colors and Checking for Dropbox</h2><p>This first part of the script sets our color variables for nice output in Terminal, confirms that we have Dropbox installed, and allows us to set some variables to locate our directory locations</p><h4>Check for Dropbox</h4><p>This simple if/then statement makes sure that Dropbox has been installed. It does this by looking for the existence of <code>$HOME/Dropbox/</code>.</p><div class=highlight><pre><span></span><code><span class=c1># Is Dropbox Installed?</span>
+<span class=c1># If you have Dropbox installed in a nonstandard location, update it appropriately here.</span>
+
+<span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>""</span><span class=nv>$HOME</span><span class=s2>"/Dropbox"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>  </span>e_error<span class=w> </span><span class=s2>"DROPBOX NOT FOUND"</span>
+<span class=w>  </span>e_error<span class=w> </span><span class=s2>"Without Dropbox we will exit"</span>
+<span class=w>  </span>e_error<span class=w> </span><span class=s2>"EXITING"</span>
+<span class=w>  </span><span class=nb>exit</span><span class=w> </span><span class=m>1</span>
+<span class=k>fi</span>
+</code></pre></div><h4>Set Local Variables</h4><p>Here you can set two variables which will be called throughout the rest of the script.</p><div class=highlight><pre><span></span><code><span class=c1># Set Directory Locations</span>
+<span class=c1># dropbox_assets_dir: This is the location of your 'assets' directory</span>
+<span class=c1># backup_dir: This script will copy any existing files to a backup folder.  Place your desired path here.</span>
+
+<span class=nv>dropbox_assets_dir</span><span class=o>=</span><span class=s2>"</span><span class=nv>$HOME</span><span class=s2>"</span>/Dropbox/sharedConfiguration/assets
+<span class=nv>backup_dir</span><span class=o>=</span><span class=s2>"</span><span class=nv>$HOME</span><span class=s2>"</span>/Desktop/Backups/<span class=k>$(</span>date<span class=w> </span><span class=s2>"+%Y-%m-%d-%H_%M"</span><span class=k>)</span>
+</code></pre></div><ul><li><strong>dropbox_assets_dir:</strong> Where your assets are located. If you mirrored my folder structure you can leave this alone.</li><li><strong>backup_dir:</strong> I tried to make the script as non-destructive as possible. It will check for the existence of files before deleting them and will move them into a date-stamped Backup. The default is to place this on your Desktop. If you are happy with that, you can leave it alone.</li></ul><h2>Section 2: Sync Dotfiles</h2><p>This section will read every file within the <code>assets/dotfiles</code> folder and create a symlink of the file to your user folder. I'll take a minute to break down how this section works since all the other sections follow a similar methodology.</p><h4>Variables</h4><p>The first section contains three variables. You should set these to match your directory structure.</p><div class=highlight><pre><span></span><code><span class=nv>ASSETS</span><span class=o>=</span><span class=s2>"</span><span class=nv>$dropbox_assets_dir</span><span class=s2>"</span>/dotFiles/*
+<span class=nv>SOURCE</span><span class=o>=</span><span class=s2>"</span><span class=nv>$dropbox_assets_dir</span><span class=s2>"</span>/dotFiles/
+<span class=nv>DEST</span><span class=o>=</span><span class=s2>"</span><span class=nv>$HOME</span><span class=s2>"</span>/
+</code></pre></div><h4>The FOR Loop</h4><p>This tells the script to run itself <em>for</em> every file or directory it finds within <code>ASSETS</code>.</p><div class=highlight><pre><span></span><code><span class=k>for</span><span class=w> </span>f<span class=w> </span><span class=k>in</span><span class=w> </span><span class=nv>$ASSETS</span>
+<span class=w>  </span><span class=k>do</span>
+<span class=w>    </span><span class=c1># ...</span>
+<span class=w>  </span><span class=k>done</span>
+</code></pre></div><h4>Check for Existing Symlink</h4><p>Here we are checking for the existence of the file as a symlink in the 'DEST' location (in this case that means your home folder). If the file is already a symlink to the version on Dropbox we simply let you know and move on.</p><div class=highlight><pre><span></span><code><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-L<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>  </span>e_success<span class=w> </span><span class=s2>"Already Linked: "</span><span class=nv>$DEST</span><span class=s2>"`basename "</span><span class=nv>$f</span><span class=s2>"`"</span>
+<span class=k>else</span>
+</code></pre></div><h4>Create the symlinks</h4><p>This section is the meat of the script. First, we check for the existence of the file in the destination directory. If it already exists (but is not a symlink - <em>see above</em>) we do the following:</p><ol><li>Check for the existence of our backup directory and create it if necessary</li><li>Move the pre-existing asset to the backup directory</li><li>Create a symbolic link from the asset in Dropbox to the destination directory.</li></ol><p>If the asset doesn't exist we simply create the symbolic link.</p><div class=highlight><pre><span></span><code><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-f<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span>/dotfiles<span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>    </span>mkdir<span class=w> </span>-p<span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span>/dotfiles
+<span class=w>  </span><span class=k>fi</span>
+<span class=w>  </span>mv<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span>/dotfiles/<span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>  </span>ln<span class=w> </span>-s<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=k>else</span>
+<span class=w>  </span>ln<span class=w> </span>-s<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=k>fi</span>
+</code></pre></div><p>In a nutshell, that is how this script works its magic. Now on to the other sections....</p><h2>Section 3: Symlinks to your Library Folder</h2><p>This section takes every directory found in <code>sharedConfiguration/assets/Library/</code> and creates symlinks of them to <code>~/Library/</code>. This mechanism makes it simple to add a new directory in the future, simply copy it into your <code>ASSETS</code> dir and run the script. <em>Easy.</em></p><p>I use this to sync the following folders between computers:</p><div class=highlight><pre><span></span><code>|-- ~/Library/
+    |-- Fonts/
+    |-- Quicklook/
+    |-- Scripts/
+    |-- Spelling/
+</code></pre></div><h2>Section 4: Syncing Application Support</h2><p>This section works almost identically to Section 3. The only way it differs is in the location of the <code>ASSETS</code> and <code>DEST</code>. Any folders placed within <code>ApplicationSupportBase/</code> (if you're following my structure) will be synced from Dropbox to your <code>~/Library/Application Support</code> folder. <em>Instant preferences syncing</em>.</p><p><strong>Note:</strong> For some applications (OmniFocus and Sublime Text come to mind) only parts of their preferences can be synced between machines. We'll get to that in Section 5.</p><p>Here's are the applications I keep in sync via Dropbox with this script</p><div class=highlight><pre><span></span><code>|-- ~/Library/Application Support/
+     |-- appsolute/
+     |-- Coda 2/
+     |-- Marked
+     |-- nvALT
+     |-- OmniGraffle
+     |-- PopClip
+     |-- Tower
+     |-- XLD
+</code></pre></div><h2>Section 5: Syncing Application Support Subfolders</h2><p>This section gets marginally more complicated. Here we sync sub-folders from Application Support from Dropbox. To simplify, if you have the following structure</p><div class=highlight><pre><span></span><code>|-- ~/Dropbox/sharedConfiguration/assets/ApplicationSupportComplex/
+     |-- A/
+        |-- aa/
+        |-- cc/
+</code></pre></div><p>The directories <code>aa</code> and <code>bb</code> will be symlinked into a folder with more subdirectories.</p><div class=highlight><pre><span></span><code>|-- ~/Library/Application Support/
+  |-- A/
+    |-- aa/  (➜Symlink)
+    |-- bb/
+    |-- cc/   (➜Symlink)
+    |-- dd/
+</code></pre></div><p>Some examples of applications who treat their settings like this are Sublime Text 3, LaunchBar, and OmniFocus.</p><p>If you look in <code>~/Library/Application Support/Sublime Text 3</code> you will see five folders but only two of them can be synced between computers. Placing <code>Sublime Text 3</code> into your <code>ASSETS</code> folder for this section will only symlink the subfiles within it to the <code>Sublime Text 3</code> folder in your Library leaving all the others alone.</p><div class=highlight><pre><span></span><code>|-- ~/Dropbox/sharedConfiguration/assets/ApplicationSupportComplex/
+    |-- Sublime Text 3/
+        |-- Installed Packaged
+        |-- Packages
+</code></pre></div><h2>Section 6: Sync Directories in your home folder</h2><p>The final section of the script takes anything linked in the <code>ASSETS</code> directory and creates a symlink to your root user folder. I use this to keep my <code>~/Desktop</code>, <code>~/Downloads</code>, <code>~/Documents</code>, and other folders in sync across multiple computers.</p><p>I'd love to hear your opinion about using Dropbox as the location of your <code>~/Downloads</code> folder. I keep thinking it might not be wise but I have it there for now.</p><hr><h2>The Full Script</h2><p>Here is the complete script for you to edit and use at will. Let me know your thoughts in the comments. I hope you find it as useful as I have.</p><div class=highlight><pre><span></span><code><span class=ch>#!/bin/bash</span>
+
+<span class=c1>###</span>
+<span class=c1>#</span>
+<span class=c1># 1.    Configuration Variables</span>
+<span class=c1># 2.    Symlink Dotfiles</span>
+<span class=c1># 3.    Symlinks to Library/*</span>
+<span class=c1># 4.    Symlinks to ~/Library/Application Support/*</span>
+<span class=c1># 5.    Symlinks to ~/Library/Application Support/*/*</span>
+<span class=c1># 6.    Symlinks to ~/</span>
+<span class=c1>#</span>
+<span class=c1>###</span>
+
+<span class=c1>#</span>
+<span class=c1># 1.  Configuration Variables and Preamble</span>
+<span class=c1>#</span>
+
+<span class=c1># Set Colors</span>
+
+e_header<span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span><span class=nb>printf</span><span class=w> </span><span class=s2>"\n</span><span class=k>$(</span>tput<span class=w> </span>setaf<span class=w> </span><span class=m>141</span><span class=k>)</span><span class=s2>%s</span><span class=k>$(</span>tput<span class=w> </span>sgr0<span class=k>)</span><span class=s2>\n"</span><span class=w> </span><span class=s2>"</span><span class=nv>$@</span><span class=s2>"</span>
+<span class=o>}</span>
+e_success<span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span><span class=nb>printf</span><span class=w> </span><span class=s2>"</span><span class=k>$(</span>tput<span class=w> </span>setaf<span class=w> </span><span class=m>64</span><span class=k>)</span><span class=s2>✔ %s</span><span class=k>$(</span>tput<span class=w> </span>sgr0<span class=k>)</span><span class=s2>\n"</span><span class=w> </span><span class=s2>"</span><span class=nv>$@</span><span class=s2>"</span>
+<span class=o>}</span>
+e_error<span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span><span class=nb>printf</span><span class=w> </span><span class=s2>"</span><span class=k>$(</span>tput<span class=w> </span>setaf<span class=w> </span><span class=m>1</span><span class=k>)</span><span class=s2>✖ %s</span><span class=k>$(</span>tput<span class=w> </span>sgr0<span class=k>)</span><span class=s2>\n"</span><span class=w> </span><span class=s2>"</span><span class=nv>$@</span><span class=s2>"</span>
+<span class=o>}</span>
+e_warning<span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span><span class=nb>printf</span><span class=w> </span><span class=s2>"</span><span class=k>$(</span>tput<span class=w> </span>setaf<span class=w> </span><span class=m>136</span><span class=k>)</span><span class=s2>➜ %s</span><span class=k>$(</span>tput<span class=w> </span>sgr0<span class=k>)</span><span class=s2>\n"</span><span class=w> </span><span class=s2>"</span><span class=nv>$@</span><span class=s2>"</span>
+<span class=o>}</span>
+
+<span class=c1># Is Dropbox Installed?</span>
+<span class=c1># If you have Dropbox installed in a nonstandard location, update it appropriately here.</span>
+
+<span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>""</span><span class=nv>$HOME</span><span class=s2>"/Dropbox"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>  </span>e_error<span class=w> </span><span class=s2>"DROPBOX NOT FOUND"</span>
+<span class=w>  </span>e_error<span class=w> </span><span class=s2>"Without Dropbox we will exit"</span>
+<span class=w>  </span>e_error<span class=w> </span><span class=s2>"EXITING"</span>
+<span class=w>  </span><span class=nb>exit</span><span class=w> </span><span class=m>1</span>
+<span class=k>else</span>
+
+<span class=w>  </span><span class=c1># Set Directory Locations</span>
+<span class=w>  </span><span class=c1># dropbox_assets_dir: This is the location of your 'assets' directory</span>
+<span class=w>  </span><span class=c1># backup_dir: Desired path to a backup folder goes here here.</span>
+
+<span class=w>  </span><span class=nv>dropbox_assets_dir</span><span class=o>=</span><span class=s2>"</span><span class=nv>$HOME</span><span class=s2>"</span>/Dropbox/sharedConfiguration/assets
+<span class=w>  </span><span class=nv>backup_dir</span><span class=o>=</span><span class=s2>"</span><span class=nv>$HOME</span><span class=s2>"</span>/Desktop/Backups/<span class=k>$(</span>date<span class=w> </span><span class=s2>"+%Y-%m-%d-%H_%M"</span><span class=k>)</span>
+
+<span class=w>  </span>sudo<span class=w> </span>-v<span class=w> </span><span class=c1># ask for password only at the beginning</span>
+
+<span class=w>  </span>e_header<span class=w> </span><span class=s2>"---------- BEGINNING CONFIG SCRIPT ----------"</span>
+<span class=w>  </span>e_header<span class=w> </span><span class=s2>"Hang tight.......here we go....."</span>
+
+<span class=w>  </span><span class=c1># 2.    Symlinks to ~/Dotfiles</span>
+<span class=w>  </span><span class=c1>#</span>
+<span class=w>  </span><span class=c1>#       Takes all files found in "$dropbox_assets_dir"/dotFiles/</span>
+<span class=w>  </span><span class=c1>#       and symlinks them to ~/</span>
+
+<span class=w>  </span><span class=nv>ASSETS</span><span class=o>=</span><span class=s2>"</span><span class=nv>$dropbox_assets_dir</span><span class=s2>"</span>/dotFiles/*
+<span class=w>  </span><span class=nv>SOURCE</span><span class=o>=</span><span class=s2>"</span><span class=nv>$dropbox_assets_dir</span><span class=s2>"</span>/dotFiles/
+<span class=w>  </span><span class=nv>DEST</span><span class=o>=</span><span class=s2>"</span><span class=nv>$HOME</span><span class=s2>"</span>/
+
+<span class=w>  </span>e_header<span class=w> </span><span class=s2>"---------- Symlinking Dotfiles ----------"</span>
+
+<span class=w>  </span><span class=nb>shopt</span><span class=w> </span>-s<span class=w> </span>dotglob<span class=w>    </span><span class=c1>#show dot files</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>    </span>e_error<span class=w> </span><span class=s2>"Can't find source directory: </span><span class=nv>$SOURCE</span><span class=s2>"</span>
+<span class=w>  </span><span class=k>else</span>
+<span class=w>    </span><span class=k>for</span><span class=w> </span>f<span class=w> </span><span class=k>in</span><span class=w> </span><span class=nv>$ASSETS</span>
+<span class=w>    </span><span class=k>do</span>
+<span class=w>      </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-L<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>        </span>e_success<span class=w> </span><span class=s2>"Already Linked: "</span><span class=nv>$DEST</span><span class=s2>"`basename "</span><span class=nv>$f</span><span class=s2>"`"</span>
+<span class=w>      </span><span class=k>else</span>
+<span class=w>        </span>e_warning<span class=w> </span><span class=s2>"Linking : `basename "</span><span class=nv>$f</span><span class=s2>"`"</span>
+<span class=w>        </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-f<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>          </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span>/dotfiles<span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>            </span>mkdir<span class=w> </span>-p<span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span>/dotfiles
+<span class=w>          </span><span class=k>fi</span>
+<span class=w>          </span>mv<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span>/dotfiles/<span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>          </span>ln<span class=w> </span>-s<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>        </span><span class=k>else</span>
+<span class=w>          </span>ln<span class=w> </span>-s<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>        </span><span class=k>fi</span>
+<span class=w>      </span><span class=k>fi</span>
+<span class=w>    </span><span class=k>done</span>
+<span class=w>  </span><span class=k>fi</span>
+<span class=w>  </span><span class=nb>source</span><span class=w> </span><span class=nv>$HOME</span>/.bash_profile
+<span class=w>  </span><span class=nb>shopt</span><span class=w> </span>-u<span class=w> </span>dotglob<span class=w>    </span><span class=c1>#reset dotglob</span>
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>ASSETS
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>SOURCE
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>DEST
+
+<span class=w>  </span><span class=c1># 3.    Symlinks to ~Library/*</span>
+<span class=w>  </span><span class=c1>#</span>
+<span class=w>  </span><span class=c1>#       Takes all dirs found in "$dropbox_assets_dir"/Library/</span>
+<span class=w>  </span><span class=c1>#       and symlinks them to ~/Library/</span>
+
+<span class=w>  </span>e_header<span class=w> </span><span class=s2>"---------- Symlinking into ~/Library ----------"</span>
+
+<span class=w>  </span><span class=nv>ASSETS</span><span class=o>=</span><span class=s2>"</span><span class=nv>$dropbox_assets_dir</span><span class=s2>"</span>/Library/*
+<span class=w>  </span><span class=nv>SOURCE</span><span class=o>=</span><span class=s2>"</span><span class=nv>$dropbox_assets_dir</span><span class=s2>"</span>/Library/
+<span class=w>  </span><span class=nv>DEST</span><span class=o>=</span><span class=s2>"</span><span class=nv>$HOME</span><span class=s2>"</span>/Library/
+
+<span class=w>  </span><span class=c1># set IFS to allow spaces in names</span>
+<span class=w>  </span><span class=nv>SAVEIFS</span><span class=o>=</span><span class=nv>$IFS</span>
+<span class=w>  </span><span class=nv>IFS</span><span class=o>=</span><span class=k>$(</span><span class=nb>echo</span><span class=w> </span>-en<span class=w> </span><span class=s2>"\n\b"</span><span class=k>)</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>    </span>e_error<span class=w> </span><span class=s2>"Can't find source directory: </span><span class=nv>$SOURCE</span><span class=s2>"</span>
+<span class=w>  </span><span class=k>else</span>
+<span class=w>    </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>      </span>mkdir<span class=w> </span>-p<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span>
+<span class=w>    </span><span class=k>fi</span>
+<span class=w>    </span><span class=k>for</span><span class=w> </span>f<span class=w> </span><span class=k>in</span><span class=w> </span><span class=nv>$ASSETS</span>
+<span class=w>    </span><span class=k>do</span>
+<span class=w>      </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-L<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>        </span>e_success<span class=w> </span><span class=s2>"Already Linked: "</span><span class=nv>$DEST</span><span class=s2>"`basename "</span><span class=nv>$f</span><span class=s2>"`"</span>
+<span class=w>      </span><span class=k>else</span>
+<span class=w>        </span>e_warning<span class=w> </span><span class=s2>"Linking : "</span><span class=nv>$DEST</span><span class=s2>"`basename "</span><span class=nv>$f</span><span class=s2>"`"</span>
+<span class=w>        </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-e<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>          </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>            </span>mkdir<span class=w> </span>-p<span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span>
+<span class=w>          </span><span class=k>fi</span>
+<span class=w>          </span>sudo<span class=w> </span>mv<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span>/<span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>          </span>ln<span class=w> </span>-s<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>        </span><span class=k>else</span>
+<span class=w>          </span>ln<span class=w> </span>-s<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>        </span><span class=k>fi</span>
+<span class=w>      </span><span class=k>fi</span>
+<span class=w>    </span><span class=k>done</span>
+<span class=w>  </span><span class=k>fi</span>
+<span class=w>  </span><span class=c1># restore $IFS</span>
+<span class=w>  </span><span class=nv>IFS</span><span class=o>=</span><span class=nv>$SAVEIFS</span>
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>ASSETS
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>SOURCE
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>DEST
+
+<span class=w>  </span><span class=c1># 4.    Symlinks to ~/Library/Application Support/*</span>
+<span class=w>  </span><span class=c1>#</span>
+<span class=w>  </span><span class=c1>#       This script takes all directories found in</span>
+<span class=w>  </span><span class=c1>#       "$dropbox_assets_dir"/ApplicationSupportBase/</span>
+<span class=w>  </span><span class=c1>#       and symlinks them to ~/Library/Application Support/</span>
+
+<span class=w>  </span>e_header<span class=w> </span><span class=s2>"---------- Symlinking into ~/Library/Application Support/ ----------"</span>
+
+<span class=w>  </span><span class=nv>ASSETS</span><span class=o>=</span><span class=s2>"</span><span class=nv>$dropbox_assets_dir</span><span class=s2>"</span>/ApplicationSupportBase/*
+<span class=w>  </span><span class=nv>SOURCE</span><span class=o>=</span><span class=s2>"</span><span class=nv>$dropbox_assets_dir</span><span class=s2>"</span>/ApplicationSupportBase/
+<span class=w>  </span><span class=nv>DEST</span><span class=o>=</span><span class=s2>"</span><span class=nv>$HOME</span><span class=s2>"</span>/Library/Application<span class=se>\ </span>Support/
+
+<span class=w>  </span><span class=c1># set IFS to allow spaces in names</span>
+<span class=w>  </span><span class=nv>SAVEIFS</span><span class=o>=</span><span class=nv>$IFS</span>
+<span class=w>  </span><span class=nv>IFS</span><span class=o>=</span><span class=k>$(</span><span class=nb>echo</span><span class=w> </span>-en<span class=w> </span><span class=s2>"\n\b"</span><span class=k>)</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>    </span>e_error<span class=w> </span><span class=s2>"Can't find source directory: </span><span class=nv>$SOURCE</span><span class=s2>"</span>
+<span class=w>  </span><span class=k>else</span>
+<span class=w>    </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>      </span>mkdir<span class=w> </span>-p<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span>
+<span class=w>    </span><span class=k>fi</span>
+<span class=w>    </span><span class=k>for</span><span class=w> </span>f<span class=w> </span><span class=k>in</span><span class=w> </span><span class=nv>$ASSETS</span>
+<span class=w>    </span><span class=k>do</span>
+<span class=w>      </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-L<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>        </span>e_success<span class=w> </span><span class=s2>"Already Linked: "</span><span class=nv>$DEST</span><span class=s2>"`basename "</span><span class=nv>$f</span><span class=s2>"`"</span>
+<span class=w>      </span><span class=k>else</span>
+<span class=w>        </span>e_warning<span class=w> </span><span class=s2>"Linking : "</span><span class=nv>$DEST</span><span class=s2>"`basename "</span><span class=nv>$f</span><span class=s2>"`"</span>
+<span class=w>        </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-e<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>          </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>            </span>mkdir<span class=w> </span>-p<span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span>
+<span class=w>          </span><span class=k>fi</span>
+<span class=w>          </span>mv<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span>/<span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>          </span>ln<span class=w> </span>-s<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>        </span><span class=k>else</span>
+<span class=w>          </span>ln<span class=w> </span>-s<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>        </span><span class=k>fi</span>
+<span class=w>      </span><span class=k>fi</span>
+<span class=w>    </span><span class=k>done</span>
+<span class=w>  </span><span class=k>fi</span>
+<span class=w>  </span><span class=c1># restore $IFS</span>
+<span class=w>  </span><span class=nv>IFS</span><span class=o>=</span><span class=nv>$SAVEIFS</span>
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>ASSETS
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>SOURCE
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>DEST
+
+<span class=w>  </span><span class=c1># 5.    Symlinks to ~/Library/Application Support/*/*</span>
+<span class=w>  </span><span class=c1>#</span>
+<span class=w>  </span><span class=c1>#       This script takes all directories found in</span>
+<span class=w>  </span><span class=c1>#       "$dropbox_assets_dir"/ApplicationSupportComples/*/</span>
+<span class=w>  </span><span class=c1>#       and symlinks them to ~/Library/Application Support/*/</span>
+<span class=w>  </span><span class=c1>#       i.e - Goes one level deep for symlinks.</span>
+
+<span class=w>  </span>e_header<span class=w> </span><span class=s2>"---------- Symlinking into ~/Library/Application Support/*/ ----------"</span>
+
+<span class=w>  </span><span class=c1># set IFS to allow spaces in names</span>
+<span class=w>  </span><span class=nv>SAVEIFS</span><span class=o>=</span><span class=nv>$IFS</span>
+<span class=w>  </span><span class=nv>IFS</span><span class=o>=</span><span class=k>$(</span><span class=nb>echo</span><span class=w> </span>-en<span class=w> </span><span class=s2>"\n\b"</span><span class=k>)</span>
+
+<span class=w>  </span><span class=nv>ASSETS</span><span class=o>=</span><span class=s2>"</span><span class=nv>$dropbox_assets_dir</span><span class=s2>"</span>/ApplicationSupportComplex/*
+<span class=w>  </span><span class=nv>SOURCE</span><span class=o>=</span><span class=s2>"</span><span class=nv>$dropbox_assets_dir</span><span class=s2>"</span>/ApplicationSupportComplex/
+<span class=w>  </span><span class=nv>DEST</span><span class=o>=</span><span class=s2>"</span><span class=nv>$HOME</span><span class=s2>"</span>/Library/Application<span class=se>\ </span>Support/
+
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>    </span>e_error<span class=w> </span><span class=s2>"Can't find source directory: </span><span class=nv>$SOURCE</span><span class=s2>"</span>
+<span class=w>  </span><span class=k>else</span>
+<span class=w>    </span><span class=k>for</span><span class=w> </span>f<span class=w> </span><span class=k>in</span><span class=w> </span><span class=nv>$ASSETS</span>
+<span class=w>    </span><span class=k>do</span>
+<span class=w>      </span><span class=nv>ASSETS2</span><span class=o>=</span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>/*
+<span class=w>      </span><span class=nv>SOURCE2</span><span class=o>=</span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>/
+<span class=w>      </span><span class=nv>DEST2</span><span class=o>=</span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>/
+<span class=w>      </span><span class=nv>BACKUP2</span><span class=o>=</span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span>/<span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>/
+<span class=w>      </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$DEST2</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>        </span>mkdir<span class=w> </span>-p<span class=w> </span><span class=s2>"</span><span class=nv>$DEST2</span><span class=s2>"</span>
+<span class=w>      </span><span class=k>fi</span>
+<span class=w>      </span><span class=k>for</span><span class=w> </span>g<span class=w> </span><span class=k>in</span><span class=w> </span><span class=nv>$ASSETS2</span>
+<span class=w>      </span><span class=k>do</span>
+<span class=w>        </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-L<span class=w> </span><span class=s2>"</span><span class=nv>$DEST2</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$g</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>          </span>e_success<span class=w> </span><span class=s2>"Already Linked: "</span><span class=nv>$DEST2</span><span class=s2>"`basename "</span><span class=nv>$g</span><span class=s2>"`"</span>
+<span class=w>        </span><span class=k>else</span>
+<span class=w>          </span>e_warning<span class=w> </span><span class=s2>"Linking : "</span><span class=nv>$SOURCE2</span><span class=s2>"`basename "</span><span class=nv>$g</span><span class=s2>"`"</span>
+<span class=w>          </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-e<span class=w> </span><span class=s2>"</span><span class=nv>$DEST2</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$g</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>            </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$BACKUP2</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>              </span>mkdir<span class=w> </span>-p<span class=w> </span><span class=s2>"</span><span class=nv>$BACKUP2</span><span class=s2>"</span>
+<span class=w>            </span><span class=k>fi</span>
+<span class=w>            </span>mv<span class=w> </span><span class=s2>"</span><span class=nv>$DEST2</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$g</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$BACKUP2</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$g</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>            </span>ln<span class=w> </span>-s<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE2</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$g</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$DEST2</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$g</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>          </span><span class=k>else</span>
+<span class=w>            </span>ln<span class=w> </span>-s<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE2</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$g</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$DEST2</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$g</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>          </span><span class=k>fi</span>
+<span class=w>        </span><span class=k>fi</span>
+<span class=w>      </span><span class=k>done</span>
+<span class=w>    </span><span class=k>done</span>
+<span class=w>  </span><span class=k>fi</span>
+<span class=w>  </span><span class=c1># restore $IFS</span>
+<span class=w>  </span><span class=nv>IFS</span><span class=o>=</span><span class=nv>$SAVEIFS</span>
+
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>ASSETS
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>SOURCE
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>DEST
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>ASSETS2
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>SOURCE2
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>DEST2
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>BACKUP2
+
+<span class=w>  </span><span class=c1># 6.    Symlinks to ~/</span>
+<span class=w>  </span><span class=c1>#</span>
+<span class=w>  </span><span class=c1>#       Creates symlinks to dirs at the base ~/ directory</span>
+
+<span class=w>  </span>e_header<span class=w> </span><span class=s2>"---------- Symlinking into ~/  ----------"</span>
+
+<span class=w>  </span><span class=nv>ASSETS</span><span class=o>=</span><span class=s2>"</span><span class=nv>$dropbox_assets_dir</span><span class=s2>"</span>/Home/*
+<span class=w>  </span><span class=nv>SOURCE</span><span class=o>=</span><span class=s2>"</span><span class=nv>$dropbox_assets_dir</span><span class=s2>"</span>/Home/
+<span class=w>  </span><span class=nv>DEST</span><span class=o>=</span><span class=s2>"</span><span class=nv>$HOME</span><span class=s2>"</span>/
+
+<span class=w>  </span><span class=c1># set IFS to allow spaces in names</span>
+<span class=w>  </span><span class=nv>SAVEIFS</span><span class=o>=</span><span class=nv>$IFS</span>
+<span class=w>  </span><span class=nv>IFS</span><span class=o>=</span><span class=k>$(</span><span class=nb>echo</span><span class=w> </span>-en<span class=w> </span><span class=s2>"\n\b"</span><span class=k>)</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>    </span>e_error<span class=w> </span><span class=s2>"Can't find source directory: </span><span class=nv>$SOURCE</span><span class=s2>"</span>
+<span class=w>  </span><span class=k>else</span>
+<span class=w>    </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>      </span>mkdir<span class=w> </span>-p<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span>
+<span class=w>    </span><span class=k>fi</span>
+<span class=w>    </span><span class=k>for</span><span class=w> </span>f<span class=w> </span><span class=k>in</span><span class=w> </span><span class=nv>$ASSETS</span>
+<span class=w>    </span><span class=k>do</span>
+<span class=w>      </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-L<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>        </span>e_success<span class=w> </span><span class=s2>"Already Linked: "</span><span class=nv>$DEST</span><span class=s2>"`basename "</span><span class=nv>$f</span><span class=s2>"`"</span>
+<span class=w>      </span><span class=k>else</span>
+<span class=w>        </span>e_warning<span class=w> </span><span class=s2>"Linking : "</span><span class=nv>$DEST</span><span class=s2>"`basename "</span><span class=nv>$f</span><span class=s2>"`"</span>
+<span class=w>        </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-e<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>          </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>            </span>mkdir<span class=w> </span>-p<span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span>
+<span class=w>          </span><span class=k>fi</span>
+<span class=w>          </span>sudo<span class=w> </span>mv<span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$backup_dir</span><span class=s2>"</span>/<span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>          </span>ln<span class=w> </span>-s<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>        </span><span class=k>else</span>
+<span class=w>          </span>ln<span class=w> </span>-s<span class=w> </span><span class=s2>"</span><span class=nv>$SOURCE</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span><span class=w> </span><span class=s2>"</span><span class=nv>$DEST</span><span class=s2>"</span><span class=sb>`</span>basename<span class=w> </span><span class=s2>"</span><span class=nv>$f</span><span class=s2>"</span><span class=sb>`</span>
+<span class=w>        </span><span class=k>fi</span>
+<span class=w>      </span><span class=k>fi</span>
+<span class=w>    </span><span class=k>done</span>
+<span class=w>  </span><span class=k>fi</span>
+<span class=w>  </span><span class=c1># restore $IFS</span>
+<span class=w>  </span><span class=nv>IFS</span><span class=o>=</span><span class=nv>$SAVEIFS</span>
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>ASSETS
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>SOURCE
+<span class=w>  </span><span class=nb>unset</span><span class=w> </span>DEST
+
+<span class=w>  </span><span class=c1>#</span>
+<span class=w>  </span><span class=c1># Notify if Backups were created of any files above</span>
+<span class=w>  </span><span class=c1>#</span>
+<span class=w>  </span>e_header<span class=w> </span><span class=s2>"---------- Processing Backups  ----------"</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-e<span class=w> </span><span class=nv>$backup_dir</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>    </span>e_warning<span class=w> </span><span class=s2>"Backups moved to "</span><span class=nv>$backup_dir</span><span class=s2>""</span>
+<span class=w>  </span><span class=k>else</span>
+<span class=w>    </span>e_success<span class=w> </span><span class=s2>"No Backups Created"</span>
+<span class=w>  </span><span class=k>fi</span>
+<span class=w>  </span>e_header<span class=w> </span><span class=s2>"---------- YAY! ALL DONE  ----------"</span>
+<span class=k>fi</span>
+</code></pre></div></article><section><div class=comments id=comment-box><script async crossorigin data-category=Comments data-category-id=DIC_kwDOIM6z9s4CSACn data-emit-metadata=0 data-input-position=top data-lang=en data-loading=lazy data-mapping=pathname data-reactions-enabled=1 data-repo=natelandau/natelandau.com data-repo-id=R_kgDOIM6z9g data-strict=1 data-theme=preferred_color_scheme src=https://giscus.app/client.js></script></div></section><div class=grid><div><a class=secondary href=https://natelandau-com.pages.dev/status-reporting-done-right/ role=button>← Status Reporting Done Right</a></div><div dir=rtl><a class=secondary href=https://natelandau-com.pages.dev/questions-for-checking-references/ role=button> → How to check job candidate references</a></div></div></main><footer><div class="grid container"><div><a href=https://github.com/natelandau><svg viewbox="0 0 496 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a><a href=https://linkedin.com/in/natelandau><svg viewbox="0 0 448 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg></a><a href=https://twitter.com/natelandau><svg viewbox="0 0 512 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg></a><a href=https://bsky.app/profile/natelandau.bsky.social><svg viewbox="0 0 448 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM224 247.4c14.5-30 54-85.8 90.7-113.3c26.5-19.9 69.3-35.2 69.3 13.7c0 9.8-5.6 82.1-8.9 93.8c-11.4 40.8-53 51.2-90 44.9c64.7 11 81.2 47.5 45.6 84c-67.5 69.3-97-17.4-104.6-39.6c0 0 0 0 0 0l-.3-.9c-.9-2.6-1.4-4.1-1.8-4.1s-.9 1.5-1.8 4.1c-.1 .3-.2 .6-.3 .9c0 0 0 0 0 0c-7.6 22.2-37.1 108.8-104.6 39.6c-35.5-36.5-19.1-73 45.6-84c-37 6.3-78.6-4.1-90-44.9c-3.3-11.7-8.9-84-8.9-93.8c0-48.9 42.9-33.5 69.3-13.7c36.7 27.5 76.2 83.4 90.7 113.3z"></path></svg></a><a href=mailto:fromwebsite@natelandau.com><svg viewbox="0 0 512 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"></path></svg></a></div><div dir=rtl>Copyright © 2024 Nathaniel Landau</div></div></footer></body></html>

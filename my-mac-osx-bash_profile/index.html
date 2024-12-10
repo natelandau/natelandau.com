@@ -1,0 +1,338 @@
+<!doctype html><html prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#"data-theme=light lang=en-US><head><title>My Mac OSX Bash Profile | Nathaniel Landau | Nathaniel Landau</title><meta charset=utf-8><meta content=width=device-width,initial-scale=1 name=viewport><meta content=en_US property=og:locale><meta content=natelandau.com property=og:site_name><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-57x57.png rel=apple-touch-icon sizes=57x57><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-60x60.png rel=apple-touch-icon sizes=60x60><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-72x72.png rel=apple-touch-icon sizes=72x72><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-76x76.png rel=apple-touch-icon sizes=76x76><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-114x114.png rel=apple-touch-icon sizes=114x114><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-120x120.png rel=apple-touch-icon sizes=120x120><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-144x144.png rel=apple-touch-icon sizes=144x144><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-152x152.png rel=apple-touch-icon sizes=152x152><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-180x180.png rel=apple-touch-icon sizes=180x180><link href=https://natelandau-com.pages.dev/static/icons/favicon-32x32.png rel=icon sizes=32x32 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/android-chrome-192x192.png rel=icon sizes=192x192 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/favicon-96x96.png rel=icon sizes=96x96 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/favicon-16x16.png rel=icon sizes=16x16 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/manifest.json rel=manifest><link color=#c63d0f href=https://natelandau-com.pages.dev/static/icons/safari-pinned-tab.svg rel=mask-icon><link rel="shortcut icon"href=https://natelandau-com.pages.dev/static/icons/favicon.ico><meta content=#00aba9 name=msapplication-TileColor><meta content=https://natelandau-com.pages.dev/static/icons/mstile-144x144.png name=msapplication-TileImage><meta content=https://natelandau-com.pages.dev/static/icons/browserconfig.xml name=msapplication-config><meta content=#ffffff name=theme-color><link href=https://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic|Vollkorn:400italic,700italic,400,700 rel=stylesheet><link href=https://natelandau-com.pages.dev/static/css/pico.min.css rel=stylesheet><link href=https://natelandau-com.pages.dev/static/css/pygment.css rel=stylesheet><link href=https://natelandau-com.pages.dev/static/css/overrides.css rel=stylesheet><meta content="I've spent years curating a collection of Mac bash aliases and shortcuts to make my life easier. My full .bash_profile is below, feel free to take whatever you find useful and put it to good use."name=description><link href=https://natelandau-com.pages.dev/my-mac-osx-bash_profile/ rel=canonical><link href=https://natelandau-com.pages.dev/about-nathaniel-landau/ rel=author><link href=https://gmpg.org/xfn/11 rel=profile><script type=application/ld+json>
+{
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "My Mac OSX Bash Profile",
+        "name": "My Mac OSX Bash Profile",
+        "url": "https://natelandau-com.pages.dev/my-mac-osx-bash_profile/",
+        "datePublished": "2013-07-02T18:57:00-0400",
+"dateModified": "2022-11-14T18:57:00-0500",
+"description": "I've spent years curating a collection of Mac bash aliases and shortcuts to make my life easier. My full .bash_profile is below, feel free to take whatever you find useful and put it to good use.",
+"keywords": ["macos,unix"],
+"author": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau",
+            "url": "https://natelandau-com.pages.dev",
+            "image": "https://natelandau-com.pages.dev/static/images/nate-landau.jpg",
+            "sameAs": ["https://facebook.com/natelandau", "https://twitter.com/natelandau", "https://www.linkedin.com/in/natelandau/"]
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau",
+            "url": "https://natelandau-com.pages.dev",
+            "image": "https://natelandau-com.pages.dev/static/images/nate-landau.jpg",
+            "sameAs": ["https://facebook.com/natelandau", "https://twitter.com/natelandau", "https://www.linkedin.com/in/natelandau/"]
+        },
+        "copyrightYear": "2024",
+        "copyrightHolder": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://natelandau-com.pages.devmy-mac-osx-bash_profile/"
+        }
+    }
+</script><meta content="My Mac OSX Bash Profile"property=og:title><meta content=https://natelandau-com.pages.dev/about-nathaniel-landau/ property=article:author><meta content=article property=og:type><meta content="I've spent years curating a collection of Mac bash aliases and shortcuts to make my life easier. My full .bash_profile is below, feel free to take whatever you find useful and put it to good use."property=og:description><meta content=https://natelandau-com.pages.dev/my-mac-osx-bash_profile/ property=og:url><meta content=2013-07-02T18:57:00-0400 property=article:published_time><meta content=2022-11-14T18:57:00-0500 property=article:modified_time><meta content=2022-11-14T18:57:00-0500 property=og:updated_time><meta content=macos property=article:section><meta content=macos,unix property=article:tag></head><body><header><nav class=container><ul><li><h2><a class=logo href=https://natelandau-com.pages.dev/>natelandau.com</a></h2></li></ul><ul><li><a href=https://natelandau-com.pages.dev/about-nathaniel-landau/ role=button>About</a></li><li><a href=https://natelandau-com.pages.dev/nathaniel-landaus-resume/ role=button>Resume</a></li><li><a href=https://natelandau-com.pages.dev/atom.xml role=button><svg viewbox="0 0 448 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M0 64C0 46.3 14.3 32 32 32c229.8 0 416 186.2 416 416c0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96C14.3 96 0 81.7 0 64zM0 416a64 64 0 1 1 128 0A64 64 0 1 1 0 416zM32 160c159.1 0 288 128.9 288 288c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg> Feed</a></li></ul></nav></header><main class=container><article><div class=grid><div><small><time>Jul 02, 2013</time></small></div><div dir=rtl><a class=tag href=https://natelandau-com.pages.dev/tag/macos.html>macos</a> <a class=tag href=https://natelandau-com.pages.dev/tag/unix.html>unix</a></div></div><h1 class=headline>MY MAC OSX BASH PROFILE</h1><hr><h3>A (very) quick primer on .bash_profile for Mac Users</h3><p>There is a hidden file in your Mac's user directory named <em>.bash_profile</em>. This file is loaded before Terminal loads your shell environment and contains all the startup configuration and preferences for your command line interface. Within it you can change your terminal prompt, change the colors of text, add aliases to functions you use all the time, and so much more.</p><p>This file is often called a 'dot file' because the '.' at the beginning of it's name makes it invisible in the Mac Finder. You can view all invisible files in the Terminal by typing <code>ls -al</code> in any directory.</p><h3>How to edit your .bash_profile</h3><p>For the newly initiated, here's how you can edit the .bash_profile on your Mac.</p><p><strong>Step 1:</strong> Fire up <em>Terminal.app</em></p><p><strong>Step 2:</strong> Type <code>nano .bash_profile</code> - This command will open the .bash_profile document (or create it if it doesn't already exist) in the easiest to use text editor in Terminal - Nano.</p><p><strong>Step 3:</strong> Now you can make a simple change to the file. Paste these lines of code to change your Terminal prompt.</p><div class=highlight><pre><span></span><code><span class=nb>export</span><span class=w> </span><span class=nv>PS1</span><span class=o>=</span><span class=s2>"___________________    | \w @ \h (\u) \n| => "</span>
+<span class=nb>export</span><span class=w> </span><span class=nv>PS2</span><span class=o>=</span><span class=s2>"| => "</span>
+</code></pre></div><p><strong>Step 4:</strong> Now <em>save your changes</em> by typing <code>ctrl +o</code> Hit <code>return</code> to save. Then exit Nano by typing <code>ctrl+x</code></p><p><strong>Step 5:</strong> Now we need to *activate your changes. Type <code>source .bash_profile</code> and watch your prompt change.</p><h3>My .bash_profile</h3><p>I have been compiling my own set of aliases and configurations for years in which time I have borrowed copiously from others who have made their aliases available online. I can claim credit for very little of what follows. I recently became aware of alias.sh, a site making sharing BASH aliases easy. Check it out.</p><p><strong>Update:</strong> Due to popular demand, my bash profile is now <a href=https://gist.github.com/natelandau/10654137>available as a Gist</a> for your forking pleasure.</p><p>Without further ado, here is my .bash_profile:</p><div class=highlight><pre><span></span><code><span class=c1>#  ---------------------------------------------------------------------------</span>
+<span class=c1>#</span>
+<span class=c1>#  Description:  This file holds all my BASH configurations and aliases</span>
+<span class=c1>#</span>
+<span class=c1>#  Sections:</span>
+<span class=c1>#  1.  Environment Configuration</span>
+<span class=c1>#  2.  Make Terminal Better (remapping defaults and adding functionality)</span>
+<span class=c1>#  3.  File and Folder Management</span>
+<span class=c1>#  4.  Searching</span>
+<span class=c1>#  5.  Process Management</span>
+<span class=c1>#  6.  Networking</span>
+<span class=c1>#  7.  System Operations & Information</span>
+<span class=c1>#  8.  Web Development</span>
+<span class=c1>#  9.  Reminders & Notes</span>
+<span class=c1>#</span>
+<span class=c1>#  ---------------------------------------------------------------------------</span>
+
+<span class=c1>#   -------------------------------</span>
+<span class=c1>#   1. ENVIRONMENT CONFIGURATION</span>
+<span class=c1>#   -------------------------------</span>
+
+<span class=c1>#   Change Prompt</span>
+<span class=c1>#   ------------------------------------------------------------</span>
+<span class=w>    </span><span class=nb>export</span><span class=w> </span><span class=nv>PS1</span><span class=o>=</span><span class=s2>"________________________________________________________________________________\n| \w @ \h (\u) \n| => "</span>
+<span class=w>    </span><span class=nb>export</span><span class=w> </span><span class=nv>PS2</span><span class=o>=</span><span class=s2>"| => "</span>
+
+<span class=c1>#   Set Paths</span>
+<span class=c1>#   ------------------------------------------------------------</span>
+<span class=w>    </span><span class=nb>export</span><span class=w> </span><span class=nv>PATH</span><span class=o>=</span><span class=s2>"</span><span class=nv>$PATH</span><span class=s2>:/usr/local/bin/"</span>
+<span class=w>    </span><span class=nb>export</span><span class=w> </span><span class=nv>PATH</span><span class=o>=</span><span class=s2>"/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:</span><span class=nv>$PATH</span><span class=s2>"</span>
+
+<span class=c1>#   Set Default Editor (change 'Nano' to the editor of your choice)</span>
+<span class=c1>#   ------------------------------------------------------------</span>
+<span class=w>    </span><span class=nb>export</span><span class=w> </span><span class=nv>EDITOR</span><span class=o>=</span>/usr/bin/nano
+
+<span class=c1>#   Set default blocksize for ls, df, du</span>
+<span class=c1>#   from this: https://hints.macworld.com/comment.php?mode=view&cid=24491</span>
+<span class=c1>#   ------------------------------------------------------------</span>
+<span class=w>    </span><span class=nb>export</span><span class=w> </span><span class=nv>BLOCKSIZE</span><span class=o>=</span>1k
+
+<span class=c1>#   Add color to terminal</span>
+<span class=c1>#   (this is all commented out as I use Mac Terminal Profiles)</span>
+<span class=c1>#   from https://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/</span>
+<span class=c1>#   ------------------------------------------------------------</span>
+<span class=c1>#   export CLICOLOR=1</span>
+<span class=c1>#   export LSCOLORS=ExFxBxDxCxegedabagacad</span>
+
+
+<span class=c1>#   -----------------------------</span>
+<span class=c1>#   2. MAKE TERMINAL BETTER</span>
+<span class=c1>#   -----------------------------</span>
+
+<span class=nb>alias</span><span class=w> </span><span class=nv>cp</span><span class=o>=</span><span class=s1>'cp -iv'</span><span class=w>                           </span><span class=c1># Preferred 'cp' implementation</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>mv</span><span class=o>=</span><span class=s1>'mv -iv'</span><span class=w>                           </span><span class=c1># Preferred 'mv' implementation</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>mkdir</span><span class=o>=</span><span class=s1>'mkdir -pv'</span><span class=w>                     </span><span class=c1># Preferred 'mkdir' implementation</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>ll</span><span class=o>=</span><span class=s1>'ls -FGlAhp'</span><span class=w>                       </span><span class=c1># Preferred 'ls' implementation</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>less</span><span class=o>=</span><span class=s1>'less -FSRXc'</span><span class=w>                    </span><span class=c1># Preferred 'less' implementation</span>
+cd<span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span><span class=nb>builtin</span><span class=w> </span><span class=nb>cd</span><span class=w> </span><span class=s2>"</span><span class=nv>$@</span><span class=s2>"</span><span class=p>;</span><span class=w> </span>ll<span class=p>;</span><span class=w> </span><span class=o>}</span><span class=w>               </span><span class=c1># Always list directory contents upon 'cd'</span>
+<span class=nb>alias</span><span class=w> </span>cd..<span class=o>=</span><span class=s1>'cd ../'</span><span class=w>                         </span><span class=c1># Go back 1 directory level (for fast typers)</span>
+<span class=nb>alias</span><span class=w> </span>..<span class=o>=</span><span class=s1>'cd ../'</span><span class=w>                           </span><span class=c1># Go back 1 directory level</span>
+<span class=nb>alias</span><span class=w> </span>...<span class=o>=</span><span class=s1>'cd ../../'</span><span class=w>                       </span><span class=c1># Go back 2 directory levels</span>
+<span class=nb>alias</span><span class=w> </span>.3<span class=o>=</span><span class=s1>'cd ../../../'</span><span class=w>                     </span><span class=c1># Go back 3 directory levels</span>
+<span class=nb>alias</span><span class=w> </span>.4<span class=o>=</span><span class=s1>'cd ../../../../'</span><span class=w>                  </span><span class=c1># Go back 4 directory levels</span>
+<span class=nb>alias</span><span class=w> </span>.5<span class=o>=</span><span class=s1>'cd ../../../../../'</span><span class=w>               </span><span class=c1># Go back 5 directory levels</span>
+<span class=nb>alias</span><span class=w> </span>.6<span class=o>=</span><span class=s1>'cd ../../../../../../'</span><span class=w>            </span><span class=c1># Go back 6 directory levels</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>edit</span><span class=o>=</span><span class=s1>'subl'</span><span class=w>                           </span><span class=c1># edit:         Opens any file in sublime editor</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>f</span><span class=o>=</span><span class=s1>'open -a Finder ./'</span><span class=w>                 </span><span class=c1># f:            Opens current directory in MacOS Finder</span>
+<span class=nb>alias</span><span class=w> </span>~<span class=o>=</span><span class=s2>"cd ~"</span><span class=w>                              </span><span class=c1># ~:            Go Home</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>c</span><span class=o>=</span><span class=s1>'clear'</span><span class=w>                             </span><span class=c1># c:            Clear terminal display</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>which</span><span class=o>=</span><span class=s1>'type -all'</span><span class=w>                     </span><span class=c1># which:        Find executables</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>path</span><span class=o>=</span><span class=s1>'echo -e ${PATH//:/\\n}'</span><span class=w>         </span><span class=c1># path:         Echo all executable Paths</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>show_options</span><span class=o>=</span><span class=s1>'shopt'</span><span class=w>                  </span><span class=c1># Show_options: display bash options settings</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>fix_stty</span><span class=o>=</span><span class=s1>'stty sane'</span><span class=w>                  </span><span class=c1># fix_stty:     Restore terminal settings when screwed up</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>cic</span><span class=o>=</span><span class=s1>'set completion-ignore-case On'</span><span class=w>   </span><span class=c1># cic:          Make tab-completion case-insensitive</span>
+mcd<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span>mkdir<span class=w> </span>-p<span class=w> </span><span class=s2>"</span><span class=nv>$1</span><span class=s2>"</span><span class=w> </span><span class=o>&&</span><span class=w> </span><span class=nb>cd</span><span class=w> </span><span class=s2>"</span><span class=nv>$1</span><span class=s2>"</span><span class=p>;</span><span class=w> </span><span class=o>}</span><span class=w>        </span><span class=c1># mcd:          Makes new Dir and jumps inside</span>
+trash<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span><span class=nb>command</span><span class=w> </span>mv<span class=w> </span><span class=s2>"</span><span class=nv>$@</span><span class=s2>"</span><span class=w> </span>~/.Trash<span class=w> </span><span class=p>;</span><span class=w> </span><span class=o>}</span><span class=w>     </span><span class=c1># trash:        Moves a file to the MacOS trash</span>
+ql<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span>qlmanage<span class=w> </span>-p<span class=w> </span><span class=s2>"</span><span class=nv>$*</span><span class=s2>"</span><span class=w> </span>><span class=p>&</span><span class=w> </span>/dev/null<span class=p>;</span><span class=w> </span><span class=o>}</span><span class=w>    </span><span class=c1># ql:           Opens any file in MacOS Quicklook Preview</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>DT</span><span class=o>=</span><span class=s1>'tee ~/Desktop/terminalOut.txt'</span><span class=w>    </span><span class=c1># DT:           Pipe content to file on MacOS Desktop</span>
+
+<span class=c1>#   lr:  Full Recursive Directory Listing</span>
+<span class=c1>#   ------------------------------------------</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>lr</span><span class=o>=</span><span class=s1>'ls -R | grep ":$" | sed -e '</span><span class=se>\'</span><span class=s1>'s/:$//'</span><span class=se>\'</span><span class=s1>' -e '</span><span class=se>\'</span><span class=s1>'s/[^-][^\/]*\//--/g'</span><span class=se>\'</span><span class=s1>' -e '</span><span class=se>\'</span><span class=s1>'s/^/   /'</span><span class=se>\'</span><span class=s1>' -e '</span><span class=se>\'</span><span class=s1>'s/-/|/'</span><span class=se>\'</span><span class=s1>' | less'</span>
+
+<span class=c1>#   mans:   Search manpage given in argument '1' for term given in argument '2' (case insensitive)</span>
+<span class=c1>#           displays paginated result with colored search terms and two lines surrounding each hit.            Example: mans mplayer codec</span>
+<span class=c1>#   --------------------------------------------------------------------</span>
+<span class=w>    </span>mans<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span>
+<span class=w>        </span>man<span class=w> </span><span class=nv>$1</span><span class=w> </span><span class=p>|</span><span class=w> </span>grep<span class=w> </span>-iC2<span class=w> </span>--color<span class=o>=</span>always<span class=w> </span><span class=nv>$2</span><span class=w> </span><span class=p>|</span><span class=w> </span>less
+<span class=w>    </span><span class=o>}</span>
+
+<span class=c1>#   showa: to remind yourself of an alias (given some part of it)</span>
+<span class=c1>#   ------------------------------------------------------------</span>
+<span class=w>    </span>showa<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span>/usr/bin/grep<span class=w> </span>--color<span class=o>=</span>always<span class=w> </span>-i<span class=w> </span>-a1<span class=w> </span><span class=nv>$@</span><span class=w> </span>~/Library/init/bash/aliases.bash<span class=w> </span><span class=p>|</span><span class=w> </span>grep<span class=w> </span>-v<span class=w> </span><span class=s1>'^\s*$'</span><span class=w> </span><span class=p>|</span><span class=w> </span>less<span class=w> </span>-FSRXc<span class=w> </span><span class=p>;</span><span class=w> </span><span class=o>}</span>
+
+
+<span class=c1>#   -------------------------------</span>
+<span class=c1>#   3. FILE AND FOLDER MANAGEMENT</span>
+<span class=c1>#   -------------------------------</span>
+
+zipf<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span>zip<span class=w> </span>-r<span class=w> </span><span class=s2>"</span><span class=nv>$1</span><span class=s2>"</span>.zip<span class=w> </span><span class=s2>"</span><span class=nv>$1</span><span class=s2>"</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=o>}</span><span class=w>          </span><span class=c1># zipf:         To create a ZIP archive of a folder</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>numFiles</span><span class=o>=</span><span class=s1>'echo $(ls -1 | wc -l)'</span><span class=w>      </span><span class=c1># numFiles:     Count of non-hidden files in current dir</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>make1mb</span><span class=o>=</span><span class=s1>'mkfile 1m ./1MB.dat'</span><span class=w>         </span><span class=c1># make1mb:      Creates a file of 1mb size (all zeros)</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>make5mb</span><span class=o>=</span><span class=s1>'mkfile 5m ./5MB.dat'</span><span class=w>         </span><span class=c1># make5mb:      Creates a file of 5mb size (all zeros)</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>make10mb</span><span class=o>=</span><span class=s1>'mkfile 10m ./10MB.dat'</span><span class=w>      </span><span class=c1># make10mb:     Creates a file of 10mb size (all zeros)</span>
+
+<span class=c1>#   cdf:  'Cd's to frontmost window of MacOS Finder</span>
+<span class=c1>#   ------------------------------------------------------</span>
+<span class=w>    </span>cdf<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span>
+<span class=w>        </span><span class=nv>currFolderPath</span><span class=o>=</span><span class=k>$(</span><span class=w> </span>/usr/bin/osascript<span class=w> </span><span class=s><&LTEOT</span>
+<span class=s>            tell application "Finder"</span>
+<span class=s>                try</span>
+<span class=s>            set currFolder to (folder of the front window as alias)</span>
+<span class=s>                on error</span>
+<span class=s>            set currFolder to (path to desktop folder as alias)</span>
+<span class=s>                end try</span>
+<span class=s>                POSIX path of currFolder</span>
+<span class=s>            end tell</span>
+<span class=s>EOT</span>
+<span class=w>        </span><span class=k>)</span>
+<span class=w>        </span><span class=nb>echo</span><span class=w> </span><span class=s2>"cd to \"</span><span class=nv>$currFolderPath</span><span class=s2>\""</span>
+<span class=w>        </span><span class=nb>cd</span><span class=w> </span><span class=s2>"</span><span class=nv>$currFolderPath</span><span class=s2>"</span>
+<span class=w>    </span><span class=o>}</span>
+
+<span class=c1>#   extract:  Extract most know archives with one command</span>
+<span class=c1>#   ---------------------------------------------------------</span>
+<span class=w>    </span>extract<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span>
+<span class=w>        </span><span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-f<span class=w> </span><span class=nv>$1</span><span class=w> </span><span class=o>]</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>          </span><span class=k>case</span><span class=w> </span><span class=nv>$1</span><span class=w> </span><span class=k>in</span>
+<span class=w>            </span>*.tar.bz2<span class=o>)</span><span class=w>   </span>tar<span class=w> </span>xjf<span class=w> </span><span class=nv>$1</span><span class=w>     </span><span class=p>;;</span>
+<span class=w>            </span>*.tar.gz<span class=o>)</span><span class=w>    </span>tar<span class=w> </span>xzf<span class=w> </span><span class=nv>$1</span><span class=w>     </span><span class=p>;;</span>
+<span class=w>            </span>*.bz2<span class=o>)</span><span class=w>       </span>bunzip2<span class=w> </span><span class=nv>$1</span><span class=w>     </span><span class=p>;;</span>
+<span class=w>            </span>*.rar<span class=o>)</span><span class=w>       </span>unrar<span class=w> </span>e<span class=w> </span><span class=nv>$1</span><span class=w>     </span><span class=p>;;</span>
+<span class=w>            </span>*.gz<span class=o>)</span><span class=w>        </span>gunzip<span class=w> </span><span class=nv>$1</span><span class=w>      </span><span class=p>;;</span>
+<span class=w>            </span>*.tar<span class=o>)</span><span class=w>       </span>tar<span class=w> </span>xf<span class=w> </span><span class=nv>$1</span><span class=w>      </span><span class=p>;;</span>
+<span class=w>            </span>*.tbz2<span class=o>)</span><span class=w>      </span>tar<span class=w> </span>xjf<span class=w> </span><span class=nv>$1</span><span class=w>     </span><span class=p>;;</span>
+<span class=w>            </span>*.tgz<span class=o>)</span><span class=w>       </span>tar<span class=w> </span>xzf<span class=w> </span><span class=nv>$1</span><span class=w>     </span><span class=p>;;</span>
+<span class=w>            </span>*.zip<span class=o>)</span><span class=w>       </span>unzip<span class=w> </span><span class=nv>$1</span><span class=w>       </span><span class=p>;;</span>
+<span class=w>            </span>*.Z<span class=o>)</span><span class=w>         </span>uncompress<span class=w> </span><span class=nv>$1</span><span class=w>  </span><span class=p>;;</span>
+<span class=w>            </span>*.7z<span class=o>)</span><span class=w>        </span>7z<span class=w> </span>x<span class=w> </span><span class=nv>$1</span><span class=w>        </span><span class=p>;;</span>
+<span class=w>            </span>*<span class=o>)</span><span class=w>     </span><span class=nb>echo</span><span class=w> </span><span class=s2>"'</span><span class=nv>$1</span><span class=s2>' cannot be extracted via extract()"</span><span class=w> </span><span class=p>;;</span>
+<span class=w>             </span><span class=k>esac</span>
+<span class=w>         </span><span class=k>else</span>
+<span class=w>             </span><span class=nb>echo</span><span class=w> </span><span class=s2>"'</span><span class=nv>$1</span><span class=s2>' is not a valid file"</span>
+<span class=w>         </span><span class=k>fi</span>
+<span class=w>    </span><span class=o>}</span>
+
+
+<span class=c1>#   ---------------------------</span>
+<span class=c1>#   4. SEARCHING</span>
+<span class=c1>#   ---------------------------</span>
+
+<span class=nb>alias</span><span class=w> </span><span class=nv>qfind</span><span class=o>=</span><span class=s2>"find . -name "</span><span class=w>                 </span><span class=c1># qfind:    Quickly search for file</span>
+ff<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span>/usr/bin/find<span class=w> </span>.<span class=w> </span>-name<span class=w> </span><span class=s2>"</span><span class=nv>$@</span><span class=s2>"</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=o>}</span><span class=w>      </span><span class=c1># ff:       Find file under the current directory</span>
+ffs<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span>/usr/bin/find<span class=w> </span>.<span class=w> </span>-name<span class=w> </span><span class=s2>"</span><span class=nv>$@</span><span class=s2>"</span><span class=s1>'*'</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=o>}</span><span class=w>  </span><span class=c1># ffs:      Find file whose name starts with a given string</span>
+ffe<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span>/usr/bin/find<span class=w> </span>.<span class=w> </span>-name<span class=w> </span><span class=s1>'*'</span><span class=s2>"</span><span class=nv>$@</span><span class=s2>"</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=o>}</span><span class=w>  </span><span class=c1># ffe:      Find file whose name ends with a given string</span>
+
+<span class=c1>#   spotlight: Search for a file using MacOS Spotlight's metadata</span>
+<span class=c1>#   -----------------------------------------------------------</span>
+<span class=w>    </span>spotlight<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span>mdfind<span class=w> </span><span class=s2>"kMDItemDisplayName == '</span><span class=nv>$@</span><span class=s2>'wc"</span><span class=p>;</span><span class=w> </span><span class=o>}</span>
+
+
+<span class=c1>#   ---------------------------</span>
+<span class=c1>#   5. PROCESS MANAGEMENT</span>
+<span class=c1>#   ---------------------------</span>
+
+<span class=c1>#   findPid: find out the pid of a specified process</span>
+<span class=c1>#   -----------------------------------------------------</span>
+<span class=c1>#       Note that the command name can be specified via a regex</span>
+<span class=c1>#       E.g. findPid '/d$/' finds pids of all processes with names ending in 'd'</span>
+<span class=c1>#       Without the 'sudo' it will only find processes of the current user</span>
+<span class=c1>#   -----------------------------------------------------</span>
+<span class=w>    </span>findPid<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span>lsof<span class=w> </span>-t<span class=w> </span>-c<span class=w> </span><span class=s2>"</span><span class=nv>$@</span><span class=s2>"</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=o>}</span>
+
+<span class=c1>#   memHogsTop, memHogsPs:  Find memory hogs</span>
+<span class=c1>#   -----------------------------------------------------</span>
+<span class=w>    </span><span class=nb>alias</span><span class=w> </span><span class=nv>memHogsTop</span><span class=o>=</span><span class=s1>'top -l 1 -o rsize | head -20'</span>
+<span class=w>    </span><span class=nb>alias</span><span class=w> </span><span class=nv>memHogsPs</span><span class=o>=</span><span class=s1>'ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'</span>
+
+<span class=c1>#   cpuHogs:  Find CPU hogs</span>
+<span class=c1>#   -----------------------------------------------------</span>
+<span class=w>    </span><span class=nb>alias</span><span class=w> </span><span class=nv>cpu_hogs</span><span class=o>=</span><span class=s1>'ps wwaxr -o pid,stat,%cpu,time,command | head -10'</span>
+
+<span class=c1>#   topForever:  Continual 'top' listing (every 10 seconds)</span>
+<span class=c1>#   -----------------------------------------------------</span>
+<span class=w>    </span><span class=nb>alias</span><span class=w> </span><span class=nv>topForever</span><span class=o>=</span><span class=s1>'top -l 9999999 -s 10 -o cpu'</span>
+
+<span class=c1>#   ttop:  Recommended 'top' invocation to minimize resources</span>
+<span class=c1>#   ------------------------------------------------------------</span>
+<span class=c1>#       Taken from this macosxhints article</span>
+<span class=c1>#       https://www.macosxhints.com/article.php?story=20060816123853639</span>
+<span class=c1>#   ------------------------------------------------------------</span>
+<span class=w>    </span><span class=nb>alias</span><span class=w> </span><span class=nv>ttop</span><span class=o>=</span><span class=s2>"top -R -F -s 10 -o rsize"</span>
+
+<span class=c1>#   my_ps: List processes owned by my user:</span>
+<span class=c1>#   ------------------------------------------------------------</span>
+<span class=w>    </span>my_ps<span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span>ps<span class=w> </span><span class=nv>$@</span><span class=w> </span>-u<span class=w> </span><span class=nv>$USER</span><span class=w> </span>-o<span class=w> </span>pid,%cpu,%mem,start,time,bsdtime,command<span class=w> </span><span class=p>;</span><span class=w> </span><span class=o>}</span>
+
+
+<span class=c1>#   ---------------------------</span>
+<span class=c1>#   6. NETWORKING</span>
+<span class=c1>#   ---------------------------</span>
+
+<span class=nb>alias</span><span class=w> </span><span class=nv>myip</span><span class=o>=</span><span class=s1>'curl ip.appspot.com'</span><span class=w>                    </span><span class=c1># myip:         Public facing IP Address</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>netCons</span><span class=o>=</span><span class=s1>'lsof -i'</span><span class=w>                             </span><span class=c1># netCons:      Show all open TCP/IP sockets</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>flushDNS</span><span class=o>=</span><span class=s1>'dscacheutil -flushcache'</span><span class=w>            </span><span class=c1># flushDNS:     Flush out the DNS Cache</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>lsock</span><span class=o>=</span><span class=s1>'sudo /usr/sbin/lsof -i -P'</span><span class=w>             </span><span class=c1># lsock:        Display open sockets</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>lsockU</span><span class=o>=</span><span class=s1>'sudo /usr/sbin/lsof -nP | grep UDP'</span><span class=w>   </span><span class=c1># lsockU:       Display only open UDP sockets</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>lsockT</span><span class=o>=</span><span class=s1>'sudo /usr/sbin/lsof -nP | grep TCP'</span><span class=w>   </span><span class=c1># lsockT:       Display only open TCP sockets</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>ipInfo0</span><span class=o>=</span><span class=s1>'ipconfig getpacket en0'</span><span class=w>              </span><span class=c1># ipInfo0:      Get info on connections for en0</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>ipInfo1</span><span class=o>=</span><span class=s1>'ipconfig getpacket en1'</span><span class=w>              </span><span class=c1># ipInfo1:      Get info on connections for en1</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>openPorts</span><span class=o>=</span><span class=s1>'sudo lsof -i | grep LISTEN'</span><span class=w>        </span><span class=c1># openPorts:    All listening connections</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>showBlocked</span><span class=o>=</span><span class=s1>'sudo ipfw list'</span><span class=w>                  </span><span class=c1># showBlocked:  All ipfw rules inc/ blocked IPs</span>
+
+<span class=c1>#   ii:  display useful host related information</span>
+<span class=c1>#   -------------------------------------------------------------------</span>
+<span class=w>    </span>ii<span class=o>()</span><span class=w> </span><span class=o>{</span>
+<span class=w>        </span><span class=nb>echo</span><span class=w> </span>-e<span class=w> </span><span class=s2>"\nYou are logged on </span><span class=si>${</span><span class=nv>RED</span><span class=si>}</span><span class=nv>$HOST</span><span class=s2>"</span>
+<span class=w>        </span><span class=nb>echo</span><span class=w> </span>-e<span class=w> </span><span class=s2>"\nAdditionnal information:</span><span class=nv>$NC</span><span class=s2> "</span><span class=w> </span><span class=p>;</span><span class=w> </span>uname<span class=w> </span>-a
+<span class=w>        </span><span class=nb>echo</span><span class=w> </span>-e<span class=w> </span><span class=s2>"\n</span><span class=si>${</span><span class=nv>RED</span><span class=si>}</span><span class=s2>Users logged on:</span><span class=nv>$NC</span><span class=s2> "</span><span class=w> </span><span class=p>;</span><span class=w> </span>w<span class=w> </span>-h
+<span class=w>        </span><span class=nb>echo</span><span class=w> </span>-e<span class=w> </span><span class=s2>"\n</span><span class=si>${</span><span class=nv>RED</span><span class=si>}</span><span class=s2>Current date :</span><span class=nv>$NC</span><span class=s2> "</span><span class=w> </span><span class=p>;</span><span class=w> </span>date
+<span class=w>        </span><span class=nb>echo</span><span class=w> </span>-e<span class=w> </span><span class=s2>"\n</span><span class=si>${</span><span class=nv>RED</span><span class=si>}</span><span class=s2>Machine stats :</span><span class=nv>$NC</span><span class=s2> "</span><span class=w> </span><span class=p>;</span><span class=w> </span>uptime
+<span class=w>        </span><span class=nb>echo</span><span class=w> </span>-e<span class=w> </span><span class=s2>"\n</span><span class=si>${</span><span class=nv>RED</span><span class=si>}</span><span class=s2>Current network location :</span><span class=nv>$NC</span><span class=s2> "</span><span class=w> </span><span class=p>;</span><span class=w> </span>scselect
+<span class=w>        </span><span class=nb>echo</span><span class=w> </span>-e<span class=w> </span><span class=s2>"\n</span><span class=si>${</span><span class=nv>RED</span><span class=si>}</span><span class=s2>Public facing IP Address :</span><span class=nv>$NC</span><span class=s2> "</span><span class=w> </span><span class=p>;</span>myip
+<span class=w>        </span><span class=c1>#echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns</span>
+<span class=w>        </span><span class=nb>echo</span>
+<span class=w>    </span><span class=o>}</span>
+
+
+<span class=c1>#   ---------------------------------------</span>
+<span class=c1>#   7. SYSTEMS OPERATIONS & INFORMATION</span>
+<span class=c1>#   ---------------------------------------</span>
+
+<span class=nb>alias</span><span class=w> </span><span class=nv>mountReadWrite</span><span class=o>=</span><span class=s1>'/sbin/mount -uw /'</span><span class=w>    </span><span class=c1># mountReadWrite:   For use when booted into single-user</span>
+
+<span class=c1>#   cleanupDS:  Recursively delete .DS_Store files</span>
+<span class=c1>#   -------------------------------------------------------------------</span>
+<span class=w>    </span><span class=nb>alias</span><span class=w> </span><span class=nv>cleanupDS</span><span class=o>=</span><span class=s2>"find . -type f -name '*.DS_Store' -ls -delete"</span>
+
+<span class=c1>#   finderShowHidden:   Show hidden files in Finder</span>
+<span class=c1>#   finderHideHidden:   Hide hidden files in Finder</span>
+<span class=c1>#   -------------------------------------------------------------------</span>
+<span class=w>    </span><span class=nb>alias</span><span class=w> </span><span class=nv>finderShowHidden</span><span class=o>=</span><span class=s1>'defaults write com.apple.finder ShowAllFiles TRUE'</span>
+<span class=w>    </span><span class=nb>alias</span><span class=w> </span><span class=nv>finderHideHidden</span><span class=o>=</span><span class=s1>'defaults write com.apple.finder ShowAllFiles FALSE'</span>
+
+<span class=c1>#   cleanupLS:  Clean up LaunchServices to remove duplicates in the "Open With" menu</span>
+<span class=c1>#   -----------------------------------------------------------------------------------</span>
+<span class=w>    </span><span class=nb>alias</span><span class=w> </span><span class=nv>cleanupLS</span><span class=o>=</span><span class=s2>"/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"</span>
+
+<span class=c1>#    screensaverDesktop: Run a screensaver on the Desktop</span>
+<span class=c1>#   -----------------------------------------------------------------------------------</span>
+<span class=w>    </span><span class=nb>alias</span><span class=w> </span><span class=nv>screensaverDesktop</span><span class=o>=</span><span class=s1>'/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background'</span>
+
+<span class=c1>#   ---------------------------------------</span>
+<span class=c1>#   8. WEB DEVELOPMENT</span>
+<span class=c1>#   ---------------------------------------</span>
+
+<span class=nb>alias</span><span class=w> </span><span class=nv>apacheEdit</span><span class=o>=</span><span class=s1>'sudo edit /etc/httpd/httpd.conf'</span><span class=w>      </span><span class=c1># apacheEdit:       Edit httpd.conf</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>apacheRestart</span><span class=o>=</span><span class=s1>'sudo apachectl graceful'</span><span class=w>           </span><span class=c1># apacheRestart:    Restart Apache</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>editHosts</span><span class=o>=</span><span class=s1>'sudo edit /etc/hosts'</span><span class=w>                  </span><span class=c1># editHosts:        Edit /etc/hosts file</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>herr</span><span class=o>=</span><span class=s1>'tail /var/log/httpd/error_log'</span><span class=w>              </span><span class=c1># herr:             Tails HTTP error logs</span>
+<span class=nb>alias</span><span class=w> </span><span class=nv>apacheLogs</span><span class=o>=</span><span class=s2>"less +F /var/log/apache2/error_log"</span><span class=w>   </span><span class=c1># Apachelogs:   Shows apache error logs</span>
+httpHeaders<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span>/usr/bin/curl<span class=w> </span>-I<span class=w> </span>-L<span class=w> </span><span class=nv>$@</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=o>}</span><span class=w>             </span><span class=c1># httpHeaders:      Grabs headers from web page</span>
+
+<span class=c1>#   httpDebug:  Download a web page and show info on what took time</span>
+<span class=c1>#   -------------------------------------------------------------------</span>
+<span class=w>    </span>httpDebug<span class=w> </span><span class=o>()</span><span class=w> </span><span class=o>{</span><span class=w> </span>/usr/bin/curl<span class=w> </span><span class=nv>$@</span><span class=w> </span>-o<span class=w> </span>/dev/null<span class=w> </span>-w<span class=w> </span><span class=s2>"dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n"</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=o>}</span>
+
+
+<span class=c1>#   ---------------------------------------</span>
+<span class=c1>#   9. REMINDERS & NOTES</span>
+<span class=c1>#   ---------------------------------------</span>
+
+<span class=c1>#   remove_disk: spin down unneeded disk</span>
+<span class=c1>#   ---------------------------------------</span>
+<span class=c1>#   diskutil eject /dev/disk1s3</span>
+
+<span class=c1>#   to change the password on an encrypted disk image:</span>
+<span class=c1>#   ---------------------------------------</span>
+<span class=c1>#   hdiutil chpass /path/to/the/diskimage</span>
+
+<span class=c1>#   to mount a read-only disk image as read-write:</span>
+<span class=c1>#   ---------------------------------------</span>
+<span class=c1>#   hdiutil attach example.dmg -shadow /tmp/example.shadow -noverify</span>
+
+<span class=c1>#   mounting a removable drive (of type msdos or hfs)</span>
+<span class=c1>#   ---------------------------------------</span>
+<span class=c1>#   mkdir /Volumes/Foo</span>
+<span class=c1>#   ls /dev/disk*   to find out the device to use in the mount command)</span>
+<span class=c1>#   mount -t msdos /dev/disk1s1 /Volumes/Foo</span>
+<span class=c1>#   mount -t hfs /dev/disk1s1 /Volumes/Foo</span>
+
+<span class=c1>#   to create a file of a given size: /usr/sbin/mkfile or /usr/bin/hdiutil</span>
+<span class=c1>#   ---------------------------------------</span>
+<span class=c1>#   e.g.: mkfile 10m 10MB.dat</span>
+<span class=c1>#   e.g.: hdiutil create -size 10m 10MB.dmg</span>
+<span class=c1>#   the above create files that are almost all zeros - if random bytes are desired</span>
+<span class=c1>#   then use: ~/Dev/Perl/randBytes 1048576 > 10MB.dat</span>
+</code></pre></div><p><strong>Update:</strong> If you enjoyed this post, you might also like:</p><ul><li><a href=/boilerplate-shell-script-template/>A shell script boilerplate template</a></li><li><a href=/bash-scripting-utilities/>A collection of Bash scripting utilities</a> I compiled to make custom Bash programming easier.</li></ul></article><section><div class=comments id=comment-box><script async crossorigin data-category=Comments data-category-id=DIC_kwDOIM6z9s4CSACn data-emit-metadata=0 data-input-position=top data-lang=en data-loading=lazy data-mapping=pathname data-reactions-enabled=1 data-repo=natelandau/natelandau.com data-repo-id=R_kgDOIM6z9g data-strict=1 data-theme=preferred_color_scheme src=https://giscus.app/client.js></script></div></section><div class=grid><div><a class=secondary href=https://natelandau-com.pages.dev/questions-for-checking-references/ role=button>← How to check job candidate references</a></div><div dir=rtl><a class=secondary href=https://natelandau-com.pages.dev/the-strung-out-string-band/ role=button> → The Strung Out String Band</a></div></div></main><footer><div class="grid container"><div><a href=https://github.com/natelandau><svg viewbox="0 0 496 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a><a href=https://linkedin.com/in/natelandau><svg viewbox="0 0 448 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg></a><a href=https://twitter.com/natelandau><svg viewbox="0 0 512 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg></a><a href=https://bsky.app/profile/natelandau.bsky.social><svg viewbox="0 0 448 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM224 247.4c14.5-30 54-85.8 90.7-113.3c26.5-19.9 69.3-35.2 69.3 13.7c0 9.8-5.6 82.1-8.9 93.8c-11.4 40.8-53 51.2-90 44.9c64.7 11 81.2 47.5 45.6 84c-67.5 69.3-97-17.4-104.6-39.6c0 0 0 0 0 0l-.3-.9c-.9-2.6-1.4-4.1-1.8-4.1s-.9 1.5-1.8 4.1c-.1 .3-.2 .6-.3 .9c0 0 0 0 0 0c-7.6 22.2-37.1 108.8-104.6 39.6c-35.5-36.5-19.1-73 45.6-84c-37 6.3-78.6-4.1-90-44.9c-3.3-11.7-8.9-84-8.9-93.8c0-48.9 42.9-33.5 69.3-13.7c36.7 27.5 76.2 83.4 90.7 113.3z"></path></svg></a><a href=mailto:fromwebsite@natelandau.com><svg viewbox="0 0 512 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"></path></svg></a></div><div dir=rtl>Copyright © 2024 Nathaniel Landau</div></div></footer></body></html>

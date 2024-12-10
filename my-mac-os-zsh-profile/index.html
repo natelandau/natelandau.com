@@ -1,0 +1,783 @@
+<!doctype html><html prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#"data-theme=light lang=en-US><head><title>My MacOS ZSH profile | Nathaniel Landau | Nathaniel Landau</title><meta charset=utf-8><meta content=width=device-width,initial-scale=1 name=viewport><meta content=en_US property=og:locale><meta content=natelandau.com property=og:site_name><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-57x57.png rel=apple-touch-icon sizes=57x57><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-60x60.png rel=apple-touch-icon sizes=60x60><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-72x72.png rel=apple-touch-icon sizes=72x72><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-76x76.png rel=apple-touch-icon sizes=76x76><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-114x114.png rel=apple-touch-icon sizes=114x114><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-120x120.png rel=apple-touch-icon sizes=120x120><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-144x144.png rel=apple-touch-icon sizes=144x144><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-152x152.png rel=apple-touch-icon sizes=152x152><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-180x180.png rel=apple-touch-icon sizes=180x180><link href=https://natelandau-com.pages.dev/static/icons/favicon-32x32.png rel=icon sizes=32x32 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/android-chrome-192x192.png rel=icon sizes=192x192 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/favicon-96x96.png rel=icon sizes=96x96 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/favicon-16x16.png rel=icon sizes=16x16 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/manifest.json rel=manifest><link color=#c63d0f href=https://natelandau-com.pages.dev/static/icons/safari-pinned-tab.svg rel=mask-icon><link rel="shortcut icon"href=https://natelandau-com.pages.dev/static/icons/favicon.ico><meta content=#00aba9 name=msapplication-TileColor><meta content=https://natelandau-com.pages.dev/static/icons/mstile-144x144.png name=msapplication-TileImage><meta content=https://natelandau-com.pages.dev/static/icons/browserconfig.xml name=msapplication-config><meta content=#ffffff name=theme-color><link href=https://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic|Vollkorn:400italic,700italic,400,700 rel=stylesheet><link href=https://natelandau-com.pages.dev/static/css/pico.min.css rel=stylesheet><link href=https://natelandau-com.pages.dev/static/css/pygment.css rel=stylesheet><link href=https://natelandau-com.pages.dev/static/css/overrides.css rel=stylesheet><meta content="I've spent years curating a collection of Mac aliases and shortcuts to make my life easier. My full .zshrc is below, feel free to take whatever you find useful and put it to good use."name=description><link href=https://natelandau-com.pages.dev/my-mac-os-zsh-profile/ rel=canonical><link href=https://natelandau-com.pages.dev/about-nathaniel-landau/ rel=author><link href=https://gmpg.org/xfn/11 rel=profile><script type=application/ld+json>
+{
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "My MacOS ZSH profile",
+        "name": "My MacOS ZSH profile",
+        "url": "https://natelandau-com.pages.dev/my-mac-os-zsh-profile/",
+        "datePublished": "2022-11-05T00:00:00-0400",
+"dateModified": "2022-11-05T00:00:00-0400",
+"description": "I've spent years curating a collection of Mac aliases and shortcuts to make my life easier. My full .zshrc is below, feel free to take whatever you find useful and put it to good use.",
+"keywords": ["macos,unix"],
+"author": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau",
+            "url": "https://natelandau-com.pages.dev",
+            "image": "https://natelandau-com.pages.dev/static/images/nate-landau.jpg",
+            "sameAs": ["https://facebook.com/natelandau", "https://twitter.com/natelandau", "https://www.linkedin.com/in/natelandau/"]
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau",
+            "url": "https://natelandau-com.pages.dev",
+            "image": "https://natelandau-com.pages.dev/static/images/nate-landau.jpg",
+            "sameAs": ["https://facebook.com/natelandau", "https://twitter.com/natelandau", "https://www.linkedin.com/in/natelandau/"]
+        },
+        "copyrightYear": "2024",
+        "copyrightHolder": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://natelandau-com.pages.devmy-mac-os-zsh-profile/"
+        }
+    }
+</script><meta content="My MacOS ZSH profile"property=og:title><meta content=https://natelandau-com.pages.dev/about-nathaniel-landau/ property=article:author><meta content=article property=og:type><meta content="I've spent years curating a collection of Mac aliases and shortcuts to make my life easier. My full .zshrc is below, feel free to take whatever you find useful and put it to good use."property=og:description><meta content=https://natelandau-com.pages.dev/my-mac-os-zsh-profile/ property=og:url><meta content=2022-11-05T00:00:00-0400 property=article:published_time><meta content=2022-11-05T00:00:00-0400 property=article:modified_time><meta content=2022-11-05T00:00:00-0400 property=og:updated_time><meta content=macos property=article:section><meta content=macos,unix property=article:tag></head><body><header><nav class=container><ul><li><h2><a class=logo href=https://natelandau-com.pages.dev/>natelandau.com</a></h2></li></ul><ul><li><a href=https://natelandau-com.pages.dev/about-nathaniel-landau/ role=button>About</a></li><li><a href=https://natelandau-com.pages.dev/nathaniel-landaus-resume/ role=button>Resume</a></li><li><a href=https://natelandau-com.pages.dev/atom.xml role=button><svg viewbox="0 0 448 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M0 64C0 46.3 14.3 32 32 32c229.8 0 416 186.2 416 416c0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96C14.3 96 0 81.7 0 64zM0 416a64 64 0 1 1 128 0A64 64 0 1 1 0 416zM32 160c159.1 0 288 128.9 288 288c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg> Feed</a></li></ul></nav></header><main class=container><article><div class=grid><div><small><time>Nov 05, 2022</time></small></div><div dir=rtl><a class=tag href=https://natelandau-com.pages.dev/tag/macos.html>macos</a> <a class=tag href=https://natelandau-com.pages.dev/tag/unix.html>unix</a></div></div><h1 class=headline>MY MACOS ZSH PROFILE</h1><hr><h2 class=callout>I've spent years curating a collection of Mac aliases and shortcuts to make my life easier. My full .zshrc is below, feel free to take whatever you find useful and put it to good use.</h2><p>I spend a ton of time working in the terminal. It's important that my command line experience be streamlined, easy-to-use, and pleasurable on the eye. To that end, I have created a heavily customized approach to my zsh environment that I will outline in this post.</p><h2>A (very) quick primer on .zshrc for Mac users</h2><p>There is a hidden file in your Mac's user directory named <code>.zshrc</code>. This file is loaded before Terminal loads your shell environment and contains all the startup configuration and preferences for your command line interface. Within it you can change your terminal prompt, change the colors of text, add aliases to functions you use all the time, and so much more.</p><p>This file is often called a 'dotfile' because the '.' at the beginning of it's name makes it invisible in the Mac Finder. You can view all invisible files in the Terminal by typing <code>ls -al</code> in any directory.</p><h2>How to edit your .zshrc</h2><p>For the newly initiated, here's how you can edit the <code>.zshrc</code> file on your Mac.</p><p><strong>Step 1:</strong> Fire up <code>Terminal.app</code></p><p><strong>Step 2:</strong> Type <code>nano .zshrc</code> - This command will open the .zshrc document (or create it if it doesn't already exist) in the easiest to use text editor in Terminal - Nano.</p><p><strong>Step 3:</strong> Now you can make a simple change to the file. Paste these lines of code to change your Terminal prompt.</p><div class=highlight><pre><span></span><code><span class=nv>PS1</span><span class=o>=</span><span class=s1>'%n@%m %~$ '</span>
+</code></pre></div><p><strong>Step 4:</strong> Now <em>save your changes</em> by typing <code>ctrl+o</code> Hit <code>return</code> to save. Then exit Nano by typing <code>ctrl+x</code></p><p><strong>Step 5:</strong> Now we need to activate your changes. Type <code>source .zshrc</code> and watch your prompt change.</p><h2>My ZSH Profile</h2><p>I have compiled my own set of aliases, dotfiles, and configurations over the course of many years. Throughout, I have borrowed copiously from others who have made their aliases available online. Many thanks to the countless others who have shared their work and led me to my own customizations.</p><p>My full dotfiles are <a href=https://github.com/natelandau/dotfiles>available on Github</a>. You can browse that repository for inspiration and ideas. Fork it and make it your own. Or, use it as-is by following these steps in your terminal:</p><div class=highlight><pre><span></span><code>mkdir<span class=w> </span>repos
+<span class=nb>cd</span><span class=w> </span>repos
+git<span class=w> </span>checkout<span class=w> </span>https://github.com/natelandau/dotfiles.git
+<span class=nb>cd</span><span class=w> </span>dotfiles
+./install.sh
+</code></pre></div><h3>ZSH Plugin management</h3><p>A key feature of zsh is the ability to load plugins into your environment. I tried <a href=https://github.com/unixorn/awesome-zsh-plugins#frameworks>many great plugin managers</a> but found them to either too finnicky or that they became unmaintained over time. Building my own was very easy and allows me to control every aspect of my environment.</p><p>Here are the portions of my .zshrc devoted to plugin management. The code below is commented to the best of my ability to explain what each section does.</p><div class=highlight><pre><span></span><code><span class=c1># Load Plugins</span>
+<span class=c1># https://github.com/mattmc3/zsh_unplugged - Build your own zsh plugin manager</span>
+
+
+<span class=c1># _pluginload_: Function which loads a specified plugin into my zsh environment</span>
+_pluginload_<span class=o>()</span><span class=w> </span><span class=o>{</span>
+<span class=w>    </span><span class=nb>local</span><span class=w> </span><span class=nv>giturl</span><span class=o>=</span><span class=s2>"</span><span class=nv>$1</span><span class=s2>"</span>
+<span class=w>    </span><span class=nb>local</span><span class=w> </span><span class=nv>plugin_name</span><span class=o>=</span><span class=si>${${</span><span class=nv>1</span><span class=p>##*/</span><span class=si>}</span><span class=p>%.git</span><span class=si>}</span>
+<span class=w>    </span><span class=nb>local</span><span class=w> </span><span class=nv>plugindir</span><span class=o>=</span><span class=s2>"</span><span class=si>${</span><span class=nv>ZPLUGINDIR</span><span class=k>:-</span><span class=nv>$HOME</span><span class=p>/.zsh/plugins</span><span class=si>}</span><span class=s2>/</span><span class=si>${</span><span class=nv>plugin_name</span><span class=si>}</span><span class=s2>"</span>
+
+<span class=w>    </span><span class=c1># Clone repository for the plugin if isn't there already</span>
+<span class=w>    </span><span class=k>if</span><span class=w> </span><span class=o>[[</span><span class=w> </span>!<span class=w> </span>-d<span class=w> </span><span class=si>${</span><span class=nv>plugindir</span><span class=si>}</span><span class=w> </span><span class=o>]]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>        </span><span class=nb>command</span><span class=w> </span>git<span class=w> </span>clone<span class=w> </span>--depth<span class=w> </span><span class=m>1</span><span class=w> </span>--recursive<span class=w> </span>--shallow-submodules<span class=w> </span><span class=si>${</span><span class=nv>giturl</span><span class=si>}</span><span class=w> </span><span class=si>${</span><span class=nv>plugindir</span><span class=si>}</span>
+<span class=w>        </span><span class=o>[[</span><span class=w> </span><span class=nv>$?</span><span class=w> </span>-eq<span class=w> </span><span class=m>0</span><span class=w> </span><span class=o>]]</span><span class=w> </span><span class=o>||</span><span class=w> </span><span class=o>{</span><span class=w> </span>><span class=p>&</span><span class=m>2</span><span class=w> </span><span class=nb>echo</span><span class=w> </span><span class=s2>"plugin-load: git clone failed; </span><span class=nv>$1</span><span class=s2>"</span><span class=w> </span><span class=o>&&</span><span class=w> </span><span class=k>return</span><span class=w> </span><span class=m>1</span><span class=w> </span><span class=o>}</span>
+<span class=w>    </span><span class=k>fi</span>
+
+<span class=w>    </span><span class=c1># Symlink an init.zsh if there isn't one so the plugin is easy to source</span>
+<span class=w>    </span><span class=k>if</span><span class=w> </span><span class=o>[[</span><span class=w> </span>!<span class=w> </span>-f<span class=w> </span><span class=si>${</span><span class=nv>plugindir</span><span class=si>}</span>/init.zsh<span class=w> </span><span class=o>]]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>        </span><span class=nb>local</span><span class=w> </span><span class=nv>initfiles</span><span class=o>=(</span>
+<span class=w>          </span><span class=c1># look for specific files first</span>
+<span class=w>          </span><span class=si>${</span><span class=nv>plugindir</span><span class=si>}</span>/<span class=si>${</span><span class=nv>plugin_name</span><span class=si>}</span>.plugin.zsh<span class=o>(</span>N<span class=o>)</span>
+<span class=w>          </span><span class=si>${</span><span class=nv>plugindir</span><span class=si>}</span>/<span class=si>${</span><span class=nv>plugin_name</span><span class=si>}</span>.zsh<span class=o>(</span>N<span class=o>)</span>
+<span class=w>          </span><span class=si>${</span><span class=nv>plugindir</span><span class=si>}</span>/<span class=si>${</span><span class=nv>plugin_name</span><span class=si>}</span><span class=o>(</span>N<span class=o>)</span>
+<span class=w>          </span><span class=si>${</span><span class=nv>plugindir</span><span class=si>}</span>/<span class=si>${</span><span class=nv>plugin_name</span><span class=si>}</span>.zsh-theme<span class=o>(</span>N<span class=o>)</span>
+<span class=w>          </span><span class=c1># then do more aggressive globbing</span>
+<span class=w>          </span><span class=si>${</span><span class=nv>plugindir</span><span class=si>}</span>/*.plugin.zsh<span class=o>(</span>N<span class=o>)</span>
+<span class=w>          </span><span class=si>${</span><span class=nv>plugindir</span><span class=si>}</span>/*.zsh<span class=o>(</span>N<span class=o>)</span>
+<span class=w>          </span><span class=si>${</span><span class=nv>plugindir</span><span class=si>}</span>/*.zsh-theme<span class=o>(</span>N<span class=o>)</span>
+<span class=w>          </span><span class=si>${</span><span class=nv>plugindir</span><span class=si>}</span>/*.sh<span class=o>(</span>N<span class=o>)</span>
+<span class=w>        </span><span class=o>)</span>
+<span class=w>        </span><span class=o>[[</span><span class=w> </span><span class=si>${#</span><span class="nv">initfiles</span><span class="p">[@]</span><span class="si">}</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"plugin-load: no plugin init file found"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">}</span>
+<span class="w">        </span><span class="nb">command</span><span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span><span class="si">${</span><span class="nv">initfiles</span><span class="p">[1]</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">plugindir</span><span class="si">}</span>/init.zsh
+<span class="w">    </span><span class="k">fi</span>
+
+<span class="w">    </span><span class="c1"># source the plugin to make it active in the current environment</span>
+<span class="w">    </span><span class="nb">source</span><span class="w"> </span><span class="si">${</span><span class="nv">plugindir</span><span class="si">}</span>/init.zsh
+
+<span class="w">    </span><span class="c1"># Modify the path to include the plugin directory</span>
+<span class="w">    </span><span class="nv">fpath</span><span class="o">+=</span><span class="si">${</span><span class="nv">plugindir</span><span class="si">}</span>
+<span class="w">    </span><span class="o">[[</span><span class="w"> </span>-d<span class="w"> </span><span class="si">${</span><span class="nv">plugindir</span><span class="si">}</span>/functions<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">fpath</span><span class="o">+=</span><span class="si">${</span><span class="nv">plugindir</span><span class="si">}</span>/functions
+<span class="o">}</span>
+
+<span class="c1"># Set where we should store Zsh plugins</span>
+<span class="nv">ZPLUGINDIR</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.zsh/plugins
+
+<span class="c1"># Add your plugins to this array. Anything added here will be installed.</span>
+<span class="nv">plugins</span><span class="o">=(</span>
+<span class="w">    </span><span class="c1"># core plugins</span>
+<span class="w">    </span><span class="c1"># ######################</span>
+<span class="w">    </span>zsh-users/zsh-autosuggestions
+<span class="w">    </span>zsh-users/zsh-completions
+
+<span class="w">    </span><span class="c1"># # user plugins</span>
+<span class="w">    </span><span class="c1"># ######################</span>
+<span class="w">    </span>peterhurford/up.zsh<span class="w">                 </span><span class="c1"># Cd to parent directories (ie. up 3)</span>
+<span class="w">    </span>marlonrichert/zsh-hist<span class="w">              </span><span class="c1"># Run hist -h for help</span>
+<span class="w">    </span>reegnz/jq-zsh-plugin<span class="w">                </span><span class="c1"># Write interactive jq queries (Requires jq and fzf)</span>
+<span class="w">    </span>MichaelAquilina/zsh-you-should-use<span class="w">  </span><span class="c1"># Recommends aliases when typed</span>
+<span class="w">    </span>rupa/z<span class="w">                              </span><span class="c1"># Tracks your most used directories, based on 'frequency'</span>
+
+<span class="w">    </span><span class="c1"># Additional completions</span>
+<span class="w">    </span><span class="c1"># ######################</span>
+<span class="w">    </span>sudosubin/zsh-github-cli
+<span class="w">    </span>zpm-zsh/ssh
+
+<span class="w">    </span><span class="c1"># Prompts</span>
+<span class="w">    </span><span class="c1"># ######################</span>
+<span class="w">    </span><span class="c1"># denysdovhan/spaceship-prompt</span>
+<span class="w">    </span>romkatv/powerlevel10k
+
+<span class="w">    </span><span class="c1"># load these last</span>
+<span class="w">    </span><span class="c1"># ######################</span>
+<span class="w">    </span><span class="c1"># zsh-users/zsh-syntax-highlighting</span>
+<span class="w">    </span>zdharma-continuum/fast-syntax-highlighting
+<span class="w">    </span>zsh-users/zsh-history-substring-search
+<span class="o">)</span>
+
+<span class="c1"># Add plugins to this array that should only be installed on a computer running MacOS.</span>
+<span class="nv">mac_plugins</span><span class="o">=(</span>
+<span class="w">      </span>ellie/atuin<span class="w">  </span><span class="c1"># Replace history search with a sqlite database</span>
+<span class="o">)</span>
+
+<span class="c1"># Load your plugins (clone, source, and add to fpath)</span>
+<span class="k">for</span><span class="w"> </span>repo<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">plugins</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>_pluginload_<span class="w"> </span>https://github.com/<span class="si">${</span><span class="nv">repo</span><span class="si">}</span>.git
+<span class="k">done</span>
+<span class="nb">unset</span><span class="w"> </span>repo
+
+<span class="c1"># Load Mac specific plugins (clone, source, and add to fpath)</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="si">${</span><span class="nv">OSTYPE</span><span class="si">}</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"darwin"</span>*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span>mac_repo<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">mac_plugins</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>_pluginload_<span class="w"> </span>https://github.com/<span class="si">${</span><span class="nv">mac_repo</span><span class="si">}</span>.git
+<span class="w">  </span><span class="k">done</span>
+<span class="w">  </span><span class="nb">unset</span><span class="w"> </span>mac_repo
+<span class="k">fi</span>
+
+<span class="c1"># Run this function from time-to-time to update the plugins installed on a computer</span>
+<span class="k">function</span><span class="w"> </span>zshup<span class="w"> </span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">local</span><span class="w"> </span><span class="nv">plugindir</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">ZPLUGINDIR</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.zsh/plugins</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span>d<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$plugindir</span>/*/.git<span class="o">(</span>/<span class="o">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Updating </span><span class="si">${</span><span class="nv">d</span><span class="p">:</span><span class="nv">h</span><span class="p">:</span><span class="nv">t</span><span class="si">}</span><span class="s2">..."</span>
+<span class="w">    </span><span class="nb">command</span><span class="w"> </span>git<span class="w"> </span>-C<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">d</span><span class="p">:</span><span class="nv">h</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>pull<span class="w"> </span>--ff<span class="w"> </span>--recurse-submodules<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>--rebase<span class="w"> </span>--autostash
+<span class="w">  </span><span class="k">done</span>
+<span class="o">}</span>
+
+<span class="c1"># Load Completions</span>
+<span class="c1">#############################################</span>
+autoload<span class="w"> </span>-Uz<span class="w"> </span>compinit
+compinit<span class="w"> </span>-i
+
+<span class="c1"># CONFIGURE PLUGINS</span>
+<span class="c1">#############################################</span>
+<span class="nv">ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE</span><span class="o">=</span><span class="s1">'fg=242'</span><span class="w"> </span><span class="c1"># Use a lighter gray for the suggested text</span>
+<span class="nv">ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE</span><span class="o">=</span><span class="s2">"20"</span>
+FAST_HIGHLIGHT<span class="o">[</span>use_brackets<span class="o">]=</span><span class="m">1</span>
+</code></pre></div>
+<h2>Prompt</h2>
+<p>Over the years I have switched between two prompts, both of which provide ample opportunities for customization. First, I used <a href="https://spaceship-prompt.sh/">Spaceship Promp</a> but lately I've been taken with <a href="https://github.com/romkatv/powerlevel10k">Powerlevel10k</a> which offers slightly more configuration options.</p>
+<p>You prompt of choice can be loaded into ZSH by including it as one of the plugins in the section above.</p>
+<p>My current prompt uses two lines and splits information between the left and right sides of the terminal.</p>
+<p><img alt="My current zsh prompt" class="image-process-responsive" sizes="(min-width: 1536px) 1400px, (min-width: 1280px) 1200px, (min-width: 1024px) 1000px, (min-width: 992px) 900px, (min-width: 768px) 750px, (min-width: 576px) 560px, 100vw" src="https://natelandau-com.pages.dev/images/derivatives/responsive/900w/zsh-profile-prompt.png" srcset="https://natelandau-com.pages.dev/images/derivatives/responsive/1400w/zsh-profile-prompt.png 1400w, https://natelandau-com.pages.dev/images/derivatives/responsive/1200w/zsh-profile-prompt.png 1200w, https://natelandau-com.pages.dev/images/derivatives/responsive/1000w/zsh-profile-prompt.png 1000w, https://natelandau-com.pages.dev/images/derivatives/responsive/900w/zsh-profile-prompt.png 900w, https://natelandau-com.pages.dev/images/derivatives/responsive/750w/zsh-profile-prompt.png 750w, https://natelandau-com.pages.dev/images/derivatives/responsive/560w/zsh-profile-prompt.png 560w"/></p>
+<p>I use Powerlevel10k for my prompt. I recommend reading <a href="https://github.com/romkatv/powerlevel10k">their documentation</a> to customize the prompt to your purposes</p>
+<h3>ZSH Shell Options</h3>
+<p>Shell options allow you to configure the base behavior of interacting with the shell. There are <a href="https://zsh.sourceforge.io/Doc/Release/Options.html#Options">many options available in ZSH</a>. Below are the ones that I have customized.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set Options</span>
+<span class="c1">#############################################</span>
+setopt<span class="w"> </span>always_to_end<span class="w">          </span><span class="c1"># When completing a word, move the cursor to the end of the word</span>
+setopt<span class="w"> </span>append_history<span class="w">         </span><span class="c1"># this is default, but set for share_history</span>
+setopt<span class="w"> </span>auto_cd<span class="w">                </span><span class="c1"># cd by typing directory name if it's not a command</span>
+setopt<span class="w"> </span>auto_list<span class="w">              </span><span class="c1"># automatically list choices on ambiguous completion</span>
+setopt<span class="w"> </span>auto_menu<span class="w">              </span><span class="c1"># automatically use menu completion</span>
+setopt<span class="w"> </span>auto_pushd<span class="w">             </span><span class="c1"># Make cd push each old directory onto the stack</span>
+setopt<span class="w"> </span>completeinword<span class="w">         </span><span class="c1"># If unset, the cursor is set to the end of the word</span>
+setopt<span class="w"> </span>correct_all<span class="w">            </span><span class="c1"># autocorrect commands</span>
+setopt<span class="w"> </span>extended_glob<span class="w">          </span><span class="c1"># treat #, ~, and ^ as part of patterns for filename generation</span>
+setopt<span class="w"> </span>extended_history<span class="w">       </span><span class="c1"># save each command's beginning timestamp and duration to the history file</span>
+setopt<span class="w"> </span>glob_dots<span class="w">              </span><span class="c1"># dot files included in regular globs</span>
+setopt<span class="w"> </span>hash_list_all<span class="w">          </span><span class="c1"># when command completion is attempted, ensure the entire  path is hashed</span>
+setopt<span class="w"> </span>hist_expire_dups_first<span class="w"> </span><span class="c1"># # delete duplicates first when HISTFILE size exceeds HISTSIZE</span>
+setopt<span class="w"> </span>hist_find_no_dups<span class="w">      </span><span class="c1"># When searching history don't show results already cycled through twice</span>
+setopt<span class="w"> </span>hist_ignore_dups<span class="w">       </span><span class="c1"># Do not write events to history that are duplicates of previous events</span>
+setopt<span class="w"> </span>hist_ignore_space<span class="w">      </span><span class="c1"># remove command line from history list when first character is a space</span>
+setopt<span class="w"> </span>hist_reduce_blanks<span class="w">     </span><span class="c1"># remove superfluous blanks from history items</span>
+setopt<span class="w"> </span>hist_verify<span class="w">            </span><span class="c1"># show command with history expansion to user before running it</span>
+setopt<span class="w"> </span>histignorespace<span class="w">        </span><span class="c1"># remove commands from the history when the first character is a space</span>
+setopt<span class="w"> </span>inc_append_history<span class="w">     </span><span class="c1"># save history entries as soon as they are entered</span>
+setopt<span class="w"> </span>interactivecomments<span class="w">    </span><span class="c1"># allow use of comments in interactive code (bash-style comments)</span>
+setopt<span class="w"> </span>longlistjobs<span class="w">           </span><span class="c1"># display PID when suspending processes as well</span>
+setopt<span class="w"> </span>no_beep<span class="w">                </span><span class="c1"># silence all bells and beeps</span>
+setopt<span class="w"> </span>nocaseglob<span class="w">             </span><span class="c1"># global substitution is case insensitive</span>
+setopt<span class="w"> </span>nonomatch<span class="w">              </span><span class="c1">## try to avoid the 'zsh: no matches found...'</span>
+setopt<span class="w"> </span>noshwordsplit<span class="w">          </span><span class="c1"># use zsh style word splitting</span>
+setopt<span class="w"> </span>notify<span class="w">                 </span><span class="c1"># report the status of backgrounds jobs immediately</span>
+setopt<span class="w"> </span>numeric_glob_sort<span class="w">      </span><span class="c1"># globs sorted numerically</span>
+setopt<span class="w"> </span>prompt_subst<span class="w">           </span><span class="c1"># allow expansion in prompts</span>
+setopt<span class="w"> </span>pushd_ignore_dups<span class="w">      </span><span class="c1"># Don't push duplicates onto the stack</span>
+setopt<span class="w"> </span>share_history<span class="w">          </span><span class="c1"># share history between different instances of the shell</span>
+<span class="nv">HISTFILE</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.zsh_history
+<span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">100000</span>
+<span class="nv">SAVEHIST</span><span class="o">=</span><span class="si">${</span><span class="nv">HISTSIZE</span><span class="si">}</span>
+</code></pre></div>
+<h2>Importing Custom Functions and Aliases</h2>
+<p>As described in my <a href="https://github.com/natelandau/dotfiles">dotfiles repo</a>, I keep all my aliases and custom functions in a searate directory organized by the type of behavior they modify. This allows me to sustainable maintain the many shortcuts I have collected over the years.</p>
+<p>This portion of my .zshrc searches through the directories which contain these files and sources (imports) them into the active shell.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Location of my dotfiles repository</span>
+<span class="nv">DOTFILES_LOCATION</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/repos/dotfiles"</span>
+
+<span class="c1"># Array containing all directories which hold files to be sourced into this environment</span>
+<span class="nv">configFileLocations</span><span class="o">=(</span>
+<span class="w">    </span><span class="s2">"</span><span class="si">${</span><span class="nv">DOTFILES_LOCATION</span><span class="si">}</span><span class="s2">/shell"</span>
+<span class="w">    </span><span class="s2">"</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/repos/dotfiles-private/shell"</span>
+<span class="o">)</span>
+
+<span class="c1"># Search through all directories and source any file with a `.sh` or `.zsh` extension</span>
+<span class="k">for</span><span class="w"> </span>configFileLocation<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">configFileLocations</span><span class="p">[@]</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">configFileLocation</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>configFile<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">            </span><span class="nb">source</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">configFile</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">        </span><span class="k">done</span><span class="w"> </span>&lt;<span class="w"> </span>&lt;<span class="o">(</span>find<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">configFileLocation</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>-maxdepth<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>-type<span class="w"> </span>f<span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>-name<span class="w"> </span><span class="s1">'*.zsh'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>-o<span class="w"> </span>-name<span class="w"> </span><span class="s1">'*.sh'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="o">)</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">done</span>
+</code></pre></div>
+<h3>My Collection of Custom Functions and Aliases</h3>
+<p>Here are some of the more common aliases I use, combined into a single code block.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Common Aliases</span>
+<span class="c1"># #####################################</span>
+
+<span class="c1"># Sane Defaults</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">cp</span><span class="o">=</span><span class="s1">'cp -iv'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">mv</span><span class="o">=</span><span class="s1">'mv -iv'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">mkdir</span><span class="o">=</span><span class="s1">'mkdir -pv'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">grep</span><span class="o">=</span><span class="s1">'grep --color=always'</span>
+<span class="nb">alias</span><span class="w"> </span>cd..<span class="o">=</span><span class="s1">'cd ../'</span>
+<span class="nb">alias</span><span class="w"> </span>..<span class="o">=</span><span class="s1">'cd ../'</span>
+<span class="nb">alias</span><span class="w"> </span>...<span class="o">=</span><span class="s1">'cd ../../'</span>
+<span class="nb">alias</span><span class="w"> </span>.3<span class="o">=</span><span class="s1">'cd ../../../'</span>
+<span class="nb">alias</span><span class="w"> </span>.4<span class="o">=</span><span class="s1">'cd ../../../../'</span>
+<span class="nb">alias</span><span class="w"> </span>.5<span class="o">=</span><span class="s1">'cd ../../../../../'</span>
+<span class="nb">alias</span><span class="w"> </span>.6<span class="o">=</span><span class="s1">'cd ../../../../../../'</span>
+<span class="nb">alias</span><span class="w"> </span>~<span class="o">=</span><span class="s2">"cd ~"</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">kill</span><span class="o">=</span><span class="s1">'kill -9'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">rm</span><span class="o">=</span><span class="s1">'rm -i'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">rmd</span><span class="o">=</span><span class="s1">'rm -rf'</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ax</span><span class="o">=</span><span class="s1">'chmod a+x'</span><span class="w">                      </span><span class="c1"># system: make file executable</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">path</span><span class="o">=</span><span class="s1">'echo -e ${PATH//:/\\n}'</span><span class="w">       </span><span class="c1"># system: Echo all executable Paths</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">shfmt</span><span class="o">=</span><span class="s2">"shfmt -ci -bn -i 2"</span><span class="w">          </span><span class="c1"># dev: Preferred shellformat implementation</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">sc</span><span class="o">=</span><span class="s1">'shellcheck --exclude=2001,2148'</span><span class="w"> </span><span class="c1"># dev: Preferred shellcheck implementation</span>
+
+<span class="c1"># Prefer `bat` over `cat` when installed</span>
+<span class="o">[[</span><span class="w"> </span><span class="s2">"</span><span class="k">$(</span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>bat<span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cat</span><span class="o">=</span><span class="s2">"bat"</span>
+
+<span class="c1"># Prefer `prettyping` over `ping` when installed</span>
+<span class="o">[[</span><span class="w"> </span><span class="s2">"</span><span class="k">$(</span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>prettyping<span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ping</span><span class="o">=</span><span class="s2">"prettyping --nolegend"</span>
+
+<span class="c1"># Prefer `htop` over `top` when installed</span>
+<span class="o">[[</span><span class="w"> </span><span class="s2">"</span><span class="k">$(</span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>htop<span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">alias</span><span class="w"> </span><span class="nv">top</span><span class="o">=</span><span class="s2">"htop"</span>
+
+<span class="c1"># Rebuild current shell environment when changes are made to dotfiles</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="si">${</span><span class="nv">SHELL</span><span class="p">##*/</span><span class="si">}</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"bash"</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">sourcea</span><span class="o">=</span><span class="s1">'source ${HOME}/.bash_profile'</span><span class="w"> </span><span class="c1"># system: Source .bash_profile or .zshrc</span>
+<span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="si">${</span><span class="nv">SHELL</span><span class="p">##*/</span><span class="si">}</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"zsh"</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">sourcea</span><span class="o">=</span><span class="s1">'source ${HOME}/.zshrc'</span><span class="w"> </span><span class="c1"># system: Source .bash_profile or .zshrc</span>
+<span class="k">fi</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">memHogs</span><span class="o">=</span><span class="s1">'ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'</span><span class="w"> </span><span class="c1"># system: Show top 10 memory hogs</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">cpuHogs</span><span class="o">=</span><span class="s1">'ps wwaxr -o pid,stat,%cpu,time,command | head -10'</span><span class="w">      </span><span class="c1"># system: Show top 10 cpu hogs</span>
+mine<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># system: Show all processes owned by user</span>
+<span class="w">    </span>ps<span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="w"> </span>-u<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>-o<span class="w"> </span>pid,%cpu,%mem,start,time,bsdtime,command
+<span class="o">}</span>
+
+colors<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># Prints all tput colors to terminal</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">0</span>..255<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>print<span class="w"> </span>-Pn<span class="w"> </span><span class="s2">"%K{</span><span class="nv">$i</span><span class="s2">}  %k%F{</span><span class="nv">$i</span><span class="s2">}</span><span class="si">${</span><span class="p">(l:</span><span class="nv">3</span><span class="p">::</span><span class="nv">0</span><span class="p">:)i</span><span class="si">}</span><span class="s2">%f "</span><span class="w"> </span><span class="si">${${</span><span class="p">(M)</span><span class="k">$((</span><span class="nv">i</span><span class="o">%</span><span class="m">6</span><span class="k">))</span><span class="p">:#3</span><span class="si">}</span><span class="p">:+</span><span class="s1">$'\n'</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+<span class="o">}</span>
+
+<span class="c1"># Directory Aliases</span>
+<span class="c1"># #####################################</span>
+
+<span class="c1"># Different sets of LS aliases because Gnu LS and macOS LS use different</span>
+<span class="c1"># flags for colors.  Also, prefer gem colorls or exa when available.</span>
+
+<span class="k">if</span><span class="w"> </span>exa<span class="w"> </span>--icons<span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s1">'exa --git --icons'</span><span class="w">                             </span><span class="c1"># system: List filenames on one line</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">l</span><span class="o">=</span><span class="s1">'exa --git --icons -lF'</span><span class="w">                          </span><span class="c1"># system: List filenames with long format</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">'exa -lahF --git'</span><span class="w">                               </span><span class="c1"># system: List all files</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">lll</span><span class="o">=</span><span class="s2">"exa -1F --git --icons"</span><span class="w">                        </span><span class="c1"># system: List files with one line per file</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">llm</span><span class="o">=</span><span class="s1">'ll --sort=modified'</span><span class="w">                           </span><span class="c1"># system: List files by last modified date</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">la</span><span class="o">=</span><span class="s1">'exa -lbhHigUmuSa --color-scale --git --icons'</span><span class="w">  </span><span class="c1"># system: List files with attributes</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">lx</span><span class="o">=</span><span class="s1">'exa -lbhHigUmuSa@ --color-scale --git --icons'</span><span class="w"> </span><span class="c1"># system: List files with extended attributes</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">lt</span><span class="o">=</span><span class="s1">'exa --tree --level=2'</span><span class="w">                          </span><span class="c1"># system: List files in a tree view</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">llt</span><span class="o">=</span><span class="s1">'exa -lahF --tree --level=2'</span><span class="w">                   </span><span class="c1"># system: List files in a tree view with long format</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ltt</span><span class="o">=</span><span class="s1">'exa -lahF | grep "$(date +"%d %b")"'</span><span class="w">          </span><span class="c1"># system: List files modified today</span>
+<span class="k">elif</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>exa<span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s1">'exa --git'</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">l</span><span class="o">=</span><span class="s1">'exa --git -lF'</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">'exa -lahF --git'</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">lll</span><span class="o">=</span><span class="s2">"exa -1F --git"</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">llm</span><span class="o">=</span><span class="s1">'ll --sort=modified'</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">la</span><span class="o">=</span><span class="s1">'exa -lbhHigUmuSa --color-scale --git'</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">lx</span><span class="o">=</span><span class="s1">'exa -lbhHigUmuSa@ --color-scale --git'</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">lt</span><span class="o">=</span><span class="s1">'exa --tree --level=2'</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">llt</span><span class="o">=</span><span class="s1">'exa -lahF --tree --level=2'</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ltt</span><span class="o">=</span><span class="s1">'exa -lahF | grep "$(date +"%d %b")"'</span>
+<span class="k">elif</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>colorls<span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s2">"colorls -1A --git-status"</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s2">"colorls -A"</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ltt</span><span class="o">=</span><span class="s1">'colorls -A | grep "$(date +"%d %b")"'</span>
+<span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="k">$(</span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>ls<span class="k">)</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span>gnubin<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nv">$OSTYPE</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span>linux<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s2">"ls --color=auto"</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">'ls -FlAhpv --color=auto'</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ltt</span><span class="o">=</span><span class="s1">'ls -FlAhpv| grep "$(date +"%d %b")"'</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ls</span><span class="o">=</span><span class="s2">"ls -G"</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ll</span><span class="o">=</span><span class="s1">'ls -FGlAhpv'</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">ltt</span><span class="o">=</span><span class="s1">'ls -FlAhpv| grep "$(date +"%d %b")"'</span>
+<span class="k">fi</span>
+
+cd<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># Always print contents of directory when entering</span>
+<span class="w">    </span><span class="nb">builtin</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span>ll
+<span class="o">}</span>
+
+mcd<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># DESC: Create a directory and enter it</span>
+<span class="w">    </span><span class="c1"># USAGE: mcd [dirname]</span>
+<span class="w">    </span>mkdir<span class="w"> </span>-pv<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span>
+<span class="o">}</span>
+
+
+<span class="c1"># File Shortcuts</span>
+<span class="c1"># #####################################</span>
+
+md5Check<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># DESC:  Compares an md5 hash to the md5 hash of a file</span>
+<span class="w">    </span><span class="c1"># USAGE: md5Check &lt;md5&gt; &lt;filename&gt;</span>
+
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span>opt
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">OPTIND</span><span class="o">=</span><span class="m">1</span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">md5</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">file</span><span class="o">=</span><span class="s2">"</span><span class="nv">$2</span><span class="s2">"</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>md5sum<span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Can not find 'md5sum' utility"</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="k">fi</span>
+
+<span class="w">    </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-e<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Can not find </span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">        </span><span class="o">}</span>
+
+<span class="w">    </span><span class="c1"># Get md5 has of file</span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span>filemd5
+<span class="w">    </span><span class="nv">filemd5</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>md5sum<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{ print $1 }'</span><span class="k">)</span><span class="s2">"</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$filemd5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"</span><span class="nv">$md5</span><span class="s2">"</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>success<span class="w"> </span><span class="s2">"The two md5 hashes match"</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span>warning<span class="w"> </span><span class="s2">"The two md5 hashes do not match"</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="k">fi</span>
+
+<span class="o">}</span>
+
+zipf<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>zip<span class="w"> </span>-r<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>.zip<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="w">       </span><span class="c1"># Create a ZIP archive of a folder or file</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">numFiles</span><span class="o">=</span><span class="s1">'echo $(ls -1 | wc -l)'</span><span class="w"> </span><span class="c1"># Count of non-hidden files in current dir</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">make1mb</span><span class="o">=</span><span class="s1">'mkfile 1m ./1MB.dat'</span><span class="w">    </span><span class="c1"># Creates a file of 1mb size (all zeros)</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">make5mb</span><span class="o">=</span><span class="s1">'mkfile 5m ./5MB.dat'</span><span class="w">    </span><span class="c1"># Creates a file of 5mb size (all zeros)</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">make10mb</span><span class="o">=</span><span class="s1">'mkfile 10m ./10MB.dat'</span><span class="w"> </span><span class="c1"># Creates a file of 10mb size (all zeros)</span>
+
+copyfile<span class="o">()</span><span class="w"> </span><span class="o">(</span>
+<span class="w">    </span><span class="c1"># DESC: Copy contents of a file to the clipboard</span>
+<span class="w">    </span><span class="c1"># ARGS: 1 (Required) - Path to file</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>pbcopy<span class="w"> </span>&lt;<span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="nb">printf</span><span class="w"> </span><span class="s2">"File not found: %s\n"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="o">)</span>
+
+buf<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># buf: Backup file with time stamp</span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span>filename
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span>filetime
+
+<span class="w">    </span><span class="nv">filename</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">    </span><span class="nv">filetime</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d_%H%M%S<span class="k">)</span>
+<span class="w">    </span>cp<span class="w"> </span>-a<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">filename</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">filename</span><span class="si">}</span><span class="s2">_</span><span class="si">${</span><span class="nv">filetime</span><span class="si">}</span><span class="s2">"</span>
+<span class="o">}</span>
+
+extract<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># DESC:  Extracts a compressed file from multiple formats</span>
+<span class="w">    </span><span class="c1"># USAGE: extract -v &lt;file&gt;</span>
+
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span>opt
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">OPTIND</span><span class="o">=</span><span class="m">1</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="nb">getopts</span><span class="w"> </span><span class="s2">"hv"</span><span class="w"> </span>opt<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="s2">"</span><span class="nv">$opt</span><span class="s2">"</span><span class="w"> </span><span class="k">in</span>
+<span class="w">            </span>h<span class="o">)</span>
+<span class="w">                </span>cat<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">  $ ${FUNCNAME[0]} [option] &lt;archives&gt;</span>
+<span class="s">  options:</span>
+<span class="s">    -h  show this message and exit</span>
+<span class="s">    -v  verbosely list files processed</span>
+<span class="s">EOF</span>
+<span class="w">                </span><span class="k">return</span>
+<span class="w">                </span><span class="p">;;</span>
+<span class="w">            </span>v<span class="o">)</span>
+<span class="w">                </span><span class="nb">local</span><span class="w"> </span>-r<span class="w"> </span><span class="nv">verbose</span><span class="o">=</span><span class="s1">'v'</span>
+<span class="w">                </span><span class="p">;;</span>
+<span class="w">            </span>?<span class="o">)</span>
+<span class="w">                </span>extract<span class="w"> </span>-h<span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">                </span><span class="p">;;</span>
+<span class="w">        </span><span class="k">esac</span>
+<span class="w">    </span><span class="k">done</span>
+<span class="w">    </span><span class="nb">shift</span><span class="w"> </span><span class="k">$((</span><span class="nv">OPTIND</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="k">))</span>
+
+<span class="w">    </span><span class="o">[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>extract<span class="w"> </span>-h<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="k">in</span>
+<span class="w">                </span>*.tar.bz2<span class="w"> </span><span class="p">|</span><span class="w"> </span>*.tbz<span class="w"> </span><span class="p">|</span><span class="w"> </span>*.tbz2<span class="o">)</span><span class="w"> </span>tar<span class="w"> </span><span class="s2">"x</span><span class="si">${</span><span class="nv">verbose</span><span class="si">}</span><span class="s2">jf"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*.tar.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>*.tgz<span class="o">)</span><span class="w"> </span>tar<span class="w"> </span><span class="s2">"x</span><span class="si">${</span><span class="nv">verbose</span><span class="si">}</span><span class="s2">zf"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*.tar.xz<span class="o">)</span>
+<span class="w">                    </span>xz<span class="w"> </span>--decompress<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">                    </span><span class="nb">set</span><span class="w"> </span>--<span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">0</span><span class="k">:-</span><span class="nv">3</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">                    </span><span class="p">;;</span>
+<span class="w">                </span>*.tar.Z<span class="o">)</span>
+<span class="w">                    </span>uncompress<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">                    </span><span class="nb">set</span><span class="w"> </span>--<span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">0</span><span class="k">:-</span><span class="nv">2</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">                    </span><span class="p">;;</span>
+<span class="w">                </span>*.bz2<span class="o">)</span><span class="w"> </span>bunzip2<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*.deb<span class="o">)</span><span class="w"> </span>dpkg-deb<span class="w"> </span>-x<span class="si">${</span><span class="nv">verbose</span><span class="si">}</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">0</span><span class="k">:-</span><span class="nv">4</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*.pax.gz<span class="o">)</span>
+<span class="w">                    </span>gunzip<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">                    </span><span class="nb">set</span><span class="w"> </span>--<span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">0</span><span class="k">:-</span><span class="nv">3</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">                    </span><span class="p">;;</span>
+<span class="w">                </span>*.gz<span class="o">)</span><span class="w"> </span>gunzip<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*.pax<span class="o">)</span><span class="w"> </span>pax<span class="w"> </span>-r<span class="w"> </span>-f<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*.pkg<span class="o">)</span><span class="w"> </span>pkgutil<span class="w"> </span>--expand<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">0</span><span class="k">:-</span><span class="nv">4</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*.rar<span class="o">)</span><span class="w"> </span>unrar<span class="w"> </span>x<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*.rpm<span class="o">)</span><span class="w"> </span>rpm2cpio<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cpio<span class="w"> </span>-idm<span class="si">${</span><span class="nv">verbose</span><span class="si">}</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*.tar<span class="o">)</span><span class="w"> </span>tar<span class="w"> </span><span class="s2">"x</span><span class="si">${</span><span class="nv">verbose</span><span class="si">}</span><span class="s2">f"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*.txz<span class="o">)</span>
+<span class="w">                    </span>mv<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">0</span><span class="k">:-</span><span class="nv">4</span><span class="si">}</span><span class="s2">.tar.xz"</span>
+<span class="w">                    </span><span class="nb">set</span><span class="w"> </span>--<span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">0</span><span class="k">:-</span><span class="nv">4</span><span class="si">}</span><span class="s2">.tar.xz"</span>
+<span class="w">                    </span><span class="p">;;</span>
+<span class="w">                </span>*.xz<span class="o">)</span><span class="w"> </span>xz<span class="w"> </span>--decompress<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*.zip<span class="w"> </span><span class="p">|</span><span class="w"> </span>*.war<span class="w"> </span><span class="p">|</span><span class="w"> </span>*.jar<span class="o">)</span><span class="w"> </span>unzip<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*.Z<span class="o">)</span><span class="w"> </span>uncompress<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*.7z<span class="o">)</span><span class="w"> </span>7za<span class="w"> </span>x<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">                </span>*<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"'</span><span class="nv">$1</span><span class="s2">' cannot be extracted via extract"</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">            </span><span class="k">esac</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"extract: '</span><span class="nv">$1</span><span class="s2">' is not a valid file"</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">        </span><span class="nb">shift</span>
+<span class="w">    </span><span class="k">done</span>
+<span class="o">}</span>
+
+chgext<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># chgext: Batch change extension</span>
+<span class="w">    </span><span class="c1">#         For example 'chgext html php' will turn a directory of HTML files</span>
+<span class="w">    </span><span class="c1">#         into PHP files.</span>
+
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span>f
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span>*.<span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>mv<span class="w"> </span><span class="s2">"</span><span class="nv">$f</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">f</span><span class="p">%.</span><span class="nv">$1</span><span class="si">}</span><span class="s2">.</span><span class="nv">$2</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+<span class="o">}</span>
+
+j2y<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># convert json files to yaml using python and PyYAML</span>
+<span class="w">    </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s1">'import sys, yaml, json; yaml.safe_dump(json.load(sys.stdin), sys.stdout, default_flow_style=False)'</span><span class="w"> </span>&lt;<span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="o">}</span>
+
+y2j<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># convert yaml files to json using python and PyYAML</span>
+<span class="w">    </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s1">'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)'</span><span class="w"> </span>&lt;<span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="o">}</span>
+
+<span class="c1"># Git Shortcuts</span>
+<span class="c1"># #####################################</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">diff</span><span class="o">=</span><span class="s2">"git difftool"</span><span class="w">                                  </span><span class="c1"># Open file in git's default diff tool &lt;file&gt;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">fetch</span><span class="o">=</span><span class="s2">"git fetch origin"</span><span class="w">                             </span><span class="c1"># Fetch from origin</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gamend</span><span class="o">=</span><span class="s1">'git commit --amend'</span><span class="w">                          </span><span class="c1"># Add more changes to the commit</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gap</span><span class="o">=</span><span class="s1">'git add -p'</span><span class="w">                                     </span><span class="c1"># Step through each change</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gba</span><span class="o">=</span><span class="s1">'git branch -a'</span><span class="w">                                  </span><span class="c1"># Lists local and remote branches</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gc</span><span class="o">=</span><span class="s2">"git --no-pager commit"</span><span class="w">                           </span><span class="c1"># Commit w/ message written in EDITOR</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gcl</span><span class="o">=</span><span class="s1">'git clone --recursive'</span><span class="w">                          </span><span class="c1"># Clone with all submodules</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gcm</span><span class="o">=</span><span class="s2">"git --no-pager commit -m"</span><span class="w">                       </span><span class="c1"># Commit w/ message from the command line &lt;commit message&gt;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gcv</span><span class="o">=</span><span class="s2">"git --no-pager commit --no-verify"</span><span class="w">              </span><span class="c1"># Commit without verification</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ginitsubs</span><span class="o">=</span><span class="s1">'git submodule update --init --recursive'</span><span class="w">  </span><span class="c1"># Init and update all submodules</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gundo</span><span class="o">=</span><span class="s2">"git reset --soft HEAD^"</span><span class="w">                       </span><span class="c1"># Undo last commit</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gs</span><span class="o">=</span><span class="s1">'git --no-pager status -s --untracked-files=all'</span><span class="w">  </span><span class="c1"># Git status</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gsearch</span><span class="o">=</span><span class="s1">'git rev-list --all | xargs git grep -F'</span><span class="w">     </span><span class="c1"># Find a string in Git History &lt;search string&gt;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gss</span><span class="o">=</span><span class="s1">'git remote update &amp;&amp; git status -uno'</span><span class="w">           </span><span class="c1"># Are we behind remote?</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gsubs</span><span class="o">=</span><span class="s1">'git submodule update --recursive --remote'</span><span class="w">    </span><span class="c1"># Update all submodules</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gup</span><span class="o">=</span><span class="s2">"git remote update -p; git merge --ff-only @{u}"</span><span class="w"> </span><span class="c1"># Update &amp; Merge</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">undopush</span><span class="o">=</span><span class="s2">"git push -f origin HEAD^:master"</span><span class="w">           </span><span class="c1"># Undo a git push</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">unstage</span><span class="o">=</span><span class="s1">'git reset HEAD'</span><span class="w">                             </span><span class="c1"># Unstage a file</span>
+
+ga<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="p">@</span><span class="k">:-</span><span class="p">.</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="c1"># Add file (default: all)</span>
+
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gl</span><span class="o">=</span><span class="s1">'git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'</span><span class="w"> </span><span class="c1"># A nicer Git Log</span>
+
+applyignore<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># DESC: Applies changes to the git .ignorefile after the files mentioned were already committed to the repo</span>
+
+<span class="w">    </span>git<span class="w"> </span>ls-files<span class="w"> </span>-ci<span class="w"> </span>--exclude-standard<span class="w"> </span>-z<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-0<span class="w"> </span>git<span class="w"> </span>rm<span class="w"> </span>--cached
+<span class="o">}</span>
+
+rollback<span class="o">()</span><span class="w"> </span><span class="o">(</span>
+<span class="w">    </span><span class="c1"># DESC: Resets the current HEAD to specified commit</span>
+<span class="w">    </span><span class="c1"># ARGS: $1 (Required): Commit to revert to</span>
+<span class="w">    </span><span class="c1"># USAGE: gitRollback &lt;commit&gt;</span>
+
+<span class="w">    </span>_is_clean_<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>diff<span class="w"> </span>--shortstat<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-n1<span class="k">)</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Your branch is dirty, please commit your changes"</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="o">}</span>
+
+<span class="w">    </span>_commit_exists_<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span>git<span class="w"> </span>rev-list<span class="w"> </span>--quiet<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">        </span><span class="nv">status</span><span class="o">=</span><span class="nv">$?</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$status</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Commit </span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2"> does not exist"</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="o">}</span>
+
+<span class="w">    </span>_keep_changes_<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">            </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>-p<span class="w"> </span><span class="s2">"Do you want to keep all changes from rolled back revisions in your working tree? [Y/N]"</span><span class="w"> </span>RESP
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="nv">$RESP</span><span class="w"> </span><span class="k">in</span>
+
+<span class="w">                </span><span class="o">[</span>yY<span class="o">])</span>
+<span class="w">                    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Rolling back to commit </span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2"> with unstaged changes"</span>
+<span class="w">                    </span>git<span class="w"> </span>reset<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">                    </span><span class="k">break</span>
+<span class="w">                    </span><span class="p">;;</span>
+<span class="w">                </span><span class="o">[</span>nN<span class="o">])</span>
+<span class="w">                    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Rolling back to commit </span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2"> with a clean working tree"</span>
+<span class="w">                    </span>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">                    </span><span class="k">break</span>
+<span class="w">                    </span><span class="p">;;</span>
+<span class="w">                </span>*<span class="o">)</span>
+<span class="w">                    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Please enter Y or N"</span>
+<span class="w">                    </span><span class="p">;;</span>
+<span class="w">            </span><span class="k">esac</span>
+<span class="w">        </span><span class="k">done</span>
+<span class="w">    </span><span class="o">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>git<span class="w"> </span>symbolic-ref<span class="w"> </span>HEAD<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span>_is_clean_<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span>_commit_exists_<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+
+<span class="w">                </span><span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">                    </span><span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>-p<span class="w"> </span><span class="s2">"WARNING: This will change your history and move the current HEAD back to commit </span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">, continue? [Y/N]"</span><span class="w"> </span>RESP
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="nv">$RESP</span><span class="w"> </span><span class="k">in</span>
+
+<span class="w">                        </span><span class="o">[</span>yY<span class="o">])</span>
+<span class="w">                            </span>_keep_changes_<span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">                            </span><span class="k">break</span>
+<span class="w">                            </span><span class="p">;;</span>
+<span class="w">                        </span><span class="o">[</span>nN<span class="o">])</span>
+<span class="w">                            </span><span class="k">break</span>
+<span class="w">                            </span><span class="p">;;</span>
+<span class="w">                        </span>*<span class="o">)</span>
+<span class="w">                            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Please enter Y or N"</span>
+<span class="w">                            </span><span class="p">;;</span>
+<span class="w">                    </span><span class="k">esac</span>
+<span class="w">                </span><span class="k">done</span>
+<span class="w">            </span><span class="k">fi</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"you're currently not in a git repository"</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="o">)</span>
+
+gurl<span class="o">()</span><span class="w"> </span><span class="o">(</span>
+<span class="w">    </span><span class="c1"># DESC:  Prints URL of current git repository</span>
+
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span>remote<span class="w"> </span>remotename<span class="w"> </span>host<span class="w"> </span>user_repo
+
+<span class="w">    </span><span class="nv">remotename</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="p">*</span><span class="k">:-</span><span class="nv">origin</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">    </span><span class="nv">remote</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>git<span class="w"> </span>remote<span class="w"> </span>-v<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'/^'</span><span class="s2">"</span><span class="si">${</span><span class="nv">remotename</span><span class="si">}</span><span class="s2">"</span><span class="s1">'.*\(push\)$/ {print $2}'</span><span class="k">)</span><span class="s2">"</span>
+<span class="w">    </span><span class="o">[[</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">remote</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">return</span>
+<span class="w">    </span><span class="nv">host</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">remote</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>perl<span class="w"> </span>-pe<span class="w"> </span><span class="s1">'s/.*@//;s/:.*//'</span><span class="k">)</span><span class="s2">"</span>
+<span class="w">    </span><span class="nv">user_repo</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">remote</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>perl<span class="w"> </span>-pe<span class="w"> </span><span class="s1">'s/.*://;s/\.git$//'</span><span class="k">)</span><span class="s2">"</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"https://</span><span class="si">${</span><span class="nv">host</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">user_repo</span><span class="si">}</span><span class="s2">"</span>
+<span class="o">)</span>
+
+<span class="c1"># From Git-Extras (https://github.com/tj/git-extras)</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">obliterate</span><span class="o">=</span><span class="s1">'git obliterate'</span><span class="w">       </span><span class="c1"># Completely remove a file from the repository, including past commits and tags</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">release</span><span class="o">=</span><span class="s1">'git-release'</span><span class="w">             </span><span class="c1"># Create release commit with the given &lt;tag&gt; and other options</span>
+<span class="nb">alias</span><span class="w"> </span>rename-branch<span class="o">=</span><span class="s1">'git rename-branch'</span><span class="w"> </span><span class="c1"># Rename a branch and sync with remote. &lt;old name&gt; &lt;new name&gt;</span>
+<span class="nb">alias</span><span class="w"> </span>rename-tag<span class="o">=</span><span class="s1">'git rename-tag'</span><span class="w">       </span><span class="c1"># Rename a tag (locally and remotely). &lt;old name&gt; &lt;new name&gt;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ignore</span><span class="o">=</span><span class="s1">'git ignore'</span><span class="w">               </span><span class="c1"># Add files to .gitignore. Run without arguments to list ignored files.</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">ginfo</span><span class="o">=</span><span class="s1">'git info --no-config'</span><span class="w">      </span><span class="c1"># Show information about the current repository.</span>
+<span class="nb">alias</span><span class="w"> </span>del-sub<span class="o">=</span><span class="s1">'git delete-submodule'</span><span class="w">    </span><span class="c1"># Delete a submodule. &lt;name&gt;</span>
+<span class="nb">alias</span><span class="w"> </span>del-tag<span class="o">=</span><span class="s1">'git delete-tag'</span><span class="w">          </span><span class="c1"># Delete a tag. &lt;name&gt;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">changelog</span><span class="o">=</span><span class="s1">'git changelog'</span><span class="w">         </span><span class="c1"># Generate a Changelog from tags and commit messages. -h for help.</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">garchive</span><span class="o">=</span><span class="s1">'git archive'</span><span class="w">            </span><span class="c1"># Creates a zip archive of the current git repository. The name of the archive will depend on the current HEAD of your git repository.</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">greset</span><span class="o">=</span><span class="s1">'git reset'</span><span class="w">                </span><span class="c1"># Reset one file to HEAD or certain commit. &lt;file&gt; &lt;commit (optional)&gt;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gclear</span><span class="o">=</span><span class="s1">'git clear-soft'</span><span class="w">           </span><span class="c1"># Does a hard reset and deletes all untracked files from the working directory, excluding those in .gitignore.</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gbrowse</span><span class="o">=</span><span class="s1">'git browse'</span><span class="w">              </span><span class="c1"># Opens the current git repository website in your default web browser.</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">gtimes</span><span class="o">=</span><span class="s1">'git utimes'</span><span class="w">               </span><span class="c1"># Change files modification time to their last commit date.</span>
+
+
+<span class="c1"># MacOS Specific Shortcuts</span>
+<span class="c1"># ###########################</span>
+
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="si">${</span><span class="nv">OSTYPE</span><span class="si">}</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"darwin"</span>*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="c1"># Only load these on a MacOS computer</span>
+
+<span class="w">    </span><span class="c1">## ALIASES ##</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cpwd</span><span class="o">=</span><span class="s1">'pwd | tr -d "\n" | pbcopy'</span><span class="w">                        </span><span class="c1"># Copy the working path to clipboard</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cl</span><span class="o">=</span><span class="s2">"fc -e -|pbcopy"</span><span class="w">                                     </span><span class="c1"># Copy output of last command to clipboard</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">caff</span><span class="o">=</span><span class="s2">"caffeinate -ism"</span><span class="w">                                  </span><span class="c1"># Run command without letting mac sleep</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cleanDS</span><span class="o">=</span><span class="s2">"find . -type f -name '*.DS_Store' -ls -delete"</span><span class="w"> </span><span class="c1"># Delete .DS_Store files on Macs</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">showHidden</span><span class="o">=</span><span class="s1">'defaults write com.apple.finder AppleShowAllFiles TRUE'</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">hideHidden</span><span class="o">=</span><span class="s1">'defaults write com.apple.finder AppleShowAllFiles FALSE'</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">capc</span><span class="o">=</span><span class="s2">"screencapture -c"</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">capic</span><span class="o">=</span><span class="s2">"screencapture -i -c"</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">capiwc</span><span class="o">=</span><span class="s2">"screencapture -i -w -c"</span>
+
+<span class="w">    </span><span class="nv">CAPTURE_FOLDER</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Desktop"</span>
+
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>cap<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="c1"># DESC: Capture the screen to the desktop</span>
+<span class="w">        </span>screencapture<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">CAPTURE_FOLDER</span><span class="si">}</span><span class="s2">/capture-</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d_%H%M%S<span class="k">)</span><span class="s2">.png"</span>
+<span class="w">    </span><span class="o">}</span>
+
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>capi<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="c1"># DESC: Capture the selected screen area to the desktop</span>
+<span class="w">        </span>screencapture<span class="w"> </span>-i<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">CAPTURE_FOLDER</span><span class="si">}</span><span class="s2">/capture-</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d_%H%M%S<span class="k">)</span><span class="s2">.png"</span>
+<span class="w">    </span><span class="o">}</span>
+
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>capiw<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="c1"># DESC: Capture the selected window to the desktop</span>
+<span class="w">        </span>screencapture<span class="w"> </span>-i<span class="w"> </span>-w<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">CAPTURE_FOLDER</span><span class="si">}</span><span class="s2">/capture-</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d_%H%M%S<span class="k">)</span><span class="s2">.png"</span>
+<span class="w">    </span><span class="o">}</span>
+
+<span class="w">    </span><span class="c1"># Open the finder to a specified path or to current directory.</span>
+<span class="w">    </span>f<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="c1"># DESC:  Opens the Finder to specified directory. (Default is current oath)</span>
+<span class="w">        </span><span class="c1"># ARGS:  $1 (optional): Path to open in finder</span>
+<span class="w">        </span><span class="c1"># REQS:  MacOS</span>
+<span class="w">        </span><span class="c1"># USAGE: f [path]</span>
+<span class="w">        </span>open<span class="w"> </span>-a<span class="w"> </span><span class="s2">"Finder"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="p">.</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">    </span><span class="o">}</span>
+
+<span class="w">    </span>ql<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="c1"># DESC:  Opens files in MacOS Quicklook</span>
+<span class="w">        </span><span class="c1"># ARGS:  $1 (optional): File to open in Quicklook</span>
+<span class="w">        </span><span class="c1"># USAGE: ql [file1] [file2]</span>
+<span class="w">        </span>qlmanage<span class="w"> </span>-p<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="p">*</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">&amp;</span>&gt;/dev/null
+<span class="w">    </span><span class="o">}</span>
+
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span><span class="nv">cleanupLS</span><span class="o">=</span><span class="s2">"/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user &amp;&amp; killall Finder"</span><span class="w"> </span><span class="c1"># Clean up LaunchServices to remove duplicates in the "Open With" menu</span>
+
+<span class="w">    </span>unquarantine<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="c1"># DESC:  Manually remove a downloaded app or file from the MacOS quarantine</span>
+<span class="w">        </span><span class="c1"># ARGS:  $1 (required): Path to file or app</span>
+<span class="w">        </span><span class="c1"># USAGE: unquarantine [file]</span>
+
+<span class="w">        </span><span class="nb">local</span><span class="w"> </span>attribute
+<span class="w">        </span><span class="k">for</span><span class="w"> </span>attribute<span class="w"> </span><span class="k">in</span><span class="w"> </span>com.apple.metadata:kMDItemDownloadedDate<span class="w"> </span>com.apple.metadata:kMDItemWhereFroms<span class="w"> </span>com.apple.quarantine<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">            </span>xattr<span class="w"> </span>-r<span class="w"> </span>-d<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">attribute</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
+<span class="w">        </span><span class="k">done</span>
+<span class="w">    </span><span class="o">}</span>
+
+<span class="w">    </span>browser<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="c1"># DESC:  Pipe HTML to a Safari browser window</span>
+<span class="w">        </span><span class="c1"># USAGE: echo "&lt;h1&gt;hi mom!&lt;/h1&gt;" | browser'</span>
+
+<span class="w">        </span><span class="nb">local</span><span class="w"> </span>FILE
+<span class="w">        </span><span class="nv">FILE</span><span class="o">=</span><span class="k">$(</span>mktemp<span class="w"> </span>-t<span class="w"> </span>browser.XXXXXX.html<span class="k">)</span>
+<span class="w">        </span>cat<span class="w"> </span>/dev/stdin<span class="w"> </span>&gt;<span class="p">|</span><span class="s2">"</span><span class="si">${</span><span class="nv">FILE</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">        </span>open<span class="w"> </span>-a<span class="w"> </span>Safari<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">FILE</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">    </span><span class="o">}</span>
+
+<span class="w">    </span>finderpath<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="c1"># DESC:  Echoes the path of the frontmost window in the finder</span>
+<span class="w">        </span><span class="c1"># ARGS:  None</span>
+<span class="w">        </span><span class="c1"># OUTS:  None</span>
+<span class="w">        </span><span class="c1"># USAGE: cd $(finderpath)</span>
+<span class="w">        </span><span class="c1"># credit: https://github.com/herrbischoff/awesome-osx-command-line/blob/master/functions.md</span>
+
+<span class="w">        </span><span class="nb">local</span><span class="w"> </span>FINDER_PATH
+
+<span class="w">        </span><span class="nv">FINDER_PATH</span><span class="o">=</span><span class="k">$(</span>
+<span class="w">            </span>osascript<span class="w"> </span>-e<span class="w"> </span><span class="s1">'tell application "Finder"'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                </span>-e<span class="w"> </span><span class="s2">"if (</span><span class="si">${</span><span class="nv">1</span><span class="p">-1</span><span class="si">}</span><span class="s2"> &lt;= (count Finder windows)) then"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                </span>-e<span class="w"> </span><span class="s2">"get POSIX path of (target of window </span><span class="si">${</span><span class="nv">1</span><span class="p">-1</span><span class="si">}</span><span class="s2"> as alias)"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                </span>-e<span class="w"> </span><span class="s1">'else'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                </span>-e<span class="w"> </span><span class="s1">'get POSIX path of (desktop as alias)'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                </span>-e<span class="w"> </span><span class="s1">'end if'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                </span>-e<span class="w"> </span><span class="s1">'end tell'</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
+<span class="w">        </span><span class="k">)</span>
+
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">FINDER_PATH</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">    </span><span class="o">}</span>
+
+<span class="w">    </span><span class="c1">## SPOTLIGHT MAINTENANCE ##</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span>spot-off<span class="o">=</span><span class="s2">"sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist"</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span>spot-on<span class="o">=</span><span class="s2">"sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist"</span>
+
+<span class="w">    </span><span class="c1"># If the 'mds' process is eating tons of memory it is likely getting hung on a file.</span>
+<span class="w">    </span><span class="c1"># This will tell you which file that is.</span>
+<span class="w">    </span><span class="nb">alias</span><span class="w"> </span>spot-file<span class="o">=</span><span class="s2">"lsof -c '/mds</span>$<span class="s2">/'"</span>
+
+<span class="w">    </span><span class="c1"># Search for a file using MacOS Spotlight's metadata</span>
+<span class="w">    </span>spotlight<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>mdfind<span class="w"> </span><span class="s2">"kMDItemDisplayName == '</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">'wc"</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+<span class="k">fi</span>
+</code></pre></div>
+<p>I hope this brief tour through parts of my zsh profile is helpful in your efforts to customize your shell experience on MacOS. Let me know in the comments if you have questions or additions.</p>
+</article>
+<section>
+<div class="comments" id="comment-box">
+<script async="" crossorigin="anonymous" data-category="Comments" data-category-id="DIC_kwDOIM6z9s4CSACn" data-emit-metadata="0" data-input-position="top" data-lang="en" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="natelandau/natelandau.com" data-repo-id="R_kgDOIM6z9g" data-strict="1" data-theme="preferred_color_scheme" src="https://giscus.app/client.js"></script>
+</div>
+</section>
+<div class="grid">
+<div>
+</div>
+<div dir="rtl">
+<a class="secondary" href="https://natelandau-com.pages.dev/plausible-analytics/" role="button"> → Self host web analytics with Plausible</a>
+</div>
+</div>
+</main>
+<footer>
+<div class="grid container">
+<div><a href="https://github.com/natelandau"><svg class="icon" viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+</svg></a>
+<a href="https://linkedin.com/in/natelandau"><svg class="icon" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+</svg></a>
+<a href="https://twitter.com/natelandau"><svg class="icon" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+</svg></a>
+<a href="https://bsky.app/profile/natelandau.bsky.social"><svg class="icon" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7
+                        64-64l0-320c0-35.3-28.7-64-64-64L64 32zM224 247.4c14.5-30 54-85.8 90.7-113.3c26.5-19.9 69.3-35.2
+                        69.3 13.7c0 9.8-5.6 82.1-8.9 93.8c-11.4 40.8-53 51.2-90 44.9c64.7 11 81.2 47.5 45.6 84c-67.5
+                        69.3-97-17.4-104.6-39.6c0 0 0 0 0 0l-.3-.9c-.9-2.6-1.4-4.1-1.8-4.1s-.9 1.5-1.8 4.1c-.1 .3-.2
+                        .6-.3 .9c0 0 0 0 0 0c-7.6 22.2-37.1 108.8-104.6 39.6c-35.5-36.5-19.1-73 45.6-84c-37
+                        6.3-78.6-4.1-90-44.9c-3.3-11.7-8.9-84-8.9-93.8c0-48.9 42.9-33.5 69.3-13.7c36.7 27.5 76.2 83.4
+                        90.7 113.3z"></path>
+</svg></a>
+<a href="mailto:fromwebsite@natelandau.com"><svg class="icon" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"></path>
+</svg></a>
+</div>
+<div dir="rtl">Copyright © 2024 Nathaniel Landau</div>
+</div>
+</footer></body>
+</html>

@@ -1,0 +1,335 @@
+<!doctype html><html prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#"data-theme=light lang=en-US><head><title>Boilerplate Shell Script Template | Nathaniel Landau | Nathaniel Landau</title><meta charset=utf-8><meta content=width=device-width,initial-scale=1 name=viewport><meta content=en_US property=og:locale><meta content=natelandau.com property=og:site_name><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-57x57.png rel=apple-touch-icon sizes=57x57><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-60x60.png rel=apple-touch-icon sizes=60x60><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-72x72.png rel=apple-touch-icon sizes=72x72><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-76x76.png rel=apple-touch-icon sizes=76x76><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-114x114.png rel=apple-touch-icon sizes=114x114><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-120x120.png rel=apple-touch-icon sizes=120x120><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-144x144.png rel=apple-touch-icon sizes=144x144><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-152x152.png rel=apple-touch-icon sizes=152x152><link href=https://natelandau-com.pages.dev/static/icons/apple-touch-icon-180x180.png rel=apple-touch-icon sizes=180x180><link href=https://natelandau-com.pages.dev/static/icons/favicon-32x32.png rel=icon sizes=32x32 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/android-chrome-192x192.png rel=icon sizes=192x192 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/favicon-96x96.png rel=icon sizes=96x96 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/favicon-16x16.png rel=icon sizes=16x16 type=image/png><link href=https://natelandau-com.pages.dev/static/icons/manifest.json rel=manifest><link color=#c63d0f href=https://natelandau-com.pages.dev/static/icons/safari-pinned-tab.svg rel=mask-icon><link rel="shortcut icon"href=https://natelandau-com.pages.dev/static/icons/favicon.ico><meta content=#00aba9 name=msapplication-TileColor><meta content=https://natelandau-com.pages.dev/static/icons/mstile-144x144.png name=msapplication-TileImage><meta content=https://natelandau-com.pages.dev/static/icons/browserconfig.xml name=msapplication-config><meta content=#ffffff name=theme-color><link href=https://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic|Vollkorn:400italic,700italic,400,700 rel=stylesheet><link href=https://natelandau-com.pages.dev/static/css/pico.min.css rel=stylesheet><link href=https://natelandau-com.pages.dev/static/css/pygment.css rel=stylesheet><link href=https://natelandau-com.pages.dev/static/css/overrides.css rel=stylesheet><meta content="A shell script template containing my collection of shorthand functions and pre-written code."name=description><link href=https://natelandau-com.pages.dev/boilerplate-shell-script-template/ rel=canonical><link href=https://natelandau-com.pages.dev/about-nathaniel-landau/ rel=author><link href=https://gmpg.org/xfn/11 rel=profile><script type=application/ld+json>
+{
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Boilerplate Shell Script Template",
+        "name": "Boilerplate Shell Script Template",
+        "url": "https://natelandau-com.pages.dev/boilerplate-shell-script-template/",
+        "datePublished": "2015-05-27T08:39:00-0400",
+"dateModified": "2016-02-02T15:03:00-0500",
+"description": "A shell script template containing my collection of shorthand functions and pre-written code.",
+"keywords": ["macos,unix"],
+"author": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau",
+            "url": "https://natelandau-com.pages.dev",
+            "image": "https://natelandau-com.pages.dev/static/images/nate-landau.jpg",
+            "sameAs": ["https://facebook.com/natelandau", "https://twitter.com/natelandau", "https://www.linkedin.com/in/natelandau/"]
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau",
+            "url": "https://natelandau-com.pages.dev",
+            "image": "https://natelandau-com.pages.dev/static/images/nate-landau.jpg",
+            "sameAs": ["https://facebook.com/natelandau", "https://twitter.com/natelandau", "https://www.linkedin.com/in/natelandau/"]
+        },
+        "copyrightYear": "2024",
+        "copyrightHolder": {
+            "@type": "Person",
+            "name": "Nathaniel Landau",
+            "alternateName": "Nate Landau"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://natelandau-com.pages.devboilerplate-shell-script-template/"
+        }
+    }
+</script><meta content="Boilerplate Shell Script Template"property=og:title><meta content=https://natelandau-com.pages.dev/about-nathaniel-landau/ property=article:author><meta content=article property=og:type><meta content="A shell script template containing my collection of shorthand functions and pre-written code."property=og:description><meta content=https://natelandau-com.pages.dev/boilerplate-shell-script-template/ property=og:url><meta content=2015-05-27T08:39:00-0400 property=article:published_time><meta content=2016-02-02T15:03:00-0500 property=article:modified_time><meta content=2016-02-02T15:03:00-0500 property=og:updated_time><meta content=macos property=article:section><meta content=macos,unix property=article:tag></head><body><header><nav class=container><ul><li><h2><a class=logo href=https://natelandau-com.pages.dev/>natelandau.com</a></h2></li></ul><ul><li><a href=https://natelandau-com.pages.dev/about-nathaniel-landau/ role=button>About</a></li><li><a href=https://natelandau-com.pages.dev/nathaniel-landaus-resume/ role=button>Resume</a></li><li><a href=https://natelandau-com.pages.dev/atom.xml role=button><svg viewbox="0 0 448 512"class=icon xmlns=http://www.w3.org/2000/svg><path d="M0 64C0 46.3 14.3 32 32 32c229.8 0 416 186.2 416 416c0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96C14.3 96 0 81.7 0 64zM0 416a64 64 0 1 1 128 0A64 64 0 1 1 0 416zM32 160c159.1 0 288 128.9 288 288c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg> Feed</a></li></ul></nav></header><main class=container><article><div class=grid><div><small><time>May 27, 2015</time></small></div><div dir=rtl><a class=tag href=https://natelandau-com.pages.dev/tag/macos.html>macos</a> <a class=tag href=https://natelandau-com.pages.dev/tag/unix.html>unix</a></div></div><h1 class=headline>BOILERPLATE SHELL SCRIPT TEMPLATE</h1><hr><p>I often write simple BASH scripts to perform a multitude of tasks. I have scripts to sync directories, convert media files, bootstrap a new mac, deploy my Jekyll site, and perform sundry other computer automation tasks.</p><p>As I wrote more and more of shell scripts I found myself in need of a simple starter-kit that would allow me to focus on solving on the task at hand rather than recreating the same mundane steps over and over again.</p><p>Building upon my previously published <a href=/bash-scripting-utilities/>shell scripting utilities</a>, I created this BASH script boilerplate. This script along with many additional files are available in <a href=https://github.com/natelandau/shell-scripts>my first public repository on Github</a>. My hope is that you will find this script template as useful as I have.</p><h2>Goals</h2><ol><li><strong>Architect a framework</strong> - I did not set out to create a single stand-alone template file. Rather, I worked to create a shell scripting framework for all of my scripts to function as efficiently as possible.</li><li><strong>Focus on simplicity</strong> - Rather than creating a single complicated script, I opted to link a number of simpler, more focused scripts together. This allows the script template to be as small and easy to use as possible. Shared functions, variables, logging, and other elements are off-loaded to separate scripts which are <em>sourced</em> from the the script template.</li><li><strong>Build to my own needs</strong> - Until very recently I did not plan on making this repository public. The functions, templates, utilities, and code are written to meet my own needs and not necessarily written in as broad or abstracted a manner as possible. This also means that many of the functions are written to be used on a Mac in exclusion of other platforms.</li><li><strong>Comment and document the code</strong> - As a non-programmer, I have a tendency to forget what something does within a few weeks of cobbling together the code. To get around this personal failing I have commented and documented the code as well as I can.</li></ol><h2>Usage</h2><p>This shell scripting boilerplate template is available as part of my <a href=https://github.com/natelandau/shell-scripts>Shell Scripts Repository</a> on GitHub. Make a clone of that repository to gain access to all the necessary directories and files needed to make this script work. Then follow these steps:</p><ol><li>Make a copy of <code>scriptTemplate.sh</code>.</li><li>Ensure that the new script can find the utilities located in <code>lib/utils.sh</code> by updating the path of variable <code>utilsLocation</code> near the top.</li><li>Ensure your script is executable (i.e. - run <code>chmod a+x scriptname</code>)</li><li>Add your script within the function titled <code>mainScript</code></li></ol><h2>Boilerplate shell script features</h2><p>This script template has a number of handy built-in features.</p><h3>Temp directory creation</h3><p>This function creates a temporary directory that is removed at the completion of the script. Any temporary files that are needed are written here.</p><div class=highlight><pre><span></span><code><span class=nv>tmpDir</span><span class=o>=</span><span class=s2>"/tmp/</span><span class=si>${</span><span class=nv>scriptName</span><span class=si>}</span><span class=s2>.</span><span class=nv>$RANDOM</span><span class=s2>.</span><span class=nv>$RANDOM</span><span class=s2>.</span><span class=nv>$RANDOM</span><span class=s2>.</span><span class=nv>$$</span><span class=s2>"</span>
+<span class=o>(</span><span class=nb>umask</span><span class=w> </span><span class=m>077</span><span class=w> </span><span class=o>&&</span><span class=w> </span>mkdir<span class=w> </span><span class=s2>"</span><span class=si>${</span><span class=nv>tmpDir</span><span class=si>}</span><span class=s2>"</span><span class=o>)</span><span class=w> </span><span class=o>||</span><span class=w> </span><span class=o>{</span>
+<span class=w>  </span>die<span class=w> </span><span class=s2>"Could not create temporary directory! Exiting."</span>
+<span class=o>}</span>
+</code></pre></div><h3>Trap Cleanup</h3><p>If something unexpectedly goes wrong when running the script, this trap cleanup function is invoked which cleans up the temporary directory and prints a message to the user.</p><div class=highlight><pre><span></span><code><span class=k>function</span><span class=w> </span>trapCleanup<span class=o>()</span><span class=w> </span><span class=o>{</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span>is_dir<span class=w> </span><span class=s2>"</span><span class=si>${</span><span class=nv>tmpDir</span><span class=si>}</span><span class=s2>"</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>    </span>rm<span class=w> </span>-r<span class=w> </span><span class=s2>"</span><span class=si>${</span><span class=nv>tmpDir</span><span class=si>}</span><span class=s2>"</span>
+<span class=w>  </span><span class=k>fi</span>
+<span class=w>  </span>die<span class=w> </span><span class=s2>"Exit trapped."</span><span class=w>  </span><span class=c1># Edit this if you like.</span>
+<span class=o>}</span>
+
+<span class=nb>trap</span><span class=w> </span>trapCleanup<span class=w> </span>EXIT<span class=w> </span>INT<span class=w> </span>TERM
+</code></pre></div><h3>Logging</h3><p>A log file is created when needed.</p><div class=highlight><pre><span></span><code><span class=nv>logFile</span><span class=o>=</span><span class=s2>"</span><span class=nv>$HOME</span><span class=s2>/Library/Logs/</span><span class=si>${</span><span class=nv>scriptBasename</span><span class=si>}</span><span class=s2>.log"</span>
+</code></pre></div><h3>Interactive options and usage</h3><p>The template makes it easy for derivative script to take user arguments and flags from the command line. In addition, it makes it easy to print detailed usage information when the <code>-h</code> flag is passed.</p><h3>Debug and Strict Mode</h3><p>By setting flags, any script can be invoked in debug or strict mode.</p><div class=highlight><pre><span></span><code><span class=c1># Run in debug mode, if set</span>
+<span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span><span class=s2>"</span><span class=si>${</span><span class=nv>debug</span><span class=si>}</span><span class=s2>"</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=s2>"1"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>  </span><span class=nb>set</span><span class=w> </span>-x
+<span class=k>fi</span>
+
+<span class=c1># Exit on empty variable</span>
+<span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span><span class=s2>"</span><span class=si>${</span><span class=nv>strict</span><span class=si>}</span><span class=s2>"</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=s2>"1"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>  </span><span class=nb>set</span><span class=w> </span>-o<span class=w> </span>nounset
+<span class=k>fi</span>
+</code></pre></div><h3>Dependency checking</h3><p>Many of the scripts I write depend on helper applications being installed. This function ensures that any needed applications are installed on the host system and will optionally install them using <a href=https://brew.sh>Homebrew</a> on a Mac.</p><h3>Access to many BASH utilities and shell script functions</h3><p>In addition, this script template <em>sources</em> my entire shell scripting utilities providing many additional pieces of pre-built functionality and scripting short-hand.</p><h2>A note on code reuse</h2><p>This boilerplate was created by me over many years without ever having the intention to make it public. As a novice programmer, I have Googled, GitHubbed, and StackExchanged a path to solve my own scripting needs. Quite often I would lift a function whole-cloth from a GitHub repo and not keep track of it's original location. I have done my best to recreate my footsteps and give credit to the original creators of the code when possible. Unfortunately, I fear that I missed as many as I found.</p><p>My goal of making this script public is not to take credit for the wonderful code written by others. If you recognize or wrote something here that I didn't credit, please let me know.</p><h2>The full script template</h2><p><strong>Note:</strong> this script will not function without the associated files in <a href=https://github.com/natelandau/shell-scripts>the GitHub Repository</a>. I will be making all future updates to the script there.</p><div class=highlight><pre><span></span><code><span class=ch>#!/usr/bin/env bash</span>
+
+<span class=c1># ##################################################</span>
+<span class=c1># My Generic BASH script template</span>
+<span class=c1>#</span>
+<span class=nv>version</span><span class=o>=</span><span class=s2>"1.0.0"</span><span class=w>               </span><span class=c1># Sets version variable</span>
+<span class=c1>#</span>
+<span class=nv>scriptTemplateVersion</span><span class=o>=</span><span class=s2>"1.3.0"</span><span class=w> </span><span class=c1># Version of scriptTemplate.sh that this script is based on</span>
+<span class=c1>#                               v.1.1.0 - Added 'debug' option</span>
+<span class=c1>#                               v.1.1.1 - Moved all shared variables to Utils</span>
+<span class=c1>#                                       - Added $PASS variable when -p is passed</span>
+<span class=c1>#                               v.1.2.0 - Added 'checkDependencies' function to ensure needed</span>
+<span class=c1>#                                         Bash packages are installed prior to execution</span>
+<span class=c1>#                               v.1.3.0 - Can now pass CLI without an option to $args</span>
+<span class=c1>#</span>
+<span class=c1># HISTORY:</span>
+<span class=c1>#</span>
+<span class=c1># * DATE - v1.0.0  - First Creation</span>
+<span class=c1>#</span>
+<span class=c1># ##################################################</span>
+
+<span class=c1># Provide a variable with the location of this script.</span>
+<span class=nv>scriptPath</span><span class=o>=</span><span class=s2>"</span><span class=k>$(</span><span class=w> </span><span class=nb>cd</span><span class=w> </span><span class=s2>"</span><span class=k>$(</span><span class=w> </span>dirname<span class=w> </span><span class=s2>"</span><span class=si>${</span><span class=nv>BASH_SOURCE</span><span class=p>[0]</span><span class=si>}</span><span class=s2>"</span><span class=w> </span><span class=k>)</span><span class=s2>"</span><span class=w> </span><span class=o>&&</span><span class=w> </span><span class=nb>pwd</span><span class=w> </span><span class=k>)</span><span class=s2>"</span>
+
+<span class=c1># Source Scripting Utilities</span>
+<span class=c1># -----------------------------------</span>
+<span class=c1># These shared utilities provide many functions which are needed to provide</span>
+<span class=c1># the functionality in this boilerplate. This script will fail if they can</span>
+<span class=c1># not be found.</span>
+<span class=c1># -----------------------------------</span>
+
+<span class=nv>utilsLocation</span><span class=o>=</span><span class=s2>"</span><span class=si>${</span><span class=nv>scriptPath</span><span class=si>}</span><span class=s2>/lib/utils.sh"</span><span class=w> </span><span class=c1># Update this path to find the utilities.</span>
+
+<span class=k>if</span><span class=w> </span><span class=o>[</span><span class=w> </span>-f<span class=w> </span><span class=s2>"</span><span class=si>${</span><span class=nv>utilsLocation</span><span class=si>}</span><span class=s2>"</span><span class=w> </span><span class=o>]</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>  </span><span class=nb>source</span><span class=w> </span><span class=s2>"</span><span class=si>${</span><span class=nv>utilsLocation</span><span class=si>}</span><span class=s2>"</span>
+<span class=k>else</span>
+<span class=w>  </span><span class=nb>echo</span><span class=w> </span><span class=s2>"Please find the file util.sh and add a reference to it in this script. Exiting."</span>
+<span class=w>  </span><span class=nb>exit</span><span class=w> </span><span class=m>1</span>
+<span class=k>fi</span>
+
+<span class=c1># trapCleanup Function</span>
+<span class=c1># -----------------------------------</span>
+<span class=c1># Any actions that should be taken if the script is prematurely</span>
+<span class=c1># exited.  Always call this function at the top of your script.</span>
+<span class=c1># -----------------------------------</span>
+<span class=k>function</span><span class=w> </span>trapCleanup<span class=o>()</span><span class=w> </span><span class=o>{</span>
+<span class=w>  </span><span class=nb>echo</span><span class=w> </span><span class=s2>""</span>
+<span class=w>  </span><span class=k>if</span><span class=w> </span>is_dir<span class=w> </span><span class=s2>"</span><span class=si>${</span><span class=nv>tmpDir</span><span class=si>}</span><span class=s2>"</span><span class=p>;</span><span class=w> </span><span class=k>then</span>
+<span class=w>    </span>rm<span class=w> </span>-r<span class=w> </span><span class=s2>"</span><span class=si>${</span><span class=nv>tmpDir</span><span class=si>}</span><span class=s2>"</span>
+<span class=w>  </span><span class=k>fi</span>
+<span class=w>  </span>die<span class=w> </span><span class=s2>"Exit trapped."</span><span class=w>  </span><span class=c1># Edit this if you like.</span>
+<span class=o>}</span>
+
+<span class=c1># Set Flags</span>
+<span class=c1># -----------------------------------</span>
+<span class=c1># Flags which can be overridden by user input.</span>
+<span class=c1># Default values are below</span>
+<span class=c1># -----------------------------------</span>
+<span class=nv>quiet</span><span class=o>=</span><span class=m>0</span>
+<span class=nv>printLog</span><span class=o>=</span><span class=m>0</span>
+<span class=nv>verbose</span><span class=o>=</span><span class=m>0</span>
+<span class=nv>force</span><span class=o>=</span><span class=m>0</span>
+<span class=nv>strict</span><span class=o>=</span><span class=m>0</span>
+<span class=nv>debug</span><span class=o>=</span><span class=m>0</span>
+<span class=nv>args</span><span class=o>=()</span>
+
+<span class=c1># Set Temp Directory</span>
+<span class=c1># -----------------------------------</span>
+<span class=c1># Create temp directory with three random numbers and the process ID</span>
+<span class=c1># in the name.  This directory is removed automatically at exit.</span>
+<span class=c1># -----------------------------------</span>
+<span class=nv>tmpDir</span><span class=o>=</span><span class=s2>"/tmp/</span><span class=si>${</span><span class=nv>scriptName</span><span class=si>}</span><span class=s2>.</span><span class=nv>$RANDOM</span><span class=s2>.</span><span class=nv>$RANDOM</span><span class=s2>.</span><span class=nv>$RANDOM</span><span class=s2>.</span><span class=nv>$$</span><span class=s2>"</span>
+<span class=o>(</span><span class=nb>umask</span><span class=w> </span><span class=m>077</span><span class=w> </span><span class=o>&&</span><span class=w> </span>mkdir<span class=w> </span><span class=s2>"</span><span class=si>${</span><span class=nv>tmpDir</span><span class=si>}</span><span class=s2>"</span><span class=o>)</span><span class=w> </span><span class=o>||</span><span class=w> </span><span class=o>{</span>
+<span class=w>  </span>die<span class=w> </span><span class=s2>"Could not create temporary directory! Exiting."</span>
+<span class=o>}</span>
+
+<span class=c1># Logging</span>
+<span class=c1># -----------------------------------</span>
+<span class=c1># Log is only used when the '-l' flag is set.</span>
+<span class=c1>#</span>
+<span class=c1># To never save a logfile change variable to '/dev/null'</span>
+<span class=c1># Save to Desktop use: $HOME/Desktop/${scriptBasename}.log</span>
+<span class=c1># Save to standard user log location use: $HOME/Library/Logs/${scriptBasename}.log</span>
+<span class=c1># -----------------------------------</span>
+<span class=nv>logFile</span><span class=o>=</span><span class=s2>"</span><span class=nv>$HOME</span><span class=s2>/Library/Logs/</span><span class=si>${</span><span class=nv>scriptBasename</span><span class=si>}</span><span class=s2>.log"</span>
+
+<span class=c1># Check for Dependencies</span>
+<span class=c1># -----------------------------------</span>
+<span class=c1># Arrays containing package dependencies needed to execute this script.</span>
+<span class=c1># The script will fail if dependencies are not installed.  For Mac users,</span>
+<span class=c1># most dependencies can be installed automatically using the package</span>
+<span class=c1># manager 'Homebrew'.</span>
+<span class=c1># -----------------------------------</span>
+<span class=nv>homebrewDependencies</span><span class=o>=()</span>
+
+<span class=k>function</span><span class=w> </span>mainScript<span class=o>()</span><span class=w> </span><span class=o>{</span>
+<span class=c1>############## Begin Script Here ###################</span>
+<span class=c1>####################################################</span>
+
+<span class=nb>echo</span><span class=w> </span>-n
+
+<span class=c1>####################################################</span>
+<span class=c1>############### End Script Here ####################</span>
+<span class=o>}</span>
+
+<span class=c1>############## Begin Options and Usage ###################</span>
+
+
+<span class=c1># Print usage</span>
+usage<span class=o>()</span><span class=w> </span><span class=o>{</span>
+<span class=w>  </span><span class=nb>echo</span><span class=w> </span>-n<span class=w> </span><span class=s2>"</span><span class=si>${</span><span class=nv>scriptName</span><span class=si>}</span><span class=s2> [OPTION]... [FILE]...</span>
+
+<span class=s2>This is my script template.</span>
+
+<span class=s2> Options:</span>
+<span class=s2>  -u, --username    Username for script</span>
+<span class=s2>  -p, --password    User password</span>
+<span class=s2>  --force           Skip all user interaction.  Implied 'Yes' to all actions.</span>
+<span class=s2>  -q, --quiet       Quiet (no output)</span>
+<span class=s2>  -l, --log         Print log to file</span>
+<span class=s2>  -s, --strict      Exit script with null variables.  i.e 'set -o nounset'</span>
+<span class=s2>  -v, --verbose     Output more information. (Items echoed to 'verbose')</span>
+<span class=s2>  -d, --debug       Runs script in BASH debug mode (set -x)</span>
+<span class=s2>  -h, --help        Display this help and exit</span>
+<span class=s2>      --version     Output version information and exit</span>
+<span class=s2>"</span>
+<span class=o>}</span>
+
+<span class=c1># Iterate over options breaking -ab into -a -b when needed and --foo=bar into</span>
+<span class=c1># --foo bar</span>
+<span class=nv>optstring</span><span class=o>=</span>h
+<span class=nb>unset</span><span class=w> </span>options
+<span class=k>while</span><span class=w> </span><span class=o>((</span><span class=nv>$#</span><span class=o>))</span><span class=p>;</span><span class=w> </span><span class=k>do</span>
+<span class=w>  </span><span class=k>case</span><span class=w> </span><span class=nv>$1</span><span class=w> </span><span class=k>in</span>
+<span class=w>    </span><span class=c1># If option is of type -ab</span>
+<span class=w>    </span>-<span class=o>[</span>!-<span class=o>]</span>?*<span class=o>)</span>
+<span class=w>      </span><span class=c1># Loop over each character starting with the second</span>
+<span class=w>      </span><span class=k>for</span><span class=w> </span><span class=o>((</span><span class=nv>i</span><span class=o>=</span><span class=m>1</span><span class=p>;</span><span class=w> </span>i<span class=w> </span><<span class=w> </span><span class=si>${#</span><span class="nv">1</span><span class="si">}</span><span class="p">;</span><span class="w"> </span>i++<span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">        </span><span class="nv">c</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">i</span><span class="p">:</span><span class="nv">1</span><span class="si">}</span>
+
+<span class="w">        </span><span class="c1"># Add current char to options</span>
+<span class="w">        </span><span class="nv">options</span><span class="o">+=(</span><span class="s2">"-</span><span class="nv">$c</span><span class="s2">"</span><span class="o">)</span>
+
+<span class="w">        </span><span class="c1"># If option takes a required argument, and it's not the last char make</span>
+<span class="w">        </span><span class="c1"># the rest of the string its argument</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$optstring</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>*<span class="s2">"</span><span class="nv">$c</span><span class="s2">:"</span>*<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">i</span><span class="p">+1</span><span class="si">}</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">          </span><span class="nv">options</span><span class="o">+=(</span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">i</span><span class="p">+1</span><span class="si">}</span><span class="s2">"</span><span class="o">)</span>
+<span class="w">          </span><span class="k">break</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">      </span><span class="k">done</span>
+<span class="w">      </span><span class="p">;;</span>
+
+<span class="w">    </span><span class="c1"># If option is of type --foo=bar</span>
+<span class="w">    </span>--?*<span class="o">=</span>*<span class="o">)</span><span class="w"> </span><span class="nv">options</span><span class="o">+=(</span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="p">%%=*</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="p">#*=</span><span class="si">}</span><span class="s2">"</span><span class="o">)</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">    </span><span class="c1"># add --endopts for --</span>
+<span class="w">    </span>--<span class="o">)</span><span class="w"> </span><span class="nv">options</span><span class="o">+=(</span>--endopts<span class="o">)</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">    </span><span class="c1"># Otherwise, nothing special</span>
+<span class="w">    </span>*<span class="o">)</span><span class="w"> </span><span class="nv">options</span><span class="o">+=(</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="o">)</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">  </span><span class="k">esac</span>
+<span class="w">  </span><span class="nb">shift</span>
+<span class="k">done</span>
+<span class="nb">set</span><span class="w"> </span>--<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">options</span><span class="p">[@]</span><span class="si">}</span><span class="s2">"</span>
+<span class="nb">unset</span><span class="w"> </span>options
+
+<span class="c1"># Print help if no arguments were passed.</span>
+<span class="c1"># Uncomment to force arguments when invoking the script</span>
+<span class="c1"># [[ $# -eq 0 ]] &amp;&amp; set -- "--help"</span>
+
+<span class="c1"># Read the options and set stuff</span>
+<span class="k">while</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-?*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="k">in</span>
+<span class="w">    </span>-h<span class="p">|</span>--help<span class="o">)</span><span class="w"> </span>usage<span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span>safeExit<span class="w"> </span><span class="p">;;</span>
+<span class="w">    </span>--version<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="k">$(</span>basename<span class="w"> </span><span class="nv">$0</span><span class="k">)</span><span class="s2"> </span><span class="si">${</span><span class="nv">version</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span>safeExit<span class="w"> </span><span class="p">;;</span>
+<span class="w">    </span>-u<span class="p">|</span>--username<span class="o">)</span><span class="w"> </span>shift<span class="p">;</span><span class="w"> </span><span class="nv">username</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">    </span>-p<span class="p">|</span>--password<span class="o">)</span><span class="w"> </span>shift<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Enter Pass: "</span><span class="p">;</span><span class="w"> </span>stty<span class="w"> </span>-echo<span class="p">;</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>PASS<span class="p">;</span><span class="w"> </span>stty<span class="w"> </span>echo<span class="p">;</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">    </span>-v<span class="p">|</span>--verbose<span class="o">)</span><span class="w"> </span><span class="nv">verbose</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">    </span>-l<span class="p">|</span>--log<span class="o">)</span><span class="w"> </span><span class="nv">printLog</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">    </span>-q<span class="p">|</span>--quiet<span class="o">)</span><span class="w"> </span><span class="nv">quiet</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">    </span>-s<span class="p">|</span>--strict<span class="o">)</span><span class="w"> </span><span class="nv">strict</span><span class="o">=</span><span class="m">1</span><span class="p">;;</span>
+<span class="w">    </span>-d<span class="p">|</span>--debug<span class="o">)</span><span class="w"> </span><span class="nv">debug</span><span class="o">=</span><span class="m">1</span><span class="p">;;</span>
+<span class="w">    </span>--force<span class="o">)</span><span class="w"> </span><span class="nv">force</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">    </span>--endopts<span class="o">)</span><span class="w"> </span>shift<span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">    </span>*<span class="o">)</span><span class="w"> </span>die<span class="w"> </span><span class="s2">"invalid option: '</span><span class="nv">$1</span><span class="s2">'."</span><span class="w"> </span><span class="p">;;</span>
+<span class="w">  </span><span class="k">esac</span>
+<span class="w">  </span><span class="nb">shift</span>
+<span class="k">done</span>
+
+<span class="c1"># Store the remaining part as arguments.</span>
+<span class="nv">args</span><span class="o">+=(</span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span><span class="o">)</span>
+
+<span class="c1">############## End Options and Usage ###################</span>
+
+
+
+
+<span class="c1"># ############# ############# #############</span>
+<span class="c1"># ##       TIME TO RUN THE SCRIPT        ##</span>
+<span class="c1"># ##                                     ##</span>
+<span class="c1"># ## You shouldn't need to edit anything ##</span>
+<span class="c1"># ## beneath this line                   ##</span>
+<span class="c1"># ##                                     ##</span>
+<span class="c1"># ############# ############# #############</span>
+
+<span class="c1"># Trap bad exits with your cleanup function</span>
+<span class="nb">trap</span><span class="w"> </span>trapCleanup<span class="w"> </span>EXIT<span class="w"> </span>INT<span class="w"> </span>TERM
+
+<span class="c1"># Exit on error. Append '||true' when you run the script if you expect an error.</span>
+<span class="nb">set</span><span class="w"> </span>-o<span class="w"> </span>errexit
+
+<span class="c1"># Run in debug mode, if set</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">debug</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"1"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nb">set</span><span class="w"> </span>-x
+<span class="k">fi</span>
+
+<span class="c1"># Exit on empty variable</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">strict</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"1"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="nb">set</span><span class="w"> </span>-o<span class="w"> </span>nounset
+<span class="k">fi</span>
+
+<span class="c1"># Bash will remember &amp; return the highest exitcode in a chain of pipes.</span>
+<span class="c1"># This way you can catch the error in case mysqldump fails in `mysqldump |gzip`, for example.</span>
+<span class="nb">set</span><span class="w"> </span>-o<span class="w"> </span>pipefail
+
+<span class="c1"># Invoke the checkDependencies function to test for Bash packages</span>
+checkDependencies
+
+<span class="c1"># Run your script</span>
+mainScript
+
+safeExit<span class="w"> </span><span class="c1"># Exit cleanly</span>
+</code></pre></div>
+</article>
+<section>
+<div class="comments" id="comment-box">
+<script async="" crossorigin="anonymous" data-category="Comments" data-category-id="DIC_kwDOIM6z9s4CSACn" data-emit-metadata="0" data-input-position="top" data-lang="en" data-loading="lazy" data-mapping="pathname" data-reactions-enabled="1" data-repo="natelandau/natelandau.com" data-repo-id="R_kgDOIM6z9g" data-strict="1" data-theme="preferred_color_scheme" src="https://giscus.app/client.js"></script>
+</div>
+</section>
+<div class="grid">
+<div>
+<a class="secondary" href="https://natelandau-com.pages.dev/how-to-notify-services-when-post-jekyll/" role="button">← How to notify search engines when you post to Jekyll</a>
+</div>
+<div dir="rtl">
+<a class="secondary" href="https://natelandau-com.pages.dev/how-to-preview-rss-feeds-in-safari/" role="button"> → How to Preview RSS feeds in Safari</a>
+</div>
+</div>
+</main>
+<footer>
+<div class="grid container">
+<div><a href="https://github.com/natelandau"><svg class="icon" viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+</svg></a>
+<a href="https://linkedin.com/in/natelandau"><svg class="icon" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
+</svg></a>
+<a href="https://twitter.com/natelandau"><svg class="icon" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+</svg></a>
+<a href="https://bsky.app/profile/natelandau.bsky.social"><svg class="icon" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7
+                        64-64l0-320c0-35.3-28.7-64-64-64L64 32zM224 247.4c14.5-30 54-85.8 90.7-113.3c26.5-19.9 69.3-35.2
+                        69.3 13.7c0 9.8-5.6 82.1-8.9 93.8c-11.4 40.8-53 51.2-90 44.9c64.7 11 81.2 47.5 45.6 84c-67.5
+                        69.3-97-17.4-104.6-39.6c0 0 0 0 0 0l-.3-.9c-.9-2.6-1.4-4.1-1.8-4.1s-.9 1.5-1.8 4.1c-.1 .3-.2
+                        .6-.3 .9c0 0 0 0 0 0c-7.6 22.2-37.1 108.8-104.6 39.6c-35.5-36.5-19.1-73 45.6-84c-37
+                        6.3-78.6-4.1-90-44.9c-3.3-11.7-8.9-84-8.9-93.8c0-48.9 42.9-33.5 69.3-13.7c36.7 27.5 76.2 83.4
+                        90.7 113.3z"></path>
+</svg></a>
+<a href="mailto:fromwebsite@natelandau.com"><svg class="icon" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"></path>
+</svg></a>
+</div>
+<div dir="rtl">Copyright © 2024 Nathaniel Landau</div>
+</div>
+</footer></body>
+</html>
