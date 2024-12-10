@@ -110,6 +110,7 @@ The following Pelican extensions are used:
 -   [Yaml Metadata](https://github.com/pelican-plugins/yaml-metadata)
 -   [Pelican Sitemap](https://github.com/pelican-plugins/sitemap)
 -   [Pelican Neighbors](https://github.com/pelican-plugins/neighbors)
+-   [Pelican Tag Cloud](https://github.com/pelican-plugins/tag-cloud)
 
 ### Comments
 

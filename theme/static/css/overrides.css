@@ -226,7 +226,7 @@ article h3 a,
 article h4 a,
 article h5 a,
 article h6 a,
-:where(a:not([role=button], .tag, .logo, footer a)) {
+:where(a:not([role=button], .tag, .logo, footer a, ul.tagcloud li a)) {
     font-weight: 700;
     color: var(--natelandau-link-color);
     text-decoration: none;
@@ -266,7 +266,7 @@ article h3 a::before,
 article h4 a::before,
 article h5 a::before,
 article h6 a::before,
-:where(a:not([role=button], .tag, .logo, footer a))::before {
+:where(a:not([role=button], .tag, .logo, footer a, ul.tagcloud li a))::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -296,7 +296,7 @@ article h3 a:hover::before,
 article h4 a:hover::before,
 article h5 a:hover::before,
 article h6 a:hover::before,
-:where(a:not([role=button], .tag, .logo, footer a))::before {
+:where(a:not([role=button], .tag, .logo, footer a, ul.tagcloud li a))::before {
     visibility: visible;
     -webkit-transform: scaleX(1);
     -moz-transform: scaleX(1);
@@ -377,4 +377,56 @@ footer .icon {
     :root {
         --pico-font-size: 118.75%;
     }
+}
+
+ul.tagcloud {
+    list-style: none;
+    padding: 0;
+}
+
+ul.tagcloud li {
+    display: inline-block;
+}
+
+li.tag-1 {
+    font-size: 150%;
+}
+
+li.tag-2 {
+    font-size: 120%;
+}
+
+li.tag-3 {
+    font-size: 100%;
+}
+
+li.tag-4 {
+    font-size: 80%;
+}
+
+li.tag-5 {
+    font-size: 60%;
+}
+
+ul.tagcloud li a {
+    text-decoration: none;
+    font-family: var(--pico-font-family-sans-serif);
+    padding: 0.3rem 0.4rem;
+    vertical-align: baseline;
+    background-color: var(--pico-primary-background);
+    color: var(--natelandau-background-color);
+    border-radius: 0.3rem;
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+}
+
+ul.tagcloud li a:hover {
+    background-color: var(--natelandau-text-color);
+    color: var(--natelandau-background-color);
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
 }
