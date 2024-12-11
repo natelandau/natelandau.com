@@ -228,20 +228,23 @@ def cache_bust():
     site_dir = Path(CONFIG["deploy_path"]).resolve()
     unique_id = str(uuid.uuid4())[:8]
 
+    i = 0
     for file in site_dir.glob("**/*.html"):
         with open(file, "r") as f:
             content = f.read()
 
-        content = re.sub(
-            r"(/static/css/[a-zA-Z0-9\.-_]+\.css) rel=",
-            rf"\1?v={unique_id} rel=",
-            content,
-        )
+        if re.search(r'<link href="?/static/css/[a-zA-Z0-9\.-_]+\.css', content):
+            i += 1
+            content = re.sub(
+                r'(<link href="?/static/css/[a-zA-Z0-9\.-_]+\.css)',
+                rf"\1?v={unique_id}",
+                content,
+            )
 
         with open(file, "w") as f:
             f.write(content)
 
-    print("Cache busted all CSS")
+    print(f"Cache busted CSS files in {i} files")
 
 
 def pelican_run(cmd):
