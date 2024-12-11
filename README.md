@@ -60,9 +60,10 @@ Posts are written in markdown and placed in the `content` directory.
 Use the following conventions when writing posts and pages in markdown.
 
 -   `==Word==` becomes `<mark>Word</mark>`
--   `++Word++` becomes `<kbd>Word</kbd>`
+-   `++"Word"++` becomes `<kbd>Word</kbd>`
+-   `++delete++` becomes `<del>Del</del>`
 -   `~~Word~~` becomes `<del>Word</del>`
--   Inline code can be highlighted with `#!language code` as in `Here is some code: #!py3 import pymdownx; pymdownx.__version__` or `#!js var test = 0;`
+-   Inline code can be highlighted with `#!language code` as in: `#!py3 import pymdownx; pymdownx.__version__` or `#!js var test = 0;`
 -   Emoji can be added with `:emoji_name:` as in `I have a :smile: here. and here is a :tada:`
 -   [Smart symbols](https://facelessuser.github.io/pymdown-extensions/extensions/smartsymbols/) are enabled by default
 
@@ -104,7 +105,8 @@ The theme is built using simple semantic HTML and [PicoCSS](https://picocss.com/
 
 ### Pelican Extensions
 
-The following Pelican extensions are used:
+The following Pelican extensions and python packages are used:
+
 -   [PyMdown](https://facelessuser.github.io/pymdown-extensions/extensions/arithmatex/)
 -   [image-process](https://github.com/pelican-plugins/image-process)
 -   [Yaml Metadata](https://github.com/pelican-plugins/yaml-metadata)

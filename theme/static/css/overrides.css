@@ -1,5 +1,4 @@
 :root {
-    --pico-font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --pico-font-family-sans-serif: Lato, "Helvetica Neue", Helvetica, sans-serif;
     --pico-font-family-serif: Vollkorn, Georgia, serif;
     --pico-font-family-monospace: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
@@ -200,7 +199,7 @@ hr {
     --pico-font-family: var(--pico-font-family-serif);
 }
 
-p {
+p, article ul li, article ol li {
     font-size: 1.1rem;
     line-height: 1.6;
 }
@@ -334,8 +333,8 @@ nav ul,
 
 .highlight pre,
 pre code {
-    background: #0d1117;
-    color: rgb(230, 237, 243);
+    background: var(--natelandau-text-color);
+    color: var(--natelandau-background-color);
     font-size: 0.875em;
 }
 

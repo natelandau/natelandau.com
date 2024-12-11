@@ -1,6 +1,5 @@
 # Do something here
 
-
 Sitemap: {{ SITEURL }}/sitemap.xml
 
 User-agent: *

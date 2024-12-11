@@ -35,6 +35,28 @@ CONFIG = {
 }
 
 
+POST_TEMPLATE = """\
+---
+title: {title}
+slug: {slug}
+date: {timestamp}
+modified: {timestamp}
+summary:
+tags:
+    -
+---
+
+"""
+
+
+def slugify(s):
+    s = s.lower().strip()
+    s = re.sub(r"[^\w\s-]", "", s)
+    s = re.sub(r"[\s_-]+", "-", s)
+    s = re.sub(r"^-+|-+$", "", s)
+    return s
+
+
 @task
 def clean(c):
     """Remove generated files"""
@@ -144,7 +166,15 @@ def livereload(c):
 
 @task
 def new(c, title):
-    """Create a new post"""
+    """Create a new post from a template.
+
+    Args:
+        title (str): The title of the post.
+    """
+
+    newYorkTz = pytz.timezone("America/New_York")
+    now = datetime.now(newYorkTz)
+
     post_dir = Path(CONFIG["post_path"]).resolve()
 
     new_post_path = post_dir.joinpath(f"{now.strftime('%Y-%m-%d')}-{slugify(title)}.md")
@@ -162,7 +192,7 @@ def new(c, title):
 
 
 def minify():
-    """Minify all HTML files in _site/"""
+    """Minify all HTML and CSS files after Pelican has built the site."""
     site_dir = Path(CONFIG["deploy_path"]).resolve()
 
     for file in site_dir.glob("**/*.html"):
@@ -181,7 +211,7 @@ def minify():
         with open(file, "w") as f:
             f.write(minified)
 
-    print("Minified all HTML files in _site/")
+    print("Minified all HTML files")
 
     for file in site_dir.glob("**/*.css"):
         with open(file, "r") as f:
@@ -190,11 +220,11 @@ def minify():
         with open(file, "w") as f:
             f.write(minified)
 
-    print("Minified all CSS files in _site/")
+    print("Minified all CSS files")
 
 
 def cache_bust():
-    """Cache bust all HTML files in _site/"""
+    """Cache bust links to CSS files within the HEAD by appending a unique ID to the URL."""
     site_dir = Path(CONFIG["deploy_path"]).resolve()
     unique_id = str(uuid.uuid4())[:8]
 
@@ -211,34 +241,9 @@ def cache_bust():
         with open(file, "w") as f:
             f.write(content)
 
-    print("Cache busted all css files in _site/")
+    print("Cache busted all CSS")
 
 
 def pelican_run(cmd):
     cmd += " " + program.core.remainder  # allows to pass-through args to pelican
     pelican_main(shlex.split(cmd))
-
-
-POST_TEMPLATE = """\
----
-title: {title}
-slug: {slug}
-date: {timestamp}
-modified: {timestamp}
-summary:
-tags:
-    -
----
-
-"""
-
-newYorkTz = pytz.timezone("America/New_York")
-now = datetime.now(newYorkTz)
-
-
-def slugify(s):
-    s = s.lower().strip()
-    s = re.sub(r"[^\w\s-]", "", s)
-    s = re.sub(r"[\s_-]+", "-", s)
-    s = re.sub(r"^-+|-+$", "", s)
-    return s
