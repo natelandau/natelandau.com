@@ -7,12 +7,12 @@
         "pelican-image-process>=3.0.4",
         "pelican-neighbors>=1.2.0",
         "pelican-sitemap>=1.2.0",
+        "pelican-tag-cloud>=1.0.1",
         "pelican-yaml-metadata>=2.1.2",
         "pelican>=4.10.2",
         "pymdown-extensions>=10.12",
         "rcssmin>=1.2.0",
-        "pelican-tag-cloud>=1.0.1",
-]
+    ]
     description = "Add your description here"
     name = "natelandau-new"
     readme = "README.md"
@@ -32,13 +32,63 @@
 [tool.commitizen]
     bump_message               = "bump(release): v$current_version → v$new_version"
     changelog_merge_prerelease = true
+    name                       = "cz_customize"
     tag_format                 = "v$version"
     update_changelog_on_bump   = true
     version_provider           = "pep621"
 
+    [tool.commitizen.customize]
+        example          = "feature (scope): this feature enable customize through config file"
+        message_template = "{{change_type}}{% if scope %}({{scope}}){% endif %}{%if breaking_change %}!{% endif %}: {{body}}{%if additional_info %}\n\n{{additional_info}}{% endif %}{% if breaking_change %}\n\nBREAKING CHANGE: {{breaking_change_footer}}{% endif %}"
+        schema           = "<type> (scope): <body>"
+
+        [[tool.commitizen.customize.questions]]
+            choices = [
+                { value = 'feat', name = 'feat: A new feature. Correlates with MINOR in SemVer' },
+                { value = 'fix', name = 'fix: A bug fix. Correlates with PATCH in SemVer' },
+                { value = 'post', name = 'post: Add or update post content' },
+
+                { value = 'build', name = 'build: Changes that affect the build system or external dependencies' },
+                { value = 'ci', name = 'ci: Changes to CI configuration files and scripts (example scopes: GitLabCI)' },
+                { value = 'docs', name = 'docs: Documentation only changes' },
+                { value = 'perf', name = 'perf: A code change that improves performance' },
+                { value = 'refactor', name = 'refactor: A code change that neither fixes a bug nor adds a feature' },
+                { value = 'style', name = 'style: Changes that do not affect the meaning of the code' },
+                { value = 'test', name = 'test: Adding missing or correcting existing tests' },
+            ]
+            message = "Select the type of change you are committing"
+            name = "change_type"
+            type = "list"
+
+        [[tool.commitizen.customize.questions]]
+            message = "What is the scope of this change? (class or file name): (press [enter] to skip)\n"
+            name    = "scope"
+            type    = "input"
+
+        [[tool.commitizen.customize.questions]]
+            message = "Write a short and imperative summary of the code changes: (lower case and no period)\n"
+            name    = "body"
+            type    = "input"
+
+        [[tool.commitizen.customize.questions]]
+            message = "Provide additional contextual information about the code changes: (press [enter] to skip)\n"
+            name    = "additional_info"
+            type    = "input"
+
+        [[tool.commitizen.customize.questions]]
+            default = false
+            message = "Is this a BREAKING CHANGE?"
+            name    = "breaking_change"
+            type    = "confirm"
+
+        [[tool.commitizen.customize.questions]]
+            message = "Footer. Information about Breaking Changes and reference issues thatthis commit closes: (press [enter] to skip)\n"
+            name    = "breaking_change_footer"
+            type    = "input"
+
 [tool.djlint]
     extend_exclude = "_site, .venv, cache"
-    ignore         = "H030,H031,H021,H006,H013"
+    ignore         = "H030,H031,H021,H006,H013,J018"
     # ignore_case    = true
     # format_attribute_template_tags = true
     blank_line_after_tag  = "load,extends,include,set"
@@ -55,5 +105,8 @@
         echo "-- Upgrading packages --" &&
         uv lock --upgrade &&
         echo "-- Autoupdating pre-commit --" &&
-        pre-commit autoupdate
+        pre-commit autoupdate &&
+        echo "-- Updating requirements.txt --" &&
+        uv -q pip compile pyproject.toml -o requirements.txt &&
+        echo "Done"
         """

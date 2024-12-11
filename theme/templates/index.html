@@ -14,7 +14,7 @@
     {% for article in articles_page.object_list -%}
     {% include "_includes/article_date_tags.html" %}
 
-    <h1 class="index-headline"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title
+    <h1 class="index-headline"><a href="/{{ article.url }}">{{ article.title
             | upper}}</a></h1>
     <p>{{ article.summary }}</p>
 
