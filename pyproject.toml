@@ -88,7 +88,7 @@
 
 [tool.djlint]
     extend_exclude = "_site, .venv, cache"
-    ignore         = "H030,H031,H021,H006,H013"
+    ignore         = "H030,H031,H021,H006,H013,J018"
     # ignore_case    = true
     # format_attribute_template_tags = true
     blank_line_after_tag  = "load,extends,include,set"
