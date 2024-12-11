@@ -194,3 +194,5 @@ This template parses the `pelicanconf.py` file and generates a `_redirects` file
 {{ src }} {{dst}} 301
 {% endfor -%}
 ```
+
+Deploying the site to Cloudflare pages is simple. Anytime a change is pushed to the `main` branch, the site is automatically deployed. However, I ran in to trouble because I us [uv](https://docs.astral.sh/uv/) to manage the Python environment and install the dependencies.  Cloudflare Pages doesn't support `uv` so I had to use `pip` to install the dependencies.  Luckily, uv makes this easy. Just run `uv pip compile pyproject.toml -o requirements.txt` to generate a `requirements.txt` file that can be used by CF Pages to install the dependencies.

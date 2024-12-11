@@ -122,13 +122,4 @@ To moderate, use the Github Discussions web interface.
 
 ## Deployment
 
-The site is deployed automatically using a Github Actions workflow which builds the site and pushes the generated files to the `deploy` branch. Cloudflare Pages will then pick up the changes and deploy them to the live site.
-
-Changes to the following files will trigger a deployment:
-```yaml
-paths:
-    - "content/**"
-    - "theme/**"
-    - "pelicanconf.py"
-    - "publishconf.py"
-```
+This site is automatically deployed to [Cloudflare Pages](https://pages.cloudflare.com/) whenever changes are pushed to the `main` branch. Cloudflare installs python dependencies from the `requirements.txt` file and runs `inv publish` to generate the site.
