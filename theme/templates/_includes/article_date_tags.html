@@ -4,7 +4,7 @@
     </div>
     <div dir="rtl">
         {% if article.tags -%}{% for tag in article.tags -%}
-        <a href="{{ SITEURL }}/{{ tag.url }}" class="tag">{{ tag | lower}}</a>
+        <a href="/{{ tag.url }}" class="tag">{{ tag | lower}}</a>
         {%- if not loop.last -%}&nbsp;{%- endif -%}
         {% endfor -%}{% endif -%}
     </div>

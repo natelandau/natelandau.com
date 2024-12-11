@@ -94,13 +94,13 @@
 <div class="grid">
     <div>
         {% if article.next_article %}
-        <a href="{{ SITEURL }}/{{ article.next_article.url}}" class="secondary"
+        <a href="/{{ article.next_article.url}}" class="secondary"
             role="button">←&nbsp;{{ article.next_article.title }}</a>
         {% endif %}
     </div>
     <div dir="rtl">
         {% if article.prev_article %}
-        <a href="{{ SITEURL }}/{{ article.prev_article.url}}" class="secondary"
+        <a href="/{{ article.prev_article.url}}" class="secondary"
             role="button">&nbsp;→&nbsp;{{ article.prev_article.title }}</a>
         {% endif -%}
     </div>
