@@ -121,4 +121,6 @@ SITEMAP = {
 REDIRECTS = {
     # "/source_url": "/destination_url"
     "/my-mac-osx-bash_profile/null": "/my-mac-osx-bash_profile/",
+    "/from-jekyll-to-pelican/null": "/from-jekyll-to-pelican/",
+    "/my-mac-os-zsh-profile/null": "/my-mac-os-zsh-profile/",
 }
