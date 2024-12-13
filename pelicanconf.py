@@ -120,4 +120,5 @@ SITEMAP = {
 # See [Cloudflare Pages documentation](https://developers.cloudflare.com/pages/configuration/redirects/) for more information.
 REDIRECTS = {
     # "/source_url": "/destination_url"
+    "/my-mac-osx-bash_profile/null": "/my-mac-osx-bash_profile/",
 }
