@@ -121,4 +121,12 @@ SITEMAP = {
 REDIRECTS = {
     # "/source_url": "/destination_url"
     "/my-mac-osx-bash_profile/null": "/my-mac-osx-bash_profile/",
+    "/amp/questions-for-checking-references/": "/questions-for-checking-references/",
+    "/my-mac-osx-bash_pro": "/my-mac-osx-bash_profile/",
+    "/page/2": "/index2/",
+    "/page/2/index.html": "/index2/",
+    "/boilerplate-shell-scripttemplate/": "/boilerplate-shell-script-template/",
+    "/my-mac": "/my-mac-os-zsh-profile/",
+    "/boilerplate-shell-script-": "/boilerplate-shell-script-template/",
+    "/rss": "/atom.xml",
 }
