@@ -1,7 +1,7 @@
 [project]
     dependencies = [
         "invoke>=2.2.0",
-        "livereload>=2.7.0",
+        "livereload>=2.7.1",
         "markdown>=3.7",
         "minify-html>=0.15.0",
         "pelican-image-process>=3.0.4",
@@ -9,8 +9,8 @@
         "pelican-sitemap>=1.2.0",
         "pelican-tag-cloud>=1.0.1",
         "pelican-yaml-metadata>=2.1.2",
-        "pelican>=4.10.2",
-        "pymdown-extensions>=10.12",
+        "pelican>=4.11.0",
+        "pymdown-extensions>=10.14",
         "rcssmin>=1.2.0",
     ]
     description = "Add your description here"
@@ -21,11 +21,11 @@
 
 [dependency-groups]
     dev = [
-        "commitizen>=4.0.0",
-        "djlint>=1.36.3",
-        "poethepoet>=0.31.1",
+        "commitizen>=4.1.0",
+        "djlint>=1.36.4",
+        "poethepoet>=0.32.1",
         "pre-commit>=4.0.1",
-        "typos>=1.28.2",
+        "typos>=1.29.4",
         "yamllint>=1.35.1",
     ]
 
