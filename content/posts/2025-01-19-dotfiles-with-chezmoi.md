@@ -8,7 +8,7 @@ tags:
     - macos
     - unix
 ---
-I work extensively in the command line, managing multiple servers and personal computers. To keep my workflow consistent, I rely on dotfiles - hidden configuration files that customize my system and applications. While many guides [explain](https://www.freecodecamp.org/news/dotfiles-what-is-a-dot-file-and-how-to-create-it-in-mac-and-linux/) the [basics](https://www.daytona.io/dotfiles/ultimate-guide-to-dotfiles) of [dotfiles](https://effective-shell.com/part-5-building-your-toolkit/managing-your-dotfiles/), I want to share how I use [Chezmoi](https://www.chezmoi.io/) to keep mine in sync across all my machines.
+I work extensively in the command line, managing multiple servers and personal computers. To keep my workflow consistent, I rely on dotfiles - hidden configuration files that customize my system and applications. While many guides [explain](https://www.freecodecamp.org/news/dotfiles-what-is-a-dot-file-and-how-to-create-it-in-mac-and-linux/) the [basics](https://www.daytona.io/dotfiles/ultimate-guide-to-dotfiles) of [dotfiles](https://effective-shell.com/part-5-building-your-toolkit/managing-your-dotfiles/), I won't be doing that here. This post is about how I use [Chezmoi](https://www.chezmoi.io/) to keep mine in sync across all my machines.
 
 For years, I managed my dotfiles with [a handcrafted dotfiles management system](https://github.com/natelandau/dotfiles/tree/9246c6dc67a172dfcb99fe26682453701ec3bcea). These scripts created symlinks across my filesystem, pointing to canonical files in a git repository. This worked well initially, but maintaining the sync scripts became increasingly complex over time as I added more and more features.
 

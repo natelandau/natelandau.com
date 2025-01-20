@@ -8,40 +8,49 @@ callout:
 tags:
     - webdev
 ---
-When I first started this blog in 2013 I used [Jekyll](https://jekyllrb.com/) as a static site generator. At the time it was a state-of-the-art tool for creating static sites. I hand-crafted my own CSS and created an overly complex publishing workflow leaning heavily on a mix of Ruby and NPM packages orchestrated with [Grunt.js](https://gruntjs.com/).  I published the site on AWS S3 using a number of custom scripts to manage the build and deployment process.  Putting this all together was a great learning experience and it all worked well...until it didn't.
+Building and maintaining a personal blog should be simple, but over time, technical debt can make even basic updates feel overwhelming. In 2013, I launched this blog using [Jekyll](https://jekyllrb.com/) as a static site generator using a mix of Ruby and NPM pagkages along with custom build scripts. While it worked well initially, maintaining the complex publishing workflow became challenging, especially after long periods without updates. Dependency issues and the need to update outdated packages turned simple post publishing into a multi-day ordeal.
 
-I use this blog more as a personal project to learn about web technologies and don't publish content very often. Sometimes a year or more would go by without touching the site. What I found was that every time I wanted to publish a post I had to enter NPM update hell. Many of the packages I used were out of date and/or had dependencies that were no longer supported. Rather than spending an hour to publish a post I would spend days upgrading NPM packages and workflows.  To make matters worse, my entire workflow was centered on Grunt.js which hasn't been updated in years. I needed something simpler.
+To address these challenges, I knew I needed to make some changes. I established three key requirements for a new blog architecture:
 
-I had three requirements for a new architecture:
+1. Use a single language and ecosystem to streamline management and publishing
+2. Implement an adaptable CSS framework
+3. Develop an efficient publishing workflow
 
-1. It had to **use a single language and ecosystem**. No more co-mingling of Ruby and Javascript to manage and publish content.
-2. Managing a hand-built CSS framework was a pain. I needed a **flexible and simple CSS framework** that I could easily customize.
-3. I needed a **simple publishing workflow** that didn't require a lot of maintenance and was easy to understand.
+After evaluating options like [Pelican](https://getpelican.com/), [Hugo](https://gohugo.io/), and [Jekyll](https://jekyllrb.com/), I chose Pelican for its Python foundation, aligning with my recent development focus.
 
-I started looking around at static site generators and narrowed my list of possible choices to [Pelican](https://getpelican.com/), [Hugo](https://gohugo.io/), and [Jekyll](https://jekyllrb.com/).  Of the three, I selected Pelican because it was written in Python and I've been doing lots of Python development lately.
+Pelican offered fewer ready-to-use design templates (themes) compared to other options. While some themes existed, none matched my needs. While I found a few acceptable options, building a custom theme offered the best path forward. This presented an opportunity to improve upon the hand-crafted HTML and CSS of my old site, which needed modernization to improve maintainability due to non-semantic markup and a disorganized stylesheet.
 
-The largest drawback to Pelican was that the available pre-built themese were pretty terrible. I found a few that were ok but nothing that I would consider a good starting point. I decided to build my own theme from scratch.  Luckily, this was easy to do.
+For the new theme, I opted for semantic HTML and selected [Pico.css](https://picocss.com/) as the CSS framework. Pico's simplicity and minimal class usage made it an ideal choice for customization without adding unnecessary complexity. Customizing Pico was simple and required minimal changes and custom classes to get the look and feel I wanted.
 
-My old site used hand-crafted HTML and CSS which I found to be a pain to maintain.  My HTML wasn't semantic and my CSS was a mess.  This time around I used vanilla semantic HTML.  I selected [Pico.css](https://picocss.com/) for a CSS framework.  Pico is a simple CSS framework that directly styles HTML tags, using fewer than 10 classes overall. Customizing Pico was simple and required very few changes and custom classes to get the look and feel I wanted.
+The world of hosting options has changed dramatically since 2013. I decided to move the hosting from AWS S3 to [Cloudflare Pages](https://pages.cloudflare.com/). When new content is pushed to Github triggers a workflow that builds the site and pushes the site to a branch that is watched by Cloudflare Pages.  When the branch is updated, Cloudflare deploys changes to the live site.  This is a reliable workflow that I can easily understand and maintain.
 
-The world of hosting options has changed dramatically since 2013. I decided to move the hosting from AWS S3 to [Cloudflare Pages](https://pages.cloudflare.com/). When new content is pushed to Github a workflow is triggered that builds the site and pushes the site to a branch that is watched by Cloudflare Pages.  When the branch is updated, the changes are deployed to the live site.  This is a simple and effective workflow that I can easily understand and maintain.
+This new architecture delivered several improvements:
+- Simplified maintenance with a single language ecosystem (Python)
+- Faster content publishing through automated workflows
+- Improved performance with built-in minification and optimization
+- Better scalability using modern cloud infrastructure
+- Reduced costs by leveraging Cloudflare's free tier
 
-The entire codebase is available on Github: [natelandau/natelandau.com](https://github.com/natelandau/natelandau.com).
+The codebase lives on Github: [natelandau/natelandau.com](https://github.com/natelandau/natelandau.com).
 
 ## Learnings
 
-I use [uv](https://docs.astral.sh/uv/) to manage the Python environment and install the dependencies. Running `uv pip compile pyproject.toml -o requirements.txt` will generate a `requirements.txt` file that can be used by CF Pages to install the dependencies.
+### Managing Dependencies with UV
+I use [uv](https://docs.astral.sh/uv/) to manage the Python environment and install the dependencies. Running `uv pip compile pyproject.toml -o requirements.txt` generates a `requirements.txt` file that Cloudflare Pages can use to install the necessary packages.
 
-Few Python packages or Pelican extensions were needed for the functionality I wanted.  Here's the short list:
 
--   [PyMdown](https://facelessuser.github.io/pymdown-extensions/extensions/arithmatex/)
--   [image-process](https://github.com/pelican-plugins/image-process)
--   [Yaml Metadata](https://github.com/pelican-plugins/yaml-metadata)
--   [Pelican Sitemap](https://github.com/pelican-plugins/sitemap)
--   [Pelican Neighbors](https://github.com/pelican-plugins/neighbors)
--   [Pelican Tag Cloud](https://github.com/pelican-plugins/tag-cloud)
+### Essential Python Packages and Pelican Extensions
+While I kept the dependency list lean, each chosen package serves a specific purpose in improving the blog:
 
-I use extended markdown with [PyMdown](https://facelessuser.github.io/pymdown-extensions/extensions/arithmatex/) to write my posts. This allows me to use the following conventions when writing posts and pages in markdown.
+- [PyMdown](https://facelessuser.github.io/pymdown-extensions/extensions/arithmatex/): Enhances content formatting with features like syntax highlighting and smart symbols, making technical posts more readable
+- [image-process](https://github.com/pelican-plugins/image-process): Optimizes images for web delivery, improving page load times without manual intervention
+- [Yaml Metadata](https://github.com/pelican-plugins/yaml-metadata): Simplifies post management with clean, readable front matter that's easier to maintain than traditional formats
+- [Pelican Sitemap](https://github.com/pelican-plugins/sitemap): Creates a `sitemap.xml` file for SEO
+- [Pelican Neighbors](https://github.com/pelican-plugins/neighbors): Adds a "next post" and "previous post" link to each post
+- [Pelican Tag Cloud](https://github.com/pelican-plugins/tag-cloud): Adds a browsable tag cloud
+
+### Writing Posts with Extended Markdown
+To make technical writing more expressive and readable, I leveraged [PyMdown's](https://facelessuser.github.io/pymdown-extensions/extensions/arithmatex/) extended Markdown features. These extensions make it easier to create rich, technical content using straightforward Markdown syntax:
 
 -   `==Word==` becomes  ==Word==
 -   `++ctrl+alt+delete++` becomes  ++ctrl+alt+delete++
@@ -50,7 +59,7 @@ I use extended markdown with [PyMdown](https://facelessuser.github.io/pymdown-ex
 -   Emoji can be added with `:emoji_name:` as in: I have a :smile: here. and here is a :tada:
 -   [Smart symbols](https://facelessuser.github.io/pymdown-extensions/extensions/smartsymbols/) are enabled by default
 
-These are enabled with the following configuration in `pelicanconf.py`:
+These extensions are configured in the `pelicanconf.py` file as follows:
 
 ```python
 from pymdownx import emoji
@@ -70,7 +79,16 @@ MARKDOWN = {
 }
 ```
 
-[Invoke](https://github.com/pyinvoke/invoke) is a flexible Python task manager that comes bundled with Pelican. I wrote a few custom tasks to help with the deployment process.  These tasks make use of [minify-html](https://github.com/wilsonzlin/minify-html) and [rcssmin](https://github.com/ndparker/rcssmin) to minify the HTML and CSS files.
+### Custom Deployment Tasks with Invoke
+
+[Invoke](https://github.com/pyinvoke/invoke) is a flexible Python task manager bundled with Pelican.  It helps automate common development tasks, making the publishing process more efficient. Here are the key tasks I implemented:
+
+1. **Post Creation**: Automate the creation of new blog posts with proper formatting
+2. **Asset Optimization**: Minify HTML and CSS files
+3. **Cache Management**: Implement cache busting for better performance
+4. **Local Development**: Runs Pelican in watch mode and serve the site locally
+
+Here's the implementation:
 
 ```python
 from datetime import datetime
@@ -179,15 +197,15 @@ def new(c, title):
 
     print(f"Created new post at {new_post_path}")
 ```
-
-[Cloudflare Pages](https://pages.cloudflare.com/) supports redirects in a `_redirects` file at the root of the site.  I manage redirects in the `pelicanconf.py` file with the `REDIRECTS` dictionary.
+### Managing Redirects with Cloudflare Pages
+[Cloudflare Pages](https://pages.cloudflare.com/) supports redirects through a `_redirects` file at the root of the site. I manage redirects in the `pelicanconf.py` file using the `REDIRECTS` dictionary:
 
 ```python
 REDIRECTS = {
     "source_url": "destination_url"
 }
 ```
-This template parses the `pelicanconf.py` file and generates a `_redirects` file at the root of the site.
+A Jinja template parses the `pelicanconf.py` file and generates the `_redirects` file:
 
 ```jinja
 {%- for src, dst in REDIRECTS.items() %}
@@ -195,4 +213,12 @@ This template parses the `pelicanconf.py` file and generates a `_redirects` file
 {% endfor -%}
 ```
 
-Deploying the site to Cloudflare pages is simple. Anytime a change is pushed to the `main` branch, the site is automatically deployed. However, I ran in to trouble because I us [uv](https://docs.astral.sh/uv/) to manage the Python environment and install the dependencies.  Cloudflare Pages doesn't support `uv` so I had to use `pip` to install the dependencies.  Luckily, uv makes this easy. Just run `uv pip compile pyproject.toml -o requirements.txt` to generate a `requirements.txt` file that can be used by CF Pages to install the dependencies.
+### Deployment to Cloudflare Pages
+
+Deploying the site to Cloudflare Pages is straightforward. Any changes pushed to the `main` branch trigger an automatic deployment. However, since Cloudflare Pages doesn't support `uv`, I had to use `pip` to install the dependencies. Luckily, `uv` simplifies this process by generating a `requirements.txt` file with the command `uv pip compile pyproject.toml -o requirements.txt`.
+
+## Conclusion
+
+Rebuilding my blog with Pelican, Pico.css, and Cloudflare Pages has improved the maintainability, performance, and ease of use compared to my previous Jekyll-based setup. By leveraging a single language and ecosystem, a lightweight CSS framework, and a simple deployment workflow, I've created a blog that is easier to manage and update.
+
+The complete source code is available on [GitHub](https://github.com/natelandau/natelandau.com) for those interested in implementing similar solutions.
