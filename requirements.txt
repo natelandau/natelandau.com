@@ -18,7 +18,7 @@ invoke==2.2.0
     # via natelandau-new (pyproject.toml)
 jinja2==3.1.4
     # via pelican
-livereload==2.7.0
+livereload==2.7.1
     # via natelandau-new (pyproject.toml)
 lxml==5.3.0
     # via pelican-image-process
@@ -37,7 +37,7 @@ minify-html==0.15.0
     # via natelandau-new (pyproject.toml)
 ordered-set==4.1.0
     # via pelican
-pelican==4.10.2
+pelican==4.11.0
     # via
     #   natelandau-new (pyproject.toml)
     #   pelican-image-process
@@ -61,7 +61,7 @@ pygments==2.18.0
     # via
     #   pelican
     #   rich
-pymdown-extensions==10.12
+pymdown-extensions==10.14
     # via natelandau-new (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via pelican
