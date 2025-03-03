@@ -17,26 +17,26 @@ uv sync
 
 ## Interacting with Pelican
 
-The [Invoke package](https://www.pyinvoke.org/) is used to interact with Pelican. Common tasks include:
+[Duty](https://pawamoy.github.io/duty/) is used as a task runner to interact with Pelican. Common tasks include:
 
 ```bash
 # List all available tasks
-invoke --list
+duty --list
 
 # Build the site (dev settings)
-invoke build
+duty build
 
 # Serve the site locally
-invoke serve
+duty serve
 
 # Regenerate the site upon file changes (dev settings)
-invoke livereload
+duty livereload
 
 # Publish the site with production settings
-invoke publish
+duty publish
 
 # Create a new post
-invoke new "My New Post"
+duty new "My New Post"
 ```
 
 ## Authoring Posts and Pages
@@ -122,4 +122,4 @@ To moderate, use the Github Discussions web interface.
 
 ## Deployment
 
-This site is automatically deployed to [Cloudflare Pages](https://pages.cloudflare.com/) whenever changes are pushed to the `main` branch. Cloudflare installs python dependencies from the `requirements.txt` file and runs `inv publish` to generate the site.
+This site is automatically deployed to [Cloudflare Pages](https://pages.cloudflare.com/) whenever changes are pushed to the `main` branch. Cloudflare installs python dependencies from the `requirements.txt` file and runs `duty publish` to generate the site.

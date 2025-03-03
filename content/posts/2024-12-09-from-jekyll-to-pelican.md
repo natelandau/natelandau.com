@@ -79,124 +79,17 @@ MARKDOWN = {
 }
 ```
 
-### Custom Deployment Tasks with Invoke
+### Custom Deployment Tasks with Duty
 
-[Invoke](https://github.com/pyinvoke/invoke) is a flexible Python task manager bundled with Pelican.  It helps automate common development tasks, making the publishing process more efficient. Here are the key tasks I implemented:
+[Duty](https://pawamoy.github.io/duty/) is a flexible Python task manager bundled with Pelican.  It helps automate common development tasks, making the publishing process more efficient. Here are the key tasks I implemented:
 
 1. **Post Creation**: Automate the creation of new blog posts with proper formatting
 2. **Asset Optimization**: Minify HTML and CSS files
 3. **Cache Management**: Implement cache busting for better performance
 4. **Local Development**: Runs Pelican in watch mode and serve the site locally
 
-Here's the implementation:
+See all the tasks in [duties.py](https://github.com/natelandau/natelandau.com/blob/main/duties.py).
 
-```python
-from datetime import datetime
-import pytz
-import minify_html
-from pathlib import Path
-from rcssmin import cssmin
-
-POST_TEMPLATE = """\
----
-title: {title}
-slug: {slug}
-date: {timestamp}
-modified: {timestamp}
-summary:
-tags:
-    -
----
-
-"""
-
-def slugify(s):
-    s = s.lower().strip()
-    s = re.sub(r"[^\w\s-]", "", s)
-    s = re.sub(r"[\s_-]+", "-", s)
-    s = re.sub(r"^-+|-+$", "", s)
-    return s
-
-def minify():
-    """Minify all HTML and CSS files after Pelican has built the site."""
-    site_dir = Path(CONFIG["deploy_path"]).resolve()
-
-    for file in site_dir.glob("**/*.html"):
-        with open(file, "r") as f:
-            content = f.read()
-        minified = minify_html.minify(
-            content,
-            do_not_minify_doctype=True,
-            keep_closing_tags=True,
-            keep_html_and_head_opening_tags=True,
-            minify_css=True,
-            minify_js=True,
-            preserve_brace_template_syntax=True,
-            remove_processing_instructions=True,
-        )
-        with open(file, "w") as f:
-            f.write(minified)
-
-    print("Minified all HTML files")
-
-    for file in site_dir.glob("**/*.css"):
-        with open(file, "r") as f:
-            content = f.read()
-        minified = cssmin(content)
-        with open(file, "w") as f:
-            f.write(minified)
-
-    print("Minified all CSS files")
-
-def cache_bust():
-    """Cache bust links to CSS files within the HEAD by appending a unique ID to the URL."""
-    site_dir = Path(CONFIG["deploy_path"]).resolve()
-    unique_id = str(uuid.uuid4())[:8]
-
-    i = 0
-    for file in site_dir.glob("**/*.html"):
-        with open(file, "r") as f:
-            content = f.read()
-
-        if re.search(r'<link href="?/static/css/[a-zA-Z0-9\.-_]+\.css', content):
-            i += 1
-            content = re.sub(
-                r'(<link href="?/static/css/[a-zA-Z0-9\.-_]+\.css)',
-                rf"\1?v={unique_id}",
-                content,
-            )
-
-        with open(file, "w") as f:
-            f.write(content)
-
-    print(f"Cache busted CSS files in {i} files")
-
-@task
-def new(c, title):
-    """Create a new post from a template.
-
-    Args:
-        title (str): The title of the post.
-    """
-
-    newYorkTz = pytz.timezone("America/New_York")
-    now = datetime.now(newYorkTz)
-
-    post_dir = Path(CONFIG["post_path"]).resolve()
-
-    new_post_path = post_dir.joinpath(f"{now.strftime('%Y-%m-%d')}-{slugify(title)}.md")
-    new_post_path.touch()
-    with open(new_post_path, "w") as f:
-        f.write(
-            POST_TEMPLATE.format(
-                title=title,
-                slug=slugify(title),
-                timestamp=now.strftime("%Y-%m-%d %H:%M"),
-            )
-        )
-
-    print(f"Created new post at {new_post_path}")
-```
 ### Managing Redirects with Cloudflare Pages
 [Cloudflare Pages](https://pages.cloudflare.com/) supports redirects through a `_redirects` file at the root of the site. I manage redirects in the `pelicanconf.py` file using the `REDIRECTS` dictionary:
 
