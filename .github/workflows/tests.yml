@@ -47,9 +47,9 @@ jobs:
                   path: ~/.cache/pre-commit
                   key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
 
-            - name: check spelling with typos
+            - name: Lint the project
               shell: bash
-              run: uv run typos
+              run: uv run duty lint
 
             - name: Check lock file consistency
               run: uv sync --locked
