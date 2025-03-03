@@ -1,4 +1,4 @@
-"""This file is only used if you use `inv production` or explicitly specify it as your config file."""
+"""This file is only used if you use `duty publish` or explicitly specify it as your config file."""
 
 import os
 import sys
