@@ -14,7 +14,7 @@
         "rcssmin>=1.2.1",
     ]
     description = "Add your description here"
-    name = "natelandau-new"
+    name = "natelandau.com"
     readme = "README.md"
     requires-python = ">=3.11"
     version = "0.4.0"
