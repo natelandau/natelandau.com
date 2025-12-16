@@ -71,7 +71,7 @@ pygments==2.18.0
     # via
     #   pelican
     #   rich
-pymdown-extensions==10.14.3
+pymdown-extensions==10.16.1
     # via natelandau-com (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via pelican
