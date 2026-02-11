@@ -63,7 +63,7 @@ pelican-tag-cloud==1.0.1
     # via natelandau-com (pyproject.toml)
 pelican-yaml-metadata==2.1.2
     # via natelandau-com (pyproject.toml)
-pillow==11.1.0
+pillow==12.1.1
     # via pelican-image-process
 ptyprocess==0.7.0
     # via failprint
