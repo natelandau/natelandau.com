@@ -30,7 +30,7 @@ livereload==2.7.1
     # via natelandau-com (pyproject.toml)
 lxml==5.3.1
     # via pelican-image-process
-markdown==3.7
+markdown==3.8.1
     # via
     #   natelandau-com (pyproject.toml)
     #   pelican-yaml-metadata
