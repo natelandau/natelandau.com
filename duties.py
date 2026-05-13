@@ -118,7 +118,7 @@ def minify(ctx: Context):
             content = f.read()
         minified = minify_html.minify(
             content,
-            do_not_minify_doctype=True,
+            minify_doctype=False,
             keep_closing_tags=True,
             keep_html_and_head_opening_tags=True,
             minify_css=True,
@@ -295,9 +295,9 @@ def update(ctx: Context) -> None:
         ["uv", "lock", "--upgrade"], title="update uv lock", command="uv lock --upgrade"
     )
     ctx.run(
-        ["pre-commit", "autoupdate"],
-        title="pre-commit autoupdate",
-        command="pre-commit autoupdate",
+        ["prek", "autoupdate"],
+        title="prek autoupdate",
+        command="prek autoupdate",
     )
     ctx.run(
         ["uv", "-q", "pip", "compile", "pyproject.toml", "-o", "requirements.txt"],
@@ -322,7 +322,7 @@ def lint(ctx: Context) -> None:
     )
 
     ctx.run(
-        "SKIP=typos,djlint pre-commit run --all-files",
-        title=pyprefix("pre-commit hooks"),
-        command="SKIP=typos,djlint pre-commit run --all-files",
+        "SKIP=typos,djlint prek run --all-files",
+        title=pyprefix("prek hooks"),
+        command="SKIP=typos,djlint prek run --all-files",
     )

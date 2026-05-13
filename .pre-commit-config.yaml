@@ -1,19 +1,16 @@
 ---
 # https://pre-commit.com
-default_install_hook_types: [commit-msg, pre-commit]
+default_install_hook_types: [commit-msg, pre-commit, pre-push]
 default_stages: [pre-commit, manual]
 fail_fast: true
 repos:
   - repo: "https://github.com/commitizen-tools/commitizen"
-    rev: v4.4.1
+    rev: v4.16.0
     hooks:
       - id: commitizen
-      - id: commitizen-branch
-        stages:
-          - pre-push
 
   - repo: "https://github.com/pre-commit/pre-commit-hooks"
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-added-large-files
       - id: check-ast
@@ -41,20 +38,20 @@ repos:
         args: [--branch, staging, --branch, production]
 
   - repo: "https://github.com/adrienverge/yamllint.git"
-    rev: v1.35.1
+    rev: v1.38.0
     hooks:
       - id: yamllint
         files: ^.*\.(yaml|yml)$
         entry: yamllint --strict --config-file .yamllint.yml
 
   - repo: "https://github.com/crate-ci/typos"
-    rev: v1.30.0
+    rev: v1.46.1
     hooks:
       - id: typos
         args: ["--force-exclude"]
 
   - repo: "https://github.com/gitleaks/gitleaks"
-    rev: v8.24.0
+    rev: v8.30.1
     hooks:
       - id: gitleaks
 
@@ -64,13 +61,18 @@ repos:
       - id: djlint
         args: ["--configuration", "pyproject.toml"]
 
-ci:
-  autofix_commit_msg: |
-    fix: auto fixes from pre-commit.com hooks
-
-    for more information, see https://pre-commit.ci
-  autofix_prs: false
-  autoupdate_commit_msg: "build: pre-commit autoupdate"
-  autoupdate_schedule: quarterly
-  skip: []
-  submodules: false
+  - repo: local
+    hooks:
+      # Workaround until commitizen fixes its commitizen-branch hook (see commitizen #1923).
+      # The upstream hook's args contain the literal "$PRE_COMMIT_FROM_REF..$PRE_COMMIT_TO_REF",
+      # but no client (pre-commit, prek) substitutes those placeholders, and `cz check` doesn't
+      # expand them either, so git receives them verbatim and fails with "ambiguous argument".
+      # Wrapping the call in `bash -c` forces the shell to expand the env vars prek/pre-commit
+      # do set. Remove this block once commitizen ships a fix upstream.
+      - id: commitizen-branch
+        name: commitizen check branch
+        entry: bash -c 'uv run --quiet cz check --rev-range "$PRE_COMMIT_FROM_REF..$PRE_COMMIT_TO_REF"' --
+        language: system
+        stages: [pre-push]
+        pass_filenames: false
+        always_run: true
