@@ -14,9 +14,7 @@ updates:
       ci-deps:
         patterns:
           - "*"
-    reviewers:
-      - "natelandau"
-  - package-ecosystem: pip
+  - package-ecosystem: uv
     directory: /
     schedule:
       interval: monthly
@@ -31,5 +29,3 @@ updates:
       runtime-deps:
         patterns:
           - "*"
-    reviewers:
-      - "natelandau"
