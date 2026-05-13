@@ -67,7 +67,7 @@ pillow==11.1.0
     # via pelican-image-process
 ptyprocess==0.7.0
     # via failprint
-pygments==2.18.0
+pygments==2.20.0
     # via
     #   pelican
     #   rich
