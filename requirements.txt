@@ -18,7 +18,7 @@ failprint==1.1.0
     # via duty
 feedgenerator==2.2.1
     # via pelican
-idna==3.18
+idna==3.19
     # via anyio
 jinja2==3.1.6
     # via
@@ -26,9 +26,9 @@ jinja2==3.1.6
     #   pelican
 livereload==2.7.1
     # via natelandau-com (pyproject.toml)
-lxml==6.1.1
+lxml==6.1.2
     # via pelican-image-process
-markdown==3.10.2
+markdown==3.10.3
     # via
     #   natelandau-com (pyproject.toml)
     #   pelican-yaml-metadata
@@ -65,11 +65,11 @@ pillow==12.3.0
     # via pelican-image-process
 ptyprocess==0.7.0
     # via failprint
-pygments==2.20.0
+pygments==2.21.0
     # via
     #   pelican
     #   rich
-pymdown-extensions==11.0.1
+pymdown-extensions==11.0.2
     # via natelandau-com (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via pelican
@@ -85,9 +85,9 @@ rich==15.0.0
     # via pelican
 six==1.17.0
     # via python-dateutil
-soupsieve==2.9.1
+soupsieve==2.9.2
     # via beautifulsoup4
-tornado==6.5.7
+tornado==6.5.8
     # via livereload
 typing-extensions==4.16.0
     # via
