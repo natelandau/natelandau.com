@@ -2,7 +2,7 @@
 #    uv pip compile pyproject.toml -o requirements.txt
 ansimarkup==2.2.0
     # via failprint
-anyio==4.14.2
+anyio==4.15.1
     # via watchfiles
 beautifulsoup4==4.15.0
     # via pelican-image-process
@@ -12,13 +12,13 @@ colorama==0.4.6
     # via ansimarkup
 docutils==0.23
     # via pelican
-duty==1.9.0
+duty==1.10.0
     # via natelandau-com (pyproject.toml)
 failprint==1.1.0
     # via duty
 feedgenerator==2.2.1
     # via pelican
-idna==3.18
+idna==3.20
     # via anyio
 jinja2==3.1.6
     # via
@@ -26,9 +26,9 @@ jinja2==3.1.6
     #   pelican
 livereload==2.7.1
     # via natelandau-com (pyproject.toml)
-lxml==6.1.1
+lxml==6.1.3
     # via pelican-image-process
-markdown==3.10.2
+markdown==3.11
     # via
     #   natelandau-com (pyproject.toml)
     #   pelican-yaml-metadata
@@ -65,15 +65,15 @@ pillow==12.3.0
     # via pelican-image-process
 ptyprocess==0.7.0
     # via failprint
-pygments==2.20.0
+pygments==2.21.0
     # via
     #   pelican
     #   rich
-pymdown-extensions==11.0.1
+pymdown-extensions==12.1
     # via natelandau-com (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via pelican
-pytz==2026.3.post1
+pytz==2026.4
     # via natelandau-com (pyproject.toml)
 pyyaml==6.0.3
     # via
@@ -85,9 +85,9 @@ rich==15.0.0
     # via pelican
 six==1.17.0
     # via python-dateutil
-soupsieve==2.9.1
+soupsieve==2.10
     # via beautifulsoup4
-tornado==6.5.7
+tornado==6.5.10
     # via livereload
 typing-extensions==4.16.0
     # via
@@ -95,5 +95,5 @@ typing-extensions==4.16.0
     #   beautifulsoup4
 unidecode==1.4.0
     # via pelican
-watchfiles==1.2.0
+watchfiles==1.3.0
     # via pelican
