@@ -85,7 +85,7 @@ rich==15.0.0
     # via pelican
 six==1.17.0
     # via python-dateutil
-soupsieve==2.9.1
+soupsieve==4.0
     # via beautifulsoup4
 tornado==6.5.7
     # via livereload
